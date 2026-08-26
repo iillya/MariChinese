@@ -1,0 +1,7 @@
+{
+  "$schema": "mari-translation-v1",
+  "id": "mari-dictionary",
+  "language": "zh-CN",
+  "description": "Mari 中文汉化词库",
+  "translations": {}
+}

@@ -30,3 +30,17 @@
 *.exe
 *.out
 *.app
+
+# Build output
+/build/
+/dist/
+
+# Bundled Qt SDK (large download, not part of source)
+/third_party/
+
+# Old cmake scaffolding (superseded by source/build.bat)
+/source/cpp/
+
+# Diagnostic logs / screenshots
+*.log
+_*.png
