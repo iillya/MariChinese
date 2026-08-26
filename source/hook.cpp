@@ -18,18 +18,24 @@
 #include <QtCore/QPointer>
 #include <QtCore/QString>
 #include <QtCore/QSet>
+#include <QtCore/QTextStream>
 #include <QtGui/QPainter>
+#include <QtGui/QPaintDevice>
 #include <QtGui/QFontMetrics>
+#include <QtGui/QGuiApplication>
 #include <QtGui/QPalette>
 #include <QtGui/QTextOption>
+#include <QtGui/QWindow>
 #include <QtWidgets/QAbstractItemDelegate>
 #include <QtWidgets/QAbstractItemView>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QOpenGLWidget>
 #include <QtWidgets/QProxyStyle>
 #include <QtWidgets/QStyle>
 #include <QtWidgets/QStyleFactory>
 #include <QtWidgets/QStyleOptionViewItem>
+#include <QtWidgets/QWidget>
 
 #include <windows.h>
 #include <psapi.h>
@@ -44,6 +50,14 @@ bool g_hooksInstalled = false;
 // 覆盖率预览模式：开启时对每个英文 UI 文本返回 "汉 " + 原文，
 // 用于肉眼验证 drawText 钩子覆盖了多少控件。正式翻译时关闭（走词库）。
 bool g_previewPrefix = true;
+// 4K / DPI 适配：QOpenGLWidget 的 framebuffer = size() * devicePixelRatio()，
+// 而 devicePixelRatio() 走 QWidget::metric(PdmDevicePixelRatio)（虚函数）。
+// 强制让视口类返回与 UI 缩放一致的 DPR，视口的渲染分辨率才跟 UI 匹配。
+bool g_dpiAdaptEnabled = false;
+qreal g_dpiScale = 1.0;
+using QWidgetMetricFn = int (__cdecl *)(const QWidget *, int);
+QWidgetMetricFn g_metricOriginal = nullptr;
+bool g_dpiHooksInstalled = false;
 
 bool containsCjk(const QString &text) {
     for (QChar ch : text) {
@@ -312,6 +326,81 @@ void installAllComboDisplayDelegates() {
                 installComboDisplayDelegate(view);
         }
     }
+}
+
+// ---------------------------------------------------------------------------
+// 4K / DPI 适配：QOpenGLWidget 的 framebuffer = size() * devicePixelRatio()，
+// devicePixelRatio() 走 QWidget::metric(PdmDevicePixelRatio)。Mari 的 3D/UV
+// 视口是 QOpenGLWidget 子类，但其 metric 返回屏幕 DPR（=1），不跟 QT_SCALE_FACTOR
+// 走，所以视口不随 UI 缩放。这里改 QOpenGLWidget 实例 vtable 里的 metric 槽，
+// 让它返回与 UI 缩放一致的 DPR，从而视口的渲染分辨率跟 UI 匹配。
+// ---------------------------------------------------------------------------
+int hookedQWidgetMetric(const QWidget *self, int metric) {
+    if (g_dpiAdaptEnabled &&
+        static_cast<QPaintDevice::PaintDeviceMetric>(metric) ==
+            QPaintDevice::PdmDevicePixelRatio) {
+        return static_cast<int>(g_dpiScale);
+    }
+    if (g_metricOriginal)
+        return g_metricOriginal(self, metric);
+    // 没有原函数时，对 DPR 返回默认 1，避免灾难。
+    return 1;
+}
+
+void installDpiHooks() {
+    if (g_dpiHooksInstalled)
+        return;
+    HMODULE qtWidgets = GetModuleHandleW(L"Qt5Widgets.dll");
+    if (!qtWidgets)
+        return;
+    void *metricAddr = reinterpret_cast<void *>(GetProcAddress(
+        qtWidgets,
+        "?metric@QWidget@@MEBAHW4PaintDeviceMetric@QPaintDevice@@@Z"));
+    if (!metricAddr)
+        return;
+    g_metricOriginal = reinterpret_cast<QWidgetMetricFn>(metricAddr);
+    QFile diagOut(QDir::temp().filePath(QStringLiteral("mari_dpi_diag2.txt")));
+    if (diagOut.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
+        QTextStream s(&diagOut);
+        s << "metricAddr=0x" << QString::number(reinterpret_cast<quintptr>(metricAddr), 16) << "\n";
+        s << "dpiAdapt=" << g_dpiAdaptEnabled << " scale=" << g_dpiScale << "\n";
+    }
+
+    // Mari 有多个 QOpenGLWidget 子类（MriColorSlider / MriDragableTextureViewer /
+    // MriTexturePropertyView ...），各自 vtable 不同。必须遍历所有 QOpenGLWidget
+    // 实例，对每个不同的 vtable 都替换 metric 槽，否则只有第一个被改到，其余
+    // GL 视口仍按 DPR=1 渲染，导致"界面缩放有的不一样"。
+    std::set<void **> patchedVtables;
+    bool foundAny = false;
+    for (QWidget *w : QApplication::allWidgets()) {
+        if (!w || !qobject_cast<QOpenGLWidget *>(w))
+            continue;
+        void **vtable = *reinterpret_cast<void ***>(w);
+        if (!patchedVtables.insert(vtable).second)
+            continue;   // 已处理过这个 vtable
+        for (int i = 0; i < 128; ++i) {
+            if (vtable[i] != metricAddr)
+                continue;
+            DWORD oldProtect = 0;
+            if (VirtualProtect(&vtable[i], sizeof(void *), PAGE_READWRITE,
+                               &oldProtect)) {
+                vtable[i] = reinterpret_cast<void *>(&hookedQWidgetMetric);
+                DWORD ignored = 0;
+                VirtualProtect(&vtable[i], sizeof(void *), oldProtect, &ignored);
+                foundAny = true;
+                if (diagOut.isOpen()) {
+                    QTextStream s(&diagOut);
+                    s << "patched vtable=0x"
+                      << QString::number(reinterpret_cast<quintptr>(vtable), 16)
+                      << " idx=" << i << "\n";
+                }
+            }
+            break;
+        }
+    }
+    g_dpiHooksInstalled = foundAny;
+    if (diagOut.isOpen())
+        diagOut.close();
 }
 
 // ---------------------------------------------------------------------------
@@ -832,6 +921,55 @@ void loadDictionariesFromDir(const std::wstring &dir) {
 
 // 在 GUI 线程执行：加载词库、安装 drawText 钩子、注册刷新定时器。
 bool rescanDrawTextModules();
+void diagnoseViewports() {
+    // 临时诊断：3D/UV 视口可能不是 QWidget 而是独立的 OpenGL QWindow，
+    // 所以同时枚举顶层窗口和视口相关 widget，记录 DPR/尺寸以确认 4K 屏
+    // 下视口为何不随 UI 缩放。仅供开发，验证后删除。
+    QFile out(QDir::temp().filePath(QStringLiteral("mari_dpi_diag.txt")));
+    if (out.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
+        QTextStream stream(&out);
+        stream << "=== viewport diagnosis ===\n";
+        // 顶层窗口（含非 QWidget 的 GL 窗口）
+        for (QWindow *win : QGuiApplication::allWindows()) {
+            if (!win)
+                continue;
+            stream << "WINDOW class=[" << win->metaObject()->className()
+                   << "] size=" << win->width() << "x" << win->height()
+                   << " DPR=" << win->devicePixelRatio()
+                   << " visible=" << win->isVisible() << "\n";
+        }
+        // 视口 / 渲染相关 QWidget
+        for (QWidget *w : QApplication::allWidgets()) {
+            if (!w)
+                continue;
+            const QString cls = QString::fromLatin1(w->metaObject()->className());
+            static const char *kHints[] = {"Viewport", "viewer", "Viewer",
+                                           "GLWidget", "OpenGL", "3DView",
+                                           "UvView", "UVView", "Render",
+                                           "rview", "RView"};
+            bool hit = false;
+            for (const char *hint : kHints) {
+                if (cls.contains(QLatin1String(hint), Qt::CaseInsensitive)) {
+                    hit = true;
+                    break;
+                }
+            }
+            const bool isGl = qobject_cast<QOpenGLWidget *>(w) != nullptr;
+            if (!hit && !isGl)
+                continue;
+            const QSize sz = w->size();
+            int wdpr = -1;
+            if (QWindow *win = w->window()->windowHandle())
+                wdpr = (int)win->devicePixelRatio();
+            stream << (isGl ? "GL " : "") << "class=[" << cls << "] size=" << sz.width() << "x"
+                   << sz.height() << " widgetDPR=" << w->devicePixelRatio()
+                   << " windowDPR=" << wdpr << " visible=" << w->isVisible()
+                   << "\n";
+        }
+        out.close();
+    }
+}
+
 void runOnGuiThread(QApplication *app) {
     const std::wstring dir = selfDirW();
     const std::wstring folder = dir.find_last_of(L"\\/") == std::wstring::npos
@@ -841,6 +979,21 @@ void runOnGuiThread(QApplication *app) {
     installHooks();
     installFontMeasurementHooks();
     installAllComboDisplayDelegates();
+    // 4K / DPI 适配：从 QT_SCALE_FACTOR 读缩放因子，让 3D/UV 视口（QOpenGLWidget）
+    // 的 framebuffer 按同一缩放渲染，跟 UI 匹配。占位 GL widget 已存在，
+    // 延迟装 DPI hook 即可让之后创建的视口也生效。
+    {
+        const QByteArray sf = qgetenv("QT_SCALE_FACTOR");
+        bool ok = false;
+        const qreal scale = sf.toDouble(&ok);
+        if (ok && scale >= 0.1 && scale <= 8.0)
+            g_dpiScale = scale;
+        else
+            g_dpiScale = 1.0;
+        g_dpiAdaptEnabled = g_dpiScale > 1.01;
+    }
+    if (g_dpiAdaptEnabled)
+        QTimer::singleShot(1000, app, [] { installDpiHooks(); });
     // 晚加载 DLL（如按需加载的插件）会绕过启动时的 IAT 扫描，定期重扫。
     auto *rescanTimer = new QTimer(app);
     rescanTimer->setInterval(2000);
@@ -852,6 +1005,11 @@ void runOnGuiThread(QApplication *app) {
     });
     rescanTimer->start();
     QTimer::singleShot(60000, app, [rescanTimer] { rescanTimer->stop(); });
+    // 临时诊断：等 Mari 主界面建好后枚举视口，记录 DPR/尺寸。
+    // 临时诊断：多次延迟触发，等 3D/UV 视口（打开工程后才出现）枚举到位。
+    QTimer::singleShot(6000, app, [] { diagnoseViewports(); });
+    QTimer::singleShot(16000, app, [] { diagnoseViewports(); });
+    QTimer::singleShot(30000, app, [] { diagnoseViewports(); });
 }
 
 // 后台线程：注入发生在 CREATE_SUSPENDED 时，Qt 还没初始化。等 QApplication
@@ -917,6 +1075,42 @@ __declspec(dllexport) int __cdecl mari_is_enabled() {
 
 __declspec(dllexport) void __cdecl mari_set_preview_prefix(int enabled) {
     g_previewPrefix = enabled != 0;
+}
+
+__declspec(dllexport) void __cdecl mari_dpi_set_enabled(
+    int enabled, double scale) {
+    g_dpiAdaptEnabled = enabled != 0;
+    if (scale > 0.1 && scale <= 8.0)
+        g_dpiScale = scale;
+    if (g_dpiAdaptEnabled)
+        installDpiHooks();
+    else if (g_metricOriginal && g_dpiHooksInstalled) {
+        // 恢复 vtable 里的 metric 槽。
+        QWidget *glWidget = nullptr;
+        for (QWidget *w : QApplication::allWidgets()) {
+            if (w && qobject_cast<QOpenGLWidget *>(w)) {
+                glWidget = w;
+                break;
+            }
+        }
+        if (glWidget) {
+            void **vtable = *reinterpret_cast<void ***>(glWidget);
+            for (int i = 0; i < 128; ++i) {
+                if (vtable[i] == reinterpret_cast<void *>(&hookedQWidgetMetric)) {
+                    DWORD oldProtect = 0;
+                    if (VirtualProtect(&vtable[i], sizeof(void *),
+                                       PAGE_READWRITE, &oldProtect)) {
+                        vtable[i] = reinterpret_cast<void *>(g_metricOriginal);
+                        DWORD ignored = 0;
+                        VirtualProtect(&vtable[i], sizeof(void *), oldProtect,
+                                       &ignored);
+                    }
+                    break;
+                }
+            }
+        }
+        g_dpiHooksInstalled = false;
+    }
 }
 
 __declspec(dllexport) void __cdecl mari_add_translation(
