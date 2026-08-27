@@ -16,6 +16,8 @@
 #include <QtCore/QHash>
 #include <QtCore/QJsonDocument>
 #include <QtCore/QJsonObject>
+#include <QtCore/QJsonParseError>
+#include <QtCore/QPair>
 #include <QtCore/QPointer>
 #include <QtCore/QString>
 #include <QtCore/QSet>
@@ -51,11 +53,19 @@
 #include <psapi.h>
 
 #include <vector>
+#include <algorithm>
+#include <cstddef>
+#include <utility>
 #include <typeinfo>
 
 namespace {
 
 QHash<QString, QString> g_translations;   // 英文原文 -> 中文
+// SpeedTree 同款：归一化英文键 -> 中文 的模糊索引，以及按小写原文排序的键表（用于省略号前缀查找）。
+QHash<QString, QString> g_foldedTranslations;
+std::vector<QPair<QString, QString>> g_sortedKeys;   // (小写原文, 原文)
+QHash<QString, QString> g_normCache;                 // 原文 -> 归一化结果
+static constexpr size_t kMaxNormCache = 100000;
 bool g_enabled = true;
 bool g_hooksInstalled = false;
 bool g_nodeTextHookInstalled = false;
@@ -75,6 +85,128 @@ bool containsCjk(const QString &text) {
     return false;
 }
 
+// 归一化英文原文，用于模糊匹配（镜像 SpeedTree 的实现）：
+// 统一空白/下划线、全角转半角、去组合字符、大小写折叠。
+QString normalizeForMatch(QString text) {
+    const QString original = text;
+    auto cached = g_normCache.constFind(original);
+    if (cached != g_normCache.constEnd())
+        return cached.value();
+
+    text.replace(QChar(0x00A0), QLatin1Char(' '));
+    text.replace(QChar(0x3000), QLatin1Char(' '));
+    text.replace(QLatin1Char('\r'), QLatin1Char('\n'));
+    text = text.simplified();
+    text.remove(QChar(0x200B)); text.remove(QChar(0x200D)); text.remove(QChar(0xFEFF));
+    while (text.endsWith(QChar(0x2026))) text.chop(1);
+    while (text.endsWith(QLatin1String("..."))) text.chop(3);
+    if (text.endsWith(QLatin1String(" *"))) text.chop(2);
+    text.replace(QLatin1Char('_'), QLatin1Char(' '));
+    text = text.normalized(QString::NormalizationForm_C);
+    for (int i = 0; i < text.size(); ++i) {
+        const uint code = text.at(i).unicode();
+        if (code >= 0xFF01 && code <= 0xFF5E)
+            text[i] = QChar(code - 0xFEE0);
+    }
+    text = text.toCaseFolded();
+    text = text.normalized(QString::NormalizationForm_D);
+    QString stripped;
+    stripped.reserve(text.size());
+    for (const QChar ch : text) {
+        const QChar::Category cat = ch.category();
+        if (cat == QChar::Mark_NonSpacing || cat == QChar::Mark_SpacingCombining ||
+            cat == QChar::Mark_Enclosing)
+            continue;
+        stripped.append(ch);
+    }
+    stripped.remove(QLatin1Char(' '));
+    QString result = stripped.normalized(QString::NormalizationForm_C);
+    if (g_normCache.size() < kMaxNormCache)
+        g_normCache.insert(original, result);
+    return result;
+}
+
+// 在词库变更后重建归一化模糊索引与排序键表（SpeedTree 同款，供 O(log N) 查找）。
+void rebuildLookupIndex() {
+    g_foldedTranslations.clear();
+    g_sortedKeys.clear();
+    g_normCache.clear();
+    for (auto it = g_translations.cbegin(); it != g_translations.cend(); ++it)
+        g_foldedTranslations.insert(normalizeForMatch(it.key()), it.value());
+    g_sortedKeys.reserve(g_translations.size());
+    for (auto it = g_translations.cbegin(); it != g_translations.cend(); ++it)
+        g_sortedKeys.push_back(qMakePair(it.key().toCaseFolded(), it.key()));
+    std::sort(g_sortedKeys.begin(), g_sortedKeys.end(),
+              [](const QPair<QString, QString> &a, const QPair<QString, QString> &b) {
+                  return a.first < b.first;
+              });
+}
+
+// 省略号截断文本（"Mater…"）——按省略前内容在排序键表里二分找前缀，取最短原文再取中文。
+QString findElidedTranslation(const QString &text) {
+    QString base = text;
+    base.chop(text.endsWith(QChar(0x2026)) ? 1 : 3);
+    base = base.trimmed();
+    if (base.size() < 2)
+        return {};
+    const QString low = base.toCaseFolded();
+    auto it = std::lower_bound(
+        g_sortedKeys.begin(), g_sortedKeys.end(), low,
+        [](const QPair<QString, QString> &e, const QString &v) { return e.first < v; });
+    QString best;
+    for (; it != g_sortedKeys.end(); ++it) {
+        const QString &k = it->first;
+        if (!k.startsWith(low))
+            break;
+        if (best.isEmpty() || it->second.size() < best.size())
+            best = it->second;
+    }
+    if (best.isEmpty())
+        return {};
+    return g_translations.value(best);
+}
+
+// 统一翻译查询：精确 -> 助记符/状态后缀还原 -> 归一化模糊 -> 省略号前缀。
+// 供绘制层（displayTranslation）与列表/下拉 DisplayRole（ComboPaintProxyModel）共用。
+QString lookupTranslation(const QString &text) {
+    const QString trimmed = text.trimmed();
+    if (trimmed.isEmpty() || containsCjk(trimmed))
+        return {};
+
+    // 1) 精确匹配。
+    auto exact = g_translations.constFind(trimmed);
+    if (exact != g_translations.constEnd())
+        return exact.value();
+
+    // 2) 助记符(&) / 状态后缀(*) 还原后再次精确匹配。
+    QString key = trimmed;
+    QString stateSuffix;
+    if (key.endsWith(QLatin1Char('*'))) {
+        key.chop(1);
+        key = key.trimmed();
+        stateSuffix = QStringLiteral("*");
+    }
+    if (key.contains(QLatin1Char('&')))
+        key.remove(QLatin1Char('&'));
+    auto found = g_translations.constFind(key);
+    if (found != g_translations.constEnd())
+        return found.value() + stateSuffix;
+
+    // 3) 归一化模糊匹配（空白/全角/大小写/组合字符统一后）。
+    const QString norm = normalizeForMatch(key);
+    auto fuzzy = g_foldedTranslations.constFind(norm);
+    if (fuzzy != g_foldedTranslations.constEnd())
+        return fuzzy.value() + stateSuffix;
+
+    // 4) 省略号截断文本：用排序键表二分找前缀，命中即返回中文。
+    if (text.endsWith(QChar(0x2026)) || text.endsWith(QLatin1String("..."))) {
+        const QString elided = findElidedTranslation(text);
+        if (!elided.isEmpty())
+            return elided + stateSuffix;
+    }
+    return {};
+}
+
 // 正式词库非空时只返回可信词条；词库为空的实验构建继续使用“汉”前缀，
 // 用于检查纯显示层覆盖率。两种模式都不会修改控件或模型中的原始文本。
 QString displayTranslation(const QString &text) {
@@ -89,7 +221,7 @@ QString displayTranslation(const QString &text) {
         return {};
 
     if (!g_translations.isEmpty())
-        return g_translations.value(trimmed);
+        return lookupTranslation(text);
 
     // 廉价过滤：纯数值/单位几乎不可能是 UI 标签。
     {
@@ -186,7 +318,7 @@ public:
         if (role != Qt::DisplayRole || !g_enabled)
             return sourceValue;
         const QString source = sourceValue.toString();
-        const QString result = g_translations.value(source.trimmed());
+        const QString result = lookupTranslation(source);
         return result.isNull() ? sourceValue : QVariant(result);
     }
 };
@@ -866,19 +998,30 @@ bool loadTranslationsFromJson(const QString &path) {
     QFile file(path);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
         return false;
-    const QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
-    if (!doc.isObject())
+    QJsonParseError error{};
+    const QJsonDocument doc = QJsonDocument::fromJson(file.readAll(), &error);
+    if (error.error != QJsonParseError::NoError || !doc.isObject())
         return false;
     const QJsonObject root = doc.object();
-    const QJsonValue trans = root.value(QStringLiteral("translations"));
+    const QJsonValue trans = root.value(QLatin1String("translations"));
     if (!trans.isObject())
         return false;
     const QJsonObject entries = trans.toObject();
+    bool any = false;
     for (auto it = entries.begin(); it != entries.end(); ++it) {
-        if (it.value().isString())
-            g_translations.insert(it.key(), it.value().toString());
+        if (!it.value().isString())
+            continue;
+        const QString key = it.key();
+        const QString value = it.value().toString();
+        // 跳过空键/空值，以及带 "||" 的控制 ID 键（SpeedTree 同款）。
+        if (key.isEmpty() || value.isEmpty())
+            continue;
+        if (key.contains(QLatin1String("||")))
+            continue;
+        g_translations.insert(key, value);
+        any = true;
     }
-    return true;
+    return any;
 }
 
 std::wstring modulePathW() {
@@ -901,6 +1044,8 @@ void loadDictionariesFromDir(const std::wstring &dir) {
                                              QDir::Files, QDir::Name);
     for (const QString &name : files)
         loadTranslationsFromJson(trans.filePath(name));
+    // 词库合并后重建归一化模糊索引与排序键表。
+    rebuildLookupIndex();
 }
 
 QPointer<QMenuBar> g_attributionMenuBar;
