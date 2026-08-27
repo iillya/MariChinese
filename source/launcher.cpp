@@ -122,13 +122,6 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR cmdLine, int) {
         return 1;
     }
 
-    // 原始 Mari7.5v2_4K.bat 用 QT_SCALE_FACTOR 放大 UI；launcher 显式设置
-    // 这三个环境变量，保证 Mari 一定能读到，从而让 4K DPI 适配（hook 里读
-    // QT_SCALE_FACTOR 决定 3D/UV 视口 framebuffer 缩放）在注入后自动生效。
-    SetEnvironmentVariableW(L"QT_ENABLE_HIGHDPI_SCALING", L"1");
-    SetEnvironmentVariableW(L"QT_AUTO_SCREEN_SCALE_FACTOR", L"1");
-    SetEnvironmentVariableW(L"QT_SCALE_FACTOR", L"2");
-
     STARTUPINFOW si{}; si.cb = sizeof(si);
     PROCESS_INFORMATION pi{};
     std::wstring cl = L"\"" + exePath + L"\"";

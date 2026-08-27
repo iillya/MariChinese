@@ -2,8 +2,7 @@
 setlocal
 rem ===========================================================================
 rem Mari Chinese Localizer - build script
-rem Prereq: Visual Studio 2022 C++ build tools, and Qt 5.15.2 MSVC x64 SDK
-rem         under third_party\qt515sdk\5.15.2\msvc2019_64 (aqtinstall qtbase).
+rem Prereq: Visual Studio 2022 C++ build tools and a Qt 5 x64 MSVC SDK.
 rem Output:
 rem   build\out\*   intermediate binaries (hook DLL, launcher, runtime dict)
 rem ===========================================================================
@@ -12,12 +11,14 @@ set "ROOT=%~dp0.."
 set "CPP=%ROOT%\source"
 set "OUT=%ROOT%\build\out"
 set "OBJDIR=%ROOT%\build\obj"
-set "QT=%ROOT%\third_party\qt515sdk\5.15.2\msvc2019_64"
+set "QT=%ROOT%\third_party\qt5sdk"
+if not exist "%QT%\lib\Qt5Widgets.lib" set "QT=C:\Qt512\5.12.0\msvc2017_64"
 if not exist "%OUT%" mkdir "%OUT%"
 if not exist "%OBJDIR%" mkdir "%OBJDIR%"
 
 if not exist "%QT%\lib\Qt5Widgets.lib" (
-    echo [ERROR] Qt 5.15.2 SDK not found at %QT%
+    echo [ERROR] Qt 5 x64 MSVC SDK not found.
+    echo Expected either %ROOT%\third_party\qt5sdk or C:\Qt512\5.12.0\msvc2017_64
     exit /b 1
 )
 
