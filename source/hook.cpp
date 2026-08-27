@@ -18,14 +18,11 @@
 #include <QtCore/QPointer>
 #include <QtCore/QString>
 #include <QtCore/QSet>
-#include <QtCore/QTextStream>
 #include <QtGui/QPainter>
 #include <QtGui/QPaintDevice>
 #include <QtGui/QFontMetrics>
-#include <QtGui/QGuiApplication>
 #include <QtGui/QPalette>
 #include <QtGui/QTextOption>
-#include <QtGui/QWindow>
 #include <QtWidgets/QAbstractItemDelegate>
 #include <QtWidgets/QAbstractItemView>
 #include <QtWidgets/QApplication>
@@ -33,13 +30,13 @@
 #include <QtWidgets/QOpenGLWidget>
 #include <QtWidgets/QProxyStyle>
 #include <QtWidgets/QStyle>
-#include <QtWidgets/QStyleFactory>
 #include <QtWidgets/QStyleOptionViewItem>
 #include <QtWidgets/QWidget>
 
 #include <windows.h>
 #include <psapi.h>
 
+#include <set>
 #include <vector>
 
 namespace {
@@ -58,6 +55,13 @@ qreal g_dpiScale = 1.0;
 using QWidgetMetricFn = int (__cdecl *)(const QWidget *, int);
 QWidgetMetricFn g_metricOriginal = nullptr;
 bool g_dpiHooksInstalled = false;
+
+struct DpiVtableHook {
+    void **slot = nullptr;
+    void *original = nullptr;
+};
+
+std::vector<DpiVtableHook> g_dpiVtableHooks;
 
 bool containsCjk(const QString &text) {
     for (QChar ch : text) {
@@ -225,8 +229,6 @@ struct ComboPaintBinding {
 };
 
 std::vector<ComboPaintBinding> g_comboPaintBindings;
-bool g_proxyStyleInstalled = false;
-
 int installComboDisplayDelegate(QAbstractItemView *view) {
     if (!view)
         return 0;
@@ -257,6 +259,13 @@ class ChineseProxyStyle final : public QProxyStyle {
 public:
     using QProxyStyle::QProxyStyle;
 
+    ~ChineseProxyStyle() override {
+        // QProxyStyle normally owns an unparented base style. Here the base is
+        // Mari's live application style, so never let proxy destruction delete it.
+        if (QStyle *base = baseStyle(); base && base->parent() == this)
+            base->setParent(nullptr);
+    }
+
     void drawItemText(QPainter *painter, const QRect &rect, int flags,
                       const QPalette &pal, bool enabled, const QString &text,
                       QPalette::ColorRole textRole = QPalette::NoRole) const override {
@@ -285,23 +294,42 @@ public:
     }
 };
 
+QPointer<QStyle> g_originalStyle;
+QPointer<ChineseProxyStyle> g_proxyStyle;
+bool g_proxyStyleInstalled = false;
+
 void installProxyStyle() {
     if (g_proxyStyleInstalled || !QApplication::instance())
         return;
-    // 不把 QApplication::style()（Qt 全局样板）交给 QProxyStyle——那会让
-    // 代理在析构时连 base 一起删、与 Qt 重复释放。用 QStyleFactory 新建一个
-    // 同类实例作为 base（QProxyStyle 会接管其所有权）。
-    const QString key = QApplication::style()
-        ? QApplication::style()->objectName()
-        : QString();
-    QStyle *base = QStyleFactory::create(
-        key.isEmpty() ? QStringLiteral("fusion") : key);
-    if (!base)
-        base = QStyleFactory::create(QStringLiteral("fusion"));
-    if (base) {
-        QApplication::setStyle(new ChineseProxyStyle(base));
-        g_proxyStyleInstalled = true;
+    QStyle *current = QApplication::style();
+    if (!current)
+        return;
+
+    // Wrap Mari's exact live style. Do not recreate it by objectName and never
+    // fall back to Fusion: both would discard application-specific styling.
+    auto *proxy = new ChineseProxyStyle(current);
+    current->setParent(proxy);
+    g_originalStyle = current;
+    g_proxyStyle = proxy;
+    QApplication::setStyle(proxy);
+    g_proxyStyleInstalled = QApplication::style() == proxy;
+}
+
+void restoreProxyStyle() {
+    if (!g_proxyStyleInstalled)
+        return;
+
+    QStyle *proxy = g_proxyStyle.data();
+    QStyle *original = g_originalStyle.data();
+    if (QApplication::instance() && proxy && original &&
+        QApplication::style() == proxy) {
+        // Detach before setStyle(): replacing the proxy may destroy it.
+        original->setParent(nullptr);
+        QApplication::setStyle(original);
     }
+    g_proxyStyle.clear();
+    g_originalStyle.clear();
+    g_proxyStyleInstalled = false;
 }
 
 void restoreComboDisplayDelegates() {
@@ -348,7 +376,7 @@ int hookedQWidgetMetric(const QWidget *self, int metric) {
 }
 
 void installDpiHooks() {
-    if (g_dpiHooksInstalled)
+    if (!g_dpiAdaptEnabled || !QApplication::instance())
         return;
     HMODULE qtWidgets = GetModuleHandleW(L"Qt5Widgets.dll");
     if (!qtWidgets)
@@ -359,48 +387,60 @@ void installDpiHooks() {
     if (!metricAddr)
         return;
     g_metricOriginal = reinterpret_cast<QWidgetMetricFn>(metricAddr);
-    QFile diagOut(QDir::temp().filePath(QStringLiteral("mari_dpi_diag2.txt")));
-    if (diagOut.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
-        QTextStream s(&diagOut);
-        s << "metricAddr=0x" << QString::number(reinterpret_cast<quintptr>(metricAddr), 16) << "\n";
-        s << "dpiAdapt=" << g_dpiAdaptEnabled << " scale=" << g_dpiScale << "\n";
-    }
 
     // Mari 有多个 QOpenGLWidget 子类（MriColorSlider / MriDragableTextureViewer /
     // MriTexturePropertyView ...），各自 vtable 不同。必须遍历所有 QOpenGLWidget
     // 实例，对每个不同的 vtable 都替换 metric 槽，否则只有第一个被改到，其余
     // GL 视口仍按 DPR=1 渲染，导致"界面缩放有的不一样"。
-    std::set<void **> patchedVtables;
-    bool foundAny = false;
+    std::set<void **> visitedVtables;
     for (QWidget *w : QApplication::allWidgets()) {
         if (!w || !qobject_cast<QOpenGLWidget *>(w))
             continue;
         void **vtable = *reinterpret_cast<void ***>(w);
-        if (!patchedVtables.insert(vtable).second)
+        if (!visitedVtables.insert(vtable).second)
             continue;   // 已处理过这个 vtable
         for (int i = 0; i < 128; ++i) {
-            if (vtable[i] != metricAddr)
+            void **slot = &vtable[i];
+            if (*slot == reinterpret_cast<void *>(&hookedQWidgetMetric))
+                break;
+            if (*slot != metricAddr)
                 continue;
             DWORD oldProtect = 0;
-            if (VirtualProtect(&vtable[i], sizeof(void *), PAGE_READWRITE,
+            if (VirtualProtect(slot, sizeof(void *), PAGE_READWRITE,
                                &oldProtect)) {
-                vtable[i] = reinterpret_cast<void *>(&hookedQWidgetMetric);
+                const void *original = *slot;
+                *slot = reinterpret_cast<void *>(&hookedQWidgetMetric);
                 DWORD ignored = 0;
-                VirtualProtect(&vtable[i], sizeof(void *), oldProtect, &ignored);
-                foundAny = true;
-                if (diagOut.isOpen()) {
-                    QTextStream s(&diagOut);
-                    s << "patched vtable=0x"
-                      << QString::number(reinterpret_cast<quintptr>(vtable), 16)
-                      << " idx=" << i << "\n";
-                }
+                VirtualProtect(slot, sizeof(void *), oldProtect, &ignored);
+                FlushInstructionCache(GetCurrentProcess(), slot, sizeof(void *));
+                g_dpiVtableHooks.push_back(
+                    {slot, const_cast<void *>(original)});
             }
             break;
         }
     }
-    g_dpiHooksInstalled = foundAny;
-    if (diagOut.isOpen())
-        diagOut.close();
+    g_dpiHooksInstalled = !g_dpiVtableHooks.empty();
+}
+
+bool uninstallDpiHooks() {
+    for (std::size_t i = g_dpiVtableHooks.size(); i > 0; --i) {
+        const std::size_t current = i - 1;
+        const DpiVtableHook hook = g_dpiVtableHooks[current];
+        if (!hook.slot || *hook.slot != reinterpret_cast<void *>(&hookedQWidgetMetric)) {
+            g_dpiVtableHooks.erase(g_dpiVtableHooks.begin() + current);
+            continue;
+        }
+        DWORD oldProtect = 0;
+        if (!VirtualProtect(hook.slot, sizeof(void *), PAGE_READWRITE, &oldProtect))
+            continue;
+        *hook.slot = hook.original;
+        DWORD ignored = 0;
+        VirtualProtect(hook.slot, sizeof(void *), oldProtect, &ignored);
+        FlushInstructionCache(GetCurrentProcess(), hook.slot, sizeof(void *));
+        g_dpiVtableHooks.erase(g_dpiVtableHooks.begin() + current);
+    }
+    g_dpiHooksInstalled = !g_dpiVtableHooks.empty();
+    return !g_dpiHooksInstalled;
 }
 
 // ---------------------------------------------------------------------------
@@ -921,54 +961,6 @@ void loadDictionariesFromDir(const std::wstring &dir) {
 
 // 在 GUI 线程执行：加载词库、安装 drawText 钩子、注册刷新定时器。
 bool rescanDrawTextModules();
-void diagnoseViewports() {
-    // 临时诊断：3D/UV 视口可能不是 QWidget 而是独立的 OpenGL QWindow，
-    // 所以同时枚举顶层窗口和视口相关 widget，记录 DPR/尺寸以确认 4K 屏
-    // 下视口为何不随 UI 缩放。仅供开发，验证后删除。
-    QFile out(QDir::temp().filePath(QStringLiteral("mari_dpi_diag.txt")));
-    if (out.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
-        QTextStream stream(&out);
-        stream << "=== viewport diagnosis ===\n";
-        // 顶层窗口（含非 QWidget 的 GL 窗口）
-        for (QWindow *win : QGuiApplication::allWindows()) {
-            if (!win)
-                continue;
-            stream << "WINDOW class=[" << win->metaObject()->className()
-                   << "] size=" << win->width() << "x" << win->height()
-                   << " DPR=" << win->devicePixelRatio()
-                   << " visible=" << win->isVisible() << "\n";
-        }
-        // 视口 / 渲染相关 QWidget
-        for (QWidget *w : QApplication::allWidgets()) {
-            if (!w)
-                continue;
-            const QString cls = QString::fromLatin1(w->metaObject()->className());
-            static const char *kHints[] = {"Viewport", "viewer", "Viewer",
-                                           "GLWidget", "OpenGL", "3DView",
-                                           "UvView", "UVView", "Render",
-                                           "rview", "RView"};
-            bool hit = false;
-            for (const char *hint : kHints) {
-                if (cls.contains(QLatin1String(hint), Qt::CaseInsensitive)) {
-                    hit = true;
-                    break;
-                }
-            }
-            const bool isGl = qobject_cast<QOpenGLWidget *>(w) != nullptr;
-            if (!hit && !isGl)
-                continue;
-            const QSize sz = w->size();
-            int wdpr = -1;
-            if (QWindow *win = w->window()->windowHandle())
-                wdpr = (int)win->devicePixelRatio();
-            stream << (isGl ? "GL " : "") << "class=[" << cls << "] size=" << sz.width() << "x"
-                   << sz.height() << " widgetDPR=" << w->devicePixelRatio()
-                   << " windowDPR=" << wdpr << " visible=" << w->isVisible()
-                   << "\n";
-        }
-        out.close();
-    }
-}
 
 void runOnGuiThread(QApplication *app) {
     const std::wstring dir = selfDirW();
@@ -1002,14 +994,11 @@ void runOnGuiThread(QApplication *app) {
             rescanDrawTextModules();
         patchFontModules();
         installAllComboDisplayDelegates();
+        if (g_dpiAdaptEnabled)
+            installDpiHooks();
     });
     rescanTimer->start();
     QTimer::singleShot(60000, app, [rescanTimer] { rescanTimer->stop(); });
-    // 临时诊断：等 Mari 主界面建好后枚举视口，记录 DPR/尺寸。
-    // 临时诊断：多次延迟触发，等 3D/UV 视口（打开工程后才出现）枚举到位。
-    QTimer::singleShot(6000, app, [] { diagnoseViewports(); });
-    QTimer::singleShot(16000, app, [] { diagnoseViewports(); });
-    QTimer::singleShot(30000, app, [] { diagnoseViewports(); });
 }
 
 // 后台线程：注入发生在 CREATE_SUSPENDED 时，Qt 还没初始化。等 QApplication
@@ -1058,7 +1047,10 @@ __declspec(dllexport) int __cdecl mari_install() {
 __declspec(dllexport) int __cdecl mari_uninstall() {
     restoreComboDisplayDelegates();
     uninstallFontHooks();
-    return uninstallHooks() ? 1 : 0;
+    const bool hooksRestored = uninstallHooks();
+    const bool dpiRestored = uninstallDpiHooks();
+    restoreProxyStyle();
+    return hooksRestored && dpiRestored ? 1 : 0;
 }
 
 __declspec(dllexport) int __cdecl mari_is_installed() {
@@ -1084,33 +1076,8 @@ __declspec(dllexport) void __cdecl mari_dpi_set_enabled(
         g_dpiScale = scale;
     if (g_dpiAdaptEnabled)
         installDpiHooks();
-    else if (g_metricOriginal && g_dpiHooksInstalled) {
-        // 恢复 vtable 里的 metric 槽。
-        QWidget *glWidget = nullptr;
-        for (QWidget *w : QApplication::allWidgets()) {
-            if (w && qobject_cast<QOpenGLWidget *>(w)) {
-                glWidget = w;
-                break;
-            }
-        }
-        if (glWidget) {
-            void **vtable = *reinterpret_cast<void ***>(glWidget);
-            for (int i = 0; i < 128; ++i) {
-                if (vtable[i] == reinterpret_cast<void *>(&hookedQWidgetMetric)) {
-                    DWORD oldProtect = 0;
-                    if (VirtualProtect(&vtable[i], sizeof(void *),
-                                       PAGE_READWRITE, &oldProtect)) {
-                        vtable[i] = reinterpret_cast<void *>(g_metricOriginal);
-                        DWORD ignored = 0;
-                        VirtualProtect(&vtable[i], sizeof(void *), oldProtect,
-                                       &ignored);
-                    }
-                    break;
-                }
-            }
-        }
-        g_dpiHooksInstalled = false;
-    }
+    else
+        uninstallDpiHooks();
 }
 
 __declspec(dllexport) void __cdecl mari_add_translation(

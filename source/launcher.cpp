@@ -36,12 +36,33 @@ std::wstring ExePath() {
     return L"";
 }
 
-// 找到 Mari 安装目录：向上找含 Mari7.5v2.exe 的目录；找不到则回退到
-// Program Files\Mari7.5v2\Bundle\bin（Mari 出厂安装目录）。
-std::wstring FindMariRoot(const std::wstring &start) {
+std::wstring FindMariExeInDir(const std::wstring &dir) {
+    WIN32_FIND_DATAW data{};
+    HANDLE find = FindFirstFileW((dir + L"\\Mari*.exe").c_str(), &data);
+    if (find == INVALID_HANDLE_VALUE)
+        return L"";
+    std::wstring result;
+    do {
+        const std::wstring name = data.cFileName;
+        // Mari version executables are named Mari<digit>..., which excludes
+        // this launcher and helper executables.
+        if (!(data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) &&
+            name.size() > 4 && name[4] >= L'0' && name[4] <= L'9') {
+            result = dir + L"\\" + name;
+            break;
+        }
+    } while (FindNextFileW(find, &data));
+    FindClose(find);
+    return result;
+}
+
+// 找到 Mari 可执行文件：先从启动器位置向上查找，再检查当前支持的
+// 默认安装目录。测试目标包括 Mari 7.1v1 和 7.5v2。
+std::wstring FindMariExe(const std::wstring &start) {
     std::wstring dir = start;
     for (int depth = 0; depth < 12; ++depth) {
-        if (IsFile(dir + L"\\Mari7.5v2.exe")) return dir;
+        const std::wstring found = FindMariExeInDir(dir);
+        if (!found.empty()) return found;
         std::wstring parent = ParentDir(dir);
         if (parent.empty() || parent == dir) break;
         dir = parent;
@@ -51,8 +72,13 @@ std::wstring FindMariRoot(const std::wstring &start) {
     if (pfLen == 0 || pfLen >= MAX_PATH)
         pfLen = GetEnvironmentVariableW(L"ProgramW6432", pf, MAX_PATH);
     if (pfLen && pfLen < MAX_PATH) {
-        const std::wstring candidate = std::wstring(pf) + L"\\Mari7.5v2\\Bundle\\bin";
-        if (IsFile(candidate + L"\\Mari7.5v2.exe")) return candidate;
+        const wchar_t *versions[] = {L"Mari7.5v2", L"Mari7.1v1"};
+        for (const wchar_t *version : versions) {
+            const std::wstring dirCandidate =
+                std::wstring(pf) + L"\\" + version + L"\\Bundle\\bin";
+            const std::wstring exeCandidate = FindMariExeInDir(dirCandidate);
+            if (!exeCandidate.empty()) return exeCandidate;
+        }
     }
     return L"";
 }
@@ -84,13 +110,13 @@ LPTHREAD_START_ROUTINE ResolveLoadLibrary(DWORD pid) {
 int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR cmdLine, int) {
     const std::wstring own = ExePath();
     const std::wstring dir = ParentDir(own);
-    const std::wstring root = FindMariRoot(dir);
-    const std::wstring exePath = root + L"\\Mari7.5v2.exe";
+    const std::wstring exePath = FindMariExe(dir);
+    const std::wstring root = ParentDir(exePath);
     const std::wstring dllPath = dir + L"\\MariChineseHook.dll";
 
     if (root.empty() || !IsFile(dllPath) || !IsFile(exePath)) {
         MessageBoxW(nullptr,
-                    L"找不到 Mari7.5v2.exe 或 汉化 DLL。\n"
+                    L"找不到受支持的 Mari 可执行文件或汉化 DLL。\n"
                     L"请重新运行安装程序，修复 MariChineseLauncher 目录。",
                     L"Mari 中文补丁", MB_OK | MB_ICONERROR);
         return 1;
@@ -111,7 +137,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR cmdLine, int) {
 
     if (!CreateProcessW(exePath.c_str(), clBuf.data(), nullptr, nullptr, FALSE,
                         CREATE_SUSPENDED, nullptr, root.c_str(), &si, &pi)) {
-        MessageBoxW(nullptr, L"无法启动 Mari7.5v2.exe。",
+        MessageBoxW(nullptr, L"无法启动 Mari。",
                     L"Mari 中文补丁", MB_OK | MB_ICONERROR);
         return 2;
     }
