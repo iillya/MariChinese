@@ -7,6 +7,7 @@
 // Qt5Gui.dll 即可精确拦截。
 // ---------------------------------------------------------------------------
 #include <QtCore/QCoreApplication>
+#include <QtCore/QAbstractItemModel>
 #include <QtCore/QIdentityProxyModel>
 #include <QtCore/QMetaObject>
 #include <QtCore/QTimer>
@@ -31,6 +32,7 @@
 #include <QtGui/QTextOption>
 #include <QtWidgets/QAbstractItemDelegate>
 #include <QtWidgets/QAbstractItemView>
+#include <QtWidgets/QAbstractButton>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QComboBox>
@@ -39,6 +41,8 @@
 #include <QtWidgets/QLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QMessageBox>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QProxyStyle>
 #include <QtWidgets/QMenuBar>
@@ -46,13 +50,19 @@
 #include <QtWidgets/QStyle>
 #include <QtWidgets/QStyleFactory>
 #include <QtWidgets/QStyleOptionViewItem>
+#include <QtWidgets/QTabBar>
+#include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 #include <windows.h>
+#include <shlobj.h>
 #include <psapi.h>
 
 #include <vector>
+#include <map>
+#include <set>
+#include <functional>
 #include <algorithm>
 #include <cstddef>
 #include <utility>
@@ -66,6 +76,8 @@ QHash<QString, QString> g_foldedTranslations;
 std::vector<QPair<QString, QString>> g_sortedKeys;   // (小写原文, 原文)
 QHash<QString, QString> g_normCache;                 // 原文 -> 归一化结果
 static constexpr size_t kMaxNormCache = 100000;
+std::set<std::string> g_paintSeen;                   // Shift+` 嗅探：未翻译字符串集合
+static constexpr size_t kMaxPaintSeen = 100000;
 bool g_enabled = true;
 bool g_hooksInstalled = false;
 bool g_nodeTextHookInstalled = false;
@@ -83,6 +95,26 @@ bool containsCjk(const QString &text) {
             return true;
     }
     return false;
+}
+
+// 判断一段文本是否可能是可翻译的界面文案（供 Shift+` 嗅探记录用）。
+bool isTranslatableString(const QString &s) {
+    const QString t = s.trimmed();
+    if (t.isEmpty() || containsCjk(t)) return false;
+    if (t.size() < 2) return false;
+    if (t.at(0) == QLatin1Char('<')) return false;           // HTML
+    if (t.contains(QLatin1Char('?'))) return false;          // URL 等
+    bool numeric = true;
+    for (QChar c : t) {
+        if (!(c.isDigit() || c == QLatin1Char('.') || c == QLatin1Char(',') ||
+              c == QLatin1Char('%') || c == QLatin1Char('-') ||
+              c == QLatin1Char('+') || c == QLatin1Char('e') ||
+              c == QLatin1Char('E') || c == QLatin1Char(' '))) {
+            numeric = false;
+            break;
+        }
+    }
+    return !numeric;
 }
 
 // 归一化英文原文，用于模糊匹配（镜像 SpeedTree 的实现）：
@@ -204,7 +236,182 @@ QString lookupTranslation(const QString &text) {
         if (!elided.isEmpty())
             return elided + stateSuffix;
     }
+    // Shift+` 嗅探：记录未翻译且看似可翻译的界面文案（有上限）。
+    if (g_paintSeen.size() < kMaxPaintSeen && isTranslatableString(trimmed))
+        g_paintSeen.insert(trimmed.toUtf8().constData());
     return {};
+}
+
+// JSON 字符串转义（键/值）。
+static std::string jsonEscape(const std::string &s) {
+    std::string out;
+    out.reserve(s.size() + 8);
+    for (unsigned char c : s) {
+        switch (c) {
+            case '"':  out += "\\\""; break;
+            case '\\': out += "\\\\"; break;
+            case '\b': out += "\\b";  break;
+            case '\f': out += "\\f";  break;
+            case '\n': out += "\\n";  break;
+            case '\r': out += "\\r";  break;
+            case '\t': out += "\\t";  break;
+            default:
+                if (c < 0x20) {
+                    static const char hex[] = "0123456789abcdef";
+                    out += "\\u00";
+                    out.push_back(hex[(c >> 4) & 0xF]);
+                    out.push_back(hex[c & 0xF]);
+                } else {
+                    out.push_back(static_cast<char>(c));
+                }
+        }
+    }
+    return out;
+}
+
+// 省略显示的控件：可见文本被 Qt 截断成 "Mater…"，完整原文往往在 toolTip。
+static bool isElidingLabel(const QLabel *lbl) {
+    if (!lbl) return false;
+    const QString t = lbl->text();
+    if (!t.isEmpty() && (t.endsWith(QChar(0x2026)) || t.endsWith(QLatin1String("...")))) {
+        const QString tip = lbl->toolTip();
+        return !tip.isEmpty() && tip != t;
+    }
+    return false;
+}
+
+static QString labelSource(QLabel *lbl) {
+    if (!lbl) return {};
+    if (isElidingLabel(lbl)) {
+        const QString tip = lbl->toolTip();
+        if (!tip.isEmpty()) return tip;
+    }
+    return lbl->text();
+}
+
+static void collectMenuActions(QMenu *menu, const std::function<void(const QString &)> &add) {
+    if (!menu) return;
+    for (QAction *a : menu->actions()) {
+        if (!a->text().isEmpty()) add(a->text());
+        if (a->menu()) collectMenuActions(a->menu(), add);
+    }
+}
+
+// 手动“未翻译文本嗅探”（Shift + `）：只读地遍历当前界面，把尚未收录的
+// 英文原文追加到桌面 <Desktop>\untranslated_zh.json（sp-translation-v1，空值）。
+// 每次只新增已存在的词条（绝不覆盖、保留已填写的译法）。只在快捷键触发，
+// 不改动任何控件/数据。
+static void captureUntranslated() {
+    std::map<std::string, std::string> pending;
+    auto add = [&](const QString &s) {
+        if (!isTranslatableString(s)) return;
+        const std::string k = s.trimmed().toUtf8().constData();
+        if (k.empty() || g_translations.contains(QString::fromUtf8(k.c_str()))) return;
+        pending.emplace(k, "");
+    };
+
+    const auto widgets = QApplication::allWidgets();
+    int cellBudget = 200000;   // 防止超大树/表格一次卡死 GUI 线程
+    for (QWidget *w : widgets) {
+        if (auto *lbl = qobject_cast<QLabel *>(w)) add(labelSource(lbl));
+        if (auto *btn = qobject_cast<QAbstractButton *>(w)) add(btn->text());
+        if (auto *le = qobject_cast<QLineEdit *>(w)) add(le->text());
+        if (auto *cb = qobject_cast<QComboBox *>(w)) {
+            add(cb->currentText());
+            for (int i = 0; i < cb->count(); ++i) add(cb->itemText(i));
+        }
+        if (auto *tab = qobject_cast<QTabBar *>(w))
+            for (int i = 0; i < tab->count(); ++i) add(tab->tabText(i));
+        if (!w->toolTip().isEmpty()) add(w->toolTip());
+        if (auto *menu = qobject_cast<QMenu *>(w))
+            collectMenuActions(menu, add);
+        if (auto *mb = qobject_cast<QMenuBar *>(w))
+            for (QAction *a : mb->actions()) {
+                add(a->text());
+                if (a->menu()) collectMenuActions(a->menu(), add);
+            }
+        if (auto *tb = qobject_cast<QToolBar *>(w))
+            for (QAction *a : tb->actions()) add(a->text());
+        if (auto *view = qobject_cast<QAbstractItemView *>(w)) {
+            if (view->model() && cellBudget > 0) {
+                QAbstractItemModel *model = view->model();
+                const int rows = model->rowCount(), cols = model->columnCount();
+                if (rows > 0 && rows < 100000 && cols > 0 && cols < 64) {
+                    for (int r = 0; r < rows && cellBudget > 0; ++r)
+                        for (int c = 0; c < cols && cellBudget > 0; ++c) {
+                            add(model->data(model->index(r, c), Qt::DisplayRole).toString());
+                            --cellBudget;
+                        }
+                }
+            }
+        }
+    }
+    // 启动以来绘制层捕获的未翻译字符串。
+    for (const std::string &s : g_paintSeen)
+        if (!s.empty() && !g_translations.contains(QString::fromUtf8(s.c_str())))
+            pending.emplace(s, "");
+
+    wchar_t desktop[MAX_PATH] = {};
+    if (FAILED(SHGetFolderPathW(nullptr, CSIDL_DESKTOPDIRECTORY, nullptr, 0, desktop)) ||
+        !desktop[0])
+        return;
+    const std::wstring path = std::wstring(desktop) + L"\\untranslated_zh.json";
+
+    // 读入上次采集的结果，只新增、不覆盖（保留可能已填写的译法）。
+    std::map<std::string, std::string> merged;
+    {
+        QFile f(QString::fromStdWString(path));
+        if (f.open(QIODevice::ReadOnly)) {
+            QJsonParseError err{};
+            const QJsonDocument doc = QJsonDocument::fromJson(f.readAll(), &err);
+            if (err.error == QJsonParseError::NoError && doc.isObject()) {
+                const QJsonObject tr = doc.object()
+                                           .value(QLatin1String("translations"))
+                                           .toObject();
+                for (auto it = tr.constBegin(); it != tr.constEnd(); ++it)
+                    merged[it.key().toStdString()] = it.value().toString().toStdString();
+            }
+        }
+    }
+    int added = 0;
+    for (const auto &kv : pending)
+        if (merged.emplace(kv.first, "").second) ++added;
+    if (added <= 0) return;   // 本次没有新增，保持文件不动
+
+    std::string json = "{\n  \"$schema\": \"sp-translation-v1\",\n"
+                       "  \"id\": \"mari-untranslated\",\n"
+                       "  \"language\": \"zh-CN\",\n"
+                       "  \"description\": \"Shift+` 增量采集的未翻译词条（待填写）\",\n"
+                       "  \"translations\": {\n";
+    bool first = true;
+    for (const auto &kv : merged) {
+        if (!first) json += ",\n";
+        json += "    \"" + jsonEscape(kv.first) + "\": \"" + jsonEscape(kv.second) + "\"";
+        first = false;
+    }
+    json += "\n  }\n}\n";
+
+    HANDLE h = CreateFileW(path.c_str(), GENERIC_WRITE, 0, nullptr, CREATE_ALWAYS,
+                           FILE_ATTRIBUTE_NORMAL, nullptr);
+    if (h == INVALID_HANDLE_VALUE) return;
+    DWORD wr = 0;
+    const bool wrote = WriteFile(h, json.data(), (DWORD)json.size(), &wr, nullptr) &&
+                       wr == json.size();
+    CloseHandle(h);
+    if (!wrote) return;
+
+    // 延迟到按键事件处理完再弹窗，避免在事件过滤器里弹模态对话框。
+    const int addedCount = added;
+    const int totalCount = static_cast<int>(merged.size());
+    const std::wstring savedPath = path;
+    QTimer::singleShot(0, QApplication::instance(), [addedCount, totalCount, savedPath]() {
+        QMessageBox::information(
+            nullptr, QStringLiteral("未翻译词条"),
+            QStringLiteral("已捕获 ") + QString::number(addedCount) +
+                QStringLiteral(" 条（共 ") + QString::number(totalCount) +
+                QStringLiteral(" 条）。\n已保存到桌面：\n") +
+                QString::fromStdWString(savedPath));
+    });
 }
 
 // 正式词库非空时只返回可信词条；词库为空的实验构建继续使用“汉”前缀，
@@ -1359,8 +1566,17 @@ public:
         if (event->type() != QEvent::KeyRelease)
             return false;
         auto *keyEvent = static_cast<QKeyEvent *>(event);
-        if (!g_hotkeyDialogOpen && !keyEvent->isAutoRepeat() &&
-            keyEvent->key() == g_toggleKey) {
+        if (g_hotkeyDialogOpen || keyEvent->isAutoRepeat())
+            return false;
+        // Shift + `（常见布局上报为 Key_AsciiTilde，也接受 Key_QuoteLeft）。
+        const bool tildeKey =
+            (keyEvent->key() == Qt::Key_QuoteLeft ||
+             keyEvent->key() == Qt::Key_AsciiTilde);
+        if (tildeKey && (keyEvent->modifiers() & Qt::ShiftModifier)) {
+            captureUntranslated();
+            return true;
+        }
+        if (keyEvent->key() == g_toggleKey) {
             toggleTranslation();
             return true;
         }
