@@ -1,0 +1,78 @@
+Basic OCSP Response
+Begin Shader Network GLSL Generation '%1' for Shader '%2' Viewer '%3'...
+Block Manager Has Live Blocks
+Bound BO useRange does not match the rebind Buffer Object
+Buffer Object is not bound on map
+Buffer Object is not bound on unbind
+Buffer Object is not bound on unmap
+Buffer Object is not bound on upload
+Buffer Object is not large enough to hold data
+Buffer Object needs more and 0 value size during upload
+Buffer Object needs more and 0 values during upload
+Build Sync Map: Rprims
+Cannot Initialise Data Block Manager
+Cannot Initialize Data Block Manager
+Cannot initialize Data Block Manager
+Captured Malloc Stacks
+Data Block Manager Not Initialized. Aborting
+Data Block Manager has live blocks
+Data Block Manager has live bytes
+Data Block Manager has managed blocks
+Data Block Manager is still initialized after cleanup
+DirtyList: Filter Changed:
+Enable Hgi resource generation for codeGen
+Enable usage of the draw items cache in Storm.
+End Called of invalid FBO
+Extended OCSP Status
+Filter is not a quick apply GLSL filter
+Framebuffer Object is already bound on bind
+Framebuffer Object is already bound on create
+Framebuffer Object is already bound on destroy
+Framebuffer Object is not bound on attach
+Framebuffer Object is not bound on detach
+Framebuffer Object is not bound on unbind
+Full Hydra Frame
+Geometry lights are not yet supported in USD imaging
+Hash Manager Still Hash Some hashes Left
+Ignore chunked response-body
+Lock Block %1 already contained in LRU
+Max Data Cache Size is not zero after cleanup
+Missing Authority Key Identifier
+Missing Subject Key Identifier
+Netscape Cert Type
+No OCSP response received
+No Private Key
+No rehostable hostid top-level dir
+OCSP No Check
+OSD_REAL s, OSD_REAL t, OSD_REAL d1Scale,
+OSD_REAL s, OSD_REAL t, OSD_REAL d1Scale, int boundary,
+RLMSTAT: roamed OK - no RLM_ROAM
+Register a default hydra generative procedural resolver to the scene index chain.
+Remove From CRL
+Shader Network GLSL Generation '%1' took
+Shader Type: Unknown 0x%1
+Texture Target is not set on bind
+Texture Target is not set on unbind
+Texture has not been bound on unbind
+Texture height has already been set
+Texture internal format has already been set
+Texture target is not bound
+Texture width has already been set
+Unknown combination of format 0x%1 and type 0x%2
+Vertex Array Object is already bound on bind
+Vertex Array Object is already bound on create
+Vertex Array Object is already bound on destroy
+Vertex Array Object is already bound on rebind
+Vertex Array Object is already set
+Vertex Array Object is bound during class destructor
+Vertex Array Object is not already bound on rebind
+Vertex Array Object is not bound on draw
+Vertex Array Object is not bound on enable array
+Vertex Array Object is not bound on unbind
+Vertex Array Object needs to be destroied before class destructor
+X509v3 Basic Constraints
+X509v3 Issuer Alternative Name
+X509v3 Name Constraints
+X509v3 No Revocation Available
+X509v3 Subject Alternative Name
+X509v3 Subject Directory Attributes

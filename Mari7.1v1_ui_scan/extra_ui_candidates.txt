@@ -1,0 +1,954 @@
+Accept: application/sdp
+Account Login
+Action Not managed
+Action redone:
+Action undone:
+Activate Key
+Actual footprint is
+Add Channel '%1'
+Add Mask From : %1
+Add Object '%1'
+Add Shader '%1'
+Adding a mask stack to
+Additional metadata:
+Adjust Point
+Affiliation Changed
+All licenses in use
+All licenses were installed successfully
+Animation FPS
+Animation Loop
+Animation Time
+Any language
+Application Exit
+Application from unlicensed timezone
+Application is inactive
+Apply Mask : %1
+Array Buffer
+Assign Shortcuts
+Assign Thumbnail
+Assign Thumbnail to '%1'
+Assign Thumbnails
+Assign face locations
+Attach To
+Auth product length bad
+Auth ver length bad
+Authentication cancelled
+Available CSPs:
+BMP JPEG/PNG
+Background Exporter
+Background Importer
+Background Jobs
+Background jobs are running
+Background value:
+Backup finished
+Bake Image: %1
+Blending To Working
+Blocking call in progress
+Boundary Interpolation
+Bounding box of active voxels:
+Brand Indicator for Message Identification
+Bring related palettes to front
+Brush Pressure
+Buffer Memory
+Buffer Source:
+Built-in fallback value
+Bundle converter called
+Burn Highlights
+Burn Midrange
+Burn Shadows
+Business Edition
+CPU Num Tiles
+CPU Tile Memory
+Cache Layer : %1
+Calculate Normals
+Calculate Stats
+Calculating Stats
+Call Sites
+Call interrupted
+Call would block
+Callback aborted
+Canceling import
+Capture state
+Cast Shadows
+Change Tags
+Change the background color
+Changed %1 Automatic Colorspace
+Changed %1 Colorspace
+Changed OCIO Config
+Check Again
+Choose another directory
+Choose another project directory
+Clear Buffers
+Clear OIT buffers
+Clear action filter
+Clear color
+Clearing Refs
+Clearing old caches
+Client hello
+Client key exchange
+Clock Playing
+Clock Rewind
+Cloud Logout
+Code Signing
+ColorCorrection Pipeline
+Colorspace CPU Usage
+Colorspace LUT
+Colorspace Transform
+Commercial Mari
+Commiting textures
+Compile Dispatch Buffer
+Compressed texture
+Computations dep map
+Compute Allowed
+Compute Cluster Edition
+Configure SVT Atlas Set
+Configuring ShaderBall
+Consult lightList cache
+Contact information supplied is incomplete
+Container for %1 properties
+Continue Anyway
+Convert Procedural to Paintable
+Convolve Dst Buffer
+Convolve Src Buffer
+Coordinate systems
+Create Knob : %1
+Create New
+Create Node : %1
+Create Ptex options
+Create Singleton
+Create Snapshot
+Create a new project
+Create a new shelf
+Create offscreen buffer :
+Ctrl/Provision WAP Termination
+Ctrl/provision WAP Access
+Cubemap Arrays Allowed
+Curve Atlas
+Curve Editor
+Custom OCIO Config
+Custom Palette
+Custom Procedural
+Custom Toolbars
+DDI Compression
+DDI Failure
+DDI Hash Count
+DDI Profile: Finished
+DDI Profile: Start
+DDI Write
+DH Private-Key
+DH Public-Key
+DSO failure
+DSTU curve 0
+DSTU curve 1
+DSTU curve 2
+DSTU curve 3
+DSTU curve 4
+DSTU curve 5
+DSTU curve 6
+DSTU curve 7
+DSTU curve 8
+DSTU curve 9
+Data Blocks Exists before testing
+Datablock Manager has lost initialization
+Datacenter Edition
+Datacenter Edition for Itanium-based Systems
+Datacenter x64 Edition
+Days Remaining
+Decrease Aspect
+Decrease Pressure
+Decrement Brush Aspect Ratio
+Decrement Brush Pressure
+Default Brushes
+Default Toolbars
+Deferring to variant fallback
+Deformation flags:
+Delete Cache : %1
+Delete Knob : %1
+Delete Mask : %1
+Dense equivalent:
+Deregister Palette
+Diagnostic Notification in
+Differing Numbers of proxy levels
+Dimensions of active voxels:
+Direct Manip
+Dirty list filter predicate:
+Disable Mask '%1'
+Disable Mask : %1
+Disk Usage
+Do this for all images
+Dock / Float palette
+Dodge Highlights
+Dodge Midrange
+Dodge Shadows
+Don't Relink
+Don't show again
+Don't show this again
+Double images size
+Draw Dirty
+Draw geometry
+Drawing Arrays:
+Drawing Elements:
+Dump Actions
+Dynamic engine loading support
+E-mail Protection
+EEEE AAAAGAIN
+END OF RECORD
+ENV_CLOUDLIC_READ_DIRS environment variable '
+ENV_CLOUDLIC_WRITE_DIR environment variable '
+EOF on channel
+EOF on communications
+EXTEND ASCII
+Edit Script of '%1'
+Element Array Buffer
+Enable Mask '%1'
+Enable Mask : %1
+Encrypted Extensions
+Enter PEM pass phrase:
+Enterprise Edition
+Enterprise Edition for Itanium-based Systems
+Enterprise x64 Edition
+Enumerate bug: using workaround
+Env Light File
+Environment Light
+Environment Map
+Environment Picker
+Errors Exist
+Errors were
+EvalStencils Cmds
+Event Recording
+Evicted %1 MB
+Exceeding number of Attachments available
+Exp length bad
+Expect: 100-continue
+Expire date
+Exported geometry meta data
+Exporting Ptex faces
+Exporting baked result
+Extended Info:
+Extension Request
+Extract Node : %1
+Extracting and Stitching Strips
+Eye Dropper
+FILE pointer
+FN_ENT_SYSTEM_LOCK_SLEEP set
+Face Dimensions Match
+Face Mipmaps
+Face Varying Interpolation
+Fail to compile
+Fail to link
+Far plane
+Fast Exporter
+Fast Importer
+Feature is active
+Fence Synchronization Allowed
+File Example
+File Exists
+File Space
+File name:
+File of type:
+File version unrecognized
+Files to overwrite:
+Files used for checkout:
+Files used for status checkout:
+Fill Ptex Faces Background
+Fill Ptex Faces Foreground
+Fill faces
+Fill patches
+Filter/Height As Normal
+Finding tokens
+Fit To Screen
+Fix Edge UVs
+Flat Normals Cmds
+Flattened up to
+Flattening Geo
+Float Data
+Floating-Point 16-bit: R16F
+Floating-Point 32-bit: G16R16F
+Floating-Point 32-bit: R9G9B9E5
+Flush Cache : %1
+Focus Receiver
+Folders to create:
+Four CC 4-bit: DXT1
+Four CC 8-bit: DXT2
+Four CC 8-bit: DXT3
+Four CC 8-bit: DXT4
+Four CC 8-bit: DXT5
+Framebuffer incomplete attachment
+Framebuffer incomplete dimensions
+Framebuffer incomplete draw buffer
+Framebuffer incomplete formats
+Framebuffer incomplete missing attachment
+Framebuffer incomplete read buffer
+Free Buffers
+Free Offscreen
+From Ptex File
+Frustum Cull
+FrustumCulling Cmds
+Full with Shadows
+Function not implemented
+GL_BOOL_VEC2 not implemented
+GL_BOOL_VEC3 not implemented
+GL_BOOL_VEC4 not implemented
+GL_FLOAT_MAT2 not implemented
+GL_FLOAT_MAT3 not implemented
+GL_INT_VEC2 not implemented
+GL_INT_VEC3 not implemented
+GL_INT_VEC4 not implemented
+GL_UINT_VEC3 not implemented
+GOST 28147-89 Cryptocom ParamSet
+GPU Memory Used: %zu MB
+GPU Tile Memory
+GPU computation prep
+GPU/Depth Projection
+GPU/Depth Projection/bufferSizeXYString
+GPU/Depth Projection/bufferSizeZString
+GPU/Depth Projection/useDepthProjections
+GPU/Depth Projection/useVarianceMaps
+GPU/Shadow Maps
+GPU/Shadow Maps/bufferSizeXYString
+GPU/Shadow Maps/bufferSizeZString
+GPU/Shadow Maps/useDepthProjections
+GPU/Shadow Maps/useVarianceMaps
+Gather buffer missing PBO
+Gen Thumbnails
+General painting layer
+Glf post surface lighting setup
+GlfContextCaps has not been initialized
+Global Cubemap Seams Allowed
+Global default library context
+Going to page:
+GpuComputation Execute
+Graphics Card Memory: %1 MB
+HDR Paths
+HUD Manager
+Half images size
+Hard Light
+Hash Algorithm:
+HdSt_RenderPass: Prepare
+HdxColorCorrectionTask IndexBuffer
+HdxColorCorrectionTask VertexBuffer
+HdxColorizeSelectionTask texture
+HdxFullscreenShader IndexBuffer
+HdxFullscreenShader VertexBuffer
+HdxVisualizeAovTask IndexBuffer
+HdxVisualizeAovTask VertexBuffer
+HdxVisualizeAovTask resourceDesc
+HdxVisualizeAovTaskParams Params:
+Header without colon
+Hello request
+High DPI scaling disabled
+High DPI scaling enabled
+Hio GLSLFX info
+HioFormatCount passed to function
+HioVDB texture loading
+Hold Instruction Code
+Hold Instruction None
+Home Edition
+Home Premium Edition
+Host down
+Host unreachable
+IEEE Floating-Point 32-bit: R32F
+IEEE Floating-Point 64-bit: G32R32F
+IP Address
+IPSec Tunnel
+IPSec User
+ISO CN Member Body
+ISO Member Body
+ISO US Member Body
+Image Info : %1
+Implied class:
+Import into '%1'
+Imported Brushes
+Importing took
+In SUBOPTION processing, RCVD
+In Shading context check
+Incompatible source and destination paths
+Incomplete file data
+Incorrect passphrase
+Increase 3D LUT
+Increase Aspect
+Increase Pressure
+Increment Brush Aspect Ratio
+Increment Brush Pressure
+Index Out of Bound
+Indirect draw batch deep validation
+Individual Login
+Individual converter called
+Information about Tree:
+Inherit all
+Inhibit Policy Mapping
+InitRepr post dirty gather
+Initialize Rendering System
+Innit Optimize
+Input Level/Black
+Input Level/InBlack
+Input Level/InMid
+Input Level/InWhite
+Input Level/Mid
+Input Level/White
+Input count : %1
+Installation Successful
+Installed Custom Lut
+Insufficient randomness
+Intel Hardware Cryptographic Service Provider
+International Organizations
+Invaild Access count
+Invalidity Date
+Inverse Difference
+Iterator past-the-end
+JSON Data:
+JSON parsing for backend '
+JSON returned:
+Jack Elder
+Jack Greasley%1
+James Forsyth
+James O'Hare
+Jitter per Stroke
+John Crowe
+Jon Hertzig
+Jordan Jenkins
+Jorel Latraille
+Json after writeConfig:
+Kate Livingstone
+Keeping existing image set
+Kernel for skinning is :
+Kevin Atkinson
+Key Agreement
+Key Curve
+Key Held Threshold Time
+Key Interval
+Key update
+Kiyoyuki Nakagaki%1
+Label loop
+Largest dimensions available per face
+Laurent Boiron
+Layer/Bottom Transparency
+LcI LcYLM
+Leaf voxel footprint is
+Leaving page
+Leigh Simmons
+Lic product length bad
+Lic ver length bad
+LicenseEntry from string:
+Licensed as Full Version
+LicensingDialog exec returning
+Lighting/Standalone/Standard Lighting
+Lighting/Utils/Color To Vector
+Lighting/Utils/Lighting Result Modulation
+Lighting/Utils/Normal Modulation
+Lighting/Utils/Tangent Space To Eye Space
+Lights Fixed
+Link Knobs:
+Linotype GmbH
+Listening for commands on
+Loading %1 geoEntity data blocks
+Loading Ptex geometry
+Loading Version
+Loading patch link groups
+Loading textures
+Local Host Only
+Local mod time:
+Local port: %hu
+Lockfile info:
+Lockfile remove returned:
+Login Environment Info :
+Logout Successful
+Lucida Sans
+Luma Tabbaa
+MDI Drawing Arrays:
+MDI Drawing Elements:
+MMM d yyyy
+MMMM d yyyy
+MODEL INFO:
+MRI_BYTE is only supported
+MRI_FLIP_VERTICAL : OFF
+MRI_FLIP_VERTICAL : ON
+MRI_SMALL_UNIFORMS : OFF
+MRI_SMALL_UNIFORMS : ON
+Mailbox UIDVALIDITY has changed
+Make New Preset
+Make New Toolbar
+Make Thumbnail
+Make this projector current
+Making Array
+Making new projector
+Malformed encoding found
+MallocTags enabled
+Manage Login Licenses
+Manage Login Roaming
+Manage RLM Roaming
+Manage Toolbars
+Manifest version incompatible
+Map to parent:
+Map to root:
+Marcus Schoo
+Mari Command Port
+Mari Configuration
+Mari Graphics Card Check
+Mari Indie
+Mari Memory Check
+Mari Message
+Mari Non-Commercial
+Mari Non-commercial
+Mari OpenGL Check
+Mari Palettes
+Mari Usage Stats
+Mari build information
+Mari/Onscreen Controls/
+Mari/Onscreen Controls/Adjust
+Mariano Blanc
+Mark Final
+Mark Titchener
+Mark dirty collection members
+Matched locale:
+Matt Brealey
+Maximum aggregated VBO size
+Maximum number of lights
+Memory Info
+Memory footprint:
+Memory usage:
+Merged geometry will use Ptex
+Message Log
+Message hash
+Michal Kujaszewski
+Microsoft Commercial Code Signing
+Microsoft Corporation1200
+Microsoft Corporation1402
+Microsoft Corporation1H0F
+Microsoft Encrypted File System
+Microsoft Enhanced Cryptographic Provider v1.0
+Microsoft Extension Request
+Microsoft Individual Code Signing
+Microsoft Local Key set
+Microsoft Loopback Adapter
+Microsoft Smartcard Login
+Microsoft Smartcardlogin
+Mike Zannetou
+Mime-Version: 1.0
+Minimum Flick Speed
+Mip-Map Generation
+Misc./Slider Precision
+Misc./Slider Precision/sliderPrecision
+Misc/Bake Point
+Misc/Channel Input
+Misc/Current Layer
+Misc/Set Unlit
+Misc/Set Vector
+Misc/Smart Mask
+Misc/Vector Split
+Missing OCIO Colorspaces/Roles
+Modifed By
+More details
+More information
+Morgan Barnett
+Move Layer '%1'
+Move node %1
+MriActionCollectionView setActionLabel
+MriMathRegisterTypes called multiple times
+Multi-channel group
+Multiple OCIO Configs
+NIST CURVE
+NOT IMPLEMENTED
+NTLM auth restarted
+Named Files
+Naomi Fear
+Napoleon Wang
+Nathalie Coughlan
+Native DPI scaling enabled
+Near plane
+Need destination address
+Netscape Comment
+Network down
+Network has been reset
+Network unreachable
+New buffer specs:
+New parent was removed
+New target was edited
+New translator installed
+Newsession Ticket
+Nill root passed
+Non Repudiation
+Non-default library context
+Non-square shaped value
+Non-supported type for MriLocatorList
+Not After :
+Not After:
+Not Before:
+Not Implemented
+Not OpenGL active
+Not Paintable
+Not enough data available
+Not required
+Not right
+Nothing processing
+Nothing to remove
+Nudge Flow Vectors
+Nul byte in header
+Num allocations:
+Num elems:
+Number of Keyframes
+Number of Snapshots
+Number of active tiles:
+Number of active voxels:
+Number of bundle entitlements:
+Number of individual entitlements:
+Number of iterations:
+Number of unallocated nodes:
+Number of valid installed tokens:
+OBJECT DESCRIPTOR
+OCIO Colorspace
+OCIO Config
+OCIO Config Differs from Environment
+OIT only works with HdSt
+OUTPUT MARKING
+Occlusion Distance - 10.0m
+Occlusion Distance - 3.0m
+Occlusion Rays - 256
+Offscreen AA
+Offscreen Buffers
+Old buffer specs:
+Only Some Reasons
+Only this layer
+OpenGL profile set to 'Compatibility'
+OpenGL profile set to 'Core'
+OpenGL version set to '%1.%2'
+Organisation description:
+Output Level/BlackOut
+Output Level/OutBlack
+Output Level/OutWhite
+Output Level/WhiteOut
+PEM password callback wrapper
+PKCS12 import pass phrase
+PKINIT Client Auth
+PRNG not seeded
+PSS parameter restrictions:
+PSS restrictions lack hash algorithm
+PUSHING cached.m_allowed_versions:
+PYTHONHOME and PYTHONPATH environment variables
+Painting Saved Sucessfully
+Painting Style
+Painting hidden
+Per face texture size
+Percentage of active voxels:
+Permanent Identifier
+Persistent Mapping Allowed
+Philip Grobler
+Pick Again
+Pick Environment
+Pick an image file
+Pick raw pixels
+Pick screen pixels
+PickTask Condition Stencil Buffer
+Pin the palette
+Pin/float palette mode
+Pipeline draw batch deep validation
+Pixel Pack Buffer
+Pixel UnPack Buffer
+Play temporary macro
+Plugin info file search
+Plugin loading
+Plugin registration
+Plugins loaded from non-main threads
+Pointers are not Equal 3
+Policy Qualifier CPS
+Possible candidates are
+Post Process
+Post cleanup
+Pre Projecting
+Pre cleanup
+PreferenceV2 json file
+PreferenceV2 json file opened
+Premature end of regular expression
+Prepare For Ptex
+Print Vital Information
+Print command
+Print composed GLSLFX configuration
+Print generated shader source code
+Printing the message:
+Privilege Withdrawn
+Procedural Property
+Process limit reached
+Process memory counters
+Process stage changes
+Processing Animation
+Processing Load/Unload changes
+Profiling DDI
+Projecting on front of objects
+Projecting through objects
+Prompt info data type incorrect
+Property indexes:
+Propety is Read Only
+Ptex Face Flood Fill
+Ptex Face Resize
+Ptex File Template
+Ptex Metadata
+Ptex adjacency
+Ptex channel import
+Ptex defragmentation
+Ptex face data copy
+Ptex face fill
+Ptex face layout
+Ptex face size gather
+Ptex face type checks
+Ptex file
+Ptex free space
+Ptex meta data geometry loader
+Ptex prefill
+Pure virtual function called
+Purge SVT
+Python argument types in
+Python has not been initialized
+QtLockedFile mutex
+Quad Remapping
+Quadrangulate Cmds
+Quadrangulating the triangle indexed geometry
+RDATA length
+RLM Environment Info :
+RLM Teams Unlicensed
+RPKI Manifest
+RPKI Notify
+Range entries
+RciSDK_appDetectedTamper ret
+RciSDK_getEgressStatus ret
+Re-configuring atlas for baking
+Re-configuring atlas for rendering
+Read Only
+Read expires_in as:
+Read interrupted
+Recomposing stage
+Record temporary macro
+Registered ID
+Registered ID:
+Registering file format plugins
+Registering plugins
+Rehostable top-level directory exists
+Reinitialising DDI cache roots
+Relevant Source Code:
+Reloads shaders without upgrading nodes
+Remaining length: %zu bytes
+Remap Colorspaces
+Remember Paths
+Remove Layer : %1
+Remove Node : %1
+Remove Tag : %1
+Removed last dep on site
+Removes the selected link groups
+Rename Knob : %1
+Replace mask
+Replacing with comma
+Reply from 10Duke:
+Repr selector combine
+Request to :
+Require Explicit Policy
+Required features and versions:
+Required plug-in interface functions missing
+Rescue All Floating Palettes
+Resource Not Registered :
+Resource binder only supports OpenGL
+Resync end
+Revision Hash
+Revision Hash Date
+Revision Number
+Roaming Licenses:
+Roaming enabled:
+Roaming page description
+Routing Domain Identifiers
+S/MIME Capabilities
+S/MIME email
+S/MIME encryption
+S/MIME signing
+SEND LOCATION
+SERVERINFO FOR
+SERVERINFOV2 FOR
+SITE NAMEFMT 1
+SIZE    COUNT
+SOCKS5 sub-negotiation request
+SOCKS5 sub-negotiation response
+SSH Client
+SUPDUP OUTPUT
+SUPPRESS GO AHEAD
+SVT using multiple atlas sets
+SVT using single atlas set
+Same As 8 bit Data
+Same As Native
+Same As Working
+Same as Source
+Same as Target
+Saved Painting
+Saved to project directory
+Saving file:
+Scalar Data
+Scalar Integer
+Scalar Monitor
+Scalar Procedural
+Scalar Procedurals
+Scope Descriptions
+Scratch Pad
+Search Actions
+Search Hits %1
+Search Paths
+Search path:
+Search the available actions
+Secure Electronic Transactions
+Select Layer '%1'
+Send Owner
+Send Proxied Owner
+Send Proxied Router
+Send Router
+Send Statistics
+Separate Meshes
+Serial Number
+Serial Number:
+Serviced action Proxy
+Set '%1' Fill Color
+Set '%1' Management
+Set Bleed to %1
+Set CSP by index
+Set Channel to '%1'
+Set Default
+Set Depth to %1
+Set Geo Data
+Set Input '%1.%2' to Nothing
+Set Post Process Command
+Set selection mode to Face
+Shader Network/
+Shadow Maps
+Shared shader
+Sharing .obj Geos
+Sharing .ptx Geos
+Shourtcut search
+Show/Hide %1 Palette
+Show/hide palette names
+Signing KDC Response
+Slider Precision
+Smart Mask/Color Procedural/%1
+Smart Mask/Procedural Mask/%1
+Smart Mask/Scalar Procedural/%1
+Smooth Normals Cmds
+Soft Light
+Software engine support
+Something is stale
+Sorry. Not quite working
+Sorted by
+Source Grade
+Spawn floating tab
+Spec changes
+Split Point
+Sponge Desaturate
+Spread Angle - 180
+Spread Angle - 45
+Starter Edition
+Steady Stroke
+Stop Playing
+Strong Extranet ID
+Subcache Set to %1 twice
+Successfully imported %1 images
+Super Sampling
+Supplemental data
+Surface Renderer
+Surface/Displacement Simple
+Svt Gather
+Svt Gather Buffer
+Swap to Snapshot
+Switch from POST to GET
+System information:
+TERM SPEED
+TERM TYPE
+TESTING TEST SLOT ON MRI_SIGNAL_FILTER
+TIMING MARK
+Task Execution
+Task Prepare
+Task Sync
+Team Login
+Team Login Roaming
+Technical description :
+Teleport Broadcast
+Teleport Receiver
+Tessellation Allowed
+Tessellation Control
+Tessellation Evaluation
+Texels per Unit
+TexturePacker Data Change
+Threaded Compilation Allowed
+Threaded Operations Allowed
+Thumbnail Generated
+Thumbnail generation
+Tile Data Change
+Tile Layout
+Tile Memory
+Time Stamp signing
+TimeSamples with
+Timed out
+Timing Info
+Toggle Projection Front/Through
+Toggle Source Grade
+Toggle non-Ptex Canvases
+Toggle tessellation shaders
+Tool Manager
+Topological sort
+Trace global reporter
+TraceRegistry global collector
+Transfer function:
+Transferred a partial file
+Types must have names
+Ultimate Edition
+Unexpectedly short EHLO response
+Unfiltered and Filtered
+Ungroup Contents
+Units Per Worldspace
+Unlicensed RLM component
+Unlink selected patches
+Unpin the palette
+Unsigned 16-bit: A1R5G5B5
+Unsigned 16-bit: A4R4G4B4
+Unsigned 16-bit: R5G6B5
+Unsigned 16-bit: X1R5G5B5
+Unsigned 16-bit: X4R4G4B4
+Unsigned 24-bit: R8G8B8
+Unsigned 32-bit: A8B8G8R8
+Unsigned 32-bit: A8R8G8B8
+Unsigned 32-bit: X8B8G8R8
+Unsigned 32-bit: X8R8G8B8
+Unsigned 8-bit: R3G3B2
+Unwritable Files
+Unwritable files:
+Upgrade Existing
+Upgrades nodes and reload shaders
+Upgrading Brushes
+Upload CPU texels
+Use Hi-Res Positions
+Use Legacy Coloring
+Use Template For
+Use Variance Maths
+Use built in barycentric coordinates
+Use packed normals
+Use selected location
+User Interface
+User attributes
+User cancelled
+User cancelled color selection
+User-Agent: RLM_ACTIVATION/1.1
+User/Host on exclude list
+User/Host on excludeall list
+Variant selections:
+Verify failure
+VggjeK uO5n
+VidFree %1 MB
+VidTotal %1 MB
+View only the current paint/mask
+Visualize AOV
+Vivid Light
+Warnings were
+Web Edition
+Weirdly formatted EPSV reply
+Welcome To Mari
+Welcome to Mari Non-commercial
+Wildcard - Parsing started
+Will check plugin info paths
+Will load language:
+Winsock library not initialised
+Worldspace Density
+Worldspace Texels
+Write to datafile changed
+Write to rawfile changed
+Zoom Tool
