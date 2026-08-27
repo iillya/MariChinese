@@ -1,0 +1,44 @@
+# source: fnpxOsd.dll
+# candidates: 41
+
+!This program cannot be run in DOS mode.
+Unknown exception
+bad array new length
+vector too long
+string too long
+triangle subdivision
+vertex interpolation rule
+face varying interpolation rule
+crease method
+Crease lengths must be greater than or equal to 2.
+Crease indices size '%zu' doesn't match expected '%zu'.
+Crease weights size '%zu' doesn't match either per edge '%zu' or per crease '%zu' sizes.
+Corner weights size '%zu' doesn't match expected '%zu'.
+Negative crease weights.
+Negative corner weights.
+Corner index element missing from face vertex indices array.
+Crease index element missing from face vertex indices array.
+Hole indices cannot be negative.
+Hole indices must be less than face count '%zu'.
+Face vertex counts must be greater than 2.
+Face vertex indices element must be greater than 0.
+Face vertex indices size '%zu' does not match expected size '%zu'.
+map/set too long
+Fatal Error
+Coding Error (internal)
+Coding Error
+Error
+bad allocation
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

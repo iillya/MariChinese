@@ -1,0 +1,46 @@
+# source: fnusdUtils.dll
+# candidates: 43
+
+!This program cannot be run in DOS mode.
+Unknown exception
+bad array new length
+vector too long
+string too long
+map/set too long
+unordered_map/set too long
+invalid hash bucket count
+FATAL ERROR
+Diagnostic Notification(s) in
+Diagnostic Notification in
+Aborted by UsdUtilsConditionalAbortDiagnosticDelegate On Error
+Aborted by UsdUtilsConditionalAbortDiagnosticDelegate On Warning
+UsdUtils USDZ package creation details
+invalid string position
+Accessing expired list editor
+', which is not in the dictionary.
+Attempted to get value for key '
+Attempted invalid increment operation on a VtDictionary iterator
+Comparing SdfListProxy iterators from different proxies!
+iterator exhausted
+Editing an invalid map proxy
+Assignment to invalid map proxy
+Failed to generate topology.
+invalid stod argument
+stod argument out of range
+endTimeCode cannot be less than startTimeCode with positive stride
+endTimeCode cannot be greater than startTimeCode with negative stride
+stride cannot be zero
+bad allocation
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

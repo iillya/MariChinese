@@ -1,0 +1,2966 @@
+# source: fnhdsi.dll
+# bytes: 700288
+# strings: 2962
+
+[A] !This program cannot be run in DOS mode.
+[A] Rich
+[A] .text
+[A] `.rdata
+[A] @.data
+[A] .pdata
+[A] @.rsrc
+[A] @.reloc
+[A] U|J
+[A] t+H
+[A] \$0H
+[A] tHH
+[A] tWH
+[A] t-H
+[A] AVH
+[A] H9C
+[A] H!C
+[A] { H
+[A] t$8H
+[A] |$@A
+[A] C H
+[A] SVWATAUAVAWH
+[A] D$ H
+[A] D$0N
+[A] L$(A
+[A] u.I;
+[A] t'f
+[A] t2H
+[A] D$ I
+[A] @A_A^A]A\_^[
+[A] D$(N
+[A] L$ I
+[A] |$xL
+[A] u+I;
+[A] tr3
+[A] \$xH
+[A] t L+
+[A] 0A_A^A]A\_^[
+[A] r<I
+[A] L$'I;
+[A] x'H
+[A] L$(H
+[A] D$0I
+[A] L$ M
+[A] u8I;
+[A] fff
+[A] qH;
+[A] |$ M
+[A] t5H
+[A] tNI
+[A] w3I
+[A] D$(H
+[A] r1I
+[A] O'I;
+[A] |$ K
+[A] \$0I
+[A] d$(H
+[A] |$(I
+[A] tpL
+[A] w<L
+[A] L$ A
+[A] l$xL
+[A] u0I;
+[A] sH;
+[A] t)fff
+[A] t7H
+[A] $E3
+[A] d$xL
+[A] u#I;
+[A] tjf
+[A] LH;
+[A] T$xH
+[A] @SH
+[A] tRH
+[A] |$0f
+[A] |$0H
+[A] L$ H
+[A] t$(H
+[A] 49L
+[A] l$ I
+[A] D$0H
+[A] L$(L
+[A] u,H;
+[A] u'H;
+[A] ]H;
+[A] t*I
+[A] tSf
+[A] t=H
+[A] 7H;
+[A] WATAUAVAWH
+[A] a I
+[A] \$@L
+[A] d$HL;
+[A] H#{
+[A] C I;
+[A] \$ J
+[A] D$(
+[A] (D$ f
+[A] L$8H
+[A] \$@H
+[A] |$HL
+[A] L$ L
+[A] T$@H
+[A] L$P
+[A] S H
+[A] S I
+[A] D$H
+[A] (D$@f
+[A] D$@H
+[A] \$0J
+[A] D$8
+[A] (D$0f
+[A] D$ L
+[A] L$@L
+[A] T$ H
+[A] \$`I
+[A] [0I
+[A] k8I
+[A] s@I
+[A] A_A^A]A\_
+[A] tQ3
+[A] l$8H
+[A] t$@H
+[A] t$ WATAUAVAWH
+[A] D$`I
+[A] O0H#
+[A] $H;C
+[A] H;C
+[A] \$hH
+[A] l$pH
+[A] t$xH
+[A] 0A_A^A]A\_
+[A] fffffff
+[A] I9G
+[A] l$ H
+[A] D$(A
+[A] g I
+[A] W0L
+[A] D$`I#
+[A] t$H
+[A] H;H
+[A] \$ H
+[A] D$`H
+[A] G0I#
+[A] M;E
+[A] H9T
+[A] M0H#
+[A] *H;
+[A] \$`H
+[A] l$hH
+[A] t$pH
+[A] UUUUUUU
+[A] I9E
+[A] g L
+[A] g(I
+[A] I#U0H
+[A] t'H
+[A] M#u0M
+[A] I;U
+[A] J9L
+[A] F0M#
+[A] ,$H;
+[A] tRN
+[A] t9H
+[A] H9F
+[A] d$ E3
+[A] l$(A
+[A] D8i4t
+[A] k H
+[A] F0I#
+[A] $H;
+[A] UVWATAUAVAWH
+[A] D$0L
+[A] D$8H;
+[A] v"I
+[A] |$ L
+[A] |$(H;
+[A] |$(H
+[A] 8H;
+[A] 8L;
+[A] d$8H
+[A] @A_A^A]A\_^]
+[A] l$ WH
+[A] tEH
+[A] t$0I
+[A] t$8E3
+[A] t$0H
+[A] l$HH
+[A] t?H
+[A] r9I
+[A] s$H
+[A] <$H
+[A] <$M;
+[A] \$ VATAVH
+[A] $I;
+[A] \$XH
+[A] A^A\^
+[A] l$@H
+[A] |$HM
+[A] <$L
+[A] |$PL
+[A] tdH
+[A] |$PA
+[A] )D$
+[A] t|H
+[A] $M;
+[A] twH
+[A] <$f
+[A] |$HH
+[A] l$@I
+[A] VWAVH
+[A] q H
+[A] D$PH
+[A] \$hH;
+[A] s H
+[A] l$`H
+[A] 0A^_^
+[A] H+:H
+[A] taH
+[A] weH
+[A] |$@H
+[A] tDH
+[A] t$0
+[A] \$8H
+[A] SUVWAVH
+[A] k(I
+[A] C I
+[A] D$0
+[A] D$@
+[A] PA^_^][
+[A] t$ H
+[A] \$h
+[A] \$pH
+[A] SUVWATAUAVAWH
+[A] A I
+[A] A(H
+[A] w0H
+[A] D$0[
+[A] _ H
+[A] G H
+[A] XA_A^A]A\_^][
+[A] A0H
+[A] tCf
+[A] S(H+
+[A] 'I+
+[A] w$I
+[A] C(H
+[A] w6I
+[A] t>H
+[A] t,H
+[A] C H9A
+[A] sxH
+[A] t$03
+[A] K H
+[A] C H9G
+[A] stH
+[A] t3H
+[A] |$0
+[A] t6H
+[A] \$0
+[A] R H
+[A] t*H
+[A] teH
+[A] |$0H+
+[A] w I
+[A] |$0I+
+[A] 'L+
+[A] w#L
+[A] _(H
+[A] t1H
+[A] H0H
+[A] L$0I
+[A] T$0I
+[A] uOH
+[A] \$`
+[A] L$0
+[A] t$ WH
+[A] t$HH
+[A] {(H
+[A] UVWH
+[A] @ H
+[A] D$pH
+[A] G(H
+[A] L$(
+[A] |$p
+[A] @_^]
+[A] u"H
+[A] u'H
+[A] tQL
+[A] d$ L
+[A] EgH
+[A] u4H
+[A] A_A^A]A\_^]
+[A] l$ L
+[A] E@H
+[A] O8H
+[A] G0H
+[A] G8H
+[A] uZH
+[A] uDH
+[A] u H
+[A] @USVWATAVAWH
+[A] t{L
+[A] P H
+[A] t|I
+[A] r|M
+[A] R L
+[A] t0H
+[A] A_A^A\_^[]
+[A] D$HH
+[A] T$(3
+[A] tsH
+[A] L$HH3
+[A] L$0H
+[A] L$8
+[A] H H
+[A] L$@
+[A] D$0L+
+[A] L$HI;
+[A] t$PH
+[A] t!H
+[A] tvH
+[A] H;W
+[A] tLH
+[A] @0H
+[A] |$ H
+[A] H+U
+[A] v#H
+[A] t]L
+[A] tIL
+[A] s I
+[A] {(I
+[A] i(H
+[A] @(H
+[A] \$P
+[A] D$XH
+[A] 0_^]
+[A] UVWAVAWH
+[A] u%H
+[A] u,H
+[A] E0H
+[A] MHH
+[A] A_A^_^]
+[A] \$HH
+[A] \$ L
+[A] |$8H;
+[A] r)H
+[A] N'H;
+[A] t.H
+[A] w>I
+[A] |$8H
+[A] D$@I
+[A] WAVAWH
+[A] ttH
+[A] t$@H+
+[A] w/I
+[A] \$HK
+[A] l$PH
+[A] A_A^_
+[A] t@H
+[A] w0I
+[A] u#M
+[A] P E3
+[A] t,I
+[A] D$(t
+[A] D$(L
+[A] D$(M
+[A] L$0H3
+[A] t;f
+[A] MxI
+[A] T$pL
+[A] d$0L
+[A] D$h
+[A] D$lH
+[A] D$hH
+[A] L$h
+[A] M8H
+[A] E@I
+[A] E0L
+[A] \$8
+[A] \$8C
+[A] D$<H
+[A] T$8H
+[A] H#U
+[A] D$8H;M
+[A] H;A
+[A] H;M
+[A] D$8H
+[A] H I
+[A] t)H
+[A] EHH
+[A] M(L
+[A] C H9C
+[A] H9\
+[A] ugH;
+[A] uWH
+[A] D$ A
+[A] |$PH
+[A] t$HE
+[A] t$HC
+[A] \$LH
+[A] t#A
+[A] H;}
+[A] tFD
+[A] T$HA
+[A] \$LD
+[A] t$HH;
+[A] mpL
+[A] d$xM
+[A] <$I;
+[A] H97t
+[A] tSI
+[A] tAA
+[A] d$xI;
+[A] t_L
+[A] t0f
+[A] d$xI
+[A] mpI
+[A] H;]
+[A] l$pL
+[A] L;d$P
+[A] U`H
+[A] M`H
+[A] tuH
+[A] UPH
+[A] MPH
+[A] t1L
+[A] tqI;
+[A] tlH
+[A] tYL
+[A] H;u
+[A] t)K
+[A] tRI;
+[A] tMM;
+[A] L$Xf
+[A] L$`H
+[A] EXH
+[A] (EPf
+[A] 4$H
+[A] tZL
+[A] u(H
+[A] tVH;]
+[A] ]XH
+[A] u!H
+[A] ]hH
+[A] ] H
+[A] uIH
+[A] u2H
+[A] MXH
+[A] MhH
+[A] L;d$Pt
+[A] @SUH
+[A] ]8H
+[A] t$P
+[A] H#E0L
+[A] H;P
+[A] u/L
+[A] tPH;
+[A] t$@L
+[A] (][
+[A] @VWH
+[A] \$PH
+[A] t$(
+[A] ~8H
+[A] F0H
+[A] l$X
+[A] d$`H
+[A] l$0I
+[A] |$ I
+[A] H#~0H
+[A] t!L
+[A] FL;
+[A] t_L;
+[A] l$0L
+[A] l$XH
+[A] \$PL
+[A] 8_^
+[A] u M
+[A] u&H
+[A] UwH
+[A] EwH
+[A] tyH
+[A] H;U
+[A] t8H
+[A] tfH
+[A] @UVH
+[A] t$XH
+[A] r,H
+[A] A'H;
+[A] p'I
+[A] d$PN
+[A] <4H
+[A] w%M
+[A] d$PH
+[A] w!I
+[A] (^]
+[A] u'M
+[A] t$Hu
+[A] D$P
+[A] <$A
+[A] GD$hL
+[A] L$hL
+[A] GL$h
+[A] T$h
+[A] l$hD
+[A] $Li
+[A] |$hH
+[A] d$hD
+[A] d$hH
+[A] L$hA
+[A] t$XA
+[A] t$`
+[A] 4$A
+[A] $Hk
+[A] T$hH
+[A] T$PH
+[A] SVWH
+[A] H+9H
+[A] D$PL
+[A] _^[
+[A] Q H
+[A] S u
+[A] tYH
+[A] t$f
+[A] 'H+
+[A] w&H
+[A] t$0H+
+[A] tMH
+[A] w[H
+[A] r1H
+[A] v=H
+[A] wWH
+[A] N H
+[A] x(H
+[A] C8H
+[A] t&H
+[A] JpH
+[A] D$xL
+[A] RhH
+[A] L$pL
+[A] Z`L
+[A] ZXL
+[A] zPH
+[A] rHH
+[A] j@H
+[A] t$HL
+[A] r8H
+[A] l$@L
+[A] z0L
+[A] t$8L
+[A] b(L
+[A] j L
+[A] |$0L
+[A] d$(L
+[A] k@I
+[A] l$0H
+[A] D$(z
+[A] \$@
+[A] D$0M
+[A] D$0z
+[A] L$HI
+[A] T$8M
+[A] D$Pf
+[A] D$Pz
+[A] D$pM
+[A] D$pz
+[A] \$p
+[A] D$ M
+[A] D$pf
+[A] L$p
+[A] D$p
+[A] L$ E3
+[A] D$@L
+[A] L$`
+[A] P L
+[A] 9=Ip
+[A] 9=)k
+[A] =|e
+[A] 9=i[
+[A] =LV
+[A] t$hI
+[A] r)I
+[A] N'I;
+[A] X'H
+[A] D$xH
+[A] t$h
+[A] t$hH
+[A] \$xJ
+[A] w.I
+[A] A_A^A]A\_^[
+[A] )t$
+[A] )<$
+[A] Y@(
+[A] Y@0
+[A] YH@
+[A] YP8
+[A] YHH
+[A] X``
+[A] YXX
+[A] YHP
+[A] Xhh
+[A] Xxx
+[A] Xppf
+[A] (<$
+[A] (t$
+[A] t$ AWH
+[A] u/H
+[A] A H
+[A] H9Q
+[A] v4I
+[A] H;s t
+[A] |$@L
+[A] H;z
+[A] G L
+[A] H;W t1H
+[A] G8L
+[A] W0H;W8t1H
+[A] tjH
+[A] %qK
+[A] Y(H
+[A] yHH
+[A] ~(H
+[A] Y8H
+[A] ^(H
+[A] K`H
+[A] KXH
+[A] KPH
+[A] KHH
+[A] A9Q
+[A] uGE
+[A] D9A
+[A] @WH
+[A] l$8
+[A] t$@
+[A] \$0@
+[A] l$8t
+[A] H;r u
+[A] t)L
+[A] W I
+[A] \$02
+[A] Y H
+[A] j H
+[A] H9G
+[A] tXH
+[A] z,u*
+[A] L$H
+[A] T$0H
+[A] t$0L
+[A] T$XH
+[A] T$x
+[A] L$x
+[A] A^_^][
+[A] D$hL
+[A] L$pH
+[A] L$xL
+[A] T$`
+[A] [(I
+[A] k0A
+[A] A^_^
+[A] T$0
+[A] L$hE3
+[A] )t$@
+[A] )|$0I
+[A] tUH
+[A] T$(H
+[A] \$(H
+[A] (t$@
+[A] (|$0H
+[A] =(C
+[A] t"H
+[A] NXH
+[A] uHH
+[A] NPH
+[A] u;H
+[A] N`H
+[A] @8H
+[A] uhH
+[A] NhH
+[A] uiH
+[A] NHH
+[A] uEH
+[A] }0L
+[A] `A_A^_^]
+[A] A(L
+[A] t H
+[A] USVWAVH
+[A] u_H
+[A] uKH
+[A] tGH
+[A] @ D
+[A] H0D
+[A] P@D
+[A] XPD
+[A] ``D
+[A] hpA
+[A] )t$`
+[A] )|$pD
+[A] (D$`A
+[A] (L$pA
+[A] NpH
+[A] A^_^[]
+[A] \$ UVWH
+[A] tBH
+[A] T$P
+[A] uaH
+[A] _^]
+[A] USVWATAVAWH
+[A] t^H
+[A] T$X
+[A] L$hH
+[A] u$H
+[A] L$X
+[A] D$X
+[A] D$XA
+[A] f H
+[A] T$pH
+[A] L$xH
+[A] udH
+[A] ~ M
+[A] ~ H
+[A] tHI
+[A] f M
+[A] ~ L
+[A] |$`H
+[A] T$(
+[A] MPH3
+[A] d$0H
+[A] T$@
+[A] L$@H
+[A] T$8
+[A] L$HH
+[A] L$PH
+[A] L$XH
+[A] T$`H
+[A] M0H3
+[A] \$ UVWAVAWH
+[A] )t$pH
+[A] D$`
+[A] T$HE3
+[A] uoH
+[A] uVH
+[A] 5(5
+[A] v M
+[A] v L
+[A] L$`H3
+[A] (t$pH
+[A] T$XE3
+[A] |$0A
+[A] L$8L
+[A] L$pH3
+[A] T$0A
+[A] tKH
+[A] L$XH3
+[A] t<H
+[A] K(H
+[A] KhH
+[A] t33
+[A] SUUUUUU
+[A] P0H
+[A] D$x
+[A] } H
+[A] }0H
+[A] }@H
+[A] |$XH
+[A] }PH
+[A] }`H
+[A] |$pH
+[A] s(I
+[A] P@H
+[A] PXH
+[A] t$PD
+[A] t,A
+[A] t+A
+[A] |$xH
+[A] L$pE3
+[A] E`H
+[A] EhH
+[A] t*A
+[A] D95$
+[A] D95
+[A] d$0A
+[A] T$HH
+[A] t%H
+[A] I H
+[A] t_H
+[A] H0A;H0uMA
+[A] t&L+
+[A] H0;J0uQ
+[A] t+H+
+[A] )t$0
+[A] tNH
+[A] ujH
+[A] uSH
+[A] ~}H
+[A] ~zH
+[A] ~4H
+[A] (t$0H
+[A] _0H
+[A] gPH
+[A] oXH
+[A] o`H
+[A] ohH
+[A] opH
+[A] GxH
+[A] k I
+[A] |$ AVH
+[A] T$H
+[A] L$8f
+[A] D$ N
+[A] J0M
+[A] H(H
+[A] t]H
+[A] Ip3
+[A] W H
+[A] t$ UWAUAVAWH
+[A] D$hu
+[A] utH
+[A] uzH
+[A] u1H
+[A] D$8H;D$@t
+[A] D$8L
+[A] t$0H;
+[A] x A
+[A] tTH
+[A] H;t$8t
+[A] tzH
+[A] D$@H+
+[A] |$h
+[A] D$HA
+[A] L$HL
+[A] [8I
+[A] sHI
+[A] A_A^A]_]
+[A] B H
+[A] %`z
+[A] @UVAWH
+[A] @E3
+[A] L9y
+[A] A0I3
+[A] t$pL
+[A] q I;
+[A] T$(L
+[A] \$`L
+[A] @A_^]
+[A] VWATAVAWH
+[A] =fy
+[A] tiH
+[A] O0H
+[A] ufH
+[A] uTH
+[A] A_A^A\_^
+[A] @8k
+[A] tPH
+[A] M H
+[A] \$(M;
+[A] L$(H+
+[A] D$`L
+[A] tVL
+[A] @A^_^
+[A] D8{
+[A] |$8
+[A] VHH
+[A] t#H
+[A] |$(
+[A] |$8L
+[A] |$@
+[A] PA_A^_^]
+[A] tLI
+[A] %vo
+[A] G(L
+[A] W H;W(t1H
+[A] \$ UVWATAUAVAWH
+[A] U@H
+[A] 5Br
+[A] ](H
+[A] ]HH
+[A] L$pfH
+[A] =#h
+[A] EPL
+[A] t$L
+[A] tOH
+[A] L;C
+[A] t1I
+[A] EPH
+[A] E@L
+[A] t%L
+[A] t[H
+[A] t9I
+[A] PA_A^A\_^[]
+[A] D8s
+[A] PA^_^
+[A] t\H
+[A] usH
+[A] =fs
+[A] =Fp
+[A] =v_
+[A] =f\
+[A] =vI
+[A] =FC
+[A] =fH
+[A] =f;
+[A] =V8
+[A] =F5
+[A] =62
+[A] =&/
+[A] =6"
+[A] =F"
+[A] D$PI
+[A] D$pI
+[A] D$(J
+[A] t$ W
+[A] t$(L
+[A] )t$0H
+[A] T$ L
+[A] \$@I
+[A] [8L
+[A] |$ LcA
+[A] HcR
+[A] L$@f
+[A] D$@E3
+[A] @UVWAVH
+[A] r M
+[A] \$XL
+[A] d$`I
+[A] l$hI
+[A] D$PM
+[A] F8H
+[A] V H
+[A] l$hL
+[A] (A^_^]
+[A] B L
+[A] H8H
+[A] P0M
+[A] X,H
+[A] @<H
+[A] X(H
+[A] L$xI
+[A] x$H
+[A] T$pI
+[A] p H
+[A] T$hM
+[A] \$`M
+[A] \$XM
+[A] |$PM
+[A] t$HM
+[A] t$8I
+[A] d$XI
+[A] l$`I
+[A] l$`L
+[A] d$XH
+[A] d$8A
+[A] <$I
+[A] IcR
+[A] 8Ic
+[A] IcJ
+[A] |$ AVD
+[A] |$(A^
+[A] t$ WAVAWH
+[A] L$PJ
+[A] T$ I
+[A] 0A_A^_
+[A] L$ SH
+[A] D$(I
+[A] \$(E
+[A] \$0A
+[A] D$`D
+[A] D$`z
+[A] @USVWATAUAVAWH
+[A] E M
+[A] \$HE3
+[A] D$XL
+[A] ~ I
+[A] D$`M
+[A] $.I
+[A] L;|$`
+[A] t$hL
+[A] |$8I
+[A] tAH
+[A] M H3
+[A] A_A^A]A\_^[]
+[A] E(M
+[A] t$xE3
+[A] L$XL
+[A] } I
+[A] t$xL
+[A] U H
+[A] M(H3
+[A] L$0L
+[A] t$pE3
+[A] D$@M
+[A] L;|$@
+[A] l$xH
+[A] t$p
+[A] D$XM
+[A] L;|$X
+[A] E`M
+[A] L$PL
+[A] E H
+[A] M`H3
+[A] E@M
+[A] M@H3
+[A] U8H
+[A] M0I
+[A] M0H
+[A] EpM
+[A] )u0
+[A] )u@
+[A] )uPH
+[A] E`fH
+[A] I@H
+[A] HH;
+[A] MpH3
+[A] EHM
+[A] MHH3
+[A] |$@I
+[A] )uP
+[A] )u`
+[A] )up
+[A] qpH
+[A] D$@3
+[A] L;|$0
+[A] L$4H
+[A] EPM
+[A] E8M
+[A] U0H
+[A] M(I
+[A] M(H
+[A] E(H
+[A] M8H3
+[A] t$hE3
+[A] L;}
+[A] D$H3
+[A] D$XI
+[A] t$DH
+[A] D$DH
+[A] \$0L
+[A] G Nc<
+[A] D$ Nc$
+[A] u`M
+[A] ]@H
+[A] D$8C
+[A] u8M
+[A] }8H
+[A] D$0C
+[A] |$hM;
+[A] |$pL
+[A] d$x
+[A] $L;L$8
+[A] D$HM
+[A] tcH
+[A] UhI
+[A] t$TH
+[A] D$TH
+[A] F Nc<
+[A] E Nc,
+[A] uhM
+[A] }hH
+[A] UhH
+[A] D$@C
+[A] u@M
+[A] M@H
+[A] L$8I
+[A] |$pL;
+[A] L;L$@
+[A] EpH
+[A] D$HL
+[A] UpH
+[A] E8H
+[A] L$xM
+[A] D$pL
+[A] |$P
+[A] t$LH
+[A] D$LH
+[A] |$PL;
+[A] l$x
+[A] L;L$8
+[A] F Nc$
+[A] d$8L
+[A] d$PM
+[A] |$hL;
+[A] uXM
+[A] }XH
+[A] UXH
+[A] u0M
+[A] MxH
+[A] ExH
+[A] ]`H
+[A] E(L
+[A] e0L
+[A] t*f
+[A] }`M
+[A] |$@L;
+[A] L$DH
+[A] e`M
+[A] Mxf
+[A] E`3
+[A] L$pM
+[A] }`L;
+[A] l$p
+[A] \$xL
+[A] E`f
+[A] EdH
+[A] LcH
+[A] t$ I
+[A] HcA
+[A] D0PH
+[A] @t4
+[A] HcH
+[A] T1XH
+[A] L1H
+[A] \$x
+[A] u(f
+[A] t(H
+[A] D1(
+[A] L1HH
+[A] 0A_A^A\_^
+[A] B@H
+[A] %yz
+[A] BHH
+[A] %qy
+[A] B$H
+[A] %yy
+[A] %Fz
+[A] %Yz
+[A] %!y
+[A] %Qy
+[A] %ix
+[A] B0H
+[A] %qx
+[A] %Ix
+[A] %Yx
+[A] %Ax
+[A] %iw
+[A] %Aw
+[A] %y|
+[A] u8H
+[A] y H
+[A] t`H
+[A] H;{ t
+[A] H;r
+[A] t$ AVH
+[A] u-H
+[A] fA9
+[A] aH;
+[A] tXf
+[A] gH;
+[A] tbfff
+[A] I0H
+[A] @H;
+[A] H;j
+[A] >H;
+[A] txH
+[A] v(I
+[A] tvf
+[A] thH
+[A] v(M
+[A] t{f
+[A] 0H;
+[A] tnH
+[A] HI;
+[A] v2I
+[A] FI;
+[A] pH;
+[A] hH;
+[A] oH;
+[A] ^H;
+[A] tYf
+[A] D$8f
+[A] L$HD
+[A] |$8H9
+[A] D$(H;
+[A] \$(H;
+[A] O H;
+[A] O H
+[A] o L
+[A] r6H
+[A] y L
+[A] |$XH9
+[A] O L;
+[A] w H
+[A] w{H
+[A] C A
+[A] K0I
+[A] K@H
+[A] CXH
+[A] ChH
+[A] spH
+[A] D$0k
+[A] I(I
+[A] G@H
+[A] zJuH
+[A] z4u2
+[A] ATAWH
+[A] Nc,
+[A] n H
+[A] Jc4
+[A] t`I
+[A] n I
+[A] t#f
+[A] /H+
+[A] P I
+[A] L;|$p
+[A] t$ L
+[A] l$(H
+[A] HA_A\
+[A] AVAWH
+[A] Hc<0H
+[A] t$xI;
+[A] Lc$0
+[A] Hc,0
+[A] ~ I+
+[A] o M
+[A] tjI
+[A] D$xM
+[A] o I
+[A] F(H
+[A] V0H
+[A] t ff
+[A] P H+
+[A] XA_A^
+[A] UAWH
+[A] Lc$
+[A] v H
+[A] L$hM
+[A] ,LM
+[A] v I
+[A] w K
+[A] V I
+[A] t"B
+[A] v K
+[A] H;l$p
+[A] l$(L
+[A] HA_]
+[A] ATAUAWH
+[A] \$PM
+[A] l$XL
+[A] t$`L
+[A] |$(L
+[A] Nc4
+[A] Jc,
+[A] tIH
+[A] W M
+[A] y I
+[A] <0H
+[A] 4(H;
+[A] t+H;
+[A] x I
+[A] t$`H
+[A] 0A_A]A\
+[A] F(I
+[A] @ B
+[A] VAVH
+[A] Lc$8
+[A] Lc,8H
+[A] |$xH;
+[A] t+I
+[A] Hc48
+[A] o H
+[A] tnI
+[A] D$xI
+[A] V0J
+[A] tKfff
+[A] C C
+[A] C@H
+[A] J K
+[A] t<I
+[A] l$(
+[A] l$8L
+[A] d$@H
+[A] XA^^
+[A] UAUH
+[A] Hc4
+[A] H Hc
+[A] $NM
+[A] t\I
+[A] E K
+[A] t~f
+[A] rFL
+[A] >9D
+[A] rGM
+[A] (t$ L
+[A] XA]]
+[A] Nc$(
+[A] Jc\(
+[A] t I
+[A] Jc<(H
+[A] |$x
+[A] Jc4(
+[A] ~ H+
+[A] tfI
+[A] \$(I
+[A] F0L
+[A] @ I
+[A] UAVAWH
+[A] \$@M
+[A] d$X
+[A] Hc<
+[A] F H
+[A] tCA
+[A] F J
+[A] F L
+[A] t3A
+[A] A_A^]
+[A] UAVH
+[A] Lc,
+[A] D$hM
+[A] |$hI
+[A] H B
+[A] ^ H
+[A] [ J
+[A] #H+
+[A] HA^]
+[A] t!f
+[A] v J
+[A] Lc<
+[A] H Lc$
+[A] ,OI
+[A] t7I
+[A] A J
+[A] tgH;
+[A] tqH+
+[A] <3H;
+[A] 3H;
+[A] x H
+[A] tcH;
+[A] \$hH;\$p
+[A] C B
+[A] K0H
+[A] Lc$8H
+[A] t$I
+[A] Hc,8
+[A] u H+
+[A] E(K
+[A] t}fH
+[A] rAL
+[A] >H9D
+[A] r]M
+[A] t~fH
+[A] rBM
+[A] P I+
+[A] rZL
+[A] (t$0L
+[A] hA]]
+[A] SUH
+[A] Jct8
+[A] t$(H;
+[A] Nc,8
+[A] Jc,8
+[A] s I+
+[A] T$xH+
+[A] tbI
+[A] t$(M
+[A] C(I
+[A] 6H;
+[A] u`H
+[A] C0L
+[A] C0H
+[A] C(L
+[A] T$xL
+[A] p I
+[A] d$HH
+[A] X][
+[A] tmI
+[A] AUAVH
+[A] Hc<(
+[A] Hc\(
+[A] Lc4(
+[A] Hc4(
+[A] M I+
+[A] t<C
+[A] E0J
+[A] u!L
+[A] t4C
+[A] t$x
+[A] XA^A]
+[A] D$hI
+[A] G K
+[A] t:I
+[A] t>I
+[A] >u L
+[A] `H+
+[A] t!fff
+[A] `L+
+[A] \$xH;
+[A] t#I
+[A] t$pI
+[A] N0H
+[A] A L
+[A] tmH+
+[A] tlH;
+[A] tpH+
+[A] (A_A^A]A\_^][
+[A] F(J
+[A] V0O
+[A] B K
+[A] <RH
+[A] t4ff
+[A] t-fff
+[A] t'I
+[A] w I+
+[A] n M
+[A] G(I
+[A] W0H
+[A] K0B
+[A] C@B
+[A] KPB
+[A] C`B
+[A] KpH
+[A] t^f
+[A] tQH
+[A] SWATH
+[A] Lc4
+[A] m H
+[A] 4NM
+[A] m I
+[A] VXI
+[A] H M
+[A] 1I;
+[A] t4fff
+[A] v A
+[A] @A\_[
+[A] t3fff
+[A] I$A
+[A] t1f
+[A] t(B
+[A] t4H
+[A] N I
+[A] >ff
+[A] VAUH
+[A] Nc48
+[A] Nc$8
+[A] } I+
+[A] w L
+[A] |$xI
+[A] E(I
+[A] <0I
+[A] t(H;
+[A] XA]^
+[A] Nc$
+[A] ,LH
+[A] w O
+[A] t*B
+[A] <IH
+[A] L;t$p
+[A] HA_A^
+[A] t+fff
+[A] t"f
+[A] t&I
+[A] \$(
+[A] Hc|(
+[A] |$ I;
+[A] Lc$(
+[A] u I+
+[A] t]I
+[A] @ H;
+[A] t/H
+[A] fG9<0u
+[A] E0K
+[A] H J
+[A] 1H+
+[A] fE9|8
+[A] tA3
+[A] fC9
+[A] 0u K
+[A] <?3
+[A] t;3
+[A] f9D:
+[A] fH+
+[A] rCL
+[A] rAM
+[A] twf
+[A] rBL
+[A] t9A
+[A] t.A
+[A] tZH
+[A] <nH
+[A] t;H
+[A] aH+
+[A] >fA9X
+[A] taI
+[A] t9K
+[A] u L
+[A] tAK
+[A] u#J
+[A] Jc<
+[A] \$ I
+[A] [ H
+[A] +H+
+[A] WAVH
+[A] Hc,
+[A] g I+
+[A] l$ M
+[A] tpI
+[A] H K
+[A] G0I
+[A] H N
+[A] H I+
+[A] hA^_
+[A] t8C
+[A] rPL
+[A] rSM
+[A] T$XI
+[A] r5H
+[A] L$xH3
+[A] D$8)
+[A] J0H
+[A] @I;
+[A] 0I;
+[A] t(L
+[A] z H
+[A] t H+
+[A] t!H+
+[A] r H
+[A] tAH+
+[A] L;D
+[A] zvut
+[A] ziug
+[A] z[uY
+[A] zMuK
+[A] z?u=
+[A] z1u/
+[A] z%u#
+[A] zoum
+[A] zcua
+[A] zVuT
+[A] zIuG
+[A] z<u:
+[A] z/u-
+[A] z$u"
+[A] tSH
+[A] t5H+
+[A] z2u0
+[A] tCH
+[A] z;u9
+[A] z.u,
+[A] z!u
+[A] z#u!
+[A] z8u6
+[A] z u
+[A] t$H+
+[A] t-H+
+[A] t.H+
+[A] z9u7
+[A] z-u+
+[A] z"u
+[A] tFH
+[A] KI;
+[A] tcL
+[A] z@u>
+[A] z)u'
+[A] zTuR
+[A] z>u<
+[A] t#H+
+[A] CI;
+[A] O@L
+[A] urH
+[A] `_^]
+[A] |$H
+[A] u.I
+[A] D$HI
+[A] HHH
+[A] |$XL
+[A] N(H
+[A] n@H
+[A] MpH
+[A] 5d'
+[A] L$hf
+[A] |$hL
+[A] K8H
+[A] k@D
+[A] cHH
+[A] L9d$8u
+[A] @@H
+[A] H@H
+[A] uRH
+[A] U`I
+[A] tGI
+[A] UxI
+[A] E I
+[A] UxH
+[A] e H
+[A] ehH
+[A] U(I
+[A] e0H
+[A] umH
+[A] t*L
+[A] O@H
+[A] k0I
+[A] T$0E3
+[A] }8L
+[A] E@D
+[A] slH
+[A] oF f
+[A] oF0f
+[A] N0I
+[A] 4$M
+[A] uXH
+[A] L$8A
+[A] C(H3
+[A] ?H;
+[A] TUUUUUU
+[A] T$HL
+[A] H3A8H
+[A] E 2
+[A] L$Xu*L
+[A] T$0L
+[A] L$hH3
+[A] p_^]
+[A] l$83
+[A] t0L
+[A] tqH
+[A] |$`ff
+[A] S0L
+[A] [(L
+[A] { L
+[A] D$pE3
+[A] [8H
+[A] k@H
+[A] sHL
+[A] VATAUAVAWH
+[A] |$Pf
+[A] A_A^A]A\^
+[A] Z L
+[A] McC
+[A] J L
+[A] @UVWATAWH
+[A] i L
+[A] tkH
+[A] ^@H
+[A] NXL
+[A] F@B
+[A] 2H;
+[A] A_A\_^]
+[A] r.H
+[A] J'H;
+[A] VWAWH
+[A] w!H
+[A] w:H
+[A] w)H
+[A] r9H
+[A] H'H;
+[A] r-H
+[A] w&I
+[A] A__^
+[A] H(I;H(r<uMI
+[A] |$ 2
+[A] QHL
+[A] AHH
+[A] {HH
+[A] @A^
+[A] |$@I;
+[A] V(I
+[A] H0I
+[A] T$HH+
+[A] \$PI
+[A] R8H
+[A] %BQ
+[A] %4Q
+[A] %&Q
+[A] %pU
+[A] %$X
+[A] %zO
+[A] H L
+[A] SVWAVH
+[A] 8A^_^[
+[A] \$8H;
+[A] s0I
+[A] t!eH
+[A] t.2
+[A] uxHc
+[A] 9PE
+[A] f9A
+[A] uTL+
+[A] =:z
+[A] t$3
+[A] \$03
+[A] %BR
+[A] %-G
+[A] x AVH
+[A] %.F
+[A] A8H
+[A] @SE
+[A] McP
+[A] D$@@
+[A] =-u
+[A] X L
+[A] wEH
+[A] u2L
+[A] u@L
+[A] ntelA
+[A] ineID
+[A] Genu
+[A] u[H
+[A] t(=`
+[A] t!=p
+[A] w$H
+[A] |&3
+[A] ss3
+[A] D$ "
+[A] D$ $
+[A] \$(3
+[A] d$8
+[A] L$ 3
+[A] D$T
+[A] @SVWH
+[A] T$`L
+[A] L$(3
+[A] @_^[
+[A] \$ UH
+[A] H1E
+[A] M H1E
+[A] H3E H3E
+[A] %<=
+[A] %p=
+[A] %$=
+[A] %&=
+[A] %(=
+[A] %*=
+[A] %\=
+[A] %.=
+[A] %0=
+[A] %2E
+[A] U(H
+[A] SUWH
+[A] SUVWH
+[A] @UH
+[A] %R.
+[A] MxL
+[A] 8csm
+[A] Unknown exception
+[A] bad array new length
+[A] Did not find computed value for primvar %s
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ExtComputationContext::GetComputedValue(const class fnInternal_v23_05__pxrReserved__::TfToken &,const class fnInternal_v23_05__pxrReserved__::SdfPath &,const class fnInternal_v23_05__pxrReserved__::TfToken &,const float &)
+[A] GetComputedValue
+[A] Y:\.cs\6668e3\1\USD_src\pxr\imaging\hdsi\extComputationPrimvarPruningSceneIndex.cpp
+[A] Couldn't find input %s for computation %s.
+[A] class std::vector<struct std::pair<class fnInternal_v23_05__pxrReserved__::TfToken,class fnInternal_v23_05__pxrReserved__::VtValue>,class std::allocator<struct std::pair<class fnInternal_v23_05__pxrReserved__::TfToken,class fnInternal_v23_05__pxrReserved__::VtValue> > > __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ExtComputationContext::_ExecuteComputationNetwork(const class fnInternal_v23_05__pxrReserved__::SdfPath &,const float &)
+[A] _ExecuteComputationNetwork
+[A] Couldn't find input %s (sourceCompOutput %s) for computation %s.
+[A] Could not find CPU callback data source for %s
+[A] Error invoking computation %s.
+[A] Did not find computed output %s for computation %s.
+[A] Invalid container data source input provided.
+[A] __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_SampledExtCompPrimvarDataSource::_SampledExtCompPrimvarDataSource(const class std::shared_ptr<class fnInternal_v23_05__pxrReserved__::HdContainerDataSource> &,const class fnInternal_v23_05__pxrReserved__::TfToken &,class std::shared_ptr<class fnInternal_v23_05__pxrReserved__::`anonymous namespace'::_ExtComputationContext>)
+[A] _SampledExtCompPrimvarDataSource
+[A] __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ExtCompPrimvarDataSource::_ExtCompPrimvarDataSource(const class std::shared_ptr<class fnInternal_v23_05__pxrReserved__::HdContainerDataSource> &,const class fnInternal_v23_05__pxrReserved__::TfToken &,class std::shared_ptr<class fnInternal_v23_05__pxrReserved__::`anonymous namespace'::_ExtComputationContext>)
+[A] _ExtCompPrimvarDataSource
+[A] Invalid container data source input provided for extComputationPrimvars.
+[A] __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_PrimvarsDataSource::_PrimvarsDataSource(const class std::shared_ptr<class fnInternal_v23_05__pxrReserved__::HdContainerDataSource> &,const class std::shared_ptr<class fnInternal_v23_05__pxrReserved__::HdContainerDataSource> &,const class fnInternal_v23_05__pxrReserved__::TfRefPtr<class fnInternal_v23_05__pxrReserved__::HdSceneIndexBase> &)
+[A] _PrimvarsDataSource
+[A] __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_PrimDataSource::_PrimDataSource(const class std::shared_ptr<class fnInternal_v23_05__pxrReserved__::HdContainerDataSource> &,const class fnInternal_v23_05__pxrReserved__::TfRefPtr<class fnInternal_v23_05__pxrReserved__::HdSceneIndexBase> &)
+[A] _PrimDataSource
+[A] _PrimsDirtied
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::HdSiExtComputationPrimvarPruningSceneIndex::_PrimsDirtied(const class fnInternal_v23_05__pxrReserved__::HdSceneIndexBase &,const class fnInternal_v23_05__pxrReserved__::TfSmallVector<struct fnInternal_v23_05__pxrReserved__::HdSceneIndexObserver::DirtiedPrimEntry,16> &)
+[A] invalid unordered_map<K, T> key
+[A] class fnInternal_v23_05__pxrReserved__::HdSceneIndexBase *__cdecl fnInternal_v23_05__pxrReserved__::TfRefPtr<class fnInternal_v23_05__pxrReserved__::HdSceneIndexBase>::operator ->(void) const
+[A] operator ->
+[A] Y:/.cs/6668e3/1/USD_src/pxr/base/tf/refPtr.h
+[A] vector too long
+[A] unordered_map/set too long
+[A] invalid hash bucket count
+[A] deque<T> too long
+[A] toMesh
+[A] axisToTransform
+[A] implicitToMesh
+[A] implicitToXform
+[A] GetPrim
+[A] struct fnInternal_v23_05__pxrReserved__::HdSceneIndexPrim __cdecl fnInternal_v23_05__pxrReserved__::HdsiImplicitSurfaceSceneIndex::GetPrim(const class fnInternal_v23_05__pxrReserved__::SdfPath &) const
+[A] _PrimsAdded
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::HdsiImplicitSurfaceSceneIndex::_PrimsAdded(const class fnInternal_v23_05__pxrReserved__::HdSceneIndexBase &,const class fnInternal_v23_05__pxrReserved__::TfSmallVector<struct fnInternal_v23_05__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry,16> &)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3f>::_DetachIfNotUnique(void)
+[A] class fnInternal_v23_05__pxrReserved__::GfVec3f *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3f>::_AllocateNew(unsigned __int64)
+[A] VtArray::_AllocateNew
+[A] materialPrimvarTransfer_dep
+[A] materialPrimvarTransfer_primvarsToBinding
+[A] materialPrimvarTransfer_primvarsToMaterial
+[A] string too long
+[A] Unsupported type for expansion %s
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ExpandedValue::operator ()(const class fnInternal_v23_05__pxrReserved__::VtValue &)
+[A] operator ()
+[A] Y:\.cs\6668e3\1\USD_src\pxr\imaging\hdsi\pinnedCurveExpandingSceneIndex.cpp
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ExpandedVaryingValue::operator ()(const class fnInternal_v23_05__pxrReserved__::VtValue &)
+[A] __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_PrimvarDataSource::_PrimvarDataSource(const class std::shared_ptr<class fnInternal_v23_05__pxrReserved__::HdContainerDataSource> &,const class fnInternal_v23_05__pxrReserved__::TfToken &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,bool)
+[A] _PrimvarDataSource
+[A] __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_PrimvarsDataSource::_PrimvarsDataSource(const class std::shared_ptr<class fnInternal_v23_05__pxrReserved__::HdContainerDataSource> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64 &,bool)
+[A] __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_TopologyDataSource::_TopologyDataSource(const class std::shared_ptr<class fnInternal_v23_05__pxrReserved__::HdContainerDataSource> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64 &)
+[A] _TopologyDataSource
+[A] __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_BasisCurvesDataSource::_BasisCurvesDataSource(const class std::shared_ptr<class fnInternal_v23_05__pxrReserved__::HdContainerDataSource> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64 &)
+[A] _BasisCurvesDataSource
+[A] __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_PrimDataSource::_PrimDataSource(const class std::shared_ptr<class fnInternal_v23_05__pxrReserved__::HdContainerDataSource> &)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<int>::_DetachIfNotUnique(void)
+[A] int *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<int>::_AllocateNew(unsigned __int64)
+[A] Data for %s does not match expected size (got %zu, expected %zu)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<int>(const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] _ComputeExpandedValue
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfVec4i>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4i> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfVec3i>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3i> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfVec2i>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2i> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfVec4h>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4h> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfVec3h>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3h> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfVec2h>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2h> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfVec4f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfVec3f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfVec2f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfVec4d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfVec3d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfVec2d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfMatrix4f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix4f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfMatrix3f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix3f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfMatrix2f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix2f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfMatrix4d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix4d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfMatrix3d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix3d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfMatrix2d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix2d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfRange3f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange3f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfRange3d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange3d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfRange2f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange2f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfRange2d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange2d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfRange1f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange1f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfRange1d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange1d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfInterval>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfInterval> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfRect2i>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRect2i> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfQuath>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuath> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfQuatf>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuatf> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfQuatd>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuatd> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfQuaternion>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuaternion> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfDualQuath>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfDualQuath> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfDualQuatf>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfDualQuatf> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::GfDualQuatd>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfDualQuatd> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<bool>(const class fnInternal_v23_05__pxrReserved__::VtArray<bool> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<char>(const class fnInternal_v23_05__pxrReserved__::VtArray<char> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<unsigned char>(const class fnInternal_v23_05__pxrReserved__::VtArray<unsigned char> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<short>(const class fnInternal_v23_05__pxrReserved__::VtArray<short> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<unsigned short>(const class fnInternal_v23_05__pxrReserved__::VtArray<unsigned short> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<unsigned int>(const class fnInternal_v23_05__pxrReserved__::VtArray<unsigned int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<__int64>(const class fnInternal_v23_05__pxrReserved__::VtArray<__int64> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<unsigned __int64>(const class fnInternal_v23_05__pxrReserved__::VtArray<unsigned __int64> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<double>(const class fnInternal_v23_05__pxrReserved__::VtArray<double> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<float>(const class fnInternal_v23_05__pxrReserved__::VtArray<float> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::pxr_half::half>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::pxr_half::half> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >>(const class fnInternal_v23_05__pxrReserved__::VtArray<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > > &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedValue<class fnInternal_v23_05__pxrReserved__::TfToken>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::TfToken> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] curveVaryingCounts.size() == curveVertexCounts.size()
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfVec4i>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4i> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] _ComputeExpandedVaryingValue
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfVec3i>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3i> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfVec2i>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2i> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfVec4h>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4h> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfVec3h>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3h> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfVec2h>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2h> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfVec4f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfVec3f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfVec2f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfVec4d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfVec3d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfVec2d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfMatrix4f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix4f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfMatrix3f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix3f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfMatrix2f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix2f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfMatrix4d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix4d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfMatrix3d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix3d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfMatrix2d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix2d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfRange3f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange3f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfRange3d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange3d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfRange2f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange2f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfRange2d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange2d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfRange1f>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange1f> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfRange1d>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange1d> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfInterval>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfInterval> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfRect2i>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRect2i> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfQuath>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuath> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfQuatf>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuatf> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfQuatd>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuatd> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfQuaternion>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuaternion> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfDualQuath>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfDualQuath> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfDualQuatf>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfDualQuatf> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::GfDualQuatd>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfDualQuatd> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<bool>(const class fnInternal_v23_05__pxrReserved__::VtArray<bool> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<char>(const class fnInternal_v23_05__pxrReserved__::VtArray<char> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<unsigned char>(const class fnInternal_v23_05__pxrReserved__::VtArray<unsigned char> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<short>(const class fnInternal_v23_05__pxrReserved__::VtArray<short> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<unsigned short>(const class fnInternal_v23_05__pxrReserved__::VtArray<unsigned short> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<int>(const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<unsigned int>(const class fnInternal_v23_05__pxrReserved__::VtArray<unsigned int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<__int64>(const class fnInternal_v23_05__pxrReserved__::VtArray<__int64> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<unsigned __int64>(const class fnInternal_v23_05__pxrReserved__::VtArray<unsigned __int64> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<double>(const class fnInternal_v23_05__pxrReserved__::VtArray<double> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<float>(const class fnInternal_v23_05__pxrReserved__::VtArray<float> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::pxr_half::half>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::pxr_half::half> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >>(const class fnInternal_v23_05__pxrReserved__::VtArray<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > > &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] class fnInternal_v23_05__pxrReserved__::VtValue __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::_ComputeExpandedVaryingValue<class fnInternal_v23_05__pxrReserved__::TfToken>(const class fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::TfToken> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const class fnInternal_v23_05__pxrReserved__::VtArray<int> &,const unsigned __int64,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::TfToken>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > >::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::pxr_half::half>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<float>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<double>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<unsigned __int64>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<__int64>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<unsigned int>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<unsigned short>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<short>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<unsigned char>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<char>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<bool>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfDualQuatd>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfDualQuatf>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfDualQuath>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuaternion>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuatd>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuatf>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuath>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRect2i>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfInterval>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange1d>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange1f>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange2d>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange2f>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange3d>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange3f>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix2d>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix3d>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix4d>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix2f>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix3f>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix4f>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2d>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3d>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4d>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2f>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4f>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2h>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3h>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4h>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2i>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3i>::_DetachIfNotUnique(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4i>::_DetachIfNotUnique(void)
+[A] class fnInternal_v23_05__pxrReserved__::TfToken *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::TfToken>::_AllocateNew(unsigned __int64)
+[A] class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > >::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::pxr_half::half *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::pxr_half::half>::_AllocateNew(unsigned __int64)
+[A] float *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<float>::_AllocateNew(unsigned __int64)
+[A] double *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<double>::_AllocateNew(unsigned __int64)
+[A] unsigned __int64 *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<unsigned __int64>::_AllocateNew(unsigned __int64)
+[A] __int64 *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<__int64>::_AllocateNew(unsigned __int64)
+[A] unsigned int *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<unsigned int>::_AllocateNew(unsigned __int64)
+[A] unsigned short *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<unsigned short>::_AllocateNew(unsigned __int64)
+[A] short *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<short>::_AllocateNew(unsigned __int64)
+[A] unsigned char *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<unsigned char>::_AllocateNew(unsigned __int64)
+[A] char *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<char>::_AllocateNew(unsigned __int64)
+[A] bool *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<bool>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfDualQuatd *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfDualQuatd>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfDualQuatf *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfDualQuatf>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfDualQuath *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfDualQuath>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfQuaternion *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuaternion>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfQuatd *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuatd>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfQuatf *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuatf>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfQuath *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfQuath>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfRect2i *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRect2i>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfInterval *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfInterval>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfRange1d *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange1d>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfRange1f *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange1f>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfRange2d *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange2d>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfRange2f *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange2f>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfRange3d *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange3d>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfRange3f *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfRange3f>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfMatrix2d *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix2d>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfMatrix3d *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix3d>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfMatrix4d *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix4d>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfMatrix2f *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix2f>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfMatrix3f *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix3f>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfMatrix4f *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfMatrix4f>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfVec2d *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2d>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfVec3d *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3d>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfVec4d *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4d>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfVec2f *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2f>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfVec4f *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4f>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfVec2h *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2h>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfVec3h *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3h>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfVec4h *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4h>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfVec2i *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec2i>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfVec3i *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec3i>::_AllocateNew(unsigned __int64)
+[A] class fnInternal_v23_05__pxrReserved__::GfVec4i *__cdecl fnInternal_v23_05__pxrReserved__::VtArray<class fnInternal_v23_05__pxrReserved__::GfVec4i>::_AllocateNew(unsigned __int64)
+[A] SleepConditionVariableCS
+[A] WakeAllConditionVariable
+[A] bad allocation
+[A] .text$di
+[A] .text$mn
+[A] .text$mn$00
+[A] .text$x
+[A] .text$yd
+[A] .idata$5
+[A] .00cfg
+[A] .CRT$XCA
+[A] .CRT$XCU
+[A] .CRT$XCZ
+[A] .CRT$XIA
+[A] .CRT$XIC
+[A] .CRT$XIZ
+[A] .CRT$XLA
+[A] .CRT$XLZ
+[A] .CRT$XPA
+[A] .CRT$XPZ
+[A] .CRT$XTA
+[A] .CRT$XTZ
+[A] .rdata
+[A] .rdata$T
+[A] .rdata$r
+[A] .rdata$voltmd
+[A] .rdata$zzzdbg
+[A] .rtc$IAA
+[A] .rtc$IZZ
+[A] .rtc$TAA
+[A] .rtc$TZZ
+[A] .tls
+[A] .tls$
+[A] .tls$ZZZ
+[A] .xdata
+[A] .xdata$x
+[A] .edata
+[A] .idata$2
+[A] .idata$3
+[A] .idata$4
+[A] .idata$6
+[A] .data
+[A] .data$r
+[A] .data$rs
+[A] .bss
+[A] .rsrc$01
+[A] .rsrc$02
+[A] 2`X
+[A] R P
+[A] 2 V
+[A] u< W
+[A] 2 W
+[A] !4"
+[A] :@S
+[A] zpT
+[A] : W
+[A] p20V
+[A] : X
+[A] &L(
+[A] **,X.B0
+[A] 2.4|6x,.84:$<M
+[A] H6F
+[A] JTL
+[A] FpN\D
+[A] B<>}
+[A] @2@P
+[A] * P
+[A] 2 P
+[A] b P
+[A] Z P
+[A] @: N
+[A] 08Fp
+[A] `4 W
+[A] 20V
+[A] !dA
+[A] !4?
+[A] @>p
+[A] `>p
+[A] !4+
+[A] p6`
+[A] p6@
+[A] hpF
+[A] p!P
+[A] :0V
+[A] `6P
+[A] B W
+[A] p r"d$]
+[A] @6B4D
+[A] J2L
+[A] N$P
+[A] R:T
+[A] V<T
+[A] .p%
+[A] p2p
+[A] @`h
+[A] 08@HPX`hvp
+[A] 2 X
+[A] 0:`X
+[A] \ X
+[A] n$p
+[A] ((*
+[A] ,f&
+[A] .$*40
+[A] 2J,x&
+[A] , X
+[A] : P
+[A] p6P#
+[A] T x"1
+[A] *H,
+[A] 2V4l2
+[A] T x"
+[A] F x"
+[A] $h"
+[A] '2#
+[A] 8y'
+[A] @08~p
+[A] 0!A
+[A] @fp
+[A] @8@
+[A] fnhdsi.dll
+[A] ??0HdSiExtComputationPrimvarPruningSceneIndex@fnInternal_v23_05__pxrReserved__@@IEAA@AEBV?$TfRefPtr@VHdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@@1@@Z
+[A] ??0HdsiImplicitSurfaceSceneIndexTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??0HdsiPinnedCurveExpandingSceneIndex@fnInternal_v23_05__pxrReserved__@@IEAA@AEBV?$TfRefPtr@VHdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@@1@@Z
+[A] ??1HdsiImplicitSurfaceSceneIndexTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?GetChildPrimPaths@HdSiExtComputationPrimvarPruningSceneIndex@fnInternal_v23_05__pxrReserved__@@UEBA?AV?$vector@VSdfPath@fnInternal_v23_05__pxrReserved__@@V?$allocator@VSdfPath@fnInternal_v23_05__pxrReserved__@@@std@@@std@@AEBVSdfPath@2@@Z
+[A] ?GetChildPrimPaths@HdsiImplicitSurfaceSceneIndex@fnInternal_v23_05__pxrReserved__@@UEBA?AV?$vector@VSdfPath@fnInternal_v23_05__pxrReserved__@@V?$allocator@VSdfPath@fnInternal_v23_05__pxrReserved__@@@std@@@std@@AEBVSdfPath@2@@Z
+[A] ?GetChildPrimPaths@HdsiMaterialBindingResolvingSceneIndex@fnInternal_v23_05__pxrReserved__@@UEBA?AV?$vector@VSdfPath@fnInternal_v23_05__pxrReserved__@@V?$allocator@VSdfPath@fnInternal_v23_05__pxrReserved__@@@std@@@std@@AEBVSdfPath@2@@Z
+[A] ?GetChildPrimPaths@HdsiMaterialPrimvarTransferSceneIndex@fnInternal_v23_05__pxrReserved__@@UEBA?AV?$vector@VSdfPath@fnInternal_v23_05__pxrReserved__@@V?$allocator@VSdfPath@fnInternal_v23_05__pxrReserved__@@@std@@@std@@AEBVSdfPath@2@@Z
+[A] ?GetChildPrimPaths@HdsiPinnedCurveExpandingSceneIndex@fnInternal_v23_05__pxrReserved__@@UEBA?AV?$vector@VSdfPath@fnInternal_v23_05__pxrReserved__@@V?$allocator@VSdfPath@fnInternal_v23_05__pxrReserved__@@@std@@@std@@AEBVSdfPath@2@@Z
+[A] ?GetPrim@HdSiExtComputationPrimvarPruningSceneIndex@fnInternal_v23_05__pxrReserved__@@UEBA?AUHdSceneIndexPrim@2@AEBVSdfPath@2@@Z
+[A] ?GetPrim@HdsiImplicitSurfaceSceneIndex@fnInternal_v23_05__pxrReserved__@@UEBA?AUHdSceneIndexPrim@2@AEBVSdfPath@2@@Z
+[A] ?GetPrim@HdsiMaterialBindingResolvingSceneIndex@fnInternal_v23_05__pxrReserved__@@UEBA?AUHdSceneIndexPrim@2@AEBVSdfPath@2@@Z
+[A] ?GetPrim@HdsiMaterialPrimvarTransferSceneIndex@fnInternal_v23_05__pxrReserved__@@UEBA?AUHdSceneIndexPrim@2@AEBVSdfPath@2@@Z
+[A] ?GetPrim@HdsiPinnedCurveExpandingSceneIndex@fnInternal_v23_05__pxrReserved__@@UEBA?AUHdSceneIndexPrim@2@AEBVSdfPath@2@@Z
+[A] ?HdsiImplicitSurfaceSceneIndexTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdsiImplicitSurfaceSceneIndexTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdsiImplicitSurfaceSceneIndexTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?New@HdSiExtComputationPrimvarPruningSceneIndex@fnInternal_v23_05__pxrReserved__@@SA?AV?$TfRefPtr@VHdSiExtComputationPrimvarPruningSceneIndex@fnInternal_v23_05__pxrReserved__@@@2@AEBV?$TfRefPtr@VHdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@@2@@Z
+[A] ?New@HdsiImplicitSurfaceSceneIndex@fnInternal_v23_05__pxrReserved__@@SA?AV?$TfRefPtr@VHdsiImplicitSurfaceSceneIndex@fnInternal_v23_05__pxrReserved__@@@2@AEBV?$TfRefPtr@VHdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@@2@AEBV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?New@HdsiMaterialBindingResolvingSceneIndex@fnInternal_v23_05__pxrReserved__@@SA?AV?$TfRefPtr@VHdsiMaterialBindingResolvingSceneIndex@fnInternal_v23_05__pxrReserved__@@@2@AEBV?$TfRefPtr@VHdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@@2@AEBV?$vector@VTfToken@fnInternal_v23_05__pxrReserved__@@V?$allocator@VTfToken@fnInternal_v23_05__pxrReserved__@@@std@@@std@@AEBVTfToken@2@@Z
+[A] ?New@HdsiMaterialPrimvarTransferSceneIndex@fnInternal_v23_05__pxrReserved__@@SA?AV?$TfRefPtr@VHdsiMaterialPrimvarTransferSceneIndex@fnInternal_v23_05__pxrReserved__@@@2@AEBV?$TfRefPtr@VHdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@@2@@Z
+[A] ?New@HdsiPinnedCurveExpandingSceneIndex@fnInternal_v23_05__pxrReserved__@@SA?AV?$TfRefPtr@VHdsiPinnedCurveExpandingSceneIndex@fnInternal_v23_05__pxrReserved__@@@2@AEBV?$TfRefPtr@VHdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@@2@@Z
+[A] ?New@HdsiTerminalsResolvingSceneIndex@fnInternal_v23_05__pxrReserved__@@SA?AV?$TfRefPtr@VHdsiTerminalsResolvingSceneIndex@fnInternal_v23_05__pxrReserved__@@@2@AEBV?$TfRefPtr@VHdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@@2@AEBV?$map@VTfToken@fnInternal_v23_05__pxrReserved__@@V12@U?$less@VTfToken@fnInternal_v23_05__pxrReserved__@@@std@@V?$allocator@U?$pair@$$CBVTfToken@fnInternal_v23_05__pxrReserved__@@V12@@std@@@4@@std@@@Z
+[A] ?ResolveTerminals@HdsiTerminalsResolvingSceneIndex@fnInternal_v23_05__pxrReserved__@@SAXPEAVHdMaterialNetworkInterface@2@AEBV?$map@VTfToken@fnInternal_v23_05__pxrReserved__@@V12@U?$less@VTfToken@fnInternal_v23_05__pxrReserved__@@@std@@V?$allocator@U?$pair@$$CBVTfToken@fnInternal_v23_05__pxrReserved__@@V12@@std@@@4@@std@@@Z
+[A] ?_PrimsAdded@HdSiExtComputationPrimvarPruningSceneIndex@fnInternal_v23_05__pxrReserved__@@MEAAXAEBVHdSceneIndexBase@2@AEBV?$TfSmallVector@UAddedPrimEntry@HdSceneIndexObserver@fnInternal_v23_05__pxrReserved__@@$0BA@@2@@Z
+[A] ?_PrimsAdded@HdsiPinnedCurveExpandingSceneIndex@fnInternal_v23_05__pxrReserved__@@MEAAXAEBVHdSceneIndexBase@2@AEBV?$TfSmallVector@UAddedPrimEntry@HdSceneIndexObserver@fnInternal_v23_05__pxrReserved__@@$0BA@@2@@Z
+[A] ?_PrimsDirtied@HdSiExtComputationPrimvarPruningSceneIndex@fnInternal_v23_05__pxrReserved__@@MEAAXAEBVHdSceneIndexBase@2@AEBV?$TfSmallVector@UDirtiedPrimEntry@HdSceneIndexObserver@fnInternal_v23_05__pxrReserved__@@$0BA@@2@@Z
+[A] ?_PrimsDirtied@HdsiPinnedCurveExpandingSceneIndex@fnInternal_v23_05__pxrReserved__@@MEAAXAEBVHdSceneIndexBase@2@AEBV?$TfSmallVector@UDirtiedPrimEntry@HdSceneIndexObserver@fnInternal_v23_05__pxrReserved__@@$0BA@@2@@Z
+[A] ?_PrimsRemoved@HdSiExtComputationPrimvarPruningSceneIndex@fnInternal_v23_05__pxrReserved__@@MEAAXAEBVHdSceneIndexBase@2@AEBV?$TfSmallVector@URemovedPrimEntry@HdSceneIndexObserver@fnInternal_v23_05__pxrReserved__@@$0BA@@2@@Z
+[A] ?_PrimsRemoved@HdsiPinnedCurveExpandingSceneIndex@fnInternal_v23_05__pxrReserved__@@MEAAXAEBVHdSceneIndexBase@2@AEBV?$TfSmallVector@URemovedPrimEntry@HdSceneIndexObserver@fnInternal_v23_05__pxrReserved__@@$0BA@@2@@Z
+[A] ?ComputeNumPoints@GeomUtilCapsuleMeshGenerator@fnInternal_v23_05__pxrReserved__@@SA_K_K0_N@Z
+[A] ?GenerateTopology@GeomUtilCapsuleMeshGenerator@fnInternal_v23_05__pxrReserved__@@SA?AVPxOsdMeshTopology@2@_K0_N@Z
+[A] ?ComputeNumPoints@GeomUtilConeMeshGenerator@fnInternal_v23_05__pxrReserved__@@SA_K_K_N@Z
+[A] ?GenerateTopology@GeomUtilConeMeshGenerator@fnInternal_v23_05__pxrReserved__@@SA?AVPxOsdMeshTopology@2@_K_N@Z
+[A] ?ComputeNumPoints@GeomUtilCuboidMeshGenerator@fnInternal_v23_05__pxrReserved__@@SA_KXZ
+[A] ?GenerateTopology@GeomUtilCuboidMeshGenerator@fnInternal_v23_05__pxrReserved__@@SA?AVPxOsdMeshTopology@2@XZ
+[A] ?ComputeNumPoints@GeomUtilCylinderMeshGenerator@fnInternal_v23_05__pxrReserved__@@SA_K_K_N@Z
+[A] ?GenerateTopology@GeomUtilCylinderMeshGenerator@fnInternal_v23_05__pxrReserved__@@SA?AVPxOsdMeshTopology@2@_K_N@Z
+[A] ?ComputeNumPoints@GeomUtilSphereMeshGenerator@fnInternal_v23_05__pxrReserved__@@SA_K_K0_N@Z
+[A] ?GenerateTopology@GeomUtilSphereMeshGenerator@fnInternal_v23_05__pxrReserved__@@SA?AVPxOsdMeshTopology@2@_K0_N@Z
+[A] ??$_GeneratePointsImpl@VGfVec3f@fnInternal_v23_05__pxrReserved__@@@GeomUtilCuboidMeshGenerator@fnInternal_v23_05__pxrReserved__@@CAXMMMAEBU?$_PointWriter@VGfVec3f@fnInternal_v23_05__pxrReserved__@@@GeomUtilMeshGeneratorBase@1@@Z
+[A] ??$_GeneratePointsImpl@VGfVec3f@fnInternal_v23_05__pxrReserved__@@@GeomUtilConeMeshGenerator@fnInternal_v23_05__pxrReserved__@@CAX_KMMMAEBU?$_PointWriter@VGfVec3f@fnInternal_v23_05__pxrReserved__@@@GeomUtilMeshGeneratorBase@1@@Z
+[A] ??$_GeneratePointsImpl@VGfVec3f@fnInternal_v23_05__pxrReserved__@@@GeomUtilCylinderMeshGenerator@fnInternal_v23_05__pxrReserved__@@CAX_KMMMMAEBU?$_PointWriter@VGfVec3f@fnInternal_v23_05__pxrReserved__@@@GeomUtilMeshGeneratorBase@1@@Z
+[A] ??$_GeneratePointsImpl@VGfVec3f@fnInternal_v23_05__pxrReserved__@@@GeomUtilSphereMeshGenerator@fnInternal_v23_05__pxrReserved__@@CAX_K0MMAEBU?$_PointWriter@VGfVec3f@fnInternal_v23_05__pxrReserved__@@@GeomUtilMeshGeneratorBase@1@@Z
+[A] ??$_GeneratePointsImpl@VGfVec3f@fnInternal_v23_05__pxrReserved__@@@GeomUtilCapsuleMeshGenerator@fnInternal_v23_05__pxrReserved__@@CAX_K0MMMMMMAEBU?$_PointWriter@VGfVec3f@fnInternal_v23_05__pxrReserved__@@@GeomUtilMeshGeneratorBase@1@@Z
+[A] fngeomUtil.dll
+[A] ?ReplacePrefix@HdDataSourceLocatorSet@fnInternal_v23_05__pxrReserved__@@QEBA?AV12@AEBVHdDataSourceLocator@2@0@Z
+[A] ??1HdDataSourceBase@fnInternal_v23_05__pxrReserved__@@UEAA@XZ
+[A] ??1HdSceneIndexObserver@fnInternal_v23_05__pxrReserved__@@UEAA@XZ
+[A] ??1HdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@UEAA@XZ
+[A] ?_SendPrimsAdded@HdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@IEAAXAEBV?$TfSmallVector@UAddedPrimEntry@HdSceneIndexObserver@fnInternal_v23_05__pxrReserved__@@$0BA@@2@@Z
+[A] ?_SendPrimsRemoved@HdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@IEAAXAEBV?$TfSmallVector@URemovedPrimEntry@HdSceneIndexObserver@fnInternal_v23_05__pxrReserved__@@$0BA@@2@@Z
+[A] ?_SendPrimsDirtied@HdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@IEAAXAEBV?$TfSmallVector@UDirtiedPrimEntry@HdSceneIndexObserver@fnInternal_v23_05__pxrReserved__@@$0BA@@2@@Z
+[A] ??0HdSingleInputFilteringSceneIndexBase@fnInternal_v23_05__pxrReserved__@@IEAA@AEBV?$TfRefPtr@VHdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@@1@@Z
+[A] ?GetContainer@HdSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?IsDefined@HdSchema@fnInternal_v23_05__pxrReserved__@@QEBA_NXZ
+[A] ??0HdPrimvarSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdPrimvarSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??0HdPrimvarsSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdPrimvarsSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?GetDefaultLocator@HdPrimvarsSchema@fnInternal_v23_05__pxrReserved__@@SAAEBVHdDataSourceLocator@2@XZ
+[A] ?Invoke@HdExtComputationCallbackDataSource@fnInternal_v23_05__pxrReserved__@@QEAAXPEAVHdExtComputationContext@2@@Z
+[A] ??0HdExtComputationContextInternal@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdExtComputationContextInternal@fnInternal_v23_05__pxrReserved__@@UEAA@XZ
+[A] ?SetInputValue@HdExtComputationContextInternal@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVTfToken@2@AEBVVtValue@2@@Z
+[A] ?GetOutputValue@HdExtComputationContextInternal@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBVTfToken@2@PEAVVtValue@2@@Z
+[A] ?HasComputationError@HdExtComputationContextInternal@fnInternal_v23_05__pxrReserved__@@QEAA_NXZ
+[A] ?GetInputValues@HdExtComputationSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetInputComputations@HdExtComputationSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@VHdVectorDataSource@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetOutputs@HdExtComputationSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@VHdVectorDataSource@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetCpuCallback@HdExtComputationSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@VHdDataSourceBase@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetFromParent@HdExtComputationSchema@fnInternal_v23_05__pxrReserved__@@SA?AV12@AEBV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?GetName@HdExtComputationInputComputationSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@V?$HdTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetSourceComputation@HdExtComputationInputComputationSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@V?$HdTypedSampledDataSource@VSdfPath@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetSourceComputationOutputName@HdExtComputationInputComputationSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@V?$HdTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetName@HdExtComputationOutputSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@V?$HdTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetSourceComputation@HdExtComputationPrimvarSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@V?$HdTypedSampledDataSource@VSdfPath@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetSourceComputationOutputName@HdExtComputationPrimvarSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@V?$HdTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ??0HdExtComputationPrimvarsSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdExtComputationPrimvarsSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?GetExtComputationPrimvarNames@HdExtComputationPrimvarsSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$vector@VTfToken@fnInternal_v23_05__pxrReserved__@@V?$allocator@VTfToken@fnInternal_v23_05__pxrReserved__@@@std@@@std@@XZ
+[A] ?GetDefaultLocator@HdExtComputationPrimvarsSchema@fnInternal_v23_05__pxrReserved__@@SAAEBVHdDataSourceLocator@2@XZ
+[A] ??0HdPrimTypeTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdPrimTypeTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?GetInputScenes@HdSingleInputFilteringSceneIndexBase@fnInternal_v23_05__pxrReserved__@@UEBA?AV?$vector@V?$TfRefPtr@VHdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@V?$allocator@V?$TfRefPtr@VHdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@@std@@XZ
+[A] ?HdPrimvarSchemaTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdPrimvarSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdPrimvarSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?HdPrimvarsSchemaTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdPrimvarsSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdPrimvarsSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?HdExtComputationPrimvarsSchemaTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdExtComputationPrimvarsSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdExtComputationPrimvarsSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?HdPrimTypeTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdPrimTypeTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdPrimTypeTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ??0HdDataSourceLocator@fnInternal_v23_05__pxrReserved__@@QEAA@AEBVTfToken@1@0@Z
+[A] ?Append@HdDataSourceLocator@fnInternal_v23_05__pxrReserved__@@QEBA?AV12@AEBVTfToken@2@@Z
+[A] ?Get@HdContainerDataSource@fnInternal_v23_05__pxrReserved__@@SA?AV?$shared_ptr@VHdDataSourceBase@fnInternal_v23_05__pxrReserved__@@@std@@AEBV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@4@AEBVHdDataSourceLocator@2@@Z
+[A] ?HdGetMergedContributingSampleTimesForInterval@fnInternal_v23_05__pxrReserved__@@YA_N_KPEBV?$shared_ptr@VHdSampledDataSource@fnInternal_v23_05__pxrReserved__@@@std@@MMPEAV?$vector@MV?$allocator@M@std@@@3@@Z
+[A] ?_IsObserved@HdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@IEBA_NXZ
+[A] ??0HdCapsuleSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdCapsuleSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?GetDefaultLocator@HdCapsuleSchema@fnInternal_v23_05__pxrReserved__@@SAAEBVHdDataSourceLocator@2@XZ
+[A] ??0HdConeSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdConeSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?GetDefaultLocator@HdConeSchema@fnInternal_v23_05__pxrReserved__@@SAAEBVHdDataSourceLocator@2@XZ
+[A] ??0HdCubeSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdCubeSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?GetDefaultLocator@HdCubeSchema@fnInternal_v23_05__pxrReserved__@@SAAEBVHdDataSourceLocator@2@XZ
+[A] ??0HdCylinderSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdCylinderSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?GetDefaultLocator@HdCylinderSchema@fnInternal_v23_05__pxrReserved__@@SAAEBVHdDataSourceLocator@2@XZ
+[A] ?SetDependedOnPrimPath@Builder@HdDependencySchema@fnInternal_v23_05__pxrReserved__@@QEAAAEAV123@AEBV?$shared_ptr@V?$HdTypedSampledDataSource@VSdfPath@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?SetDependedOnDataSourceLocator@Builder@HdDependencySchema@fnInternal_v23_05__pxrReserved__@@QEAAAEAV123@AEBV?$shared_ptr@V?$HdTypedSampledDataSource@VHdDataSourceLocator@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?SetAffectedDataSourceLocator@Builder@HdDependencySchema@fnInternal_v23_05__pxrReserved__@@QEAAAEAV123@AEBV?$shared_ptr@V?$HdTypedSampledDataSource@VHdDataSourceLocator@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?Build@Builder@HdDependencySchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ??0HdDependenciesSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdDependenciesSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??0HdMeshTopologySchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdMeshTopologySchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?SetFaceVertexCounts@Builder@HdMeshTopologySchema@fnInternal_v23_05__pxrReserved__@@QEAAAEAV123@AEBV?$shared_ptr@V?$HdTypedSampledDataSource@V?$VtArray@H@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?SetFaceVertexIndices@Builder@HdMeshTopologySchema@fnInternal_v23_05__pxrReserved__@@QEAAAEAV123@AEBV?$shared_ptr@V?$HdTypedSampledDataSource@V?$VtArray@H@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?SetOrientation@Builder@HdMeshTopologySchema@fnInternal_v23_05__pxrReserved__@@QEAAAEAV123@AEBV?$shared_ptr@V?$HdTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?Build@Builder@HdMeshTopologySchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ??0HdMeshSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdMeshSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?SetTopology@Builder@HdMeshSchema@fnInternal_v23_05__pxrReserved__@@QEAAAEAV123@AEBV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?SetSubdivisionScheme@Builder@HdMeshSchema@fnInternal_v23_05__pxrReserved__@@QEAAAEAV123@AEBV?$shared_ptr@V?$HdTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?SetDoubleSided@Builder@HdMeshSchema@fnInternal_v23_05__pxrReserved__@@QEAAAEAV123@AEBV?$shared_ptr@V?$HdTypedSampledDataSource@_N@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?Build@Builder@HdMeshSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ??0HdOverlayContainerDataSource@fnInternal_v23_05__pxrReserved__@@QEAA@_KPEAV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?SetPrimvarValue@Builder@HdPrimvarSchema@fnInternal_v23_05__pxrReserved__@@QEAAAEAV123@AEBV?$shared_ptr@VHdSampledDataSource@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?SetInterpolation@Builder@HdPrimvarSchema@fnInternal_v23_05__pxrReserved__@@QEAAAEAV123@AEBV?$shared_ptr@V?$HdTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?SetRole@Builder@HdPrimvarSchema@fnInternal_v23_05__pxrReserved__@@QEAAAEAV123@AEBV?$shared_ptr@V?$HdTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?Build@Builder@HdPrimvarSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?BuildInterpolationDataSource@HdPrimvarSchema@fnInternal_v23_05__pxrReserved__@@SA?AV?$shared_ptr@V?$HdTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@AEBVTfToken@2@@Z
+[A] ?BuildRoleDataSource@HdPrimvarSchema@fnInternal_v23_05__pxrReserved__@@SA?AV?$shared_ptr@V?$HdTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@AEBVTfToken@2@@Z
+[A] ?GetPointsLocator@HdPrimvarsSchema@fnInternal_v23_05__pxrReserved__@@SAAEBVHdDataSourceLocator@2@XZ
+[A] ?New@HdRetainedContainerDataSource@fnInternal_v23_05__pxrReserved__@@SA?AV?$shared_ptr@VHdRetainedContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@AEBVTfToken@2@AEBV?$shared_ptr@VHdDataSourceBase@fnInternal_v23_05__pxrReserved__@@@4@@Z
+[A] ?New@HdRetainedContainerDataSource@fnInternal_v23_05__pxrReserved__@@SA?AV?$shared_ptr@VHdRetainedContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@AEBVTfToken@2@AEBV?$shared_ptr@VHdDataSourceBase@fnInternal_v23_05__pxrReserved__@@@4@01@Z
+[A] ?New@HdRetainedContainerDataSource@fnInternal_v23_05__pxrReserved__@@SA?AV?$shared_ptr@VHdRetainedContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@AEBVTfToken@2@AEBV?$shared_ptr@VHdDataSourceBase@fnInternal_v23_05__pxrReserved__@@@4@010101@Z
+[A] ?New@?$HdRetainedTypedSampledDataSource@_N@fnInternal_v23_05__pxrReserved__@@SA?AV?$shared_ptr@V?$HdRetainedTypedSampledDataSource@_N@fnInternal_v23_05__pxrReserved__@@@std@@AEB_N@Z
+[A] ??0HdSphereSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdSphereSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?GetDefaultLocator@HdSphereSchema@fnInternal_v23_05__pxrReserved__@@SAAEBVHdDataSourceLocator@2@XZ
+[A] ??0HdXformSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdXformSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?GetMatrix@HdXformSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@V?$HdTypedSampledDataSource@VGfMatrix4d@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?SetMatrix@Builder@HdXformSchema@fnInternal_v23_05__pxrReserved__@@QEAAAEAV123@AEBV?$shared_ptr@V?$HdTypedSampledDataSource@VGfMatrix4d@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?Build@Builder@HdXformSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetFromParent@HdXformSchema@fnInternal_v23_05__pxrReserved__@@SA?AV12@AEBV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?GetDefaultLocator@HdXformSchema@fnInternal_v23_05__pxrReserved__@@SAAEBVHdDataSourceLocator@2@XZ
+[A] ?HdCapsuleSchemaTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdCapsuleSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdCapsuleSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?HdConeSchemaTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdConeSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdConeSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?HdCubeSchemaTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdCubeSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdCubeSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?HdCylinderSchemaTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdCylinderSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdCylinderSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?HdDependenciesSchemaTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdDependenciesSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdDependenciesSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?HdMeshTopologySchemaTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdMeshTopologySchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdMeshTopologySchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?HdMeshSchemaTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdMeshSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdMeshSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?HdSphereSchemaTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdSphereSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdSphereSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?HdXformSchemaTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdXformSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdXformSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ??0HdMaterialBindingSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdMaterialBindingSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?HdMaterialBindingSchemaTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdMaterialBindingSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdMaterialBindingSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?GetFirstElement@HdDataSourceLocator@fnInternal_v23_05__pxrReserved__@@QEBAAEBVTfToken@2@XZ
+[A] ?GetDefaultLocator@HdDependenciesSchema@fnInternal_v23_05__pxrReserved__@@SAAEBVHdDataSourceLocator@2@XZ
+[A] ?GetMaterialBinding@HdMaterialBindingSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@V?$HdTypedSampledDataSource@VSdfPath@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetFromParent@HdMaterialBindingSchema@fnInternal_v23_05__pxrReserved__@@SA?AV12@AEBV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?GetDefaultLocator@HdMaterialBindingSchema@fnInternal_v23_05__pxrReserved__@@SAAEBVHdDataSourceLocator@2@XZ
+[A] ??0HdOverlayContainerDataSource@fnInternal_v23_05__pxrReserved__@@QEAA@AEBV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@0@Z
+[A] ?GetFromParent@HdPrimvarsSchema@fnInternal_v23_05__pxrReserved__@@SA?AV12@AEBV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?New@HdRetainedContainerDataSource@fnInternal_v23_05__pxrReserved__@@SA?AV?$shared_ptr@VHdRetainedContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@AEBVTfToken@2@AEBV?$shared_ptr@VHdDataSourceBase@fnInternal_v23_05__pxrReserved__@@@4@0101@Z
+[A] ??0HdBasisCurvesTopologySchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdBasisCurvesTopologySchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?GetCurveVertexCounts@HdBasisCurvesTopologySchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@V?$HdTypedSampledDataSource@V?$VtArray@H@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetCurveIndices@HdBasisCurvesTopologySchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@V?$HdTypedSampledDataSource@V?$VtArray@H@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetBasis@HdBasisCurvesTopologySchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@V?$HdTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetWrap@HdBasisCurvesTopologySchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@V?$HdTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ??0HdBasisCurvesSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdBasisCurvesSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?GetTopology@HdBasisCurvesSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AVHdBasisCurvesTopologySchema@2@XZ
+[A] ?GetFromParent@HdBasisCurvesSchema@fnInternal_v23_05__pxrReserved__@@SA?AV12@AEBV?$shared_ptr@VHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?GetInterpolation@HdPrimvarSchema@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$shared_ptr@V?$HdTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ??0HdTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HdTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?HdBasisCurvesTopologySchemaTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdBasisCurvesTopologySchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdBasisCurvesTopologySchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?HdBasisCurvesSchemaTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdBasisCurvesSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdBasisCurvesSchemaTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?HdTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHdTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHdTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ??0HdMaterialFilteringSceneIndexBase@fnInternal_v23_05__pxrReserved__@@IEAA@AEBV?$TfRefPtr@VHdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@@1@@Z
+[A] ?_PrimsDirtied@HdMaterialFilteringSceneIndexBase@fnInternal_v23_05__pxrReserved__@@MEAAXAEBVHdSceneIndexBase@2@AEBV?$TfSmallVector@UDirtiedPrimEntry@HdSceneIndexObserver@fnInternal_v23_05__pxrReserved__@@$0BA@@2@@Z
+[A] ?_PrimsRemoved@HdMaterialFilteringSceneIndexBase@fnInternal_v23_05__pxrReserved__@@MEAAXAEBVHdSceneIndexBase@2@AEBV?$TfSmallVector@URemovedPrimEntry@HdSceneIndexObserver@fnInternal_v23_05__pxrReserved__@@$0BA@@2@@Z
+[A] ?_PrimsAdded@HdMaterialFilteringSceneIndexBase@fnInternal_v23_05__pxrReserved__@@MEAAXAEBVHdSceneIndexBase@2@AEBV?$TfSmallVector@UAddedPrimEntry@HdSceneIndexObserver@fnInternal_v23_05__pxrReserved__@@$0BA@@2@@Z
+[A] ?GetChildPrimPaths@HdMaterialFilteringSceneIndexBase@fnInternal_v23_05__pxrReserved__@@UEBA?AV?$vector@VSdfPath@fnInternal_v23_05__pxrReserved__@@V?$allocator@VSdfPath@fnInternal_v23_05__pxrReserved__@@@std@@@std@@AEBVSdfPath@2@@Z
+[A] ?GetPrim@HdMaterialFilteringSceneIndexBase@fnInternal_v23_05__pxrReserved__@@UEBA?AUHdSceneIndexPrim@2@AEBVSdfPath@2@@Z
+[A] fnhd.dll
+[A] ?GetText@SdfPath@fnInternal_v23_05__pxrReserved__@@QEBAPEBDXZ
+[A] ?_RemovePathTokenFromTable@Sdf_PathNode@fnInternal_v23_05__pxrReserved__@@IEBAXXZ
+[A] ??3Sdf_PrimPartPathNode@fnInternal_v23_05__pxrReserved__@@SAXPEAX@Z
+[A] ??3Sdf_PropPartPathNode@fnInternal_v23_05__pxrReserved__@@SAXPEAX@Z
+[A] ??1Sdf_PrimPathNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ??1Sdf_PrimPropertyPathNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ??1Sdf_PrimVariantSelectionNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ??1Sdf_TargetPathNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ??1Sdf_RelationalAttributePathNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ??1Sdf_MapperPathNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ??1Sdf_MapperArgPathNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ??1Sdf_ExpressionPathNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ?_regionStarts@?$Sdf_Pool@USdf_PathPrimTag@fnInternal_v23_05__pxrReserved__@@$0BI@$07$0EAAA@@fnInternal_v23_05__pxrReserved__@@0PAPEADA
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVSdfPath@0@@Z
+[A] fnsdf.dll
+[A] ?Vt_StreamOutGeneric@fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEBVtype_info@@PEBXAEAV23@@Z
+[A] ?VtStreamOutArray@fnInternal_v23_05__pxrReserved__@@YAXAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@PEBUVt_ShapeData@1@V?$TfFunctionRef@$$A6AXAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@@Z@1@@Z
+[A] ?_DetachCopyHook@Vt_ArrayBase@fnInternal_v23_05__pxrReserved__@@IEBAXPEBD@Z
+[A] ?VtStreamOut@fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEB_NAEAV23@@Z
+[A] ?VtStreamOut@fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEBDAEAV23@@Z
+[A] ?VtStreamOut@fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEBEAEAV23@@Z
+[A] ?VtStreamOut@fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEBMAEAV23@@Z
+[A] ?VtStreamOut@fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEBNAEAV23@@Z
+[A] ?GetTypeName@VtValue@fnInternal_v23_05__pxrReserved__@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+[A] fnvt.dll
+[A] ?Scope@TraceCollector@fnInternal_v23_05__pxrReserved__@@SAXAEBVTraceKey@2@_K1@Z
+[A] ?_isEnabled@TraceCollector@fnInternal_v23_05__pxrReserved__@@0U?$atomic@H@std@@A
+[A] fntrace.dll
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfVec3f@0@@Z
+[A] ?SetDiagonal@GfMatrix4d@fnInternal_v23_05__pxrReserved__@@QEAAAEAV12@N@Z
+[A] ??8GfMatrix4d@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBV01@@Z
+[A] ??XGfMatrix4d@fnInternal_v23_05__pxrReserved__@@QEAAAEAV01@AEBV01@@Z
+[A] ?SetTranslate@GfMatrix4d@fnInternal_v23_05__pxrReserved__@@QEAAAEAV12@AEBVGfVec3d@2@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfMatrix4d@0@@Z
+[A] ??6pxr_half@fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV23@Vhalf@01@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfVec4d@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfVec4f@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfVec4h@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfVec4i@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfVec3d@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfVec3h@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfVec3i@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfVec2f@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfVec2d@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfVec2h@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfVec2i@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfQuatd@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfDualQuatd@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfQuatf@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfDualQuatf@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfQuath@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfDualQuath@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfRange3d@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfRange3f@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfRange1d@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfRange1f@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfRange2d@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfRange2f@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfQuaternion@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfInterval@0@@Z
+[A] ??8GfMatrix2f@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBV01@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfMatrix2f@0@@Z
+[A] ??8GfMatrix3f@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBV01@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfMatrix3f@0@@Z
+[A] ??8GfMatrix4f@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBV01@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfMatrix4f@0@@Z
+[A] ??8GfMatrix2d@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBV01@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfMatrix2d@0@@Z
+[A] ??8GfMatrix3d@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBV01@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfMatrix3d@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfRect2i@0@@Z
+[A] ?_toFloat@half@pxr_half@fnInternal_v23_05__pxrReserved__@@0QBTuif@123@B
+[A] fngf.dll
+[A] ?_RemoveRef@Tf_RefPtr_UniqueChangedCounter@fnInternal_v23_05__pxrReserved__@@SA_NPEBVTfRefBase@2@@Z
+[A] ?_AddRef@Tf_RefPtr_UniqueChangedCounter@fnInternal_v23_05__pxrReserved__@@SAHPEBVTfRefBase@2@@Z
+[A] ?Tf_PostNullSmartPtrDereferenceFatalError@fnInternal_v23_05__pxrReserved__@@YAXAEBVTfCallContext@1@PEBD@Z
+[A] ?Tf_PostErrorHelper@fnInternal_v23_05__pxrReserved__@@YAXAEBVTfCallContext@1@W4TfDiagnosticType@1@PEBDZZ
+[A] ?Tf_PostWarningHelper@fnInternal_v23_05__pxrReserved__@@YAXAEBVTfCallContext@1@PEBDZZ
+[A] ?_PossiblyDestroyRep@TfToken@fnInternal_v23_05__pxrReserved__@@AEBAXXZ
+[A] ?_AppendBytes@Tf_HashState@fnInternal_v23_05__pxrReserved__@@AEAAXPEBD_K@Z
+[A] ??0TfToken@fnInternal_v23_05__pxrReserved__@@QEAA@PEBDW4_ImmortalTag@01@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVTfToken@0@@Z
+[A] ?_Begin@TfMallocTag@fnInternal_v23_05__pxrReserved__@@CAPEAU_ThreadData@12@PEBDPEAU312@@Z
+[A] ?_End@TfMallocTag@fnInternal_v23_05__pxrReserved__@@CAXPEAU_ThreadData@12@@Z
+[A] ??0TfPyObjWrapper@fnInternal_v23_05__pxrReserved__@@QEAA@Vobject@api@python@foundryboost@@@Z
+[A] ??0TfPyLock@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1TfPyLock@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?_FindByTypeid@TfType@fnInternal_v23_05__pxrReserved__@@CAAEBV12@AEBVtype_info@@@Z
+[A] ?_isInitialized@TfMallocTag@fnInternal_v23_05__pxrReserved__@@0U?$atomic@_N@std@@A
+[A] ?Tf_FailedVerifyHelper@fnInternal_v23_05__pxrReserved__@@YA_NAEBVTfCallContext@1@PEBD1@Z
+[A] fntf.dll
+[A] ?lookup@registry@converter@python@foundryboost@@YAAEBUregistration@234@Utype_info@34@@Z
+[A] ?get@?$handle@U_object@@@python@foundryboost@@QEBAPEAU_object@@XZ
+[A] ??0arg_to_python_base@detail@converter@python@foundryboost@@QEAA@PEDXAEBUregistration@234@@Z
+[A] ??1arg_to_python_base@detail@converter@python@foundryboost@@QEAA@XZ
+[A] foundryboost_python310-vc143-mt-x64-1_80.dll
+[A] _Py_Dealloc
+[A] _Py_NoneStruct
+[A] python310.dll
+[A] ?_Xlength_error@std@@YAXPEBD@Z
+[A] ?_Xout_of_range@std@@YAXPEBD@Z
+[A] ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@H@Z
+[A] ?uncaught_exception@std@@YA_NXZ
+[A] ?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHD@Z
+[A] ?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAA_JPEBD_J@Z
+[A] ?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAAXH_N@Z
+[A] ?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAXXZ
+[A] ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@F@Z
+[A] ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@G@Z
+[A] ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@I@Z
+[A] ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@_J@Z
+[A] ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@_K@Z
+[A] ?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@XZ
+[A] MSVCP140.dll
+[A] __std_terminate
+[A] __std_exception_copy
+[A] __std_exception_destroy
+[A] __std_type_info_name
+[A] _CxxThrowException
+[A] __CxxFrameHandler4
+[A] __RTDynamicCast
+[A] memmove
+[A] memset
+[A] __std_type_info_compare
+[A] memcmp
+[A] memcpy
+[A] __current_exception
+[A] __current_exception_context
+[A] __C_specific_handler
+[A] __std_type_info_destroy_list
+[A] VCRUNTIME140.dll
+[A] VCRUNTIME140_1.dll
+[A] _invalid_parameter_noinfo_noreturn
+[A] free
+[A] malloc
+[A] ceilf
+[A] terminate
+[A] _callnewh
+[A] _seh_filter_dll
+[A] _configure_narrow_argv
+[A] _initialize_narrow_environment
+[A] _initialize_onexit_table
+[A] _register_onexit_function
+[A] _execute_onexit_table
+[A] _crt_atexit
+[A] _cexit
+[A] _initterm
+[A] _initterm_e
+[A] api-ms-win-crt-runtime-l1-1-0.dll
+[A] api-ms-win-crt-heap-l1-1-0.dll
+[A] api-ms-win-crt-math-l1-1-0.dll
+[A] CloseHandle
+[A] EnterCriticalSection
+[A] LeaveCriticalSection
+[A] InitializeCriticalSectionAndSpinCount
+[A] DeleteCriticalSection
+[A] SetEvent
+[A] ResetEvent
+[A] WaitForSingleObjectEx
+[A] CreateEventW
+[A] GetModuleHandleW
+[A] GetProcAddress
+[A] InitializeSListHead
+[A] RtlCaptureContext
+[A] RtlLookupFunctionEntry
+[A] RtlVirtualUnwind
+[A] IsDebuggerPresent
+[A] UnhandledExceptionFilter
+[A] SetUnhandledExceptionFilter
+[A] IsProcessorFeaturePresent
+[A] GetCurrentProcess
+[A] TerminateProcess
+[A] QueryPerformanceCounter
+[A] GetCurrentProcessId
+[A] GetCurrentThreadId
+[A] GetSystemTimeAsFileTime
+[A] DisableThreadLibraryCalls
+[A] KERNEL32.dll
+[A] .?AVbad_array_new_length@std@@
+[A] .?AVbad_alloc@std@@
+[A] .?AVexception@std@@
+[A] .?AV?$TfRefPtr@VHdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVHdDataSourceBase@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVHdContainerDataSource@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVHdSampledDataSource@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVHdExtComputationCallbackDataSource@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_EmptyContainerDataSource@?A0xd53b992c@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_SampledExtCompPrimvarDataSource@?A0xd53b992c@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_ExtCompPrimvarDataSource@?A0xd53b992c@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_PrimvarsDataSource@?A0xd53b992c@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_PrimDataSource@?A0xd53b992c@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVHdBlockDataSource@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_PointsDataSource@_CubeToMesh@?A0x44de4f67@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_PointsDataSource@_ConeToMesh@?A0x44de4f67@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_PointsDataSource@_CylinderToMesh@?A0x44de4f67@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_PointsDataSource@_SphereToMesh@?A0x44de4f67@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_PointsDataSource@_CapsuleToMesh@?A0x44de4f67@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_MatrixDataSource@_CylinderToTransformedCylinder@?A0x44de4f67@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_MatrixDataSource@_ConeToTransformedCone@?A0x44de4f67@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$HdTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$HdTypedSampledDataSource@N@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@H@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVTfToken@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfMatrix4d@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfVec3f@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfVec3f@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVSdfPath@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVHdDataSourceLocator@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_MaterialBindingDataSource@?A0xe5b5e37b@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_PrimDataSource@?A0xe5b5e37b@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_PrimDataSource@?A0x15177ae3@fnInternal_v23_05__pxrReserved__@@
+[A] ._K
+[A] .?AV_EmptyContainerDataSource@?A0x2f9a7b3f@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_PrimvarDataSource@?A0x2f9a7b3f@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_PrimvarsDataSource@?A0x2f9a7b3f@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_TopologyDataSource@?A0x2f9a7b3f@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_BasisCurvesDataSource@?A0x2f9a7b3f@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_PrimDataSource@?A0x2f9a7b3f@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@
+[A] ._N
+[A] .?AV?$VtArray@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@Vhalf@pxr_half@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@M@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@N@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@_K@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@_J@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@I@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@G@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@F@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@E@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@D@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@_N@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfDualQuatd@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfDualQuatf@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfDualQuath@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfQuaternion@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfQuatd@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfQuatf@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfQuath@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfRect2i@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfInterval@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfRange1d@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfRange1f@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfRange2d@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfRange2f@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfRange3d@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfRange3f@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfMatrix2d@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfMatrix3d@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfMatrix4d@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfMatrix2f@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfMatrix3f@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfMatrix4f@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfVec2d@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfVec3d@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfVec4d@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfVec2f@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfVec4f@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfVec2h@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfVec3h@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfVec4h@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfVec2i@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfVec3i@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$VtArray@VGfVec4i@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfVec4i@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfVec3i@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfVec2i@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfVec4h@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfVec3h@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfVec2h@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfVec4f@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfVec2f@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfVec4d@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfVec3d@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfVec2d@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfMatrix4f@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfMatrix3f@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfMatrix2f@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfMatrix3d@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfMatrix2d@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfRange3f@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfRange3d@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfRange2f@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfRange2d@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfRange1f@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfRange1d@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfInterval@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfRect2i@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfQuath@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfQuatf@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfQuatd@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfQuaternion@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfDualQuath@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfDualQuatf@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfDualQuatd@fnInternal_v23_05__pxrReserved__@@
+[A] ._J
+[A] .?AVhalf@pxr_half@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV<lambda_2210aa22261716c15e43d22023ca5963>@@
+[A] .?AV_Ref_count_base@std@@
+[A] .?AVTfRefBase@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVTfWeakBase@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVHdSiExtComputationPrimvarPruningSceneIndex@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVHdSingleInputFilteringSceneIndexBase@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVHdFilteringSceneIndexBase@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVHdSceneIndexBase@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$_Ref_count_obj2@V_ExtComputationContext@?A0xd53b992c@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_EmptyContainerDataSource@?A0xd53b992c@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_SampledExtCompPrimvarDataSource@?A0xd53b992c@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_ExtCompPrimvarDataSource@?A0xd53b992c@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_PrimvarsDataSource@?A0xd53b992c@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_PrimDataSource@?A0xd53b992c@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AVHdsiImplicitSurfaceSceneIndex@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$HdTypedSampledDataSource@V?$VtArray@H@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$HdTypedSampledDataSource@VSdfPath@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$HdTypedSampledDataSource@V?$VtArray@VGfVec3f@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$HdTypedSampledDataSource@VGfMatrix4d@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$HdTypedSampledDataSource@VHdDataSourceLocator@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$HdRetainedTypedSampledDataSource@V?$VtArray@H@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$HdRetainedTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$_Ref_count@VHdOverlayContainerDataSource@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$HdRetainedTypedSampledDataSource@VSdfPath@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$HdRetainedTypedSampledDataSource@VHdDataSourceLocator@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$_Ref_count@V?$HdRetainedTypedSampledDataSource@V?$VtArray@H@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V?$HdRetainedTypedSampledDataSource@VTfToken@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_PointsDataSource@_CubeToMesh@?A0x44de4f67@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@VHdBlockDataSource@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_PointsDataSource@_ConeToMesh@?A0x44de4f67@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_PointsDataSource@_CylinderToMesh@?A0x44de4f67@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_PointsDataSource@_SphereToMesh@?A0x44de4f67@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_PointsDataSource@_CapsuleToMesh@?A0x44de4f67@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_MatrixDataSource@_CylinderToTransformedCylinder@?A0x44de4f67@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_MatrixDataSource@_ConeToTransformedCone@?A0x44de4f67@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V?$HdRetainedTypedSampledDataSource@VSdfPath@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V?$HdRetainedTypedSampledDataSource@VHdDataSourceLocator@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AVHdsiMaterialBindingResolvingSceneIndex@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$_Ref_count@V_MaterialBindingDataSource@?A0xe5b5e37b@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_PrimDataSource@?A0xe5b5e37b@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AVHdsiMaterialPrimvarTransferSceneIndex@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$_Ref_count@V_PrimDataSource@?A0x15177ae3@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AVHdsiPinnedCurveExpandingSceneIndex@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$HdRetainedTypedSampledDataSource@VVtValue@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$HdTypedSampledDataSource@VVtValue@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$_Ref_count@V_EmptyContainerDataSource@?A0x2f9a7b3f@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V?$HdRetainedTypedSampledDataSource@VVtValue@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_PrimvarDataSource@?A0x2f9a7b3f@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_TopologyDataSource@?A0x2f9a7b3f@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_BasisCurvesDataSource@?A0x2f9a7b3f@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_PrimvarsDataSource@?A0x2f9a7b3f@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Ref_count@V_PrimDataSource@?A0x2f9a7b3f@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AVHdsiTerminalsResolvingSceneIndex@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVHdMaterialFilteringSceneIndexBase@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$_Func_base@XPEAVHdMaterialNetworkInterface@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$_Func_impl_no_alloc@V<lambda_2210aa22261716c15e43d22023ca5963>@@XPEAVHdMaterialNetworkInterface@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AVtype_info@@
+[A] <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+[A] <assembly xmlns='urn:schemas-microsoft-com:asm.v1' manifestVersion='1.0'>
+[A] <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+[A] <security>
+[A] <requestedPrivileges>
+[A] <requestedExecutionLevel level='asInvoker' uiAccess='false' />
+[A] </requestedPrivileges>
+[A] </security>
+[A] </trustInfo>
+[A] </assembly>
+[A] =^0
+[A] N0L0
+[A] 010
+[A] k.8
+[A] 0w1
+[A] US1
+[A] Microsoft Corporation1H0F
+[A] ?Microsoft Identity Verification Root Certificate Authority 20200
+[A] 200416183616Z
+[A] 450416184440Z0w1
+[A] mZMyS
+[A] sgI
+[A] mbj
+[A] -oI
+[A] -b-/
+[A] hMr
+[A] [oy&
+[A] 2={W
+[A] s]2V
+[A] !W>
+[A] 'I{
+[A] @Y(
+[A] 3Yt
+[A] {Pm
+[A] Q,4
+[A] O`(
+[A] T0R0
+[A] jZ]tC0
+[A] I>t
+[A] V,e
+[A] ~2(
+[A] gs-
+[A] t'R
+[A] 6"A
+[A] 2va
+[A] ^QM"
+[A] |!W
+[A] w(p
+[A] [:[
+[A] e\t
+[A] zjt
+[A] wuX_5
+[A] d8;_
+[A] Kx;-
+[A] iJ*
+[A] 0Z1
+[A] Microsoft Corporation1+0)
+[A] "Microsoft ID Verified CS EOC CA 020
+[A] 241126051451Z
+[A] 241129051451Z0n1
+[A] GB1
+[A] London1&0$
+[A] THE FOUNDRY VISIONMONGERS LTD1&0$
+[A] THE FOUNDRY VISIONMONGERS LTD0
+[A] 4{6L
+[A] B$C
+[A] O^6
+[A] ch1
+[A] 503
+[A] {|f
+[A] ^0g
+[A] `0^0\
+[A] Vhttp://www.microsoft.com/pkiops/crl/Microsoft%20ID%20Verified%20CS%20EOC%20CA%2002.crl0
+[A] Xhttp://www.microsoft.com/pkiops/certs/Microsoft%20ID%20Verified%20CS%20EOC%20CA%2002.crt0-
+[A] !http://oneocsp.microsoft.com/ocsp0f
+[A] _0]0Q
+[A] 0A0?
+[A] 3http://www.microsoft.com/pkiops/Docs/Repository.htm0
+[A] lQ<S
+[A] 6Eh
+[A] PM[q
+[A] EKmh
+[A] E1]
+[A] Z^]
+[A] 8p9d
+[A] ,wE
+[A] K_s
+[A] Zku
+[A] 5L>
+[A] :G4
+[A] z\2
+[A] 0c1
+[A] Microsoft Corporation1402
+[A] +Microsoft ID Verified Code Signing PCA 20210
+[A] 210413173153Z
+[A] 260413173153Z0Z1
+[A] |?2
+[A] nmt
+[A] hGox
+[A] 4kT
+[A] BXbk
+[A] +\_[
+[A] *zm
+[A] ]ifWb
+[A] I7?
+[A] ZtHP
+[A] :</q
+[A] 7B8Ov
+[A] o7?z
+[A] Y16#
+[A] J:R75g(
+[A] e0h
+[A] _(2e
+[A] Kze
+[A] QT bYW
+[A] \L$
+[A] 05m
+[A] q3{
+[A] ^0T
+[A] M0K0I
+[A] Hj0
+[A] i0g0e
+[A] _http://www.microsoft.com/pkiops/crl/Microsoft%20ID%20Verified%20Code%20Signing%20PCA%202021.crl0
+[A] ahttp://www.microsoft.com/pkiops/certs/Microsoft%20ID%20Verified%20Code%20Signing%20PCA%202021.crt0-
+[A] !http://oneocsp.microsoft.com/ocsp0
+[A] EI`
+[A] ?c>@
+[A] #bM
+[A] uX|[
+[A] nDB
+[A] St0
+[A] UF9
+[A] GLm
+[A] _02wM
+[A] =-6
+[A] A:?
+[A] 5UG
+[A] l[[
+[A] LWn
+[A] WI1DR
+[A] $|lt|
+[A] zo)B
+[A] r){L
+[A] _Zm|}e
+[A] E1I
+[A] .7g
+[A] 210401200520Z
+[A] 360401201520Z0c1
+[A] TzLIli
+[A] w)M
+[A] '0C
+[A] wn6
+[A] ,eN
+[A] (:y
+[A] 7&%
+[A] 86a
+[A] MSb
+[A] ]SK
+[A] 4Bo
+[A] W{92
+[A] i!V
+[A] k4NtI
+[A] S[9
+[A] C,{K
+[A] nrAn
+[A] 7@:p[RF
+[A] 0Tn
+[A] }0{0y
+[A] shttp://www.microsoft.com/pkiops/crl/Microsoft%20Identity%20Verification%20Root%20Certificate%20Authority%202020.crl0
+[A] uhttp://www.microsoft.com/pkiops/certs/Microsoft%20Identity%20Verification%20Root%20Certificate%20Authority%202020.crt0-
+[A] W#L
+[A] [9}
+[A] WOC
+[A] lt)l
+[A] @?^
+[A] b(_
+[A] 4o,MDo
+[A] 989
+[A] 0"D
+[A] LW1
+[A] .40+
+[A] E'UUSR
+[A] 8y;T
+[A] >3{
+[A] h-Y:`W
+[A] $J$
+[A] 0q0Z1
+[A] "Microsoft ID Verified CS EOC CA 02
+[A] AK-
+[A] +d.
+[A] R$}l
+[A] [m2
+[A] .](W-)a
+[A] L'&
+[A] 3k<
+[A] YB+.
+[A] }M.
+[A] >d#t
+[A] ~8<
+[A] <xB
+[A] 4>U
+[A] 20241126133536.483Z0
+[A] Washington1
+[A] Redmond1
+[A] Microsoft Corporation1-0+
+[A] $Microsoft Ireland Operations Limited1&0$
+[A] Thales TSS ESN:C392-9641-45401503
+[A] ,Microsoft Public RSA Time Stamping Authority
+[A] 201119203231Z
+[A] 351119204231Z0a1
+[A] Microsoft Corporation1200
+[A] )Microsoft Public RSA Timestamping CA 20200
+[A] eFGw
+[A] ]po
+[A] J{t1
+[A] xmVk\
+[A] bT<.
+[A] _Xr!e
+[A] =$7I
+[A] .k;
+[A] Pd~y
+[A] |Qa
+[A] maJ
+[A] x7m
+[A] Bwg#D
+[A] gs<
+[A] L[rA}
+[A] ?Q<p
+[A] ki(:5/Hc@
+[A] !0T
+[A] uhttp://www.microsoft.com/pkiops/certs/Microsoft%20Identity%20Verification%20Root%20Certificate%20Authority%202020.crt0
+[A] Lxh
+[A] 2KS
+[A] Smu
+[A] t[|
+[A] Tv'
+[A] xjWk`
+[A] d%f
+[A] u*Q
+[A] (t5
+[A] N\rv!a
+[A] Dkb&
+[A] Zo<O
+[A] ?_h
+[A] ][0
+[A] 0a1
+[A] 240418175908Z
+[A] 250417175908Z0
+[A] ,Microsoft Public RSA Time Stamping Authority0
+[A] WK:
+[A] H(pI
+[A] U}`
+[A] sx%
+[A] <j$
+[A] ?,:
+[A] 0R#
+[A] NO^"
+[A] B&Zf
+[A] h)V
+[A] .>9a
+[A] 4Z8
+[A] P5w
+[A] X0[i&
+[A] !0l
+[A] e0c0a
+[A] [http://www.microsoft.com/pkiops/crl/Microsoft%20Public%20RSA%20Timestamping%20CA%202020.crl0y
+[A] m0k0i
+[A] ]http://www.microsoft.com/pkiops/certs/Microsoft%20Public%20RSA%20Timestamping%20CA%202020.crt0
+[A] rJ+Pq
+[A] '-u
+[A] :^"
+[A] [#8]1
+[A] `2l
+[A] Kp7Y
+[A] URN
+[A] aFoh0Su
+[A] x-/4v
+[A] w0:
+[A] c++E
+[A] BzC
+[A] j2O
+[A] KC[e
+[A] _ U
+[A] 'G.
+[A] 1J1
+[A] 0x0a1
+[A] )Microsoft Public RSA Timestamping CA 2020
+[A] 241126133536Z0/
+[A] 7*$FiP"
+[A] x0|0e
+[A] c0a1
+[A] }J-t
+[A] g0e
+[A] 20241126112727Z
+[A] 20241127112727Z0w0=
+[A] 1/0-0
+[A] 1(0&0
+[A] OG2K
+[A] P6_
+[A] >#b
+[A] |B50
+[A] dyS0
+[A] V:&'D
+[A] ^oa
+[A] NMB
+[A] \R(i
+[A] >kj
+[A] 3(R
+[A] ?}X
+[A] d[*
+[A] y-~
+[A] ^j<
+[A] 7Hd
+[A] P0dY}
+[A] 7|o
+[A] +:q
+[A] [l,
+[U] api-ms-win-core-synch-l1-2-0.dll
+[U] kernel32.dll
+[U] SubC

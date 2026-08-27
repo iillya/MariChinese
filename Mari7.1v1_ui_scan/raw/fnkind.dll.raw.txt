@@ -1,0 +1,934 @@
+# source: fnkind.dll
+# bytes: 59776
+# strings: 930
+
+[A] !This program cannot be run in DOS mode.
+[A] Richg
+[A] .text
+[A] `.rdata
+[A] @.data
+[A] .pdata
+[A] @.pxrctor
+[A] @.rsrc
+[A] @.reloc
+[A] tWH
+[A] t-H
+[A] \$0H
+[A] @SH
+[A] t1H
+[A] H0H
+[A] t0H
+[A] t*H
+[A] \$pI
+[A] tMH
+[A] 'I+
+[A] wWH
+[A] r1H
+[A] A'H;
+[A] v=H
+[A] 'H+
+[A] \$0
+[A] SVWATAUAVAWH
+[A] L$ E3
+[A] l$(A
+[A] D$(
+[A] @ L
+[A] h0L
+[A] h8I
+[A] F H
+[A] D$xI
+[A] D$xM
+[A] f0I
+[A] c0A
+[A] C L
+[A] c0L
+[A] k8M
+[A] T$xH
+[A] C@H
+[A] CHI
+[A] FHH
+[A] F@H
+[A] C@I
+[A] CHL
+[A] |$xL
+[A] 0A_A^A]A\_^[
+[A] D$(N
+[A] L$ I
+[A] u+I;
+[A] tr3
+[A] \$xH
+[A] t L+
+[A] @UVAVH
+[A] \$@H
+[A] |$HL
+[A] |$PE3
+[A] _HH
+[A] u H
+[A] W8H
+[A] r-H
+[A] O H
+[A] wGI
+[A] D8~
+[A] |$HH
+[A] \$@L
+[A] |$PH
+[A] A^^]
+[A] @SVAVAWH
+[A] l$PH
+[A] |$XL
+[A] d$`M
+[A] l$ H
+[A] w;H
+[A] w*H
+[A] r<H
+[A] x'H
+[A] $?M
+[A] t$xK
+[A] raH
+[A] T$pM
+[A] d$`H
+[A] |$XH
+[A] l$PL
+[A] (A_A^^[
+[A] WATAUAVAWH
+[A] U|J
+[A] E0L#
+[A] <$I;
+[A] tRN
+[A] t9H
+[A] \$`H
+[A] l$hH
+[A] t$pH
+[A] 0A_A^A]A\_
+[A] H9E
+[A] d$ E3
+[A] D$(H
+[A] D8i4t
+[A] H#E0H
+[A] $H;
+[A] tOH
+[A] D$ L
+[A] |$ I
+[A] H#u0H
+[A] H9L
+[A] t?H
+[A] r9I
+[A] s$H
+[A] <$H
+[A] <$M;
+[A] I#R0H
+[A] t:H
+[A] t$H
+[A] t$ H
+[A] WAVAWH
+[A] G(H
+[A] G0H
+[A] G8L
+[A] W0H;W8t1H
+[A] A0H
+[A] G H
+[A] \$HH
+[A] t$XH
+[A] A_A^_
+[A] A D
+[A] S(H+
+[A] w$I
+[A] C H
+[A] C(H
+[A] t>H
+[A] r,H
+[A] w!I
+[A] t3H
+[A] |$0
+[A] |$0H
+[A] \$8H
+[A] t$8H
+[A] t+H
+[A] t$8H+
+[A] w I
+[A] K H
+[A] uOH
+[A] \$`
+[A] D$ H
+[A] L$0
+[A] D$0H
+[A] t$@H
+[A] S H
+[A] wyH
+[A] H;W
+[A] t)I
+[A] @0H
+[A] t$PH
+[A] T$p
+[A] L$pH;O
+[A] D$8l
+[A] D$(L
+[A] D$H
+[A] L$(H
+[A] D$@
+[A] t$hH
+[A] I#R@H
+[A] R(H
+[A] I;B
+[A] t2H
+[A] t$H;
+[A] \$ L
+[A] AVH
+[A] t$0H
+[A] |$8H;
+[A] r)H
+[A] N'H;
+[A] t.H
+[A] w>I
+[A] |$8H
+[A] D$@I
+[A] t@H
+[A] w0I
+[A] l$8H
+[A] UWATAVAWH
+[A] E@L
+[A] =-B
+[A] rwI
+[A] 3L+
+[A] d$(L
+[A] |$ E3
+[A] M0H
+[A] tM3
+[A] M H
+[A] CM H
+[A] D$8
+[A] U8H
+[A] r4H
+[A] D$@H
+[A] ttH
+[A] tuI;
+[A] tgH
+[A] D$HH
+[A] D$PH
+[A] D$XT
+[A] D$`
+[A] D$h
+[A] L$X
+[A] D$pH
+[A] D$xH
+[A] T$pH
+[A] \$8
+[A] M@H3
+[A] [8I
+[A] s@I
+[A] A_A^A\_]
+[A] @VWH
+[A] \$PH
+[A] t$(
+[A] ~8H
+[A] F0H
+[A] l$X
+[A] l$0I
+[A] H#~0H
+[A] u/L
+[A] t!L
+[A] FL;
+[A] t_L;
+[A] |$ L
+[A] l$0L
+[A] l$XH
+[A] \$PL
+[A] t$(H
+[A] 8_^
+[A] |$ AVH
+[A] u"H
+[A] W H
+[A] uDH
+[A] T$8
+[A] D$8H;
+[A] t(H
+[A] \$02
+[A] SVWH
+[A] H+9H
+[A] D$PL
+[A] _^[
+[A] L#F@I
+[A] F(I
+[A] t(M
+[A] t>M
+[A] tTH
+[A] \$pH
+[A] t$xH
+[A] |$ UATAUAVAWH
+[A] P L
+[A] D$`H
+[A] t,H
+[A] L$`
+[A] D$hH
+[A] L$h
+[A] 5b)
+[A] baseKindL
+[A] D$P
+[A] D$X
+[A] D$PL;
+[A] ugL
+[A] T$x
+[A] L$x
+[A] V H
+[A] L$8
+[A] D$8H
+[A] L$P
+[A] L$8I
+[A] D$@M
+[A] T$@H
+[A] L$@
+[A] D$0
+[A] |$@I
+[A] fff
+[A] {0L
+[A] |$@L
+[A] uKH
+[A] ^0M
+[A] L$p
+[A] D$0H;
+[A] tLH
+[A] L$0H
+[A] D$p
+[A] D$pL
+[A] T$8H
+[A] D$0L
+[A] D$8I
+[A] baseKind
+[A] t(I
+[A] L;p
+[A] -='
+[A] L$PH
+[A] u`L
+[A] mhH
+[A] 5O"
+[A] u8L
+[A] m@H
+[A] reH
+[A] D$ A
+[A] {HI
+[A] A_A^A]A\]
+[A] VWAVH
+[A] t2E3
+[A] t=H
+[A] w8I
+[A] t4H
+[A] A^_^
+[A] r.H
+[A] J'H;
+[A] H L
+[A] SVWAVH
+[A] |$`H
+[A] 8A^_^[
+[A] \$8H;
+[A] |$pH
+[A] \$PI
+[A] [(I
+[A] s0I
+[A] t!eH
+[A] T$X
+[A] u$H
+[A] t.2
+[A] uxHc
+[A] 9PE
+[A] f9A
+[A] uTL+
+[A] $I;
+[A] =[f
+[A] =6f
+[A] x AVH
+[A] Y8H
+[A] @SE
+[A] McP
+[A] D$@@
+[A] t H
+[A] X L
+[A] wEH
+[A] u2L
+[A] u@L
+[A] t)H
+[A] @A^_^
+[A] ntelA
+[A] ineID
+[A] Genu
+[A] u[H
+[A] t(=`
+[A] t!=p
+[A] w$H
+[A] |&3
+[A] ss3
+[A] T$ H
+[A] D$ "
+[A] D$ $
+[A] \$(3
+[A] %q_
+[A] t<H
+[A] d$8
+[A] L$0L
+[A] L$ 3
+[A] D$T
+[A] D$H3
+[A] @SVWH
+[A] T$`H
+[A] L$hH
+[A] T$`L
+[A] L$pH
+[A] L$(3
+[A] @_^[
+[A] \$ UH
+[A] utH
+[A] H1E
+[A] M H1E
+[A] E H
+[A] H3E H3E
+[A] =`'
+[A] @UH
+[A] SUH
+[A] ExH
+[A] EpH
+[A] U H
+[A] U(H
+[A] EHH
+[A] UPH
+[A] MxL
+[A] UhH
+[A] @SUH
+[A] M@H
+[A] E0H
+[A] M(H
+[A] 8csm
+[A] (][
+[A] L$(
+[A] T$ L
+[A] Unknown exception
+[A] bad array new length
+[A] kind
+[A] TfScriptModuleLoader
+[A] arch
+[A] plug
+[A] fnpxr.Kind
+[A] vector too long
+[A] string too long
+[A] Failed axiom: ' %s '
+[A] model
+[A] component
+[A] group
+[A] assembly
+[A] subcomponent
+[A] Kinds
+[A] Invalid kind: '%s'
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::KindRegistry::_Register(const class fnInternal_v23_05__pxrReserved__::TfToken &,const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] _Register
+[A] Y:\.cs\6668e3\1\USD_src\pxr\usd\kind\registry.cpp
+[A] Kind '%s' has already been registered
+[A] Unknown kind: '%s'
+[A] class fnInternal_v23_05__pxrReserved__::TfToken __cdecl fnInternal_v23_05__pxrReserved__::KindRegistry::_GetBaseKind(const class fnInternal_v23_05__pxrReserved__::TfToken &) const
+[A] _GetBaseKind
+[A] Expected dict for kind '%s'
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::KindRegistry::_RegisterDefaults(void)
+[A] _RegisterDefaults
+[A] Expected string for baseKind
+[A] operator ->
+[A] Y:/.cs/6668e3/1/USD_src/pxr/base/tf/iterator.h
+[A] iterator exhausted
+[A] class fnInternal_v23_05__pxrReserved__::TfIterator<class std::map<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class fnInternal_v23_05__pxrReserved__::JsValue,struct std::less<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > >,class std::allocator<struct std::pair<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const ,class fnInternal_v23_05__pxrReserved__::JsValue> > >,0> &__cdecl fnInternal_v23_05__pxrReserved__::TfIterator<class std::map<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class fnInternal_v23_05__pxrReserved__::JsValue,struct std::less<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > >,class std::allocator<struct std::pair<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const ,class fnInternal_v23_05__pxrReserved__::JsValue> > >,0>::operator ++(void)
+[A] operator ++
+[A] const class fnInternal_v23_05__pxrReserved__::TfWeakPtr<class fnInternal_v23_05__pxrReserved__::PlugPlugin> &__cdecl fnInternal_v23_05__pxrReserved__::TfIterator<class std::vector<class fnInternal_v23_05__pxrReserved__::TfWeakPtr<class fnInternal_v23_05__pxrReserved__::PlugPlugin>,class std::allocator<class fnInternal_v23_05__pxrReserved__::TfWeakPtr<class fnInternal_v23_05__pxrReserved__::PlugPlugin> > > const ,0>::operator *(void)
+[A] operator *
+[A] class fnInternal_v23_05__pxrReserved__::TfIterator<class std::vector<class fnInternal_v23_05__pxrReserved__::TfWeakPtr<class fnInternal_v23_05__pxrReserved__::PlugPlugin>,class std::allocator<class fnInternal_v23_05__pxrReserved__::TfWeakPtr<class fnInternal_v23_05__pxrReserved__::PlugPlugin> > > const ,0> &__cdecl fnInternal_v23_05__pxrReserved__::TfIterator<class std::vector<class fnInternal_v23_05__pxrReserved__::TfWeakPtr<class fnInternal_v23_05__pxrReserved__::PlugPlugin>,class std::allocator<class fnInternal_v23_05__pxrReserved__::TfWeakPtr<class fnInternal_v23_05__pxrReserved__::PlugPlugin> > > const ,0>::operator ++(void)
+[A] class fnInternal_v23_05__pxrReserved__::PlugPlugin *__cdecl fnInternal_v23_05__pxrReserved__::TfWeakPtrFacade<class fnInternal_v23_05__pxrReserved__::TfWeakPtr,class fnInternal_v23_05__pxrReserved__::PlugPlugin>::operator ->(void) const
+[A] Y:/.cs/6668e3/1/USD_src/pxr/base/tf/weakPtrFacade.h
+[A] class fnInternal_v23_05__pxrReserved__::Tf_Remnant *__cdecl fnInternal_v23_05__pxrReserved__::TfRefPtr<class fnInternal_v23_05__pxrReserved__::Tf_Remnant>::operator ->(void) const
+[A] Y:/.cs/6668e3/1/USD_src/pxr/base/tf/refPtr.h
+[A] Y:/.cs/6668e3/1/USD_src/pxr/base/tf/instantiateSingleton.h
+[A] Create Singleton
+[A] TfSingleton::_CreateInstance
+[A] class fnInternal_v23_05__pxrReserved__::KindRegistry *__cdecl fnInternal_v23_05__pxrReserved__::TfSingleton<class fnInternal_v23_05__pxrReserved__::KindRegistry>::_CreateInstance(struct std::atomic<class fnInternal_v23_05__pxrReserved__::KindRegistry *> &)
+[A] _CreateInstance
+[A] race detected setting singleton instance
+[A] instance.exchange(newInst) == nullptr
+[A] unordered_map/set too long
+[A] invalid hash bucket count
+[A] bad allocation
+[A] .text$di
+[A] .text$mn
+[A] .text$mn$00
+[A] .text$x
+[A] .text$yd
+[A] .idata$5
+[A] .00cfg
+[A] .CRT$XCA
+[A] .CRT$XCU
+[A] .CRT$XCZ
+[A] .CRT$XIA
+[A] .CRT$XIZ
+[A] .CRT$XPA
+[A] .CRT$XPZ
+[A] .CRT$XTA
+[A] .CRT$XTZ
+[A] .rdata
+[A] .rdata$r
+[A] .rdata$voltmd
+[A] .rdata$zzzdbg
+[A] .rtc$IAA
+[A] .rtc$IZZ
+[A] .rtc$TAA
+[A] .rtc$TZZ
+[A] .xdata
+[A] .xdata$x
+[A] .edata
+[A] .idata$2
+[A] .idata$3
+[A] .idata$4
+[A] .idata$6
+[A] .data
+[A] .data$r
+[A] .data$rs
+[A] .bss
+[A] .pxrctor
+[A] .rsrc$01
+[A] .rsrc$02
+[A] PpM
+[A] 'tK
+[A] 'dJ
+[A] '4I
+[A] :@'
+[A] @8@
+[A] fnkind.dll
+[A] ??0KindTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1KindTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?GetAllKinds@KindRegistry@fnInternal_v23_05__pxrReserved__@@SA?AV?$vector@VTfToken@fnInternal_v23_05__pxrReserved__@@V?$allocator@VTfToken@fnInternal_v23_05__pxrReserved__@@@std@@@std@@XZ
+[A] ?GetBaseKind@KindRegistry@fnInternal_v23_05__pxrReserved__@@SA?AVTfToken@2@AEBV32@@Z
+[A] ?GetInstance@KindRegistry@fnInternal_v23_05__pxrReserved__@@SAAEAV12@XZ
+[A] ?HasKind@KindRegistry@fnInternal_v23_05__pxrReserved__@@SA_NAEBVTfToken@2@@Z
+[A] ?IsA@KindRegistry@fnInternal_v23_05__pxrReserved__@@SA_NAEBVTfToken@2@0@Z
+[A] ?KindTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UKindTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UKindTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?GetMetadata@PlugPlugin@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJsValue@fnInternal_v23_05__pxrReserved__@@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJsValue@fnInternal_v23_05__pxrReserved__@@@std@@@2@@std@@XZ
+[A] ?GetInstance@PlugRegistry@fnInternal_v23_05__pxrReserved__@@SAAEAV12@XZ
+[A] ?GetAllPlugins@PlugRegistry@fnInternal_v23_05__pxrReserved__@@QEBA?AV?$vector@V?$TfWeakPtr@VPlugPlugin@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@V?$allocator@V?$TfWeakPtr@VPlugPlugin@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@@std@@XZ
+[A] fnplug.dll
+[A] ?GetJsObject@JsValue@fnInternal_v23_05__pxrReserved__@@QEBAAEBV?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJsValue@fnInternal_v23_05__pxrReserved__@@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VJsValue@fnInternal_v23_05__pxrReserved__@@@std@@@2@@std@@XZ
+[A] ?GetString@JsValue@fnInternal_v23_05__pxrReserved__@@QEBAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+[A] ?IsObject@JsValue@fnInternal_v23_05__pxrReserved__@@QEBA_NXZ
+[A] ?IsString@JsValue@fnInternal_v23_05__pxrReserved__@@QEBA_NXZ
+[A] fnjs.dll
+[A] ?Tf_RegistryInitCtor@fnInternal_v23_05__pxrReserved__@@YAXPEBD@Z
+[A] ?Tf_RegistryInitDtor@fnInternal_v23_05__pxrReserved__@@YAXPEBD@Z
+[A] ?Add@Tf_RegistryInit@fnInternal_v23_05__pxrReserved__@@SAXPEBDP6AXPEAX1@Z0@Z
+[A] ??0TfToken@fnInternal_v23_05__pxrReserved__@@QEAA@PEBD@Z
+[A] ?_PossiblyDestroyRep@TfToken@fnInternal_v23_05__pxrReserved__@@AEBAXXZ
+[A] ?GetInstance@TfScriptModuleLoader@fnInternal_v23_05__pxrReserved__@@SAAEAV12@XZ
+[A] ?RegisterLibrary@TfScriptModuleLoader@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVTfToken@2@0AEBV?$vector@VTfToken@fnInternal_v23_05__pxrReserved__@@V?$allocator@VTfToken@fnInternal_v23_05__pxrReserved__@@@std@@@std@@@Z
+[A] ?Invoke2@Tf_ExpiryNotifier@fnInternal_v23_05__pxrReserved__@@SAXPEBX@Z
+[A] ?IssueFatalError@Tf_DiagnosticLiteHelper@fnInternal_v23_05__pxrReserved__@@QEBAXPEBDZZ
+[A] ?Tf_PostNullSmartPtrDereferenceFatalError@fnInternal_v23_05__pxrReserved__@@YAXAEBVTfCallContext@1@PEBD@Z
+[A] ??0TfToken@fnInternal_v23_05__pxrReserved__@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ??0TfToken@fnInternal_v23_05__pxrReserved__@@QEAA@PEBDW4_ImmortalTag@01@@Z
+[A] ?_GetEmptyString@TfToken@fnInternal_v23_05__pxrReserved__@@CAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+[A] ?Tf_PostErrorHelper@fnInternal_v23_05__pxrReserved__@@YAXAEBVTfCallContext@1@W4TfDiagnosticType@1@PEBDZZ
+[A] ?IssueFatalError@Tf_DiagnosticHelper@fnInternal_v23_05__pxrReserved__@@QEBAXPEBDZZ
+[A] ?_Begin@TfMallocTag@fnInternal_v23_05__pxrReserved__@@CAPEAU_ThreadData@12@PEBDPEAU312@@Z
+[A] ?_End@TfMallocTag@fnInternal_v23_05__pxrReserved__@@CAXPEAU_ThreadData@12@@Z
+[A] ?_isInitialized@TfMallocTag@fnInternal_v23_05__pxrReserved__@@0U?$atomic@_N@std@@A
+[A] fntf.dll
+[A] ??0Arch_ConstructorInit@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1Arch_ConstructorInit@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?ArchGetDemangled@fnInternal_v23_05__pxrReserved__@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBD@Z
+[A] fnarch.dll
+[A] _Py_Dealloc
+[A] _Py_NoneStruct
+[A] python310.dll
+[A] ?_Xlength_error@std@@YAXPEBD@Z
+[A] _Thrd_yield
+[A] MSVCP140.dll
+[A] __std_terminate
+[A] __std_exception_copy
+[A] __std_exception_destroy
+[A] _CxxThrowException
+[A] __CxxFrameHandler4
+[A] __std_type_info_name
+[A] memcmp
+[A] memcpy
+[A] memmove
+[A] __current_exception
+[A] __current_exception_context
+[A] __C_specific_handler
+[A] __std_type_info_destroy_list
+[A] memset
+[A] VCRUNTIME140.dll
+[A] VCRUNTIME140_1.dll
+[A] _invalid_parameter_noinfo_noreturn
+[A] ceilf
+[A] terminate
+[A] _callnewh
+[A] malloc
+[A] _seh_filter_dll
+[A] _configure_narrow_argv
+[A] _initialize_narrow_environment
+[A] _initialize_onexit_table
+[A] _register_onexit_function
+[A] _execute_onexit_table
+[A] _crt_atexit
+[A] _cexit
+[A] _initterm
+[A] _initterm_e
+[A] free
+[A] api-ms-win-crt-runtime-l1-1-0.dll
+[A] api-ms-win-crt-math-l1-1-0.dll
+[A] api-ms-win-crt-heap-l1-1-0.dll
+[A] InitializeSListHead
+[A] RtlCaptureContext
+[A] RtlLookupFunctionEntry
+[A] RtlVirtualUnwind
+[A] IsDebuggerPresent
+[A] UnhandledExceptionFilter
+[A] SetUnhandledExceptionFilter
+[A] IsProcessorFeaturePresent
+[A] GetCurrentProcess
+[A] TerminateProcess
+[A] QueryPerformanceCounter
+[A] GetCurrentProcessId
+[A] GetCurrentThreadId
+[A] GetSystemTimeAsFileTime
+[A] DisableThreadLibraryCalls
+[A] KERNEL32.dll
+[A] .?AVbad_array_new_length@std@@
+[A] .?AVbad_alloc@std@@
+[A] .?AVexception@std@@
+[A] .?AV?$TfWeakPtr@VPlugPlugin@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$TfRefPtr@VTf_Remnant@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVKindRegistry@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVTfWeakBase@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVnoncopyable@noncopyable_@foundryboost@@
+[A] .?AUbase_token@noncopyable_@foundryboost@@
+[A] .?AVtype_info@@
+[A] <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+[A] <assembly xmlns='urn:schemas-microsoft-com:asm.v1' manifestVersion='1.0'>
+[A] <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+[A] <security>
+[A] <requestedPrivileges>
+[A] <requestedExecutionLevel level='asInvoker' uiAccess='false' />
+[A] </requestedPrivileges>
+[A] </security>
+[A] </trustInfo>
+[A] </assembly>
+[A] =^0
+[A] N0L0
+[A] 010
+[A] 0w1
+[A] US1
+[A] Microsoft Corporation1H0F
+[A] ?Microsoft Identity Verification Root Certificate Authority 20200
+[A] 200416183616Z
+[A] 450416184440Z0w1
+[A] mZMyS
+[A] sgI
+[A] mbj
+[A] -oI
+[A] -b-/
+[A] hMr
+[A] [oy&
+[A] 2={W
+[A] s]2V
+[A] !W>
+[A] 'I{
+[A] @Y(
+[A] 3Yt
+[A] {Pm
+[A] Q,4
+[A] O`(
+[A] T0R0
+[A] jZ]tC0
+[A] I>t
+[A] V,e
+[A] ~2(
+[A] gs-
+[A] t'R
+[A] 6"A
+[A] 2va
+[A] ^QM"
+[A] |!W
+[A] w(p
+[A] [:[
+[A] e\t
+[A] zjt
+[A] wuX_5
+[A] d8;_
+[A] Kx;-
+[A] iJ*
+[A] 0Z1
+[A] Microsoft Corporation1+0)
+[A] "Microsoft ID Verified CS EOC CA 020
+[A] 241126051451Z
+[A] 241129051451Z0n1
+[A] GB1
+[A] London1&0$
+[A] THE FOUNDRY VISIONMONGERS LTD1&0$
+[A] THE FOUNDRY VISIONMONGERS LTD0
+[A] 4{6L
+[A] B$C
+[A] O^6
+[A] ch1
+[A] 503
+[A] {|f
+[A] ^0g
+[A] `0^0\
+[A] Vhttp://www.microsoft.com/pkiops/crl/Microsoft%20ID%20Verified%20CS%20EOC%20CA%2002.crl0
+[A] Xhttp://www.microsoft.com/pkiops/certs/Microsoft%20ID%20Verified%20CS%20EOC%20CA%2002.crt0-
+[A] !http://oneocsp.microsoft.com/ocsp0f
+[A] _0]0Q
+[A] 0A0?
+[A] 3http://www.microsoft.com/pkiops/Docs/Repository.htm0
+[A] lQ<S
+[A] 6Eh
+[A] PM[q
+[A] EKmh
+[A] E1]
+[A] Z^]
+[A] 8p9d
+[A] ,wE
+[A] K_s
+[A] Zku
+[A] 5L>
+[A] :G4
+[A] z\2
+[A] 0c1
+[A] Microsoft Corporation1402
+[A] +Microsoft ID Verified Code Signing PCA 20210
+[A] 210413173153Z
+[A] 260413173153Z0Z1
+[A] |?2
+[A] nmt
+[A] hGox
+[A] 4kT
+[A] BXbk
+[A] +\_[
+[A] *zm
+[A] ]ifWb
+[A] I7?
+[A] ZtHP
+[A] :</q
+[A] 7B8Ov
+[A] o7?z
+[A] Y16#
+[A] J:R75g(
+[A] e0h
+[A] _(2e
+[A] Kze
+[A] QT bYW
+[A] \L$
+[A] 05m
+[A] q3{
+[A] ^0T
+[A] M0K0I
+[A] Hj0
+[A] i0g0e
+[A] _http://www.microsoft.com/pkiops/crl/Microsoft%20ID%20Verified%20Code%20Signing%20PCA%202021.crl0
+[A] ahttp://www.microsoft.com/pkiops/certs/Microsoft%20ID%20Verified%20Code%20Signing%20PCA%202021.crt0-
+[A] !http://oneocsp.microsoft.com/ocsp0
+[A] EI`
+[A] ?c>@
+[A] #bM
+[A] uX|[
+[A] nDB
+[A] St0
+[A] UF9
+[A] GLm
+[A] _02wM
+[A] =-6
+[A] A:?
+[A] 5UG
+[A] l[[
+[A] LWn
+[A] WI1DR
+[A] $|lt|
+[A] zo)B
+[A] r){L
+[A] _Zm|}e
+[A] E1I
+[A] .7g
+[A] 210401200520Z
+[A] 360401201520Z0c1
+[A] TzLIli
+[A] w)M
+[A] '0C
+[A] wn6
+[A] ,eN
+[A] (:y
+[A] 7&%
+[A] 86a
+[A] MSb
+[A] ]SK
+[A] 4Bo
+[A] W{92
+[A] i!V
+[A] k4NtI
+[A] S[9
+[A] C,{K
+[A] nrAn
+[A] 7@:p[RF
+[A] 0Tn
+[A] }0{0y
+[A] shttp://www.microsoft.com/pkiops/crl/Microsoft%20Identity%20Verification%20Root%20Certificate%20Authority%202020.crl0
+[A] uhttp://www.microsoft.com/pkiops/certs/Microsoft%20Identity%20Verification%20Root%20Certificate%20Authority%202020.crt0-
+[A] W#L
+[A] [9}
+[A] WOC
+[A] lt)l
+[A] @?^
+[A] b(_
+[A] 4o,MDo
+[A] 989
+[A] 0"D
+[A] LW1
+[A] .40+
+[A] E'UUSR
+[A] 8y;T
+[A] >3{
+[A] h-Y:`W
+[A] $J$
+[A] 0q0Z1
+[A] "Microsoft ID Verified CS EOC CA 02
+[A] xhR
+[A] 9th
+[A] L\*?
+[A] *93
+[A] ~|%
+[A] ktb
+[A] p]5k
+[A] +#D
+[A] U%z!l
+[A] 'G_
+[A] -?"
+[A] +o3
+[A] qamOg{5
+[A] {/`)>
+[A] ^!XP
+[A] sJu?
+[A] e?Z
+[A] + Z
+[A] SH[c
+[A] '7iI
+[A] FfO9
+[A] L^1
+[A] !aW
+[A] AuH\
+[A] "O'
+[A] g?"
+[A] 20241126133542.574Z0
+[A] Washington1
+[A] Redmond1
+[A] Microsoft Corporation1-0+
+[A] $Microsoft Ireland Operations Limited1&0$
+[A] Thales TSS ESN:F5D6-96D6-909E1503
+[A] ,Microsoft Public RSA Time Stamping Authority
+[A] 201119203231Z
+[A] 351119204231Z0a1
+[A] Microsoft Corporation1200
+[A] )Microsoft Public RSA Timestamping CA 20200
+[A] eFGw
+[A] ]po
+[A] J{t1
+[A] xmVk\
+[A] bT<.
+[A] _Xr!e
+[A] =$7I
+[A] .k;
+[A] Pd~y
+[A] |Qa
+[A] maJ
+[A] x7m
+[A] Bwg#D
+[A] gs<
+[A] L[rA}
+[A] ?Q<p
+[A] ki(:5/Hc@
+[A] !0T
+[A] uhttp://www.microsoft.com/pkiops/certs/Microsoft%20Identity%20Verification%20Root%20Certificate%20Authority%202020.crt0
+[A] Lxh
+[A] 2KS
+[A] Smu
+[A] t[|
+[A] Tv'
+[A] xjWk`
+[A] d%f
+[A] u*Q
+[A] (t5
+[A] N\rv!a
+[A] Dkb&
+[A] Zo<O
+[A] ?_h
+[A] ][0
+[A] ~m'
+[A] 0a1
+[A] 240418175912Z
+[A] 250417175912Z0
+[A] ,Microsoft Public RSA Time Stamping Authority0
+[A] U&[
+[A] kGJ
+[A] v$~
+[A] FoG
+[A] (bLV
+[A] qP<Ba
+[A] /$$
+[A] _*[
+[A] G3j
+[A] Lw6
+[A] ]nb+
+[A] n*;M
+[A] hdqMn
+[A] T[B>xMSNFz
+[A] W8%
+[A] dcLAks
+[A] !0l
+[A] e0c0a
+[A] [http://www.microsoft.com/pkiops/crl/Microsoft%20Public%20RSA%20Timestamping%20CA%202020.crl0y
+[A] m0k0i
+[A] ]http://www.microsoft.com/pkiops/certs/Microsoft%20Public%20RSA%20Timestamping%20CA%202020.crt0
+[A] -&m
+[A] 4`B
+[A] `^(
+[A] 5hZ
+[A] 2<)
+[A] p$&Y
+[A] WbP
+[A] vJ-
+[A] d%0
+[A] s3)
+[A] w.s
+[A] ?y&
+[A] tQMG
+[A] X.y
+[A] GDfqs`
+[A] XD4
+[A] "z}VX
+[A] 0x0a1
+[A] )Microsoft Public RSA Timestamping CA 2020
+[A] 241126133542Z0/
+[A] Jm0
+[A] 0|0e
+[A] c0a1
+[A] g0e
+[A] 8k0"
+[A] 20241126120707Z
+[A] 20241127120707Z0w0=
+[A] 1/0-0
+[A] 1(0&0
+[A] J*.-
+[A] 2l3
+[A] -U}u|f
+[A] OEB
+[A] $@/1
+[A] 3HU)
+[A] i`0
+[A] (bC$
+[A] v$k
+[A] XE:\giJ
+[A] k8q
+[A] w'2?A
+[A] :G[
+[A] Y 0
+[A] ZB+
+[A] $`/
+[A] QGf
+[A] 1Yj
+[U] SubC

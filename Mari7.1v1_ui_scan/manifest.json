@@ -1,0 +1,377 @@
+{
+  "target_root": "C:\\Program Files\\Mari7.1v1\\Bundle\\bin",
+  "output_root": "C:\\Users\\win10\\Desktop\\Chinese\\MariChinese\\Mari7.1v1_ui_scan",
+  "scanned_file_count": 73,
+  "all_ui_candidate_count": 2115,
+  "all_phrase_candidate_count": 12548,
+  "all_ascii_unique_count": 293766,
+  "all_utf16_unique_count": 1103,
+  "files": [
+    {
+      "path": "fnar.dll",
+      "size_bytes": 223616,
+      "ui_candidates": 36
+    },
+    {
+      "path": "fnarch.dll",
+      "size_bytes": 193920,
+      "ui_candidates": 39
+    },
+    {
+      "path": "fncameraUtil.dll",
+      "size_bytes": 45440,
+      "ui_candidates": 17
+    },
+    {
+      "path": "fngarch.dll",
+      "size_bytes": 508288,
+      "ui_candidates": 31
+    },
+    {
+      "path": "fngeomUtil.dll",
+      "size_bytes": 55680,
+      "ui_candidates": 19
+    },
+    {
+      "path": "fngf.dll",
+      "size_bytes": 592768,
+      "ui_candidates": 28
+    },
+    {
+      "path": "fnglf.dll",
+      "size_bytes": 233336,
+      "ui_candidates": 72
+    },
+    {
+      "path": "fnhd.dll",
+      "size_bytes": 2855288,
+      "ui_candidates": 138
+    },
+    {
+      "path": "fnhdar.dll",
+      "size_bytes": 43904,
+      "ui_candidates": 18
+    },
+    {
+      "path": "fnhdGp.dll",
+      "size_bytes": 147840,
+      "ui_candidates": 25
+    },
+    {
+      "path": "fnhdsi.dll",
+      "size_bytes": 700288,
+      "ui_candidates": 23
+    },
+    {
+      "path": "fnhdSt.dll",
+      "size_bytes": 2833792,
+      "ui_candidates": 424
+    },
+    {
+      "path": "fnhdx.dll",
+      "size_bytes": 892288,
+      "ui_candidates": 85
+    },
+    {
+      "path": "fnhf.dll",
+      "size_bytes": 57728,
+      "ui_candidates": 20
+    },
+    {
+      "path": "fnhgi.dll",
+      "size_bytes": 128384,
+      "ui_candidates": 25
+    },
+    {
+      "path": "fnhgiGL.dll",
+      "size_bytes": 314240,
+      "ui_candidates": 90
+    },
+    {
+      "path": "fnhgiInterop.dll",
+      "size_bytes": 40832,
+      "ui_candidates": 22
+    },
+    {
+      "path": "fnhio.dll",
+      "size_bytes": 376704,
+      "ui_candidates": 122
+    },
+    {
+      "path": "fnhioOpenVDB.dll",
+      "size_bytes": 1002880,
+      "ui_candidates": 62
+    },
+    {
+      "path": "fnjs.dll",
+      "size_bytes": 122232,
+      "ui_candidates": 40
+    },
+    {
+      "path": "fnkind.dll",
+      "size_bytes": 59776,
+      "ui_candidates": 25
+    },
+    {
+      "path": "fnndr.dll",
+      "size_bytes": 189312,
+      "ui_candidates": 38
+    },
+    {
+      "path": "fnpcp.dll",
+      "size_bytes": 1171328,
+      "ui_candidates": 147
+    },
+    {
+      "path": "fnplug.dll",
+      "size_bytes": 250752,
+      "ui_candidates": 50
+    },
+    {
+      "path": "fnpxOsd.dll",
+      "size_bytes": 126848,
+      "ui_candidates": 41
+    },
+    {
+      "path": "fnsdf.dll",
+      "size_bytes": 3668104,
+      "ui_candidates": 251
+    },
+    {
+      "path": "fnsdr.dll",
+      "size_bytes": 181632,
+      "ui_candidates": 29
+    },
+    {
+      "path": "fntf.dll",
+      "size_bytes": 835208,
+      "ui_candidates": 158
+    },
+    {
+      "path": "fntrace.dll",
+      "size_bytes": 309384,
+      "ui_candidates": 44
+    },
+    {
+      "path": "fnusd.dll",
+      "size_bytes": 4545160,
+      "ui_candidates": 162
+    },
+    {
+      "path": "fnusdAppUtils.dll",
+      "size_bytes": 82568,
+      "ui_candidates": 25
+    },
+    {
+      "path": "fnusdGeom.dll",
+      "size_bytes": 1179520,
+      "ui_candidates": 47
+    },
+    {
+      "path": "fnusdHydra.dll",
+      "size_bytes": 94856,
+      "ui_candidates": 22
+    },
+    {
+      "path": "fnusdImaging.dll",
+      "size_bytes": 2952064,
+      "ui_candidates": 74
+    },
+    {
+      "path": "fnusdImagingGL.dll",
+      "size_bytes": 151936,
+      "ui_candidates": 26
+    },
+    {
+      "path": "fnusdLux.dll",
+      "size_bytes": 362632,
+      "ui_candidates": 25
+    },
+    {
+      "path": "fnusdMedia.dll",
+      "size_bytes": 98176,
+      "ui_candidates": 21
+    },
+    {
+      "path": "fnusdPhysics.dll",
+      "size_bytes": 302976,
+      "ui_candidates": 25
+    },
+    {
+      "path": "fnusdProc.dll",
+      "size_bytes": 56456,
+      "ui_candidates": 19
+    },
+    {
+      "path": "fnusdProcImaging.dll",
+      "size_bytes": 105856,
+      "ui_candidates": 19
+    },
+    {
+      "path": "fnusdRender.dll",
+      "size_bytes": 156544,
+      "ui_candidates": 21
+    },
+    {
+      "path": "fnusdRi.dll",
+      "size_bytes": 167048,
+      "ui_candidates": 30
+    },
+    {
+      "path": "fnusdRiImaging.dll",
+      "size_bytes": 77696,
+      "ui_candidates": 18
+    },
+    {
+      "path": "fnusdShade.dll",
+      "size_bytes": 626312,
+      "ui_candidates": 42
+    },
+    {
+      "path": "fnusdSkel.dll",
+      "size_bytes": 1077384,
+      "ui_candidates": 87
+    },
+    {
+      "path": "fnusdSkelImaging.dll",
+      "size_bytes": 313992,
+      "ui_candidates": 34
+    },
+    {
+      "path": "fnusdUI.dll",
+      "size_bytes": 81792,
+      "ui_candidates": 20
+    },
+    {
+      "path": "fnusdUtils.dll",
+      "size_bytes": 670592,
+      "ui_candidates": 43
+    },
+    {
+      "path": "fnusdviewq.dll",
+      "size_bytes": 85888,
+      "ui_candidates": 19
+    },
+    {
+      "path": "fnusdVol.dll",
+      "size_bytes": 108928,
+      "ui_candidates": 24
+    },
+    {
+      "path": "fnusdVolImaging.dll",
+      "size_bytes": 95104,
+      "ui_candidates": 20
+    },
+    {
+      "path": "fnvt.dll",
+      "size_bytes": 909448,
+      "ui_candidates": 45
+    },
+    {
+      "path": "fnwork.dll",
+      "size_bytes": 46464,
+      "ui_candidates": 19
+    },
+    {
+      "path": "foundryboost_atomic-vc143-mt-x64-1_80.dll",
+      "size_bytes": 33152,
+      "ui_candidates": 17
+    },
+    {
+      "path": "foundryboost_chrono-vc143-mt-x64-1_80.dll",
+      "size_bytes": 51848,
+      "ui_candidates": 20
+    },
+    {
+      "path": "foundryboost_date_time-vc143-mt-x64-1_80.dll",
+      "size_bytes": 25472,
+      "ui_candidates": 14
+    },
+    {
+      "path": "foundryboost_filesystem-vc143-mt-x64-1_80.dll",
+      "size_bytes": 158592,
+      "ui_candidates": 24
+    },
+    {
+      "path": "foundryboost_python310-vc143-mt-x64-1_80.dll",
+      "size_bytes": 210568,
+      "ui_candidates": 40
+    },
+    {
+      "path": "foundryboost_regex-vc143-mt-x64-1_80.dll",
+      "size_bytes": 250744,
+      "ui_candidates": 74
+    },
+    {
+      "path": "foundryboost_system-vc143-mt-x64-1_80.dll",
+      "size_bytes": 24712,
+      "ui_candidates": 14
+    },
+    {
+      "path": "foundryboost_thread-vc143-mt-x64-1_80.dll",
+      "size_bytes": 92032,
+      "ui_candidates": 31
+    },
+    {
+      "path": "GnzCore.dll",
+      "size_bytes": 128384,
+      "ui_candidates": 22
+    },
+    {
+      "path": "GnzGL.dll",
+      "size_bytes": 938880,
+      "ui_candidates": 209
+    },
+    {
+      "path": "lib\\site-packages\\mari.pyd",
+      "size_bytes": 2698624,
+      "ui_candidates": 882
+    },
+    {
+      "path": "Mari7.1v1.exe",
+      "size_bytes": 220544,
+      "ui_candidates": 64
+    },
+    {
+      "path": "MriBackup.exe",
+      "size_bytes": 42632,
+      "ui_candidates": 22
+    },
+    {
+      "path": "MriCore.dll",
+      "size_bytes": 7755640,
+      "ui_candidates": 4178
+    },
+    {
+      "path": "MriCoreJobs.dll",
+      "size_bytes": 35976,
+      "ui_candidates": 19
+    },
+    {
+      "path": "MriCoreModules.dll",
+      "size_bytes": 24675200,
+      "ui_candidates": 9621
+    },
+    {
+      "path": "MriDdi.dll",
+      "size_bytes": 422024,
+      "ui_candidates": 143
+    },
+    {
+      "path": "MriMath.dll",
+      "size_bytes": 248192,
+      "ui_candidates": 21
+    },
+    {
+      "path": "MriNodeGraph.dll",
+      "size_bytes": 695680,
+      "ui_candidates": 58
+    },
+    {
+      "path": "qtplugins\\imageformats\\MriTga.dll",
+      "size_bytes": 39048,
+      "ui_candidates": 17
+    }
+  ],
+  "all_ui_candidates_broad_count": 12736
+}

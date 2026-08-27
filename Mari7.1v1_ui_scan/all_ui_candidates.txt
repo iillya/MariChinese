@@ -1,0 +1,2116 @@
+# Unique strict UI candidates from Mari 7.1v1 (further filtered)
+%1 Apply Filter to Baked Result
+%1 Limit Bake Range
+%1 to recompile Render Op '%2' Network Shader '%3' taking
+& Type below. This can speed up the caching process if you do not require
+&All Objects
+&Apply To All Objects
+&Apply to All .%1 Files
+&Delete Cache
+&Delete Caches
+&Display Properties
+&Double Face Resolution
+&Face Mode
+&Halve Face Resolution
+&License is from an unrecognized vendor
+&Object Mode
+&Patch Mode
+&Remove from Project location List
+&Set Face Resolution
+&Skip Frame
+&Skip Object
+&World Space Face Resolution
+2Activate a Login License from your Foundry account
+2Enter the port and hostname of your License Server
+3D LUT Size
+3D Texture Painting
+8-bit Color
+A Channel with that name already exists
+A Channel with that name does not exist
+Aborting export to Geo-Channel due to outdated baked result.
+Accept timeout occurred while waiting server connect
+Accept-ranges: bytes
+Activate a Login License from your Foundry account
+Activation - Missing hostid
+Activation Success
+Active Light Count
+Active error mark stack traces are disabled.  To enable, please do the following:
+Active leaf voxels:
+Add Adjustment Layer %1
+Add Attribute
+Add Bake Point Layer
+Add Camera Settings:
+Add Channel
+Add Channel action not found.
+Add Channel with Shared Layer : %1
+Add Channels
+Add Directory
+Add Empty ShaderInput %1
+Add Filter
+Add Geo-Channel
+Add Geometry Mesh
+Add Graph Layer
+Add Image Set
+Add ImageSet
+Add Input
+Add Layer
+Add Layer Adjustment to : %1
+Add Layer Group
+Add Layer Mask From Alpha : %1
+Add Layer Mask From Selection : %1
+Add Layer Mask to %1
+Add License
+Add Mask From Selection Group
+Add Material specific Tags which can be used for filtering and organizing the Mari Shelf.
+Add Multi-Channel Group Layer
+Add New Shelf
+Add New Switch Node Input
+Add Normal Maps
+Add Object Settings:
+Add Paintable Node
+Add Patches
+Add Procedural Layer %1
+Add Remaining Triangles
+Add Secondary Adjustment : %1
+Add Selection Group '%1'
+Add Shader
+Add Shader %1
+Add Shader Layer %1
+Add Shared Layer : %1
+Add Smart Mask
+Add Smart Mask Layer
+Add User Attribute
+Add Version
+Add a new input to this node.
+Add a new locator for immediate selection
+Add a new projector for immediate selection
+Add action called on locked action collection
+Add data row
+Add new tab
+Add patch images to link group
+Add selected patch images to link group
+Add specific Tags which can be used for filtering and organizing the Mari Shelf.
+Add user attribute
+Add user attributes
+Add, remove, rename and re-order inputs for this node.
+Adding Channel Undo - Redo
+Adding Channel Undo - Undo
+Adjustment Layer must have _adjustment tag.
+Adjustment Layer must have at least one input.
+Adjustment Stack Bottom
+Adjustment Stack Top
+Advanced  blending options
+Advanced Options
+Advanced Server
+Advanced blending options
+Advanced debugging for Node Definition Registry
+Advisory information for Node Definition Registry
+Alias Definition
+Alias already in use by another Geo-Channel : '%1'
+All Shelf items will be deleted. Are you sure to delete %1?
+All Shelf items will be deleted. Are you sure to delete the following Shelves?
+Allow Mari to gather vital analytics during a Mari session
+Allow Mari to send anonymous usage statistics to The Foundry
+Allow the use of high resolution position values from tablets and other devices
+Alpha Channels
+Animation Frame
+AovInput Intermediate Texture
+AovInput Texture
+Apply quadrangulation for all meshes for debug
+Apply the current filters to the baked result.
+Applying Filter to Bake Point
+Applying Filters to Baked Result
+ArchCrashHandlerSystemv unimplemented for Windows
+Assign Keyboard Shortcut
+Assign Shortcut
+Attribute bindings
+Attribute default value
+Attribute time samples
+Attribute: '%1' doesn't exist.
+Auto Convert Working Color
+Auto heartbeat set up to run every
+Available Filters
+Avenir Next
+Avenir Next Bold
+Avenir Next Medium
+Avenir Next Regular
+Average leaf node fill ratio:
+Backdrop nodes do not have a post list mode.
+Background Color
+Badly Formed Controlet Build String
+Bake Active
+Bake And Ungroup
+Bake Behavior
+Bake Bucket Size
+Bake Paint Buffer
+Bake Point
+Bake Point Filters
+Bake Point Node
+Bake Point must have a baked result for preview
+Bake Resolution
+Bake Selected
+Bake Shader
+Bake Streams
+Bake point
+Bake point states:
+Bake stub, please reimplement
+Baking Shader
+Baking and Projection
+Bar Locked
+Basic Brushes
+Basic Constraints of CA cert not marked critical
+Basic OCSP Response
+Basic with Shadows
+Batch Connect
+Batch Connect:
+Batch Disconnect
+Batch Disconnect:
+Batch-edit of Multi-Channel Bake Point node properties
+Begin Shader Network GLSL Generation '%1' for Shader '%2' Viewer '%3'...
+Bindless Textures Allowed
+Blend Mode
+Block Manager Has Live Blocks
+Block is reporting compressed when it should not
+Block reports not compressed
+Block-Compression Format: BC6H_SF16
+Block-Compression Format: BC6H_UF16
+Both Block and Pointer Are Null
+Bottom Dock Area
+Bottom Left Corner
+Bottom Right Corner
+Bottom Transparency
+Bottom to Top
+Bound BO useRange does not match the rebind Buffer Object
+Brush Settings
+Brush Settings do not conatin Tip information
+Brush Settings do not contain Geometry information
+Brush Tip
+Buffer Object is not bound on map
+Buffer Object is not bound on unbind
+Buffer Object is not bound on unmap
+Buffer Object is not bound on upload
+Buffer Object is not large enough to hold data
+Buffer Object needs more and 0 value size during upload
+Buffer Object needs more and 0 values during upload
+Buffer Size
+Build Configuration
+Build Date
+Build Iteration
+Build Sync Map: Rprims
+Build Type
+CPU Colorspace Transform Cache:
+Cache Buckets seems to misbehaving
+Cache Layer
+Cache Layers in Stack '%1'
+Cache Path is different
+Cache Size
+Cache Up To Here
+Cache blockes should have the same cache if the data is the same
+Cache state: %1
+Cached Up To here:
+Calc Patch Bounds
+Calculating Group References for first image
+Calculating Size
+Camera Mask
+Camera is not of a PERSPECTIVE type
+Can't Assign Shortcut
+Cancel Action
+Cancel Ptex Import %1
+Cancel the current action
+Cannot Channel passed
+Cannot Create New Project
+Cannot Create new Render Buffer Id
+Cannot Delete Shelf
+Cannot Export File
+Cannot Export Shelf
+Cannot Find Tools Palette
+Cannot Find Vertex Channel on incoming geo
+Cannot Get tile for Save Painting image
+Cannot Import File
+Cannot Initialise Data Block Manager
+Cannot Initialize Data Block Manager
+Cannot Load 1D LUT File
+Cannot Load Items
+Cannot Load LUT File
+Cannot Load Projector
+Cannot Load Shelf
+Cannot Load frame %1
+Cannot Load matte shader
+Cannot Load paint shader
+Cannot Make Texture Id in Offscreen Buffer
+Cannot Open Actions Help File
+Cannot Open Palettes Help File
+Cannot Package Shelf
+Cannot Save
+Cannot Save Shelf
+Cannot Start Shader
+Cannot ask for ancestor types of Unknown type
+Cannot create new Channel info object
+Cannot find This Layer LUT
+Cannot initialize Data Block Manager
+Cannot initialize Texture
+Cannot open Test Data file
+Cannot parse Brush Settings Data
+Cannot use an empty VersionUUID for creating Nodes from XML
+Captured Malloc Stacks
+Certificate Status
+Change Export Path
+Change Frame
+Change Selection
+Change Smart Mask Type
+Change Thumbnail Path
+Changed Native Automatic Type
+Changed Output Automatic Type
+Changing Buffer Size
+Channel '%1' is locked.
+Channel Add Keyframe
+Channel Bake
+Channel Cache
+Channel Delete Keyframe
+Channel Input
+Channel Locked
+Channel Name
+Channel None
+Channel Presets
+Channel Snapshot
+Channel contains a multi-channel layer.
+Channel has no shading context!
+Channel is a LayerStack. Cannot use as Current Channel.
+Channel is already contained
+Channel is already set
+Channel is not contained
+Channel name
+Channel to duplicate is not part of this GeoEntity.
+Channel was not created.
+Channel: Empty List
+Channel: Properties of the node are managed by the channel.
+Channels linked via shared layers.
+Channels must have a valid name.
+Channels records are different sizes
+Checker Color A
+Checker Color B
+Checker Size
+Child Already Contained
+Child Not Contained
+Choose License Type
+Choose The Last Blend Mode
+Choose The Next Available Blend Mode
+Choose The Previous Blend Mode
+Choose the License File to Install
+Clear Color
+Clear Mode
+Clear or Bake Paint Buffer
+Clearing Caches
+Clearing Previous Caches
+Client Cache data read error
+Client Cache data write error
+Close Image
+Close Images
+Close palette
+Close project failed
+Close the current project
+Closing Help Manager
+Closing Image Manager
+Closing Project
+Cloud License List
+Coding error: Node has no parent
+Coding error: Node not found under parent
+Coding error: Object at path doesn't exist
+Coding error: Object at path has been removed
+Coding error: Object is not in its parent's children
+Coding error: Object with new path already exists
+Collect Render Stats
+Collection Name
+Color Burn
+Color Correct
+Color Correct Screen Quad Render
+Color Correction Wipe
+Color Data
+Color Depth
+Color Dodge
+Color History
+Color Management
+Color Management Defaults
+Color Management Enabled
+Color Manager
+Color Monitor
+Color Picker
+Color Picker Maximum
+Color Picking
+Color Popup
+Color Presets
+Color Procedural
+Color Procedurals
+Color Profile
+Color Settings
+Color Swatches and Pickers
+Color Transform Buffer
+Color correction presently unsupported when the GPU is disabled.
+Color count must match vertex count
+Color management active
+Color space string unknown
+Colorspace controls the Colorspace in which the Bake Point Images are stored in
+Comp Image onto Paint Buffer
+Comp Shader Paths
+Compilation Mode
+Compiling Shader
+Component Count and array Size do not match.
+Composite Filter
+Configuring Node Graph
+Configuring Projector
+Confirm Project Location
+Confirm Projects Directory
+Connect data stream actively
+Connect data stream passively
+Connect me again please
+Connect to a License Server
+Connect to a License Server on your network
+Connecting a Channel
+Context Shader Hash
+Convert Channel
+Convert Mask Colorspace : %1 to %2
+Convert Material Layers to Paintable
+Convert Paint Colorspace '%1'
+Convert Shader to Material Layer Shader : '%1'
+Convert Shader to Material Layer Shader: '%1'
+Convert to Paintable Mask
+Convert to Paintable Mask : %1
+Convert to Smart Mask
+Converting Channel
+Converting Layers
+Convolve Mask Buffer
+Copy Image
+Copy Offscreen Buffer Depth Target
+Copy Ptex textures
+Copy Src Buffer
+Copy To Buffer
+Copy of Autosave Data File failed, please save your work and check cache disk free space
+Copy paste error
+Copy to dense
+Could Not Make New Child of type %1
+Could not export to a Geo-Channel. %1
+Could not export to a Geo-Channel. Could not create image set.
+Could not find an insert point in the layerstack for the Smart Mask
+Could not open License Session Database for writing '
+Could not open License Sesssion Database for reading '
+Couldn't Create Directory
+Create %1 Shader
+Create Channel
+Create Current Layer Shader
+Create Current Material Shader for Shader Model '%1'
+Create Custom Procedural Layer
+Create Geo-Channels from Settings
+Create Group
+Create Group Node
+Create Layer Mask to %1
+Create Material
+Create Material Layer
+Create Material Node
+Create Multi-Channel Bake Point
+Create Multi-Channel Bake Point Node
+Create Multi-Channel Bottom Transparency
+Create Multi-Channel Group Layer
+Create Multi-Channel Merge
+Create Multi-Channel Merge Node
+Create New Project
+Create New Shelf
+Create Node Attribute : %1
+Create Shader Internal
+Create Shader Network
+Create Smart Mask Layer
+Create or Sync %1 Image Sets
+Create with Default Colors
+Cubemap Type
+Current Channel
+Current Channel Path
+Current Color Profile
+Current Colorspace
+Current Data Colorspace
+Current ImageSet
+Current Layer
+Current Layer & Below
+Current Layer Path
+Current Layout saved to
+Current Level
+Current Material
+Current Modular Shader
+Current Object
+Current Output Colorspace
+Current Paint
+Current Paint Target
+Current Painting
+Current Render Chain - 1st level op '%1' failed
+Current Shader
+Current Shader Link failed
+Current Tool
+Current Uniforms
+Current Working Colorspace
+Current canvas has no camera
+Current framebuffer information:
+Current system state
+Current target was edited
+Current working pressure value being applied.
+Curve Atlas Texture is not bound
+Custom Font Size
+Cut Shader %1
+Data Block Manager Not Initialized. Aborting
+Data Block Manager has live blocks
+Data Block Manager has live bytes
+Data Block Manager has managed blocks
+Data Block Manager is still initialized after cleanup
+Debug Scalar Viewer
+Debug Visualization of Ptex Layout
+Debug framebuffer cache management per context arena.
+Debug the transform of image data
+Debug transform
+Decode Shader
+Decrease Radius
+Decrease Rotation
+Decrement Brush Opacity
+Decrement Brush Radius
+Decrement Brush Rotation
+Default Color Depth
+Default Import Colorspace
+Default Resolution
+Default Settings
+Default Type
+Deferred Texture Array
+Delete Bake
+Delete Baked
+Delete Baked Data for %1
+Delete Cache
+Delete Caches?
+Delete Item
+Delete Items
+Delete Point
+Delete Points
+Delete Preset
+Delete Preset %1?
+Delete Projection Chain
+Delete Shelf
+Delete Shelf %1? All shelf items will be deleted.
+Delete Shelves
+Delete The Selected Item
+Delete UV Grid Render Op
+Delete Unused Image Sets
+Delete Unused Patches
+Delete current tab
+Delete error
+Delete the currently selected preset
+Delete the selected groups and shelves
+Depth Projection Buffer
+Depth Projection Render Op
+Depth Projections Render Op
+Depth is the bit depth of the Image Data for each Stream of the Bake Point
+Descrease Opacity
+Deselect %1 Layers
+Deselect Layer '%1'
+Detect Path Colorspace
+Diagnostics from discovering nodes for Node Definition Registry
+Diagnostics from parsing nodes for Node Definition Registry
+Different Channel Value Counts
+Diffuse Shader must have _diffuse tag.
+Diffuse Shader must have _notcacheable tag.
+Diffuse Shader must have at least one input.
+Directory does not exist : %1
+DirtyList: Filter Changed:
+Disable alpha to coverage transpancy
+Disable view frustum culling
+Disabled Color Management
+Disabled Raw Data
+Disabled Scalar Data
+Disconnect %1 Edges
+Disconnect Multi-channel layers
+Disk Cache Usage : %1
+Display Properties
+Display Properties Dialog
+Display SVT Debug View
+Display SVT View
+Displays SVT Debug View
+Dload  Upload   Total   Spent    Left  Speed
+Dock View
+Done waiting for 100-continue
+Done with import
+Double %1 Size
+Double Click to Activate in Pop-Over Shelf
+Double Face Resolution
+Downscale Image
+Draw Batch Size
+Drop Current Layer
+Duplicate Channel '%1'
+Duplicate Channel: %1
+Duplicate File Names?
+Duplicate Files  Names:
+Duplicate Layer : %1
+Duplicate Layers in Stack '%2'
+Duplicate Nodes
+Duplicate Shader %1
+Duplicate aliases have been found from the input text : '%1'
+Duplicate child
+Duplicate product name for disconnected transfer
+Duplicating Channel
+ERROR : No exp claim
+ERROR : No iat claim
+ERROR : No iss claim
+ERROR: Expected object type to be 'License' but found
+ERROR: Unknown exception caught during token file close - checkout failed.
+Edit Favourites
+Edit Filters
+Edit Filters for %1
+Edit Point
+Edit Points
+Edit Properties
+Edit Remaining %1 Items
+Edit Script
+Edit Tags
+Edit the Python script of the current item
+Edit the settings of the current project
+Empty Channel Name
+Empty Group is not empty
+Empty Subject Alternative Name extension
+Enable 'Depth Projections' to use this feature.
+Enable Analytics
+Enable GPU frustum culling
+Enable GPU frustum culling visible count query
+Enable GPU per-instance frustum culling
+Enable Hgi resource generation for codeGen
+Enable Lighting
+Enable OpenGL debugging for HgiGL
+Enable Tiny Prim Culling
+Enable Vector Inspector
+Enable a cache for material bindings.
+Enable a cache for model:drawMode.
+Enable a cache for point instancer indices.
+Enable a cache for purpose.
+Enable a cache for visibility.
+Enable a shared cache for transforms.
+Enable additional security checks
+Enable instance registry deduplication of resource data
+Enable loading scene lights.
+Enable order independent translucency
+Enable pipeline draw batching GPU frustum culling
+Enable scene index emulation in the render index.
+Enable sharing of ext computation data buffers
+Enable sharing of vertex primvar
+Enable tiny prim culling
+Enable usage of the draw items cache in Storm.
+Enable vector inspection grid
+Enabled Color Management
+Enabled Raw Data
+Enabled Scalar Data
+End Called of invalid FBO
+End Mari Usage Stats
+End of early data
+Enter Preset Name
+Enter the port and hostname of your License Server
+Environment variable MARI_AUTOUPGRADE_CONFIGURATION is set to True
+Example Path
+Example Project
+Expand Shelf Panel
+Expected object of type Projector
+Export &All Patches
+Export &First Frame
+Export &Selected Patches
+Export As Gizmo
+Export As Material
+Export As Smart Mask
+Export Baked
+Export Baked Mask Stack and an Invisible Group
+Export Baked Outdated
+Export Baked to Geo-Channel
+Export Canceled
+Export Data
+Export Height
+Export Images
+Export Item
+Export Items
+Export Macro
+Export Nodes As Archive:
+Export Options Dialog
+Export Path
+Export Pte&x
+Export Raw
+Export Root Path
+Export Shelf
+Export Shelf Contents to Disk
+Export Shortcuts
+Export Single Frame of Animation
+Export Textures
+Export Transform
+Export Width
+Export as Material
+Export as Smart Mask
+Export custom shortcuts
+Export error
+Export failed : %1
+Export failed: %1
+Export has been canceled
+Export has been canceled.
+Export is cancelled due to outdated baked result.
+Export item is invalid
+Export on Bake
+Export temporary macro
+Export to Geo-Channel
+Export to Geo-Channel: %1
+Exporting Image
+Exporting Shelf
+Exporting outdated baked result to Geo-Channel!
+Extended OCSP Status
+Extract %1 Nodes
+Extract Channel Snapshot : %1
+Face Mode
+Face Textures
+Failure Loading Project Data
+File Path
+File Space controls what values are exported for the image files of the Bake Point
+Filename is empty
+Filename may not be empty
+Filename may not be empty.
+Fill Color
+Fill Render
+Fill Selected
+Filter Baked Patches
+Filter Enabled
+Filter Shelf Results by Type
+Filter added to factory twice
+Filter is invalid.
+Filter is not a quick apply GLSL filter
+Filtered Image Set
+Finishing Processing of Shelf Items
+First accesor invalid
+Fixed Size
+Flatten Adjustment Stack
+Flatten Adjustment Stack : %1
+Flatten Channel '%1'
+Flatten Layer Group
+Flatten Layer Group:
+Flip Horiz
+Flip Vert
+Floating License Query
+Flush Cache
+Folder Walking. When enabled, Mari looks
+Format of the Ptex filename.
+Frame Offset
+Frame Time
+Framebuffer Object is already bound on bind
+Framebuffer Object is already bound on create
+Framebuffer Object is already bound on destroy
+Framebuffer Object is not bound on attach
+Framebuffer Object is not bound on detach
+Framebuffer Object is not bound on unbind
+Full Hydra Frame
+Full Image Temporary Buffer
+GL Color Correct Buffer
+GPU Colorspace Transform Cache:
+GPU List Memory
+GPU List Size
+GPU Tile Size
+Gather Ptex Texture Data
+Gather Scale
+Gather Type
+General Failure During Project Writting '%1'
+Generate UV Mask
+Generating Texture Bleed
+Geo Already has an Attribute Channel
+Geo Already has an Color Channel
+Geo-Channel Image changed
+Geo-Channel Name
+Geo-Channel Properties
+GeoVersion Reload
+Geometry Already Has Tangent Data
+Geometry Does Not Have A Normal Channel
+Geometry Does Not Have A UV Channel
+Geometry Does Not Have A Vertex Channel
+Geometry Does Not Have Triangle Index Data
+Geometry Does not have an index channel
+Geometry Mesh Snapshot
+Geometry Shaders
+Geometry Shaders Supported
+Geometry input files
+Geometry is already indexed as quads
+Geometry lights are not yet supported in USD imaging
+Geometry name
+Given channel id is greater than the number of channels : ID %1 #Channels %2
+Given patch id is greater than the number of patches : ID %1 #Patches %2
+Goto the Previous tab on the main window
+Goto the next Previous on the main window
+Graph instances:
+Group Layers
+Group Shelf
+Group name string is empty
+Group names may not be empty.
+Group names may not contain slashes.
+Group not found for add
+Group reference is missing
+Halve %1 Size
+Halve Face Resolution
+Hash Manager Still Hash Some hashes Left
+Hash Size is Zero
+Header State
+Hide Details
+Hide Selected Faces
+Hide Selected Objects
+Hide Selected Patches
+Hide Shelf Panel
+Hide Unselected Faces
+Hide Unselected Objects
+Hide Unselected Patches
+Hide Vectors
+Higher-Level Layer Cached
+HioOpenVDB_TextureData: Copy to dense
+History Size
+History View
+Hold Instruction Reject
+Home Basic Edition
+How Would You Like to Obtain a License?
+Hud Manager Dialog
+IEEE Security in Storage Working Group
+IPSec End System
+If the Resolution Mode is set to 'Fixed', Mari will cache at this bit-depth,
+If the Resolution Mode is set to 'Fixed', Mari will cache at this resolution. This can
+If this Paint Buffer configuration is used you may experience poor performance or instability.
+If this Virtual Texture configuration is used you may experience poor performance or instability,
+If this Virtual Texture configuration is used you may experience poor performance or instability.
+Ignore chunked response-body
+Ignore lightList cache
+Image Add Level
+Image Corruption
+Image Dest Buffer
+Image Layer Stack
+Image Manager
+Image Matches required proxy levels
+Image Name
+Image Projection Buffer
+Image Resize
+Image Scale Buffer
+Image Sink Id Conflict :
+Image Sink Registered Twice :
+Image Size Not Supported
+Image Source Id Conflict :
+Image Tile Count
+Image Tiles
+Image Transform Clamping
+Image View Buffer
+Image View Convolution
+Image expects %1 tiles but we only found %2
+Image format not supported
+Image has no tiles
+Image invalid
+Image is an empty filepath.
+Image is invalid
+Image is not the same as the reference
+Image is not the same size as the destination buffer
+Image is too big
+Image set is invalid
+Image set using unknown type
+Image sink does not support loadPreferences slot
+Image sink does not support savePreferences slot
+Image using unknown type
+Image view op cliked
+Images have different number of proxy levels
+Images have different number of tiles
+Import &All Patches
+Import &Selected Patches
+Import Canceled
+Import Custom Procedural
+Import Export Token
+Import Failure
+Import Geo-Channel Images
+Import Image
+Import Image Summary
+Import Images
+Import Images Size Mismatch
+Import Images Summary
+Import Items
+Import Material
+Import Node Archive
+Import Nodes As Archive:
+Import Pte&x
+Import Ptex options
+Import Shelf
+Import Shelf Contents from File
+Import Shortcuts
+Import Textures?
+Import as New Version
+Import custom shortcuts
+Import has been canceled
+Import image set
+Import into %1
+Import object is invalid
+Import target is invalid
+Import the input image into the paintbuffer
+Importing %1Images
+Importing Images
+Importing Textures
+Increase Opacity
+Increase Radius
+Increase Rotation
+Increase Shader Transform Accuracy
+Increase Virtual Texture Accuracy
+Increment Brush Opacity
+Increment Brush Radius
+Increment Brush Rotation
+Init Channel
+Initial Render Settings
+Initialize Matrix Stacks
+Input Alpha
+Input Editor
+Input File Path
+Input Name:
+Input connectability is 'interfaceOnly' but source is not an input
+Input connectability is unspecified
+Input must be a color
+Input must contain points
+Input string did not evaluate to a JSON dictionary:
+Input structure:
+Input text contains invalid characters
+Input text is empty
+Input type:
+Insert Layer
+Insert Multi-Channel Layer
+Install License
+Install an RLM Nodelocked License, connect to a License Server or use an Activation Key
+Instance name must be non-empty
+Invaild data passed to register Image protocol handler
+Invert Face Selection
+Invert Object Visibility
+Invert Patch Selection
+Invert Patch Visibility
+Jitter per Tip
+Job is already added as Next
+Last Blend Mode
+Last session using token, releasing
+Layer %1 do not match
+Layer Cached
+Layer Count
+Layer Externally Locked
+Layer Locked
+Layer Name
+Layer Node needs at least one output
+Layer Registry Dump:
+Layer Selection
+Layer is not a member of the channel
+Layer is not a member of the stack
+Layer is not editable
+Layer is not editable.
+Layer name
+Layer not present in node
+Layer path is empty
+Layer shader model is invalid.
+Layer system does not support a BaseNode having more than 1 input
+Layer system does not support a MaskNode that is neither an ImageSetNode of BlendNode
+Layer to move is None
+Layer to share is None
+Layered Shader Stack
+Layered Shader must have _layered tag.
+Layers Do Not Match
+Left Dock Area
+Left To Right
+Level Size
+Level exceeds the maximum subdivision level available
+Level is below 0
+Level must be at least 0 and less than one level below current proxy level
+License Authentication failed
+License File
+License Generator not found at this URL
+License Installation Successful
+License Key Activation
+License Obtained
+License Return
+License Return Successful
+License Roam Successful
+License Roaming
+License Roaming Return
+License Server did not return a license
+License Status
+License activated for '%1'
+License check aborted for internal reasons.
+License check aborted, failed to create required environment variable.
+License checked out successfully
+License expires before roam period ends
+License files:
+License from server has keywords I don't understand
+License from server not authentic
+License has a bad host name
+License has a future start date
+License has an incorrect System ID
+License has expired
+License installation was successful
+License is already installed
+License is expired
+License is for another ISV
+License is from an unrecognized vendor
+License is invalid
+License is not a temporary license
+License is tracking aggregated use time and use time is exceeded.
+License is valid
+License isn't a temporary license
+License log failed.
+License model has an IP based geolocation constraint which is blocking the request.
+License model has an IP-range based constraint which is blocking the request.
+License model requires a scope, but there is no scope present in the license check request
+License not found
+License not yet valid, may be valid in the future.
+License replacement was successful
+License request failed.
+License server does not support this product
+License start date in the future
+License syntax error
+License time out on server.
+License timed out by server
+License token saved to:
+License version too old
+Lighting Mode
+Limit Bake Range
+Limit Patch Baking
+Link Images
+Linked Patches
+List all CSPs
+List all certificates in store
+List editor is expired
+Load Animation
+Load Items
+Load Nodes from Archive
+Load Nodes from File
+Load Nodes from String
+Load Painting
+Load Projector from Camera '%1'
+Load Shader Input Snapshot
+Load Shelf
+Load Shelf Contents from File
+Load Shelf Items
+Load USD Plugin
+Load Window Layout
+Load all loadable prims
+Load an image file
+Load certs from STORE URIs
+Load certs from files in a directory
+Load failed: dependency list has wrong type
+Load file into cache
+Load gradient
+Load items from file into a new or existing shelf
+Load no loadable prims
+Load prim and all descendants
+Load prim and no descendants
+Load up the ENGINE specified by other settings
+Load with No PreMulitpliedAlpha
+Loading Channel
+Loading Channels
+Loading Image
+Loading Images
+Loading Project
+Local License
+Locator Size
+Lock All Faces
+Lock All Objects
+Lock All Patches
+Lock Block %1 already contained in LRU
+Lock Selected Faces
+Lock Selected Objects
+Lock Selected Patches
+Lock Unselected Faces
+Lock Unselected Objects
+Lock Unselected Patches
+Locked layers.
+Login License
+Lookup Shortcut
+Made Render Target
+Make Current
+Make Current Layer '%1'
+Make Layer '%1' Current
+Make Layer Current
+Make Layer Group
+Make Mask Stack
+Make Projector Current
+Make the selected locator current and switch to Transform Object tool
+Making Channel %1
+Making Connectivity Graph
+Malformed Gradient Value token
+Managed Block Count is not 0
+Mari Execute Mode
+Mari Plug-in Name
+Mari Preferences
+Mari Terminal Mode
+Mari Verbose Debug Log
+Marquee Select
+Marquee Selection
+Marquee Selection Mask
+Mask Algorithm:
+Mask Data
+Mask Preview Color
+Mask Preview Enabled
+Mask and images have different number of proxy levels
+Mask and images have different number of tiles
+Mask preview on
+Mask stack of selected layer is invalid
+Mask stack of selected layer is locked
+Masking Disabled
+Masks Formats
+Material File Name
+Material node doesn't have a valid shader model.
+Matte Shader Not compiled
+Max Data Cache Size is not zero after cleanup
+Max Image Memory
+Max Level
+Max Memory
+Max Required
+Max Required x 25%
+Max Required x 50%
+Max Texture Size
+Max Uniforms
+Max Write Memory Factor
+Max share
+Max value:
+Maximize palette
+Maximum Scale
+Maximum Texture Size
+Mem Cache Size
+Merge Geometries
+Merge Layers
+Merge Layers in Stack '%2'
+Merge Type
+Merging Multi-Channel layers is not allowed
+Mesh Created
+Mesh Creator
+Mesh File
+Mesh Options
+Mesh Path
+Mesh is wholly quad faces
+Mesh is wholly triangle faces
+Microsoft CSP Name
+Microsoft Trust List Signing
+Microsoft Universal Principal Name
+Microsoft User Principal Name
+Microsoft Windows earlier than NT 5
+Min value:
+Minimize palette
+Minimum Size
+Mirror Image
+Mirror Line
+Mirror Masking specifies which side of the mirror plane is masked from painting
+Mirror Plane
+Mirror Projection
+Missing Authority Key Identifier
+Missing Base layer in newly-created channel '%1'
+Missing Filters
+Missing Format
+Missing Licenses
+Missing Subject Key Identifier
+Missing System ID.
+Missing a closing quotation mark in string.
+Missing a colon after a name of object member.
+Missing a name for object member.
+Missing attachments
+Missing features and versions from selection:
+Missing one or more required geo channels
+Missing or bad signature for revoke
+Missing shader stage table entry
+Mix Normal Maps
+Modo Bake Preset: AO
+Modo Bake Preset: Curvature
+Modo Render
+Momentum Enabled
+Most likely, this class is missing a non-inlined virtual destructor.
+Move Image
+Move Images
+Move Object
+Multi-Channel Bake Point - Batch edit properties
+Multi-Channel Bake Point Properties
+Multi-Channel Batch Edit Window
+Multi-Channel Group
+Multi-Channel Layers can only be created if 'Current Channel' is not being used as Shader Input.
+Multi-Channel Merge
+Multi-Channel Properties
+MultiChannel Layer case is UNHANDLED at the moment.
+Multiple windows with the same name in Palette View. I'm so confused
+Name Selection Set
+Name can only contain hyphens, underscores and alpha-numeric characters
+Name contains invalid characters.
+Name is empty
+Name is empty.
+Name too long
+Netscape Cert Type
+Netscape Data Type
+Never Show This Again CheckBox
+New Block is an invalid size
+New Filter
+New Folder
+New Input
+New Project
+New Project Options
+New Shelf Name
+New Toolbar's Name
+Next Blend Mode
+Next protocol
+Next search result
+No "rlm_demo" license available
+No Baked Result
+No Communications Handle
+No Current Project
+No Data in toQImage
+No Data to clear
+No Filters
+No Frames found
+No Geo-Channel specified.
+No Global Gpu
+No Gnz macro processor!
+No Images Could Found
+No Items Selected
+No Jitter
+No MQTT topic found. Forgot to URL encode it?
+No Matte Defined
+No MenuRecord
+No OCSP response received
+No OIT buffers allocated but needed by OIT render task
+No OIT buffers allocated but needed by OIT resolve task
+No OIT buffers allocated but needed by OIT volume render task
+No OIT counter buffer allocateed when trying to clear it
+No Overrides
+No PSS parameter restrictions
+No Paint Shader
+No Painter Set
+No Painter set
+No Patches select to be able to render.
+No Positive Ref Count in Dec Ref
+No Private Key
+No Ptex context was found on this Ptex channel
+No Ptex data found to import onto channel
+No Ptex data to fill channel with
+No Ptex face data for face %1
+No RLM Teams fulfillment for this host
+No Selected Files!!!
+No Shader Model found with name '%1'
+No ShaderProgram is bound
+No Shading Context
+No Shading Context found
+No Supported Mesh Formats
+No Target Setup
+No Token to be replaced was found
+No URL set
+No Visible Widgets
+No activation key supplied
+No application associated with the .pdf file type
+No appropriate site for inheriting opinions
+No argument 'message' argument found.
+No arguments
+No authentication method was acceptable.
+No background process is set
+No buffer space
+No cache changes
+No cache roots
+No channel nodes found
+No channels are in the downstream
+No channels found!
+No clip manifest specified. Performance may be improved if a manifest is specified.
+No color buffer to write out.
+No color texture to write out.
+No connections available in cache
+No connections available.
+No content
+No current canvas available
+No current channel found
+No current channel node found
+No current geo entity!
+No currentLutCollection
+No data record of requested type
+No data was received
+No description provided - please add one
+No entities to export!
+No export operation found
+No export paths set up
+No export template specified
+No extra read dirs provided
+No face attribute channels
+No face size information found. Cannot generate Ptex layout.
+No features to check out
+No file paths given
+No fragment part in the URL
+No frames saved, stack traces probably not supported on this architecture.
+No free buffers available!
+No fulfillments to remove
+No fulfillments to revoke
+No geo entity associated with channel
+No geo on this shading context
+No geometry has been found in the file
+No handle supplied to call
+No heartbeat response received
+No heartbeat response received from server
+No host part in the URL
+No image paths were supplied
+No images are attached to the framebuffer.
+No images to save
+No implied site for relocation source -- skipping
+No import operation found
+No import paths set up
+No importer is available
+No item on stack
+No jti claim
+No known authentication mechanisms supported
+No known bindless texture support detected. You should not be using this TextureManager
+No layer is selected for object '%1' channel '%2'.
+No layers found in '%1'
+No license elements found. Ensure the text is purely a license string.
+No license for product
+No license found for %1 %2
+No license handle
+No license returned from server
+No license supplied to call
+No license to be replaced was found
+No license was found.
+No licenses found
+No macro is currently active
+No main window found
+No manifest provided
+No matching products found in license file
+No material prims specified on which to operate.
+No merged geometry surface found
+No missing licenses
+No name was provided for the new channel
+No objects selected for removal
+No options part in the URL
+No organisations found
+No output buffer provided for edge vertices
+No output buffer provided for quadrangulation
+No output buffer provided for triangulation
+No palette name supplied
+No password method specified
+No password part in the URL
+No patches are selected to fill.
+No path provided
+No plugin found to load the input file '%1'
+No port part in the URL
+No product definition
+No progress running
+No proxy authentication credentials supplied
+No proxy from GetDefaultProxyConfiguration
+No proxy from GetProxyForUrl
+No query part in the URL
+No refresh token available to get a new access token
+No rehostable hostid top-level dir
+No renderer plugins found!
+No reportlog on this server
+No response from broadcast
+No returned data from HTTPS
+No roaming license to extend
+No scheme part in the URL
+No selection found
+No selection found.
+No selection key found - skipping
+No server in license file
+No server to return temp license to
+No shader network found.
+No shader network specified for import
+No shading context
+No shading context on this channel
+No shared context registered.
+No shelf item has been selected. Please select at least one item to export.
+No subtree deps
+No such feature found.
+No such material file : %1
+No such node
+No such project file exists: %1
+No such smart mask file : %1
+No token found for request
+No tokens found for product
+No tokens found on machine
+No tokens found with matching version
+No topology provided for edge vertices
+No topology provided for quadrangulation
+No topology provided for triangulation
+No user part in the URL
+No user shader was found in the project. Please create a shader to add a material layer.
+No valid aliases were found in the name.
+No valid cache path!
+No valid color texture provided
+No valid licenses found
+No valid selection group has been passed.
+No valid server line given for floating license.
+No valueH
+No view camera found
+No xfer descriptions
+No zoneid part in the URL
+Node Archive
+Node Archives
+Node Catalogs
+Node Category Colors
+Node Graph
+Node Graph Background Color
+Node graph file does not exist
+Node has already been unlinked
+Node is not Multi-Channel Bottom Transparency.
+Node name '%1' is invalid.
+Node names may not be empty.
+Node sibling number of target node is out of range introducing composed list op
+Nodes are not part of the same prim index
+Nodes are not siblings
+Nodes are unable to be connected to themselves
+Normal Modulation node should have at least two inputs
+Normal count must match vertex count
+Not All Images for the %1 Channel were Imported
+Nudge Normal Vectors
+Number of Images
+OCIO Config Differs from Safe Mode 8
+OCSP No Check
+OSD_REAL s, OSD_REAL t, OSD_REAL d1Scale,
+OSD_REAL s, OSD_REAL t, OSD_REAL d1Scale, int boundary,
+Object Mode
+Object Signer
+Object Signing
+Object Signing CA
+Object already exists
+Object does not exist
+Object does not support loadPreferences slot
+Object does not support savePreferences slot
+Object has no Geo-Channels.
+Object is invalid
+Object is not an attribute
+Object name
+Object not subdivided
+Object selection changed
+Object was removed
+Occlusion Render Op Timing Breakdown...
+Offscreen Render Op
+Onto Geometry
+Open File
+Open Image
+Open Images
+Open Project Timing Breakdown...
+Open Ptex File
+Open an Image
+Open the Objects palette to access Geo-Channel properties
+Options invalid as the project has no backup location
+Options parameter must be a dict
+Organisation License Checkout
+Orphan Layer %1
+Outline Color
+Outline Render
+Output File Path
+Output Point Connection Counts
+Output debug info during creation of selection buffer
+Output debug info of intersector
+Output shadow textures to image files
+Package Images
+Package Shelf
+Paint Buffer
+Paint Buffer Rotated
+Paint Buffer Scaled
+Paint Buffer Size: %1 MB
+Paint Buffer Translated
+Paint Flow Vectors
+Paint Normal Vectors
+Paint Target
+Paint Through
+Paint buffer draw targets list is empty!
+Paintable Layer has no paintable image set
+Painting Mode
+Painting Opacity
+Parent shelf is locked
+Parent shelf is locked.
+Part of your Shader failed to compile.
+Paste Channel
+Paste Channels
+Paste Layer Shader
+Paste Layers
+Paste Mask
+Patch Count
+Patch Cutoff
+Patch Links
+Patch Mode
+Patch Range
+Patch Range Actions
+Patch Selection Groups
+Patch is invalid
+Path '%1' does not exist
+Path '%1' is not readable
+Path for custom Environment Image file used in Material thumbnail generation
+Path for custom Projector file used in Material thumbnail generation
+Path for custom mesh file used in Material thumbnail generation
+Path has no 'root' element.
+Path has no 'set' element.
+Path length given without key usage keyCertSign
+Path length invalid for non-CA cert
+Path type mismatch
+Pathless save called on resourceless Image
+Personal Bundle License Checkout
+Personal License Checkout
+Personal License Installation Successful
+Pick Mesh
+Pick Path
+Please choose the visibility of these Layers.
+Please click Back and try again to get a new code.
+Policy Qualifier User Notice
+Post Baking Shader
+Postmortem Stack Trace
+Pre Baking Shader
+Preference Dialog
+Preferences converted to JSON:
+Preferences for
+Preferences successfully parsed
+Preparing Mesh
+Previewing Multi-Pass Filter
+Previewing Snapshot-Based Filter
+Previous Blend Mode
+Previous Files
+Previous Meshes
+Previous Searches
+Previous Tab
+Previous search result
+Procedural Layer must not have _adjustment tag.
+Procedural Mask
+Procedural Masks
+Processing Images
+Processing Patches
+Progress cancelled
+Progress is already at completion
+Project Directory Cannot Be Read
+Project Directory Cannot Be Written to
+Project Directory Conflict
+Project Image
+Project Location Removed
+Project Locations Mismatch
+Project Name
+Project On
+Project Settings
+Project cache is empty.
+Project changed, click to save
+Project directories should not have both types of tracking file.
+Project has no geometry objects
+Project index out of range
+Project is invalid
+Project load successful, but not retrievable.
+Project location '%1' does not exist.
+Project object not attached
+Project saving
+Project sub-cache and backup directories are the same, skipping
+Project the input image onto the scene from this projector
+Projection Buffer
+Projection Filter
+Projection Renderer
+Projection Settings
+Projection Through
+Projection Tile
+Projector File
+Projector Rotated
+Projector Scaled
+Projector Translated
+Projects Location
+Propety Not Found in Property List
+Proxy-Authorization: Basic
+Ptex Channel
+Ptex Copy Op
+Ptex Creation Options
+Ptex Import Cancelled
+Ptex Import Face Resize Options
+Ptex Import Textures Onto Channel '%1'
+Ptex Import Textures Onto Channel '%1' From New Geometry
+Ptex Import or Creation for '%1'
+Ptex Options
+Ptex Texture Import: Face Texture Resize Options
+Purge Colorspace Cache
+RLMSTAT: roamed OK - no RLM_ROAM
+Raw controls whether the Image Data for each Stream of the Bake Point should be treated as raw data
+Readded Channel
+Really Delete?
+Recent Places
+Refresh Rate
+Refresh Triangle Indices Per Patch
+Refresh token:
+Register a default hydra generative procedural resolver to the scene index chain.
+Reload Comp Shader
+Reload Paint Shader
+Reload Shader
+Reload XML Files
+Reload XML files only
+Remove %1 Nodes
+Remove Attribute
+Remove Channel
+Remove Existing Links
+Remove From CRL
+Remove Geo-Channel
+Remove ImageSet
+Remove Layer Adjustment from : %1
+Remove Layer Shader %1
+Remove Layers
+Remove Layers in Stack '%1'
+Remove Node Attribute : %1
+Remove Object '%1'
+Remove Objects
+Remove Secondary Adjustment : %1
+Remove Selection Group '%1'
+Remove Shader
+Remove Shelf
+Remove Snapshot
+Remove Toolbar
+Remove User Attribute
+Remove Version
+Remove data row
+Remove invalid image tags
+Remove patch link groups
+Remove the selected groups and shelves from their parent group
+Remove this input from the node.
+Remove this item from the toolbar
+Remove vertex normals since vertex normals are not supported for use in conjunction with Ptex
+Rename Current Project
+Rename Item
+Rename Layer to %1
+Rename Node Attribute : %1
+Rename Node Attribute Name : %1
+Rename Shelf
+Rename group or shelf
+Rename item
+Rename the current project
+Render Backfaces
+Render Bucket Size
+Render Camera
+Render Camera Mask
+Render Depth
+Render Drawable Op
+Render Env Op
+Render Geo Op
+Render Hightlight for Linked Patches
+Render Hud
+Render Light
+Render Mirror Line
+Render Mirror Plane
+Render Op '%1' failed
+Render Scene
+Render Screen Quad
+Render Shadows
+Render Statistics
+Render The HUD
+Render Tools
+Render UV Image
+Render an image of the scene from this projector
+Render tag combine
+Reoriented Normal Mapping
+Repeat : Last message was repeated %1 more time%2
+Replace Node Properties
+Replace Node Properties of '%1' with '%2'
+Reset Blend Mode
+Reset Geo-Channel Imageset
+Reset Handle Transform
+Reset Limit Bake Range
+Reset Locator Handle Transform
+Reset On Bake
+Reset Paint Buffer Transform
+Reset Paint Opacity
+Reset Shortcuts
+Reset The Blend Mode To Normal
+Reset To Defaults
+Reset Transform
+Reset Zoom Paint Buffer
+Reset all shortcuts to their default
+Reset method not found for property
+Reset the image set
+Resize Backdrop Node "%1"
+Resize Channel
+Resize Image Sets
+Resize Images
+Resize Shelf Item Thumbnails
+Resolution Mode
+Restore Default Shortcut
+Restore state
+Resume Layer Refresh
+Right Dock Area
+Right to Left
+Roam OK, extended
+Roam OK, not extended
+Roaming License Return Successful
+Root path must be absolute
+Rotation axes are not orthogonal.
+Running Strip
+SVT Update
+Save Changes Before Closing?
+Save File
+Save Geometry Data Blocks Job %1
+Save Image With A New name
+Save Item
+Save Node Graph Data Blocks Job %1
+Save Painting
+Save Shelf
+Save Shelf Contents to File
+Save Shelf Item to File
+Save To Data
+Save To File
+Save To Raw
+Save Unprojected Image
+Save Window Layout
+Save Window Painting
+Save a debug visualization of the Ptex face texture layout
+Save failed
+Save gradient
+Save the current project
+Save the current settings as a preset
+Save the shelf to file
+Save the shelf, and any referenced files such as images, to a central location
+Saving Settings
+Saving Shelves
+Scalar controls whether Mari consideres each Stream's Bake Point Images as Scalar data or Color data
+Scale Vectors
+Scale the image to fit the patch
+Scale the patch to fit the image
+Scaling Down Images
+Scaling Images
+Scaling Up Images
+Screen Bake
+Search for Shelf items by name.
+Select %1 Layers
+Select &All
+Select All Faces
+Select All Patches
+Select Box
+Select Color
+Select Entity
+Select Group
+Select Layer
+Select No Faces
+Select No Nodes
+Select No Patches
+Select Patch Selection Group
+Select Patches in Range
+Select Selection Group
+Select Shader
+Select Shader Model:
+Select Shader:
+Select Visible Faces
+Select Visible Patches
+Select a Shelf to export
+Select a Shelf to import into
+Select a Shelf to package
+Select a license file to install
+Select a personal license for %1
+Select a shelf to import items to
+Select an organisation's license for %1
+Select failed
+Select licenses to install
+Select or type the Group hierarchy to place Shelves:
+Select the Team Entitlement to Install
+Select the environment light map
+Select the shading model
+Selected Attribute Types
+Selected Faces Of Current Paint Target
+Selected Filters
+Selected Images
+Selected Layers
+Selected Patches
+Selected Patches Of Current Paint Target
+Selected entitlement did not contain all required features.
+Selected features:
+Selected filters apply in multiple passes but preview only supports a single pass.
+Selected filters apply to a snapshot for previewing.
+Selected tokens:
+Selection Group %1
+Selection Groups
+Selection Render
+Self: Properties of the node are managed by this node itself.
+Send Image to 2D Paint
+Set '%1' Limit Bake Patch Range
+Set Channel to 'None'
+Set Export Geo-Channel
+Set Export Options
+Set Face Resolution
+Set Geo-Channel
+Set Image Colorspace
+Set Image Set to %1
+Set Layer Color
+Set Limit Bake Range
+Set Limit Bake Range from Current Patch Selection
+Set Limit Bake Range from Patch Selection Group
+Set Mesh Frame UV Data
+Set Name Called on Locked Collection
+Set Node Attributes
+Set Shader Network Manager Busy
+Set Window Height Called
+Set Window Width Called
+Set selection mode to Object
+Set selection mode to Patch
+Set to Current Patch Selection
+Set to Patch Selection Group
+Setup Camera
+Setup Channels
+Shader Bake
+Shader Bake Buffer
+Shader Bake With Filter
+Shader Bake at %1
+Shader Compilation Thread %1
+Shader Compilation failed
+Shader Compiling is Paused
+Shader Console
+Shader Generator
+Shader Globals
+Shader Input
+Shader Model
+Shader Model -
+Shader Network GLSL Generation '%1' took
+Shader Network1
+Shader Type: Compute
+Shader Type: Fragment
+Shader Type: Geometry
+Shader Type: Tessellation Control
+Shader Type: Tessellation Evaluation
+Shader Type: Unknown 0x%1
+Shader Type: Vertex
+Shader Used
+Shader failed to compile.
+Shader group node has no group network.
+Shader group node network has no output node.
+Shader is different
+Shader network has no object.
+Shader program is not linked
+Shader transform doesn't require 3D LUT
+Share Layer
+Share Layers as Channel '%2'
+Shelf Items
+Shelf Model does not exist.
+Shelf is locked
+Shelf is locked.
+Shelf item is not editable
+Shelf name already taken
+Shelf names may not be empty.
+Shelf names may not contains slashes.
+Shelf save failed
+Shelves Include Presets
+Shortcut In Use
+Show Broadcasted Node Properties
+Show Details
+Show Environment
+Show Hidden Images
+Show Labels
+Show Mesh Modifications
+Show Only
+Show Only %1
+Show Overlay
+Show Painting
+Show Selected Faces
+Show Selected Objects
+Show Selected Patches
+Show Status
+Show Summary Dialog on Import
+Show Unselected Faces
+Show Unselected Objects
+Show Unselected Patches
+Show Vectors
+Show Whole Object
+Show hidden files
+Show status
+Show the curve atlas
+Show the offscreenbuffers
+Showing GPU Issues Dialog
+Showing GPU Untested Dialog
+Showing OpenGL UnVersioned Dialog
+Showing OpenGL Version Dialog
+Signed Object
+Single Channel
+Single Mesh
+Size is the size of the UV patch for each Stream of the Bake Point
+Size must be geater than 0
+Size of data accessed is different
+Size of data cache is different
+Size of data is incorrect is %1, should be %2
+Size of incoming group and extracted group are different
+Size of recent project names and paths differ
+Skip &All Bad Frames
+Skip Stationary Render
+Small Textures
+Smart Mask
+Smart Mask File Name
+Smart Masks: Stuart Ansley
+Source Image did not return uniform color although it thinks it is uniform
+Source Project directory does not exist.
+Spawn a Floating Shelf
+Specified Thumbnail Path does not exist : %1
+Specified Thumbnail Path is not readable : %1
+Specular Shader must have _notcacheable tag.
+Specular Shader must have _specular tag.
+Standalone Shader must have _standalone tag.
+Standard Edition
+Standard Mode
+Standard x64 Edition
+Start date
+Starting Main Window
+State not handled yet
+Stream is the name of the stream of the Multi-Channel Bake Point for its Shader Model
+Sub Cache path is not correct
+Sub Cache path is not empty string
+Subject empty and Subject Alt Name extension not critical
+Subtree produced more than 1 range.  List unsorted?
+Suspend Layer Refresh
+Suspend Node Properties updates
+Suspend Node Properties updates for '%1'
+Sync %1 Image Sets
+Sync Bake Point to Geo-Channel %1
+Sync on Bake
+Syncing Image Set Properties
+System Lock
+TFTP: No such user
+TFTP: Unknown transfer ID
+Team License Entitlement Installation Successful
+Team License Roam Successful
+Team Login Roam License Returned
+Terminal Mode is NOT allowing unusable GPU
+Terminal Mode is allowing Untested GPU
+Texel Size
+Text Color
+Text Node Test
+Texture Animation
+Texture Bleed
+Texture Generator
+Texture Generator Dialog
+Texture ID was zero, can't wrap a non-existent texture
+Texture Image Count
+Texture Manager Slots
+Texture Target is not set on bind
+Texture Target is not set on unbind
+Texture Units
+Texture contains no valid mipmaps
+Texture has not been bound on unbind
+Texture height has already been set
+Texture index is out of bounds
+Texture internal format has already been set
+Texture is zero
+Texture resolution used for buffer projections,
+Texture target is not bound
+Texture type not supported by texture object registry.
+Texture width has already been set
+The Material has no shader model
+The following Mesh files do not exist. Please check.
+The given Mesh file does not exist. Please check.
+The requested Paint Bufer size is larger than the reported memory on the Graphics Card.
+The requested Paint Bufer size is too larger.
+The requested Virtual Texture size is larger than the reported memory on the graphics card.
+There are no Patch mode Selection Groups available.
+There is some process in progress. Ignore closing the app.
+Thin Triangle Quality
+This Shelf item type does not support tags
+This determines if Mari will always cache at the given Channel's resolution or
+Thumbnail Geo-Channel Invalid
+Thumbnail Path
+Tile Projection Buffer
+Tile Size
+Tiled Image
+Time-Limited Trial License Obtained
+Toggle Apply Filter to Baked Result
+Toggle Cursor Type
+Toggle Icon Size
+Toggle Marquee Selection Mask
+Toggle Mask Preview
+Toggle Mirror Projection
+Toggle Projection Target
+Toggle Show Painting
+Toggle Tools
+Toggle non-Ptex Canvases For The Current Channel
+Too Many Items selected in Image Picker
+Tool Help
+Tool Help:
+Tool On Key Held
+Tool Properties
+ToolBar Size
+Top Dock Area
+Top Left Corner
+Top Right Corner
+Top To Bottom
+Total Generation Time:
+Total Image Count
+Total Recompilation Time:
+Total allocated memory by captured mallocs:
+Total nodes:
+Total number of allocations by captured mallocs:
+Transform Cache Size
+Transform Image
+Transform Selected Objects
+Transforms ViewCameraProjection Matrix to Projectable Camera
+Trust Root
+Turn On Depth Culling
+Type : Buffer
+Type : List
+Type : Ptex
+Type : Shader
+Type : Texture
+Type : Unset
+Type is empty
+Type of primvar not yet fully supported
+UV Mask Bake
+UV Mask Bake Buffer
+UV Select
+UV Wireframe Bake Buffer
+Uncache Layer : %1
+Uncache Layers in Stack '%1'
+Uncache Up To Here : %1
+Uncompressed Image Size
+Unfiltered Image Set
+Ungroup Layers
+Unhandled Image Type.
+Uniform Face Size
+Unknown BitDepth Type  as input
+Unknown Blend component passed
+Unknown BlendType passed
+Unknown Buffer Binding
+Unknown ClampR Value
+Unknown ClampS Value
+Unknown ClampT Value
+Unknown Component
+Unknown Depth
+Unknown Exception
+Unknown Format
+Unknown Format Value
+Unknown HgiBufferUsage bit
+Unknown JsValue type
+Unknown MagFilter Value
+Unknown MinFilter Value
+Unknown OpenGL format enum : %1
+Unknown OpenGL type enum : %1
+Unknown RLM error
+Unknown Shader Model
+Unknown Size
+Unknown alt-svc port number, ignoring.
+Unknown base type
+Unknown basis
+Unknown buffer resize type
+Unknown buffer type to bind
+Unknown camera type
+Unknown channel removal strategy
+Unknown channel requested
+Unknown combination of format 0x%1 and type 0x%2
+Unknown data source type
+Unknown edition
+Unknown error
+Unknown error occurred during login.
+Unknown error.
+Unknown exception
+Unknown failure during archive reading
+Unknown failure during archive writing
+Unknown format string : '%1'
+Unknown icon effect
+Unknown in type
+Unknown internal depth value
+Unknown mask type on layer '%1'
+Unknown navigation mode?
+Unknown out type for byte input
+Unknown out type for float input
+Unknown out type for half input
+Unknown path type in membership-map.
+Unknown process
+Unknown swizzle destination
+Unknown texture binding type
+Unknown texture record passed, has not beed added using addTexture
+Unknown type
+Unknown type in get pixel
+Unknown type string : '%1'
+Unload of plugin failed
+Unload sucess
+Unlock Entire Object
+Unlock Selected Faces
+Unlock Selected Objects
+Unlock Selected Patches
+Unlock Unselected Faces
+Unlock Unselected Objects
+Unlock Unselected Patches
+Unlock it and continue?
+Unshare Layer : %1
+Unshare Mask Component : %1
+Unshare Paint Component : %1
+Unsupported QFileDialog Mode, Setting FileMode to be AnyFile
+Unsupported image file extension is specified in Thumbnail Path : %1
+Update Baked Data for %1
+Update Baked Hash Data for %1
+Update Cache State
+Update Filter Collection for %1
+Update Filter Hash Data for %1
+Update Global Settings From Projector
+Update Matching Layers
+Update Mismatching Layers
+Update Only Masks From Projector
+Update Patch State
+Update Projector with current Paint Buffer
+Update Projector with current paint buffer position and scale
+Update Transform From Paint Buffer
+Update all projection settings from this projector
+Update failed:
+Update only the global projection masks from this projector
+Update patch info
+Update textures
+Upgrade cancelled, via environment variable MARI_AUTOUPGRADE_CONFIGURATION set to False
+Upscale Image
+Use # to search for Shelf Items that have been assigned a specific Tag.
+Use Cache
+Use Cache for Bake
+Use Channel Settings
+Use Color Correction
+Use Color Correction On Background
+Use Custom Font Size
+Use Mouse-Mapping Mode
+Use an Activation Key to Get Your License
+Used for painting, lighting, applying
+Used to convert from the channel or
+Used to convert from this channel or
+User Attributes
+User Plug-in Name
+Uv Mask Render Op
+Uv Selection
+Uv Wireframe Render Op
+Validation passed. No need to rebuild batch.
+Value Out Of Range
+Value clips
+Value must be greater than 0
+Value was not a string, an int, a double, or a vector of those types
+Vector Field Render
+Vertex Array Object is already bound on bind
+Vertex Array Object is already bound on create
+Vertex Array Object is already bound on destroy
+Vertex Array Object is already bound on rebind
+Vertex Array Object is already set
+Vertex Array Object is bound during class destructor
+Vertex Array Object is not already bound on rebind
+Vertex Array Object is not bound on draw
+Vertex Array Object is not bound on enable array
+Vertex Array Object is not bound on unbind
+Vertex Array Object needs to be destroied before class destructor
+View Account
+View Image
+View Summary
+View Transform
+View all %1 selected images?
+View multiple images?
+View only the layer layer & below
+View the current channel
+View the current layer
+View the user-defined shader category
+Virtual Texture
+Virtual Texture Size: %2 MB
+Visualize Aov Output Texture
+WInstall an RLM Nodelocked License, connect to a License Server or use an Activation Key
+Wheel Scale
+When an Object contains patches introduced by an Object Version
+Which Type of License Would You Like to Use?
+Width and Height must be non-negative
+Width or height of the given texture is 0
+Window Corner Dock Areas
+Windows Home Server
+Windows Server 2003,
+Windows Server 2008
+Windows Storage Server 2003
+Windows Vista
+Windows XP
+Windows XP Professional x64 Edition
+World Space Face Resolution
+Would you like to rename the Material node to : %1
+Would you like to rename the Smart Mask node to : %1
+X509v3 Basic Constraints
+X509v3 Issuer Alternative Name
+X509v3 Name Constraints
+X509v3 No Revocation Available
+X509v3 Subject Alternative Name
+X509v3 Subject Directory Attributes
+Yes - Permanently convert
+Your Shader, Channels, Layers or Node Graph may be too complex
+and Shader Network
+at a lower proxy level. Setting this to 'Fixed' will use the Default Resolution
+bad Image Descriptor
+bypass User Settings
+cache and archive. However if an Object Version is added later,
+json parsing error: resultCode not found or not 'Success'
+m_Size is Zero or less
+o Modo Japan Group
+of type 'Hide all'
+project         name, UUID, folder, Project.mri, archive.mra or or archive.mnc
+the effects of the shadows. Textures and other

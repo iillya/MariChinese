@@ -1,0 +1,93 @@
+# source: fnhgiGL.dll
+# candidates: 90
+
+!This program cannot be run in DOS mode.
+Unknown exception
+bad array new length
+string too long
+Missing shader stage table entry
+Unsupported sampler options
+Unsupported type
+Unsupported typr
+Given HgiFormat is not a supported image unit format, defaulting to rgba16f
+vector too long
+Enable OpenGL debugging for HgiGL
+HgiGL dump stack trace on GL error
+GL error code: 0x
+, reported from
+GL Error code:
+Capture state
+Restore state
+map/set too long
+unordered_map/set too long
+invalid hash bucket count
+Invalid texture dimension
+void HgiSet_
+return imageSize(
+uint index,
+uint index
+return textureSize(
+return textureLod(
+uniform ubo_
+buffer ssbo_
+Push and PopDebugGroup do not even out
+Buffers must have a non-zero length
+Unknown HgiBufferUsage bit
+Failed to get bindless buffer GPU address
+Use GL bindless buffer extension
+Use GL multi draw indirect extension
+Use built in barycentric coordinates
+Use GL shader draw params if available (OpenGL 4.5+)
+Use GL bindless texture extension
+GLSL version
+Report errors when FBOs managed by the cache aren't deleted successfully
+Number of attachment descriptors and textures don't match
+Invalid attachment texture
+Attachment not a texture
+Garbage collected %zu (of %zu) stale entries.
+Cleared %zu (of %zu) entries.
+Debug framebuffer cache management per context arena.
+Cannot destroy object during garbage collection
+color and resolve texture count mismatch.
+DepthResolve texture without depth texture.
+Enables validation OpenGL version.
+HgiGL minimum OpenGL requirements not met. Please ensure that OpenGL is initialized and supports version 4.5.
+Source texture is null
+Full Hydra Frame
+Unexpected ClientWaitSync timeout
+Invalid texture handle
+The size of the data to copy was zero (aborted)
+Copying a stencil-only texture is unsupported currently
+Copying from compressed GPU texture not supported.
+Unsupported HgiTextureType enum value
+Invalid source buffer handle
+Invalid destination buffer handle
+Texture offset not supported (aborted).
+desc.usage & HgiBufferUsageVertex
+Missing attachments
+Binding framebuffer with invalid format for color attachment %zu.
+Binding framebuffer with invalid format for depth attachment.
+Unsupported texture bind resource type
+Invalid number of buffer offsets
+Invalid number of buffer sizes
+Invalid size for buffer with offset
+Unknown buffer type to bind
+Invalid shader provided to program
+Compressed texture with width or height not a multiple of 4
+Compressed texture with width, height or depthnot a multiple of 4
+Compression not supported for given texture type
+Only 2d multisample textures are supported
+bad allocation
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

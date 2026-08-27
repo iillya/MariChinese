@@ -1,0 +1,141 @@
+# source: fnhd.dll
+# candidates: 138
+
+!This program cannot be run in DOS mode.
+Unknown exception
+bad array new length
+string too long
+invalid string position
+Force curves to always be refined.
+iterator exhausted
+vector too long
+Basis 'linear' passed in to 'cubic' curveType.  Converting 'curveType' to 'linear'.
+Aggregation strategy is set to null
+list too long
+HdNullBufferSource can't be scheduled with a buffer range
+map/set too long
+unordered_map/set too long
+invalid hash bucket count
+HdResampleRawTimeSamples: Zero samples provided
+Attempted invalid increment operation on a VtDictionary iterator
+Report when bprims are added
+Report when bprims are removed
+Report detail info of HdBufferArrays
+Report when bufferArrayRange is cleaned
+Report every cache hit
+Report every cache miss
+Report values when counters change
+Reports diagnostics when all collections are marked dirty
+Reports dirty list state changes
+Run RPrim sync on a single thread
+Report the number of draw items culled in each render pass
+Report the execution phase of the Hydra engine
+Report when ExtComputations are added
+Report when ExtComputations are removed
+Report when ExtComputations are updated
+Report when ExtComputations are executed
+Freeze the frustum used for culling at it's current value
+Report when instancers are added
+Report when instancers are fully cleaned
+Report when instancers are removed
+Report when instancers are updated
+Report render settings changes
+Report when rprims are added
+Report when rprims are fully cleaned
+Report when rprims are removed
+Report when rprims are updated
+Enable additional security checks
+Report when selection is updated
+Report info related to deduplication of ext computation data buffers
+Report when sprims are added
+Report when sprims are removed
+Report debugging info for the sync all algorithm.
+Report when tasks are added
+Report when tasks are removed
+Reports state tracking of varying state
+Render tag combine
+Repr selector combine
+Resetting tracked reprs in dirty list from
+InitRepr post dirty gather
+DirtyList: reusing cached dirtyIds
+DirtyList: Filter Changed:
+Unhandled scenario in dirty list update logic.
+Dirty list filter predicate:
+Draw Item:
+Constant Primvars:
+Element Primvars:
+Vertex Primvars:
+Varying Primvars:
+Fvar Primvars:
+Topology visibility:
+Task Prepare
+Task Execution
+Enable sharing of ext computation data buffers
+dirty inputs
+Received nullptr for sortedComps.
+Cycle detected in ExtComputation dependency graph. Unresolved dependencies:
+Computations dep map
+Invalid input sceneIndex.
+Create Singleton
+race detected setting singleton instance
+Unsupported points type for computing flat normals
+HdMaterialNetwork Params: (...)
+HdMaterialNetworkMap Params: (...)
+HdMaterialNode2 Params: (...)
+Enables OpenSubdiv 3 Adaptive Tessellation
+No topology provided for triangulation
+No output buffer provided for triangulation
+No topology provided for quadrangulation
+No output buffer provided for quadrangulation
+No topology provided for edge vertices
+No output buffer provided for edge vertices
+this function may not be called after GetInstance() or another SetInstanceConstructed() has completed
+Filter
+Subtree produced more than 1 range.  List unsorted?
+Unsupported indexed primvar type
+Invalid primvar indices
+Initial Render Settings
+Enable scene index emulation in the render index.
+Imbalanced batch begin/end calls
+Null Render Delegate provided to create render index
+New
+Task Sync
+Build Sync Map: Rprims
+Pre-Sync Rprims
+Scene Delegate Sync
+Parallel Rprim Sync
+Serial Rprim Sync
+Null Task in task list.  Entry Num: %zu
+Received null camera
+StartThread() called while render thread is already running
+StartThread() called without a render callback set
+Count %zu is greater than capacity %zu. Truncating
+Root path must be absolute
+Unsupported points type for computing smooth normals
+Remove
+RemoveRange can only be called while list sorted
+Cannot query size of invalid HdType
+negative refine level is not supported
+Type of primvar not yet fully supported
+Invalid indices
+new HdResourceRegistry
+Print command
+No argument 'message' argument found.
+Printing the message:
+Topology missing face vertex indices.
+Buffer Source:
+Num elems:
+bad allocation
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

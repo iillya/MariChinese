@@ -1,0 +1,4181 @@
+# source: MriCore.dll
+# candidates: 4178
+
+!This program cannot be run in DOS mode.
+Windows
+master sH9
+key expaH9
+"A Collection of Actions"
+Action
+2nameChanged(const QString &, const QString &)
+2parentMenuPathChanged(const QString &, const QString &)
+Null collection passed to copy actions
+Creating Items
+Action is NULL
+RefreshInfo.Action is NULL
+Add action called on locked action collection
+Set Name Called on Locked Collection
+Set action label called on locked action collection
+Mari was unable to save the selected shelf
+Cancel
+Generating Catalog
+Failed to write a single item
+Exporting Shelf
+Refreshing information for %1 items in shelf %2
+Color Presets
+Shelf
+Show Overlay
+Show Labels
+Shelves Include Presets
+Double Click to Activate in Pop-Over Shelf
+Project
+Shelf names may not be empty.
+Shelf names may not contains slashes.
+'%1' is a reserved name.
+A shelf with the name '%1' already exists.
+Null collection passed to register collection
+Collection is already registered with the collection manager
+A shelf with that name already exists
+1onCollectionRenamed(const QString &, const QString &)
+pCollection is NULL
+Obj is NULL
+Given collection is NULL in deregister collection
+Collection is not registered with the collection manager
+Mari was unable to load the selected shelf file
+Shelf Items
+Type is empty
+Actions
+Null source passed to register source
+Given source is NULL in deregister source
+Enable Analytics
+Allow Mari to gather vital analytics during a Mari session
+Background jobs are running
+Click to see the message log
+Background Jobs
+Failed to invoke %1
+Main thread requests can only serviced in the main thread
+Not all jobs have been flush
+Possible candidates are
+invokeMethod takes only up to 10 arguments
+Change Frame
+Swap to Snapshot
+Attempted registration of NULL factory
+Attempted deregistration of NULL factory
+Animation Loop
+Animation Frame
+Animation FPS
+Animation Time
+Clock Playing
+Stop Playing
+Clock Rewind
+Sort Term is empty
+A meta object is null
+Types are different
+Null Item Passed in set shortcut
+Zero length shortcut passed in set shortcut
+Shortuct already exists for given item
+Collection does not contains the given item
+Zero Length set named passed
+Given selection set does not exist
+Selection
+Name Selection Set
+Change Selection
+NULL Value passed to change selection
+Item or collection are NULL
+collection is NULL
+Sender object is NULL
+Displayable object is NULL
+Object is NULL
+1updateSelection( bool )
+2selectedChanged( bool )
+Create Snapshot
+1beginGroup( MriDeserializeGroupEvent& )
+2beginGroup( MriDeserializeGroupEvent& )
+1endGroup( MriDeserializer & )
+2endGroup( MriDeserializer & )
+1addValue(const QString &, const QString &, const QString &, const MriTagAttributes &, MriDeserializer &)
+2addValue(const QString &, const QString &, const QString &, const MriTagAttributes &, MriDeserializer &)
+1addData( const QString &, const QByteArray &)
+2addData( const QString &, const QByteArray &)
+1beginCollection( MriDeserializeCollectionEvent& )
+2beginCollection( MriDeserializeCollectionEvent& )
+1endCollection( MriDeserializer &,MriDeserializeCollectionEvent& )
+2endCollection( MriDeserializer &,MriDeserializeCollectionEvent& )
+1postDeserialize( void )
+2endObject( void )
+Object
+Owner is NULL
+Modifier is NULL
+Reset
+Passphrase is zero length
+Plaintext is zero length
+Cannot random number for  salt
+Couldn't initialize AES cipher
+Data size from encrypt is zero
+Incorrect passphrase
+Show Error Dialog
+Errors Exist
+Image sink does not support loadPreferences slot
+Image sink does not support savePreferences slot
+This check is only performed on Linux systems
+Source Project directory does not exist.
+TESTING TEST SLOT ON MRI_SIGNAL_FILTER
+Unknown icon effect
+Failed
+Log in to download your free 30-day trial.
+Unknown exception
+bad array new length
+string too long
+map/set too long
+vector too long
+Directory does not exist : %1
+bad allocation
+Cannot Allocate Lifeboat.
+Null pool passed to destroy Pool
+Non-managed pool passed to destroy pool
+Current system state
+Process memory counters
+Factory is NULL
+1. Does the file exist?
+Search Paths
+Unload of plugin failed
+Unload sucess
+Object does not support loadPreferences slot
+Object does not support savePreferences slot
+Cache
+m_Before is NULL
+m_After is NULL
+m_CopyTo is NULL
+Min
+Max
+pLayout is NULL
+Remove Snapshot
+Snapshot is not owned by the given object
+Rename
+Resource already has an io stream
+Invalid Protocol Pointer
+Protocol is NULL
+Error retrieving user documents folder.
+Imported Brushes
+Protocol %1 already registered
+Protocol not found %1
+Resource is NULL
+Cannot find the File Protocol
+Cannot find protocol
+pProtocol is NULL
+Unsupported Resource Protocol : %1
+m_EncrytedResourceSet is NULL
+Sender is NULL
+1onSetRenamed(QString, QString)
+2setRenamed(QString, QString)
+Cannot use CF_NO_OBJ_REF without CF_NO_UUID
+Cannot begin writing to text stream
+Cannot end write
+Default
+Visible
+Enabled
+Cannot set uuid as CF_NO_UUID used
+Cannot get uuid as CF_NO_UUID used
+SerializableObj is NULL
+Snapshot Index out of range
+Cannot create snapshot
+pSnapshotableParent is NULL
+Send Statistics
+Allow Mari to send anonymous usage statistics to The Foundry
+No progress running
+Progress cancelled
+Timing Info
+Action undone:
+Action redone:
+Cancel Action
+History Size
+Size
+cancelCurrentMacro() can be called only within a macro
+Add User Attribute
+Remove User Attribute
+Invalid Enum
+Index Out of Bound
+Unnamed
+Not implemented on this platform!
+Type
+Convertion requested on non float Variant
+Convertion requested on non QSize Variant
+Convertion requested on non QPoint Variant
+Convertion requested on non MriFileList Variant
+Convertion requested on non MriStringList Variant
+Invalid representation of string list
+Replacing with comma
+Convertion requested on non QStringList Variant
+Convertion requested on non MriTagList Variant
+Convertion requested on non QRect Variant
+Conversion requested on non MriUserenum Variant
+Conversion requested on non MriUvSizeMap variant
+Value
+Conversion requested on non QVariantMap Variant
+Conv is NULL
+Message Log
+Cannot open object file: '%1'
+File is not a Mari XML document
+Cannot find a workspace record
+XML is empty
+XML has parse error at line %1, column %2:
+File version unrecognized
+Sorry, this file is version %1.%2. This version of Mari supports %3.%4
+Cannot find file version
+File cannot be loaded because it's version information is invalid.
+m_XmlStreamWriter is NULL
+Given data stream is NULL
+File path is empty
+Unknown failure during archive writing
+Failed to write archive
+Unknown failure during archive reading
+Archive path is empty
+ZIP/UNZIP API error %1
+qiodevice_seek_file_func() called for sequential device
+parse error
+Acquiring LicenseQtLockfileInterprocessLock lock in
+LicenseQtLockfileInterprocessLock lock acquired in
+Releasing current LicenseQtLockfileInterprocessLock lock in
+LicenseQtLockfileInterprocessLock failed to lock:
+~LicenseInterprocessLockTryGuard() failed to acquire lock, not calling unlock().
+~LicenseInterprocessLockTryGuard() unhandled exception during unlock(), please investigate.
+ms. Please investigate.
+Caught internal exception while using LicenseInterprocessLockTryGuard:
+' not found
+cannot use at() with
+invalid string position
+invalid vector subscript
+cannot get value
+syntax error
+while parsing
+cannot compare iterators of different containers
+invalid literal
+true literal
+false literal
+null literal
+string literal
+number literal
+end of input
+unknown token
+invalid string: missing closing quote
+invalid string: surrogate U+D800..U+DBFF must be followed by U+DC00..U+DFFF
+invalid string: surrogate U+DC00..U+DFFF must follow U+D800..U+DBFF
+invalid string: forbidden character after backslash
+invalid string: ill-formed UTF-8 byte
+object key
+object separator
+number overflow parsing '
+excessive array size:
+excessive object size:
+iterator does not fit current value
+iterator out of range
+cannot use erase() with
+type must be number, but is
+cannot use push_back() with
+cannot create object from initializer list
+invalid UTF-8 byte at index
+list too long
+invalid stoi argument
+stoi argument out of range
+unknown error
+bad conversion
+Opening CloudUserLicense
+Going to page:
+No item on stack
+Failed to perform qobject cast! Please investigate.
+Undefined home page. Cannot determine licensing homepage.
+Individual Entitlement Loading Failed
+An error occurred during loading of individual entitlement(s). Please contact your license admin.
+Team Entitlement Loading Failed
+An error occurred during loading of team entitlement(s). Please contact your license admin.
+not an error list
+Error
+Login Failed
+Check your browser can login to the Foundry website and contact Foundry support if the error continues
+empty error string
+Unknown error occurred during login.
+error string
+Logout Successful
+You have successfully logged out.
+Logout Failed
+An error occurred during logout.
+Licensing flow ready to proceed again in licensing UI.
+Different new page type
+Leaving page
+Got a null newPage from the hash. Please investigate.
+Trying to set up a null page. Please investigate.
+Recieved a null page in teardownPage. Please investigate!
+New translator installed
+Found 10Duke token for
+Found RLM token for
+Failed to find feature:
+- appending to missing features.
+No background process is set
+Account Login
+Return Login Licenses
+Selected tokens:
+License Return Successful
+The selected licenses were successfully returned. To continue working, click Status to checkout a new license.
+License Return Failed
+An error occurred while returning your licenses.
+Any
+MMMM d yyyy
+Invalid date
+please investigate
+ENTITLEMENT POOL
+Team License Entitlement Installation Successful
+The requested team license entitlement was successfully installed.
+saved to filepath:
+Team License Entitlement Installation Warning
+Team License Entitlement Installation Failed
+The selected entitlement(s) could not be installed.
+Log of failed checkouts and returns
+Failed checkouts:
+Failed returns:
+Could not convert VariantTreeModelItem to templated type. Please contact a dev to investigate.
+MODEL INFO:
+ITEM INFO (ENTITLEMENT):
+ITEM INFO (BUNDLE):
+ITEM INFO (PACKAGE):
+LICENSE INFO (BUNDLE):
+LICENSE INFO (INDIVIDUAL):
+Individual converter called
+Converting results
+Number of individual entitlements:
+Finding tokens
+Number of valid installed tokens:
+Constructing missing version for entitlement:
+Empty version for
+(using date:
+Empty expiry for
+Bundle converter called
+Number of bundle entitlements:
+individual entitlements:
+bundle entitlements:
+Personal License Installation Successful
+The selected personal licenses were successfully installed.
+Personal License Installation Failed
+The selected personal licenses could not be installed.
+Personal License Bundle Installation Failed
+The selected personal bundle licenses could not be installed.
+Selected features:
+License
+Coming from process page - no need to query again
+nodelocked license(s),
+individual login token(s) and
+team login token(s)
+Coming from process or roaming page - no need to query again
+floating license(s)
+Individual Login
+Team Login Roaming
+Team Login
+User is already logged in
+Roam Licenses
+Team License Roam Successful
+Team Login Roam License Returned
+You have successfully returned a roamed Team license.  You
+ll keep this license in use until you
+ve close all active %1 sessions.
+Login Roam Request Failed
+Failed to roam the requested Login license(s)
+Login Roam Return Failed
+Failed to return the roamed Login license(s)
+Roam Login Licenses
+Show Details
+Non empty error!
+Hide Details
+Activation Success
+The Activation Key was successfully activated.
+License activated for '%1'
+Activation Failure
+The Activation Key could not be activated.
+Error code: %1
+Installation Failed
+License Installation Failed
+No valid licenses found
+Failed to install one or more licenses
+Installation Warning
+License Installation Warning
+Skipped installing one or more licenses
+Installation Successful
+License Installation Successful
+All licenses were installed successfully
+License Roam Successful
+If you want to return the license early, please reconnect to the license server
+s network, launch %1 then open the Licensing window and click on Manage RLM Roaming then on Return Roamed Licenses.
+Roaming License Return Successful
+RLM Roam Request Failed
+Failed to roam the requested license(s)
+Please make sure that you have the server connection installed and that all the license(s) are roam-enabled.
+The maximum number of days to roam is 40. The license must be valid for the entire roam period.
+RLM Roam Return Failed
+Failed to return the roamed license(s)
+Please make sure that you have the server connection installed and that the license server is reachable.
+Return Licenses
+Server Connection Added
+Failed to Add Server Connection
+Unable to read user orgs and determine license expiry. Expiry column will read "Unknown"
+Could not match org expiry to token expiry. Please investigate
+Unknown
+Could not access orgs to determine expiry. Please investigate
+grant flow has been cancelled
+Personal URL list used:
+Org URL list used:
+cancelling grant
+Returning from requestDeviceFlowAuthorization
+No refresh token available to get a new access token
+refreshed access token. Saving it
+Could not refresh access token
+Removing the access token file
+Failed to remove access token file
+Failed to remove refresh token file
+Failed to remove preferences.json file
+Access token:
+Failed to save access token
+Failed to save refresh token
+Device verification request failed
+Error string:
+Error connecting to Foundry
+JSON returned:
+Emitting openBrowser signal for
+Emitting deviceCodeRetrieved signal to start polling for access token in pollForAccessToken
+Request to :
+Access token obtain failed
+Access token obtain success
+ERROR: got access_denied
+Access denied
+Timed out waiting for device activation from browser login.
+Please click Back and try again to get a new code.
+The login code has now expired.  Please click back and then try again to get a new code and activate your device.
+ERROR: got expired_token
+got authorization_pending. Sleeping for
+emit deviceCodeRetrieved() to poll again
+WARNING: got request to slow_down. Sleeping for
+Refresh token:
+Request url :
+Access token
+0 DZGtS.-RtG-QB0
+2004 - 2007 Linotype GmbH, www.linotype.com. All rights reserved.
+Avenir Next
+Avenir Next Bold
+Linotype GmbH
+Adrian Frutiger, Akira Kobayashi
+Avenir Next Medium
+Avenir Next Regular
+Invalid login authorization
+qThe login code has now expired.  Please click back and then try again to get a new code and activate your device.
+oTimed out waiting for device activation from browser login.
+Back
+Unknown process
+YPlease confirm the activation code is displayed and click Activate in the browser window.
+pTo continue, follow the instructions in your web browser to authorize this device with your foundry.com account.
+Cloud License List
+0An error occurred while returning your licenses.
+View Account
+License Return
+Returning licenses...
+Select a personal license for %1
+'Select an organisation's license for %1
+,Which Type of License Would You Like to Use?
+`Logging in...
+Your browser should have opened a login prompt. Use your Foundry identity to login
+Cloud Logout
+Logging out...
+Organisation License Checkout
+Retrieving org license(s)...
+Install
+No organisations found
+Personal Bundle License Checkout
+(Retrieving personal bundle license(s)...
+Personal License Checkout
+!Retrieving personal license(s)...
+No licenses found
++Personal License Bundle Installation Failed
+(Personal License Installation Successful
+Select licenses to install
+6The selected personal licenses could not be installed.
+License Expiry Warning
+Days Remaining
+FYou have the following licenses, some of which are due to expire soon:
+2Activate a Login License from your Foundry account
+Choose License Type
+WInstall an RLM Nodelocked License, connect to a License Server or use an Activation Key
+Local License
+Login License
+(License available for %1)
+I need a license
+More information
+No license found for %1 %2
+,Request a trial or purchase a license for %1
+Show status
+You are running %1 %2
+Failed to open '%1'.
+4Invalid file format. Only '.lic' files are accepted.
+Invalid object dropped.
+aAn error occurred during loading of individual entitlement(s). Please contact your license admin.
+fCheck your browser can login to the Foundry website and contact Foundry support if the error continues
+Close
+%Individual Entitlement Loading Failed
+!You have successfully logged out.
+License Roaming
+Requesting to roam license(s)...
+License Roaming Return
+Returning roamed license(s)...
+,Failed to return the roamed Login license(s)
+-Failed to roam the requested Login license(s)
+Return Roamed Licenses
+Roaming page description
+Error Code
+Missing Licenses
+No missing licenses
+Show Status
+'How Would You Like to Obtain a License?
+Request a Trial license for %1
+More details
+Page
+Done
+Status
+Activate Key
+Enter your Activation Key below
+.The Activation Key was successfully activated.
+)Use an Activation Key to Get Your License
+Activating license key...
+License Key Activation
+(All licenses were installed successfully
+"Choose the License File to Install
+&Drag & drop or paste a license here...
+&Failed to install one or more licenses
+Install License
+Open File
+Select a license file to install
+'Skipped installing one or more licenses
+Activation Key
+%Choose your type of local RLM license
++Connect to a License Server on your network
+Enter an Activation Key
+4Install a license file or copy/paste in license text
+License File
+Floating License Query
+Looking for floating licenses...
+%Enter the number of days to roam for:
+&Failed to return the roamed license(s)
+'Failed to roam the requested license(s)
+hPlease make sure that you have the server connection installed and that the license server is reachable.
+!Roaming License Return Successful
+Connect
+Connect to a License Server
+2Enter the port and hostname of your License Server
+All server licenses in use
+Cannot checkout rlm_roam license
+Clock setback detected
+Error communicating with server
+Failed to find a license
+0License cannot be installed on a virtual machine
+License checked out successfully
+License has a bad host name
+License has a future start date
+"License has an incorrect System ID
+License is already installed
+License is expired
+&License is from an unrecognized vendor
+License is invalid
+License is valid
+"License replacement was successful
+License timed out by server
+License version too old
+No license handle
+Problem with roam file
+Replacement license is empty
+Roam time exceeds maximum
+Server closed connection
+Server rejected client
+Server too old for operation
+Terminal Server disabled
+Unexpected response from server
+Unknown error
+Add License
+License Status
+Manage Login Licenses
+Manage Login Roaming
+Manage RLM Roaming
+Not all data read yet, returning and awaiting second function call
+userIndividualEntitlements size:
+userBundleEntitlements size:
+orgEntitlements size:
+Emitting multipleTypesEntitlementsLoaded
+Emitting personalEntitlementsLoaded
+Emitting orgEntitlementsLoaded
+Emitting noEntitlementsLoaded
+At least one error detected. Handling.
+Logging in...
+Try 1: token available
+Try 2: token available
+Try 2: no token available
+Emitting error
+Emitting success
+Failed to remove token file
+Error: selected entitlement not sufficient for required features, checkout would fail!
+Required features and versions:
+Missing features and versions from selection:
+Selected entitlement did not contain all required features.
+Failed to write preference model to JSON
+Failed to release old team entitlement(s)
+The required licenses installed, but the previously selected team entitlement(s) could not be released. Errors encountered trying to release:
+Warning: error on trying to release old token:
+License token saved to:
+Retrieving personal bundle license(s)...
+Token is invalid
+Retrieving personal license(s)...
+No features to check out
+Roaming enabled:
+logout replied with error
+Logged out but could not wipe session database. Error code:
+- Please investigate.
+Could not wipe session database
+Logged out but could not wipe preferences.
+Could not wipe preferences
+Failed to undo roam license
+Failed to roam license
+Could not rename file from
+Failed to undo team license return
+Failed to return license
+License installation was successful
+License replacement was successful
+No license to be replaced was found
+License has an incorrect System ID
+License is from an unrecognized vendor
+License cannot be installed on a virtual machine
+Failed to connect to license server
+No heartbeat response received from server
+Failed to roam license:
+Failed to return roamed license:
+Error fetching org entitlements:
+Reply from 10Duke:
+Team licensing disabled. Removing preference files
+emitting empty orgLicensesReadSuccess
+Error parsing team entitlement json:
+STD Exception:
+JSON Data:
+Unknown Exception
+emitting orgLicensesReadSuccess
+Error fetching personal entitlements:
+personal json:
+Appending individual entitlement:
+Appending bundle entitlement:
+Error: Unknown license type parsed from tendutils. Please investigate.
+Emitting personalLicensesReadSuccess
+opening session
+writing strings
+reading strings
+closing session
+Any Extended Key Usage
+CT Precertificate SCTs
+CT Precertificate Poison
+CT Precertificate Signer
+CT Certificate SCTs
+Signing Tool of Subject
+Signing Tool of Issuer
+TLS Feature
+ipsec Internet Key Exchange
+Ctrl/provision WAP Access
+Ctrl/Provision WAP Termination
+SSH Client
+SSH Server
+Send Router
+Send Proxied Router
+Send Owner
+Send Proxied Owner
+PKINIT Client Auth
+Signing KDC Response
+Professional Information or basis for Admission
+CMC Certificate Authority
+CMC Registration Authority
+ISO CN Member Body
+DSTU curve 0
+DSTU curve 1
+DSTU curve 2
+DSTU curve 3
+DSTU curve 4
+DSTU curve 5
+DSTU curve 6
+DSTU curve 7
+DSTU curve 8
+DSTU curve 9
+IEEE Security in Storage Working Group
+Smtp UTF8 Mailbox
+CMC Archive Server
+BGPsec Router
+Brand Indicator for Message Identification
+Certificate Management Key Generation Authority
+Class of Signing Tool
+Class of Signing Tool KC1
+Class of Signing Tool KC2
+Class of Signing Tool KC3
+Class of Signing Tool KB1
+Class of Signing Tool KB2
+Class of Signing Tool KA1
+RPKI Manifest
+Signed Object
+RPKI Notify
+RSA Data Security, Inc.
+RSA Data Security, Inc. PKCS
+directory services (X.500)
+Netscape Communications Corp.
+Netscape Certificate Extension
+Netscape Data Type
+Netscape Cert Type
+Netscape Base Url
+Netscape Revocation Url
+Netscape CA Revocation Url
+Netscape Renewal Url
+Netscape CA Policy Url
+Netscape SSL Server Name
+Netscape Comment
+Netscape Certificate Sequence
+X509v3 Subject Key Identifier
+X509v3 Key Usage
+X509v3 Private Key Usage Period
+X509v3 Subject Alternative Name
+X509v3 Issuer Alternative Name
+X509v3 Basic Constraints
+X509v3 CRL Number
+X509v3 Certificate Policies
+X509v3 Authority Key Identifier
+X509v3 CRL Distribution Points
+zlib compression
+X509v3 Extended Key Usage
+TLS Web Server Authentication
+TLS Web Client Authentication
+Code Signing
+E-mail Protection
+Time Stamping
+Microsoft Individual Code Signing
+Microsoft Commercial Code Signing
+Microsoft Trust List Signing
+Microsoft Server Gated Crypto
+Microsoft Encrypted File System
+Netscape Server Gated Crypto
+X509v3 Delta CRL Indicator
+X509v3 CRL Reason Code
+Invalidity Date
+Strong Extranet ID
+Policy Qualifier CPS
+Policy Qualifier User Notice
+S/MIME Capabilities
+Microsoft Extension Request
+Extension Request
+Authority Information Access
+CA Issuers
+OCSP Signing
+ISO Member Body
+ISO US Member Body
+Biometric Info
+IPSec End System
+IPSec Tunnel
+IPSec User
+AD Time Stamping
+Basic OCSP Response
+OCSP Nonce
+OCSP CRL ID
+Acceptable OCSP Responses
+OCSP No Check
+OCSP Archive Cutoff
+OCSP Service Locator
+Extended OCSP Status
+Trust Root
+directory services - algorithms
+Directory
+Selected Attribute Types
+Subject Information Access
+X509v3 Policy Constraints
+X509v3 AC Targeting
+X509v3 No Revocation Available
+Microsoft CSP Name
+Hold Instruction Code
+Hold Instruction None
+Hold Instruction Call Issuer
+Hold Instruction Reject
+Secure Electronic Transactions
+content types
+message extensions
+certificate extensions
+generic cryptogram
+merchant initiated auth
+additional verification
+payment gateway capabilities
+issuer capabilities
+generate cryptogram
+encrypted track 2
+cleartext track 2
+ICC or token signature
+secure device signature
+International Organizations
+Microsoft Smartcard Login
+Microsoft User Principal Name
+Proxy Certificate Information
+Any language
+Inherit all
+X509v3 Name Constraints
+X509v3 Any Policy
+X509v3 Policy Mappings
+X509v3 Inhibit Any Policy
+X509v3 Subject Directory Attributes
+X509v3 Issuing Distribution Point
+X509v3 Certificate Issuer
+password based MAC
+Diffie-Hellman based MAC
+CA Repository
+GOST 28147-89 Cryptocom ParamSet
+GOST R 3410-2001 Parameter Set Cryptocom
+Microsoft Local Key set
+X509v3 Freshest CRL
+Permanent Identifier
+unknown library
+system library
+bignum routines
+rsa routines
+Diffie-Hellman routines
+digital envelope routines
+memory buffer routines
+object identifier routines
+PEM routines
+dsa routines
+x509 certificate routines
+asn1 encoding routines
+configuration file routines
+common libcrypto routines
+elliptic curve routines
+ECDSA routines
+ECDH routines
+SSL routines
+BIO routines
+PKCS7 routines
+PKCS12 routines
+random number generator
+DSO support routines
+time stamp routines
+engine routines
+OCSP routines
+UI routines
+FIPS routines
+CMS routines
+CRMF routines
+CMP routines
+HMAC routines
+CT routines
+ASYNC routines
+KDF routines
+STORE routines
+SM2 routines
+ESS routines
+Provider routines
+ENCODER routines
+DECODER routines
+HTTP routines
+system lib
+CRYPTO lib
+ENGINE lib
+ECDSA lib
+OSSL_STORE lib
+OSSL_DECODER lib
+malloc failure
+called a function you should not call
+passed a null parameter
+internal error
+called a function that was disabled at compile-time
+init fail
+passed invalid argument
+operation fail
+invalid provider functions
+interrupted or cancelled
+nested asn1 error
+missing asn1 eos
+fetch failed
+invalid property definition
+unable to get read lock
+unable to get write lock
+Global default library context
+Thread-local default library context
+Non-default library context
+OpenSSL default user interface
+Verify failure
+OpenSSL NULL UI
+assertion failed: TESTBIT(table, bit)
+assertion failed: !TESTBIT(table, bit)
+assertion failed: WITHIN_FREELIST(list)
+assertion failed: WITHIN_ARENA(ptr)
+assertion failed: !sh_testbit(temp, slist, sh.bitmalloc)
+assertion failed: sh_testbit(chunk, list, sh.bittable)
+assertion failed: WITHIN_ARENA(chunk)
+assertion failed: sh_testbit(ptr, list, sh.bittable)
+assertion failed: !sh_testbit(ptr, list, sh.bitmalloc)
+Start
+Pass
+None
+Software engine support
+(TEST_ENG_OPENSSL_RC4) test_init_key() called
+Dynamic engine loading support
+Specifies the path to the new ENGINE shared library
+Specifies to continue even if version checking fails (boolean)
+Specifies an ENGINE id name for loading
+Adds a directory from which ENGINEs can be loaded
+Load up the ENGINE specified by other settings
+cant create hash object
+cant find capi context
+cant get key
+cant set hash value
+cryptacquirecontext error
+cryptenumproviders error
+decrypt error
+engine not initialized
+enumcontainers error
+error adding cert
+error creating store
+error getting friendly name
+error getting key provider info
+error opening store
+error signing hash
+file open error
+function not supported
+getuserkey error
+invalid digest length
+invalid dsa public key blob magic number
+invalid lookup method
+invalid public key blob
+invalid rsa public key blob magic number
+pubkey export error
+pubkey export length error
+unknown command
+unsupported algorithm nid
+unsupported padding
+unsupported public key algorithm
+win32 error
+CryptoAPI ENGINE
+List all certificates in store
+Lookup and output certificates
+debugging filename)
+List all CSPs
+Set CSP by index
+Set CSP name, (default CSP used if not specified)
+Set CSP type, (default RSA_PROV_FULL)
+list container names
+certificate store name, default "MY"
+CryptoAPI RSA method
+CryptoAPI DSA method
+Called CAPI_rsa_sign()
+Called capi_rsa_priv_dec()
+Called CAPI_dsa_do_sign()
+Available CSPs:
+Enumerate bug: using workaround
+No Private Key
+Private Key Info:
+BIO to Core filter
+FILE pointer
+calling fread()
+calling fflush()
+OpenSSL default
+OpenSSL X25519 algorithm
+OpenSSL X448 algorithm
+OpenSSL ED25519 algorithm
+OpenSSL ED448 algorithm
+Public Key
+calling wsastartup()
+calling ioctlsocket()
+memory buffer
+secure memory buffer
+Input type:
+Input structure:
+pass phrase
+Prompt info data type incorrect
+No password method specified
+OpenSSL 'win32' shared library method
+OpenSSL PKCS#3 DH implementation
+OpenSSL X9.42 DH implementation
+OpenSSL DSA implementation
+OpenSSL RSA implementation
+OpenSSL RSA-PSS implementation
+OpenSSL EC implementation
+OpenSSL X25519 implementation
+OpenSSL X448 implementation
+OpenSSL ED25519 implementation
+OpenSSL ED448 implementation
+OpenSSL TLS1_PRF via EVP_PKEY implementation
+OpenSSL HKDF via EVP_PKEY implementation
+OpenSSL SCRYPT via EVP_PKEY implementation
+OpenSSL HMAC via EVP_PKEY implementation
+OpenSSL SIPHASH via EVP_PKEY implementation
+OpenSSL POLY1305 via EVP_PKEY implementation
+OpenSSL CMAC via EVP_PKEY implementation
+OpenSSL SM2 implementation
+OpenSSL Default Provider
+OpenSSL Base Provider
+OpenSSL Null Provider
+OpenSSL PKCS#1 RSA
+OpenSSL DH Method
+OpenSSL DSA method
+OpenSSL EC_KEY method
+ANY PRIVATE KEY
+PUBLIC KEY
+PRIVATE KEY
+ENCRYPTED PRIVATE KEY
+Serial Number:
+Not Before:
+Not After :
+Subject Public Key Info:
+SSL client
+SSL server
+Netscape SSL server
+S/MIME signing
+S/MIME encryption
+CRL signing
+Any Purpose
+OCSP helper
+Time Stamp signing
+bad algorithm name
+conflicting names
+hex string too short
+illegal hex digit
+insufficient data space
+insufficient param size
+insufficient secure data space
+invalid negative value
+invalid null argument
+invalid ossl param type
+odd number of digits
+provider already exists
+provider section error
+random section error
+secure malloc failure
+too many bytes
+too many records
+too small buffer
+unknown name in random section
+zero length number
+adding object
+asn1 parse error
+asn1 sig parse error
+aux error
+bad object header
+bad template
+bmpstring is wrong length
+boolean is wrong length
+buffer too small
+cipher has no object identifier
+context not initialised
+data is wrong
+decode error
+depth exceeded
+digest and key type not supported
+encode error
+error getting time
+error loading section
+error setting cipher params
+expecting an integer
+expecting an object
+explicit length mismatch
+explicit tag not constructed
+field missing
+first num too large
+header too long
+illegal bitstring format
+illegal boolean
+illegal characters
+illegal format
+illegal hex
+illegal implicit tag
+illegal integer
+illegal negative value
+illegal nested tagging
+illegal null
+illegal null value
+illegal object
+illegal optional any
+illegal options on item template
+illegal padding
+illegal tagged any
+illegal time value
+illegal zero content
+integer not ascii format
+integer too large for long
+invalid bit string bits left
+invalid bmpstring length
+invalid digit
+invalid mime type
+invalid modifier
+invalid number
+invalid object encoding
+invalid scrypt parameters
+invalid separator
+invalid string table value
+invalid universalstring length
+invalid utf8string
+invalid value
+length too long
+list error
+mime no content type
+mime parse error
+mime sig parse error
+missing eoc
+missing second number
+missing value
+mstring not universal
+mstring wrong tag
+nested asn1 string
+nested too deep
+non hex characters
+not ascii format
+not enough data
+no content type
+no matching choice type
+no multipart body failure
+no multipart boundary
+no sig content type
+null is wrong length
+object not ascii format
+odd number of chars
+second number too large
+sequence length mismatch
+sequence not constructed
+sequence or set needs config
+short line
+sig invalid mime type
+streaming not supported
+string too short
+the asn1 object identifier is not known for this md
+time not ascii format
+too large
+too small
+type not constructed
+type not primitive
+unexpected eoc
+universalstring is wrong length
+unknown digest
+unknown format
+unknown message digest algorithm
+unknown object type
+unknown public key type
+unknown signature algorithm
+unknown tag
+unsupported any defined by type
+unsupported cipher
+unsupported public key type
+unsupported type
+wrong integer type
+wrong public key type
+wrong tag
+arg2 lt arg3
+bad reciprocal
+bignum too long
+bits too small
+called with even modulus
+div by zero
+encoding error
+expand on static bignum data
+input not reduced
+invalid length
+invalid range
+invalid shift
+not a square
+not initialized
+no inverse
+no prime candidate
+no solution
+no suitable digest
+private key too large
+p is not prime
+too many iterations
+too many temporary variables
+asn1 error
+bad signature
+bignum out of range
+cannot invert
+coordinates out of range
+curve does not support ecdh
+curve does not support ecdsa
+curve does not support signing
+discriminant is zero
+ec group new by name failure
+explicit params not supported
+failed making public key
+field too large
+gf2m not supported
+group2pkparameters failure
+i2d ecpkparameters failure
+incompatible objects
+invalid argument
+invalid cofactor
+invalid compressed point
+invalid compression bit
+invalid curve
+invalid digest
+invalid digest type
+invalid encoding
+invalid field
+invalid form
+invalid generator
+invalid group order
+invalid key
+invalid named group conversion
+invalid output length
+invalid peer key
+invalid pentanomial basis
+invalid private key
+invalid seed
+invalid trinomial basis
+kdf parameter error
+keys not set
+ladder post failure
+ladder pre failure
+ladder step failure
+missing OID
+missing parameters
+missing private key
+need new setup values
+not a NIST prime
+not implemented
+no parameters set
+no private value
+operation not supported
+passed null parameter
+peer key error
+point arithmetic failure
+point at infinity
+point coordinates blind failure
+point is not on curve
+random number generation failed
+shared info error
+slot full
+too many retries
+undefined generator
+undefined order
+unknown cofactor
+unknown group
+unknown order
+unsupported field
+wrong curve parameters
+wrong order
+accept error
+addrinfo addr is not af inet
+ambiguous host or service
+bad fopen mode
+broken pipe
+connect error
+connect timeout
+gethostbyname addr is not af inet
+getsockname error
+getsockname truncated address
+getting socktype
+invalid socket
+listen v6 only
+lookup returned nothing
+malformed host or service
+nbio connect error
+no accept addr or service specified
+no hostname or service specified
+no port defined
+no such file
+transfer error
+transfer timeout
+unable to bind socket
+unable to create socket
+unable to keepalive
+unable to listen socket
+unable to nodelay
+unable to reuseaddr
+unavailable ip family
+unknown info type
+unsupported ip family
+unsupported method
+unsupported protocol family
+write to read only BIO
+algorithm mismatch
+bad e value
+bad fixed header decrypt
+bad pad byte count
+block type is not 01
+block type is not 02
+data greater than mod len
+data too large
+data too large for key size
+data too large for modulus
+data too small
+data too small for key size
+digest does not match
+digest not allowed
+digest too big for rsa key
+dmp1 not congruent to d
+dmq1 not congruent to d
+d e not congruent to 1
+first octet invalid
+illegal or unsupported padding mode
+invalid header
+invalid keypair
+invalid key length
+invalid label
+invalid message length
+invalid mgf1 md
+invalid modulus
+invalid multi prime key
+invalid oaep parameters
+invalid padding
+invalid padding mode
+invalid pss parameters
+invalid pss saltlen
+invalid request
+invalid salt length
+invalid strength
+invalid trailer
+invalid x931 digest
+iqmp not inverse of q
+key prime num invalid
+key size too small
+last octet invalid
+mgf1 digest not allowed
+modulus too large
+mp coefficient not inverse of r
+mp exponent not congruent to d
+mp r not prime
+no public exponent
+null before block missing
+n does not equal product of primes
+n does not equal p q
+oaep decoding error
+operation not supported for this keytype
+padding check failed
+pairwise test failure
+pkcs decoding error
+pss saltlen too small
+pub exponent out of range
+p not prime
+q not prime
+randomness source strength insufficient
+rsa operations not supported
+salt length check failed
+salt length recovery failed
+sslv3 rollback attack
+unknown algorithm type
+unknown mask digest
+unknown padding type
+unsupported encryption type
+unsupported label source
+unsupported mask algorithm
+unsupported mask parameter
+unsupported signature type
+value missing
+wrong signature length
+bad ffc parameters
+bad generator
+bn decode error
+check invalid j value
+check invalid q value
+check pubkey invalid
+check pubkey too large
+check pubkey too small
+check p not prime
+check p not safe prime
+check q not prime
+invalid parameter name
+invalid parameter nid
+invalid public key
+invalid secret
+missing pubkey
+modulus too small
+not suitable generator
+parameter encoding error
+q too large
+unable to check generator
+bad q value
+invalid parameters
+seed_len is less than the length of q
+aes key setup failed
+aria key setup failed
+bad decrypt
+bad key length
+cache constants failed
+camellia key setup failed
+cannot get parameters
+cannot set parameters
+cipher not gcm mode
+cipher parameter error
+command not supported
+conflicting algorithm name
+copy error
+ctrl not implemented
+ctrl operation not implemented
+data not multiple of block length
+default query parse error
+different key types
+different parameters
+expecting an hmac key
+expecting an rsa key
+expecting a dh key
+expecting a dsa key
+expecting an ecx key
+expecting an ec key
+expecting a poly1305 key
+expecting a siphash key
+final error
+generate error
+get raw key failed
+illegal scrypt parameters
+inaccessible domain parameters
+inaccessible key
+initialization error
+input not initialized
+invalid custom length
+invalid iv length
+invalid null algorithm
+invalid operation
+invalid secret length
+invalid seed length
+keymgmt export failure
+key setup failed
+locking not supported
+memory limit exceeded
+message digest is null
+method not supported
+not able to copy ctx
+not XOF or invalid length
+no cipher set
+no default digest
+no digest set
+no import function
+no keymgmt available
+no keymgmt present
+no key set
+no operation set
+null mac pkey ctx
+only oneshot supported
+operation not initialized
+output would overflow
+parameter too large
+partially overlapping buffers
+pbkdf2 error
+pkey application asn1 method already registered
+private key decode error
+private key encode error
+public key not rsa
+setting xof failed
+set default property failure
+unable to enable locking
+unable to get maximum request size
+unable to get random strength
+unable to lock context
+unable to set callbacks
+unknown cipher
+unknown key type
+unknown option
+unknown pbe algorithm
+unsupported algorithm
+unsupported keylength
+unsupported key derivation function
+unsupported key size
+unsupported key type
+unsupported number of rounds
+unsupported prf
+unsupported private key algorithm
+unsupported salt type
+update error
+wrap mode not allowed
+wrong final block length
+xts data unit is too large
+xts duplicated keys
+oid exists
+unknown nid
+unknown object name
+bad base64 decode
+bad end line
+bad iv chars
+bad magic number
+bad password read
+bad version number
+bio write failure
+cipher is null
+error converting private key
+expecting dss key blob
+expecting private key blob
+expecting public key blob
+expecting rsa key blob
+inconsistent header
+keyblob header parse error
+keyblob too short
+missing dek iv
+not dek info
+not encrypted
+not proc type
+no start line
+problems getting password
+pvk data too short
+pvk too short
+short header
+unexpected dek iv
+unsupported encryption
+unsupported key components
+certificate verify error
+cipher not initialized
+content and data present
+ctrl error
+digest failure
+encryption ctrl failure
+encryption not supported for this key type
+error adding recipient
+error setting cipher
+invalid null pointer
+invalid signed data type
+no content
+no matching digest type found
+no recipient matches certificate
+no signatures on data
+no signers
+operation not supported on this type
+pkcs7 add signature error
+pkcs7 add signer error
+pkcs7 datasign
+private key does not match certificate
+signature failure
+signer certificate not found
+signing ctrl failure
+signing not supported for this key type
+smime text error
+unable to find certificate
+unable to find mem bio
+unable to find message digest
+unknown digest type
+unknown operation
+unsupported cipher type
+unsupported content type
+wrong content type
+wrong pkcs7 type
+akid mismatch
+bad selector
+bad x509 filetype
+base64 decode error
+cant check dh key
+certificate verification failed
+cert already in hash table
+crl already delta
+crl verify failure
+duplicate attribute
+error getting md by nid
+error using siginf set
+idp mismatch
+invalid attributes
+invalid directory
+invalid distpoint
+invalid field name
+invalid trust
+issuer mismatch
+key type mismatch
+key values mismatch
+loading cert dir
+loading defaults
+name too long
+newer crl not newer
+no certificate found
+no certificate or crl found
+no cert set for us to verify
+no crl found
+no crl number
+public key decode error
+public key encode error
+should retry
+unable to find parameters in chain
+unable to get certs public key
+unknown purpose id
+unknown sigid algs
+unknown trust id
+wrong lookup type
+wrong type
+bad ip address
+bad object
+bn dec2bn error
+bn to asn1 integer error
+dirname error
+distpoint already set
+duplicate zone id
+empty key usage
+error converting zone
+error creating extension
+error in extension
+expected a section name
+extension exists
+extension name error
+extension not found
+extension setting not supported
+extension value error
+illegal empty extension
+incorrect policy syntax tag
+invalid asnumber
+invalid asrange
+invalid boolean string
+invalid certificate
+invalid empty name
+invalid extension string
+invalid inheritance
+invalid ipaddress
+invalid multiple rdns
+invalid name
+invalid null value
+invalid numbers
+invalid object identifier
+invalid option
+invalid policy identifier
+invalid proxy policy setting
+invalid purpose
+invalid safi
+invalid section
+invalid syntax
+issuer decode error
+need organization and numbers
+negative pathlen
+no config database
+no issuer certificate
+no issuer details
+no policy identifier
+no proxy cert policy language defined
+no public key
+no subject details
+operation not defined
+othername error
+policy language already defined
+policy path length
+policy path length already defined
+policy when proxy language requires no policy
+section not found
+unable to get issuer details
+unable to get issuer keyid
+unknown bit string argument
+unknown extension
+unknown extension name
+unsupported option
+user too long
+error loading dso
+invalid pragma
+list cannot be null
+mandatory braces in variable expansion
+missing close square bracket
+missing equal sign
+missing init function
+module initialization error
+no close brace
+no conf or environment variable
+no section
+number too large
+openssl conf references missing section
+recursive directory include
+recursive section reference
+relative path
+ssl command section empty
+ssl command section not found
+ssl section empty
+ssl section not found
+unable to create new section
+unknown module name
+variable expansion too long
+variable has no value
+cant pack structure
+content type not data
+encrypt error
+error setting encrypted data type
+invalid null pkcs12 pointer
+invalid type
+iv gen error
+key gen error
+mac absent
+mac generation error
+mac setup error
+mac string set error
+mac verify failure
+pkcs12 cipherfinal error
+unknown digest algorithm
+unsupported pkcs12 mode
+additional input too long
+already instantiated
+argument out of range
+Cannot open file
+drbg already initialized
+drbg not initialised
+entropy input too long
+entropy out of range
+error entropy pool was ignored
+error initialising drbg
+error instantiating drbg
+error retrieving additional input
+error retrieving entropy
+error retrieving nonce
+failed to create lock
+Function not implemented
+Error writing file
+insufficient drbg strength
+in error state
+Not a regular file
+not instantiated
+no drbg implementation selected
+parent locking not enabled
+parent strength too weak
+personalisation string too long
+prediction resistance not supported
+PRNG not seeded
+random pool overflow
+random pool underflow
+request too large for drbg
+reseed error
+selftest failure
+too little nonce requested
+too much nonce requested
+unable to create drbg
+unable to fetch drbg
+unable to get parent reseed prop counter
+unable to get parent strength
+unable to lock parent
+unsupported drbg flags
+unsupported drbg type
+control command failed
+dso already loaded
+empty file structure
+filename too big
+cleanup method function failed
+incorrect file syntax
+could not load the shared library
+name translation failed
+no filename
+a null shared library handle was used
+set filename failed
+the meth_data stack is corrupt
+could not bind to the requested symbol name
+could not unload the shared library
+functionality not supported
+already loaded
+argument is not a number
+cmd not executable
+command takes input
+command takes no input
+conflicting engine id
+ctrl command not implemented
+DSO failure
+dso not found
+engines section error
+engine configuration error
+engine is not in the list
+engine section error
+failed loading private key
+failed loading public key
+finish failed
+'id' or 'name' missing
+init failed
+internal list error
+invalid cmd name
+invalid cmd number
+invalid init value
+invalid string
+not initialised
+not loaded
+no control function
+no load function
+no reference
+no such engine
+unimplemented cipher
+unimplemented digest
+unimplemented public key method
+version incompatibility
+common ok and cancel characters
+index too large
+index too small
+no result buffer
+processing error
+result too large
+result too small
+unknown control command
+unknown ttyget errno value
+user data duplication unsupported
+asn1 len exceeds max resp len
+connect failure
+error parsing asn1 length
+error parsing content length
+error parsing url
+error receiving
+error sending
+failed reading data
+header parse error
+inconsistent content length
+invalid port number
+invalid url path
+invalid url scheme
+max resp len exceeded
+missing asn1 encoding
+missing content type
+missing redirect location
+received error
+received wrong http version
+redirection from https to http
+redirection not enabled
+response line too long
+response parse error
+retry timeout
+server canceled connection
+sock not supported
+status code unsupported
+tls not enabled
+too many redirections
+unexpected content type
+digest err
+digest name err
+digest size err
+error in nextupdate field
+error in thisupdate field
+missing ocspsigning usage
+nextupdate before thisupdate
+not basic response
+no certificates in chain
+no response data
+no revoked time
+no signer key
+request not signed
+response contains no revocation data
+root ca not trusted
+status expired
+status not yet valid
+status too old
+unknown message digest
+unsupported requestorname type
+bad pkcs7 type
+cannot load certificate
+cannot load private key
+could not set engine
+could not set time
+detached content
+ess add signing cert error
+ess add signing cert v2 error
+ess signing certificate error
+invalid signer certificate purpose
+message imprint mismatch
+nonce mismatch
+nonce not returned
+no time stamp token
+pkcs7 add signed attr error
+pkcs7 to ts tst info failed
+policy mismatch
+response setup error
+there must be one signer
+time syscall error
+token not present
+token present
+tsa name mismatch
+tsa untrusted
+tst info setup error
+ts datasign
+unacceptable policy
+unsupported md algorithm
+unsupported version
+var bad value
+cannot find config variable
+add signer error
+attribute error
+certificate already present
+certificate has no keyid
+cipher aead set tag error
+cipher get tag
+cipher initialisation error
+cipher parameter initialisation error
+cms datafinal error
+contentidentifier mismatch
+content not found
+content type mismatch
+content type not compressed data
+content type not enveloped data
+content type not signed data
+content verify error
+ctrl failure
+error getting public key
+error reading messagedigest attribute
+error setting key
+error setting recipientinfo
+ess signing certid mismatch error
+invalid encrypted key length
+invalid key encryption parameter
+md bio init error
+messagedigest attribute wrong length
+messagedigest wrong length
+msgsigdigest error
+msgsigdigest verification failure
+msgsigdigest wrong length
+need one signer
+not a signed receipt
+not encrypted data
+not key agreement
+not key transport
+not supported for this key type
+no cipher
+no key or cert
+no matching digest
+no matching recipient
+no matching signature
+no msgsigdigest
+no password
+no private key
+no receipt request
+receipt decode error
+recipient error
+signfinal error
+store init error
+type not compressed data
+type not data
+type not digested data
+type not encrypted data
+type not enveloped data
+unable to finalize context
+unknown id
+unsupported compression algorithm
+unsupported content encryption algorithm
+unsupported kek algorithm
+unsupported key encryption algorithm
+unsupported recipientinfo type
+unsupported recipient type
+unsupported signature algorithm
+unwrap error
+unwrap failure
+verification failure
+wrap error
+bad pbm iterationcount
+error decoding certificate
+error decrypting certificate
+error decrypting symmetric key
+failure obtaining random
+iterationcount below 100
+malformed iv
+null argument
+poposkinput not supported
+popo inconsistent public key
+popo missing
+popo missing public key
+popo missing subject
+popo raverified not accepted
+setting mac algor failure
+setting owf algor failure
+unsupported method for creating popo
+unsupported popo method
+algorithm not supported
+bad checkafter in pollrep
+bad request id
+certhash unmatched
+certid not found
+certificate not accepted
+certificate not found
+certreqmsg not found
+certresponse not found
+cert and key do not match
+checkafter out of range
+encountered keyupdatewarning
+encountered waiting
+error calculating protection
+error creating certconf
+error creating certrep
+error creating certreq
+error creating error
+error creating genm
+error creating genp
+error creating pkiconf
+error creating pollrep
+error creating pollreq
+error creating rp
+error creating rr
+error parsing pkistatus
+error processing message
+error protecting message
+error setting certhash
+error unexpected certconf
+error validating protection
+error validating signature
+failed building own chain
+failed extracting pubkey
+fail info out of range
+invalid args
+missing certid
+missing key input for creating protection
+missing key usage digitalsignature
+missing p10csr
+missing pbm secret
+missing private key for popo
+missing protection
+missing public key
+missing reference cert
+missing secret
+missing sender identification
+missing trust anchor
+missing trust store
+multiple requests not supported
+multiple responses not supported
+multiple san sources
+no suitable sender cert
+pkibody error
+pkistatusinfo not found
+polling failed
+potentially invalid certificate
+recipnonce unmatched
+request not accepted
+request rejected by server
+sender generalname type not supported
+srvcert does not validate msg
+total timeout
+transactionid unmatched
+unexpected pkibody
+unexpected pkistatus
+unexpected pvno
+unknown algorithm id
+unknown cert type
+unknown pkistatus
+unsupported protection alg dhbasedmac
+value too large
+value too small
+wrong algorithm oid
+wrong certid
+wrong certid in rp
+wrong pbm value
+wrong rp component count
+wrong serial in rp
+invalid log id length
+log conf invalid
+log conf invalid key
+log conf missing description
+log conf missing key
+log key invalid
+sct future timestamp
+sct invalid
+sct invalid signature
+sct list invalid
+sct log id mismatch
+sct not set
+sct unsupported version
+unrecognized signature nid
+unsupported entry type
+failed to set pool
+failed to swap context
+invalid pool size
+ambiguous content type
+error verifying pkcs12 mac
+fingerprint size does not match digest
+invalid scheme
+loader incomplete
+loading started
+not a certificate
+not a name
+not a private key
+not a public key
+not parameters
+no loaders found
+passphrase callback error
+path must be absolute
+search only supported for directories
+ui process interrupted or cancelled
+unregistered scheme
+unsupported operation
+unsupported search type
+uri authority unsupported
+empty ess cert id list
+ess cert digest error
+ess cert id not found
+ess cert id wrong order
+ess digest alg unknown
+ess signing cert add error
+ess signing cert v2 add error
+missing signing certificate attribute
+not an ascii character
+not an hexadecimal digit
+not an identifier
+not an octal digit
+not a decimal digit
+no matching string delimiter
+parse failed
+trailing characters
+bad encoding
+bad length
+bad tls client version
+cipher operation failed
+derivation function init failed
+entropy source strength too weak
+failed during derivation
+failed to decrypt
+failed to generate key
+failed to get parameter
+failed to set parameter
+failed to sign
+fips module conditional error
+fips module entering error state
+fips module in error state
+indicator integrity failure
+invalid aad
+invalid config data
+invalid constant length
+invalid data
+invalid digest size
+invalid input length
+invalid iteration count
+invalid mac
+invalid mode
+invalid pubinfo
+invalid signature size
+invalid state
+invalid tag
+invalid tag length
+invalid ukm length
+length too large
+mismatching domain parameters
+missing cek alg
+missing cipher
+missing config data
+missing constant
+missing key
+missing mac
+missing message digest
+missing pass
+missing salt
+missing seed
+missing session id
+missing type
+missing xcghash
+module integrity failure
+not supported
+not xof or invalid length
+output buffer too small
+parent cannot generate random numbers
+parent cannot supply entropy seed
+require ctr mode cipher
+seed sources must not have a parent
+self test kat failure
+self test post failure
+tag not needed
+tag not set
+unable to find ciphers
+unable to get passphrase
+unable to initialise ciphers
+unable to load sha256
+unable to reseed
+unsupported cek alg
+unsupported mac type
+value error
+wrong output buffer size
+xof digests not allowed
+subgroup order Q:
+subgroup factor:
+VggjeK uO5n
+SECG/WTLS curve over a 112 bit prime field
+SECG curve over a 112 bit prime field
+SECG curve over a 128 bit prime field
+SECG curve over a 160 bit prime field
+SECG/WTLS curve over a 160 bit prime field
+SECG curve over a 192 bit prime field
+SECG curve over a 224 bit prime field
+NIST/SECG curve over a 224 bit prime field
+SECG curve over a 256 bit prime field
+NIST/SECG curve over a 384 bit prime field
+NIST/SECG curve over a 521 bit prime field
+NIST/X9.62/SECG curve over a 192 bit prime field
+X9.62 curve over a 192 bit prime field
+X9.62 curve over a 239 bit prime field
+X9.62/SECG curve over a 256 bit prime field
+SECG curve over a 113 bit binary field
+SECG/WTLS curve over a 131 bit binary field
+SECG curve over a 131 bit binary field
+NIST/SECG/WTLS curve over a 163 bit binary field
+SECG curve over a 163 bit binary field
+NIST/SECG curve over a 163 bit binary field
+SECG curve over a 193 bit binary field
+NIST/SECG/WTLS curve over a 233 bit binary field
+SECG curve over a 239 bit binary field
+NIST/SECG curve over a 283 bit binary field
+NIST/SECG curve over a 409 bit binary field
+NIST/SECG curve over a 571 bit binary field
+X9.62 curve over a 163 bit binary field
+X9.62 curve over a 176 bit binary field
+X9.62 curve over a 191 bit binary field
+X9.62 curve over a 208 bit binary field
+X9.62 curve over a 239 bit binary field
+X9.62 curve over a 272 bit binary field
+X9.62 curve over a 304 bit binary field
+X9.62 curve over a 359 bit binary field
+X9.62 curve over a 368 bit binary field
+X9.62 curve over a 431 bit binary field
+WTLS curve over a 113 bit binary field
+WTLS curve over a 112 bit prime field
+WTLS curve over a 160 bit prime field
+WTLS curve over a 224 bit prime field
+IPSec/IKE/Oakley curve #3 over a 155 bit binary field.
+Not suitable for ECDSA.
+Questionable extension field!
+IPSec/IKE/Oakley curve #4 over a 185 bit binary field.
+RFC 5639 curve over a 160 bit prime field
+RFC 5639 curve over a 192 bit prime field
+RFC 5639 curve over a 224 bit prime field
+RFC 5639 curve over a 256 bit prime field
+RFC 5639 curve over a 320 bit prime field
+RFC 5639 curve over a 384 bit prime field
+RFC 5639 curve over a 512 bit prime field
+SM2 curve over a 256 bit prime field
+Negative big numbers are unsupported for OSSL_PARAM
+OpenSSL RSA method
+OpenSSL RSA-PSS method
+No PSS parameter restrictions
+PSS parameter restrictions:
+(INVALID PSS PARAMETERS)
+Hash Algorithm:
+sha1 (default)
+Mask Algorithm:
+mgf1 with sha1 (default)
+Trailer Field: 0x
+The passed EVP_PKEY must be assigned a key
+calling socket()
+calling setsockopt()
+calling connect()
+PEM password callback wrapper
+PSS restrictions lack hash algorithm
+PSS restrictions lack MGF1 hash algorithm
+hash algorithm name too long
+MGF1 hash algorithm name too long
+is %zu, should be at least %zu
+only PKCS#1 padding supported with MDC2
+Only X.931, PKCS#1 v1.5 or PSS padding allowed
+Only X.931 or PKCS#1 v1.5 padding allowed
+OAEP padding not allowed for signing / verifying
+PSS padding only allowed for sign and verify operations
+PKCS#1 padding not allowed with RSA-PSS
+No padding not allowed with RSA-PSS
+X.931 padding not allowed with RSA-PSS
+PSS saltlen can only be specified if PSS padding has been specified first
+Cannot use autodetected salt length
+RSA PRIVATE KEY
+RSA PUBLIC KEY
+DH PARAMETERS
+X9.42 DH PARAMETERS
+DSA PRIVATE KEY
+DSA PUBLIC KEY
+DSA PARAMETERS
+EC PRIVATE KEY
+EC PARAMETERS
+SM2 PRIVATE KEY
+SM2 PARAMETERS
+RSA-PSS PRIVATE KEY
+RSA-PSS PUBLIC KEY
+DH PRIVATE KEY
+X9.42 DH PRIVATE KEY
+ED25519 PRIVATE KEY
+ED448 PRIVATE KEY
+X25519 PRIVATE KEY
+X448 PRIVATE KEY
+DH Private-Key
+DH Public-Key
+DH Parameters
+Generator (compressed):
+Generator (uncompressed):
+Generator (hybrid):
+NIST CURVE
+TRUSTED CERTIFICATE
+OpenSSL PKCS#3 DH method
+OpenSSL X9.42 DH method
+OpenSSL EC algorithm
+Enter PEM pass phrase:
+NEW CERTIFICATE REQUEST
+CERTIFICATE REQUEST
+PKCS #7 SIGNED DATA
+Name
+Key Compromise
+CA Compromise
+Affiliation Changed
+Cessation Of Operation
+Certificate Hold
+Privilege Withdrawn
+AA Compromise
+Only Some Reasons
+Autonomous System Numbers
+Routing Domain Identifiers
+(MPLS-labeled VPN)
+BIT STRING
+OCTET STRING
+OBJECT DESCRIPTOR
+BAD RECURSION DEPTH
+Error in encoding
+:BAD OBJECT
+:BAD BOOLEAN
+:BAD INTEGER
+:BAD ENUMERATED
+unspecified certificate verification error
+unable to get issuer certificate
+unable to get certificate CRL
+unable to decrypt certificate's signature
+unable to decrypt CRL's signature
+unable to decode issuer public key
+certificate signature failure
+CRL signature failure
+certificate is not yet valid
+certificate has expired
+CRL is not yet valid
+CRL has expired
+format error in certificate's notBefore field
+format error in certificate's notAfter field
+format error in CRL's lastUpdate field
+format error in CRL's nextUpdate field
+out of memory
+self-signed certificate
+self-signed certificate in certificate chain
+unable to get local issuer certificate
+unable to verify the first certificate
+certificate chain too long
+certificate revoked
+issuer certificate doesn't have a public key
+path length constraint exceeded
+unsuitable certificate purpose
+certificate not trusted
+certificate rejected
+subject issuer mismatch
+authority and subject key identifier mismatch
+authority and issuer serial number mismatch
+key usage does not include certificate signing
+unable to get CRL issuer certificate
+unhandled critical extension
+key usage does not include CRL signing
+unhandled critical CRL extension
+invalid non-CA certificate (has CA markings)
+proxy path length constraint exceeded
+key usage does not include digital signature
+proxy certificates not allowed, please set the appropriate flag
+invalid or inconsistent certificate extension
+invalid or inconsistent certificate policy extension
+no explicit policy
+different CRL scope
+unsupported extension feature
+RFC 3779 resource not subset of parent's resources
+permitted subtree violation
+excluded subtree violation
+name constraints minimum and maximum not supported
+application verification failure
+unsupported name constraint type
+unsupported or invalid name constraint syntax
+unsupported or invalid name syntax
+CRL path validation error
+path loop
+Suite B: certificate version invalid
+Suite B: invalid public key algorithm
+Suite B: invalid ECC curve
+Suite B: invalid signature algorithm
+Suite B: curve not allowed for this LOS
+hostname mismatch
+email address mismatch
+IP address mismatch
+no matching DANE TLSA records
+EE certificate key too weak
+CA certificate key too weak
+CA signature digest algorithm too weak
+invalid certificate verification context
+issuer certificate lookup error
+Certificate Transparency required, but no valid SCTs found
+proxy subject name violation
+OCSP verification needed
+OCSP verification failed
+OCSP unknown cert
+Cannot find certificate signature algorithm
+subject signature algorithm and issuer public key algorithm mismatch
+cert info signature and signature algorithm mismatch
+invalid CA certificate
+Path length invalid for non-CA cert
+Path length given without key usage keyCertSign
+Key usage keyCertSign invalid for non-CA cert
+Issuer name empty
+Subject name empty
+Missing Authority Key Identifier
+Missing Subject Key Identifier
+Empty Subject Alternative Name extension
+Basic Constraints of CA cert not marked critical
+Subject empty and Subject Alt Name extension not critical
+Authority Key Identifier marked critical
+Subject Key Identifier marked critical
+CA cert does not include key usage extension
+Using cert extension requires at least X509v3
+Certificate public key has explicit ECC parameters
+unknown certificate verification error
+Bad time value
+SSL Client
+SSL Server
+S/MIME email
+Object Signer
+OCSP responder
+OCSP request
+TSA server
+BOOL ABSENT
+OpenSSL NIST SP 800-90A DRBG
+empty password
+maybe wrong password
+othername: SmtpUTF8Mailbox:
+othername: XmppAddr:
+othername: SRVName:
+othername: UPN:
+othername: NAIRealm:
+IP Address
+Registered ID
+Registered ID:
+Require Explicit Policy
+Inhibit Policy Mapping
+Proxy-Connection: Keep-Alive
+Object Signing
+Object Signing CA
+Digital Signature
+Non Repudiation
+Key Encipherment
+Data Encipherment
+Key Agreement
+Certificate Sign
+Encipher Only
+Decipher Only
+Not After:
+Remove From CRL
+socket connect
+message digest
+type must be string, but is
+type must be boolean, but is
+ERROR: exception recursing dir
+Checking out
+Files used for checkout:
+failed to initialize RLM:
+Checking status of:
+Files used for status checkout:
+Looking in dir for lic files:
+Found lic file
+invalid stol argument
+stol argument out of range
+rlm_init license_string
+failed to validate license:
+LicenseEntry from string:
+found feature:
+Update failed:
+No such node
+failed to initialize cURL
+failed to create path:
+failed to open file:
+failed to write file:
+Cannot get first element
+read error
+unexpected end of data
+expected element name
+expected attribute name
+expected ' or "
+invalid numeric character entity
+curl error:
+failed to connect to server
+Failed to make path:
+System Lock
+', falling back on default.
+Error setting system lock timeout with value '
+' is too large, falling back on default.
+Error setting system lock, value '
+10Duke System Lock Disabled
+Mutex lock count should be 0 but it is
+ms) lock state:
+ERROR: Failed to acquire lockfile, so unlock mutex
+lock file count:
+Attempting to remove lockfile:
+Lockfile remove returned:
+Could not lock. Please investigate. QT Error code:
+| QT Error code:
+Please investigate.
+Unexpected lock count
+FN_ENT_SYSTEM_LOCK_SLEEP set
+Could not find or read lock file
+File is empty
+Lockfile info:
+Local mod time:
+Unknown Error/State
+Could not get lock info
+A scope to bind the license to is present in the request but it is not allowed.
+License model has an IP based geolocation constraint which is blocking the request.
+License model has an IP-range based constraint which is blocking the request.
+Configured limit of simultaneous consumptions for same client/user has been reached
+Required license anchor(s) is not present in the request.
+The request has wrong license anchor(s).
+License model applied requires a reservation before license consumption, but no reservation was found.
+Request is trying to bind the license to scope X but the license has already been bound to scope Y.
+There is a license available, but it has expired.
+There is a license available, but it has been deactivated.
+Maximum number of leases, credits or seats has been reached.
+There is a license available, but it is not yet valid.
+License is tracking aggregated use time and use time is exceeded.
+Concurrent consumptions are limited by the applied license model and the upper limit has been met.
+Credit based license has exceeded the amount of use count credits available.
+No license was found.
+User requesting the license is not authorized to consume/check the license or there is no license.
+A license lease release request was made, but the license model does not allow releasing.
+License model requires a scope, but there is no scope present in the license check request
+License / license model has a version constraint configured and the version given in the request does not fulfill the constraint.
+The geolocation of the request cannot be resolved and consumption request is blocked.
+Failed to write the license token to disk.
+Token is invalid.
+unordered_map/set too long
+invalid hash bucket count
+Invalid input
+token verification failed:
+Error loading cert into memory
+Error getting public key from certificate
+Error writing public key data in PEM format
+Failed to convert pubkey to pem
+failed to load public key: bio_write failed
+failed to load public key: PEM_read_bio_PUBKEY failed:
+failed to load private key: bio_write failed
+failed to load private key: PEM_read_bio_PrivateKey failed
+at least one of public or private key need to be present
+failed to verify signature: could not create context
+failed to verify signature: VerifyInit failed
+failed to verify signature: VerifyUpdate failed
+evp verify final failed:
+claim not found
+Invalid json
+invalid token supplied
+Found jwt token file
+data is empty
+() could not rename file on disk
+() set filename to:
+expiry count seconds:
+: missing feature or version
+empty hwid, now set to
+ERROR: Updated token not valid.
+ERROR: Updating or saving token
+ERROR: curl returned error:
+parse claims
+jti matches?
+user_id matches request id
+ERROR: Failed to decode release reply.
+ERROR : Release reply did not match expected fields
+curl returned error code :
+Signature verification failed
+ERROR : No exp claim
+ERROR : No iss claim
+ERROR : No iat claim
+No jti claim
+claim key:
+Setting version to
+Setting hw to
+Setting lic id to
+Setting rfr to
+Setting ibe to
+valid claim as_bool():
+Found _errorCode
+Found _errorKey
+Found _errorMessage
+Found _errorTechnical
+m_version empty
+m_hardwareId empty
+m_lic_id empty
+m_feature empty
+(): token not complete, returning false
+WARNING : m_verifyToken is false
+ERROR: failed to decode data
+Checking against token
+ERROR: Token invalid
+ERROR: VALIDATION_STATUS_EXPIRED
+check() returning : VALIDATION_STATUS_VALID
+check() returning status:
+ERROR: Token invalid - no hardware id claim
+ERROR: Token expired
+' does not match any of these host IDs:
+Hardware ID Mismatch: Lease Hardware ID '
+ERROR: Failed to create path:
+ERROR: failed to open file
+ERROR: file.is_open() failed on
+ERROR: Std exception caught during token file close - checkout failed.
+ERROR: Unknown exception caught during token file close - checkout failed.
+ERROR: failed to write file:
+decoded_jwt is missing
+type mismatch
+does not match expected
+wrong algorithm
+token expired
+token doesn't contain the required audience
+Found base dir:
+Checking token dir current contents:
+Found file:
+Could not enumerate user token directory because,
+Attempting to remove:
+Nothing to remove
+Saving file:
+. Trying next filepath.
+Could not open specified file:
+Could not read token from:
+Found token in file:
+WARNING: Could not read APIToken from any of the provided filepaths.
+ERROR: Could not read AccessToken expiry
+Error decoding reply. Detail: '
+ERROR: could not find 'access_token' field in reply
+Read expires_in as:
+ERROR: could not find 'expires_in' field in reply
+ERROR: could not find 'refresh_token' field in reply
+Will try the refresh token
+Failed to use the refresh token to get a new access token
+Could not find or read the refresh token
+Could not get an access token to extend the licenses
+Content-Type: application/x-www-form-urlencoded
+ERROR: expiry is 0
+ERROR: token is empty
+Attempting to write preferences to disk at path:
+PreferenceV2 json file opened
+PreferenceV2 json file could not open
+Preferences converted to JSON:
+Error parsing preferences file. Detail: '
+- please investigate
+Could not remove file: '
+cannot use value() with
+- runoff will fail.
+Error: missing a preference for required feature
+checkoutRunoff returning
+Failed to validate database
+ERROR: Could not get entries from json.
+ERROR: Could not validate entries.
+ERROR: Could not save JSON
+ERROR: Could not load json. Database cannot be validated!
+. Please investigate
+Could not wipe database because
+Error parsing LicenseSessionDatabase: '
+Error occurred validating license session database: '
+Unknown exception in validateDatabase()
+Cleaning invalid entry
+Found invalid database entry:
+- Database cannot be validated!
+ERROR: Could not remove invalid entry. Error code:
+Json after writeConfig:
+Error occurred parsing Licesnse Session Database, '
+Could not open License Sesssion Database for reading '
+Could not open License Session Database for writing '
+Error converting LicenseSessionEntry is malformed: '
+Error converting LicenseSessionValues is malformed: '
+Error converting LicenseSessionToken is malformed: '
+Cannot insert LicenseSessionToken during conversion from json. Please investigate.
+Organisation description:
+Entitlement: description
+json parsing error: objType not GraphResult
+Success
+json parsing error: resultCode not found or not 'Success'
+json parsing error: no top level ArrayList
+LICENSEDITEM: NULL
+LICENSEDITEM (Individual):
+LICENSEDITEM (Bundle):
+m_licensed_items_individual items:
+Error: Unknown __objType value '
+Error: Could not find __objType
+' . Please investigate
+Error: Expected ProductPackage, found object of type '
+Please investigate
+Error: Trying to parse an object into a null LicensedItemIndividual pointer.
+Error: Expected LicenseItem, found object of type '
+Error: Trying to parse an object into a null LicensedItemBundle pointer.
+Error: Unexpected format. Expected only one rel_Relations item in a bundle.
+Error: Unexpected format. Expected rel_RelatedObjectList to be present.
+Error: Unexpected format. Expected rel_RelatedObjectList object, found '
+Error: Unexpected format. Expected rel_RelatedObjects to be present. Please investigate.
+failed to parse. Interrupting further parsing. Please investigate.
+Error: Bundle info parsed okay but a constituent entitlement
+' as if it were a LicenseItem. Cannot parse this type. Please investigate
+Error: Trying to parse an object of type '
+Error: Expected LicenseModel, found object of type '
+ERROR: Expected object type to be 'License' but found
+. Impossible to determine which item(s) to parse, please investigate.
+ERROR: Unexpected format. Expected only one item in rel_RelatedObjects but found
+not an object
+PUSHING cached.m_allowed_versions:
+ERROR: Could not parse entitlements, detail:
+Unexpected object parsing entitlements
+ERROR: Access token not valid
+Token installation was successful
+Token is already installed
+Token replacement was successful
+Replacement Token is empty
+No Token to be replaced was found
+Token is valid
+Token has a future start date
+Token has a bad host name
+Token has a bad system id
+Token has an invalid version
+Token is from an unrecognized vendor
+Token is expired
+Token cannot be installed on a virtual machine
+Cannot acquire system lock for token deployment/update/cleanup
+No token found for request
+Setting CURLOPT_PROXYUSERPWD
+ERROR : Could not get exe path for curl cert
+Set CURLOPT_CAINFO to
+CURLOPT_CAINFO not set
+Failed to parse value of FN_CURLOPT_TIMEOUT
+Limited CURLOPT_TIMEOUT to
+Limited CURLOPT_TIMEOUT to 0
+Authorization: Bearer
+Content-Type: application/json
+greater than version
+Version check failed, requiredVersion
+ERROR: exception getting hw id
+ERROR: could not get hw id
+ERROR: Could not create READWRITE path:
+ENV_CLOUDLIC_WRITE_DIR environment variable '
+ENV_CLOUDLIC_READ_DIRS environment variable '
+ERROR: Could not create READ path:
+' from cache.
+Loaded verified System ID '
+Invalid ID file format
+' could not be loaded.
+Reported hid file '
+Could not open hid file '
+' with error, '
+Invalid file format for '
+Unsupported version '
+Error parsing ID file, error was '
+Unable to generate sign system ID, error was '
+Unable to write system ID token, error was '
+Unable to initialise encryption context
+Unable to derive signing key.
+Unable to retrieve digest '
+Digest initialization failed
+Unable to compute signature
+Error retrieving signature length.
+Unable to allocate signature.
+Error retrieving signature.
+Unsupported protocol
+Failed initialization
+URL using bad/illegal format or missing URL
+A requested feature, protocol or option was not found built-in in this libcurl due to a build-time decision.
+Couldn't resolve proxy name
+Couldn't resolve host name
+Couldn't connect to server
+Weird server reply
+Access denied to remote resource
+FTP: The server failed to connect to data port
+FTP: Accepting server connect has timed out
+FTP: The server did not accept the PRET command.
+FTP: unknown PASS reply
+FTP: unknown PASV reply
+FTP: unknown 227 response format
+FTP: can't figure out the host in the PASV response
+Error in the HTTP2 framing layer
+FTP: couldn't set file type
+Transferred a partial file
+FTP: couldn't retrieve (RETR failed) the specified file
+Quote command returned error
+HTTP response code said error
+Failed writing received data to disk/application
+Upload failed (at start/before it took off)
+Failed to open/read local data from file/application
+Out of memory
+Timeout was reached
+FTP: command PORT failed
+FTP: command REST failed
+Requested range was not delivered by the server
+Internal problem setting up the POST
+SSL connect error
+Couldn't resume download
+Couldn't read a file:// file
+LDAP: cannot bind
+LDAP: search failed
+A required function in the library was not found
+Operation was aborted by an application callback
+A libcurl function was given a bad argument
+Failed binding local connection end
+Number of redirects hit maximum amount
+An unknown option was passed in to libcurl
+Malformed option provided in a setopt
+Server returned nothing (no headers, no data)
+SSL crypto engine not found
+Can not set SSL crypto engine as default
+Failed to initialise SSL crypto engine
+Failed sending data to the peer
+Failure when receiving data from the peer
+Problem with the local SSL certificate
+Couldn't use specified SSL cipher
+SSL peer certificate or SSH remote key was not OK
+Problem with the SSL CA cert (path? access rights?)
+Unrecognized or bad HTTP Content or Transfer-Encoding
+Maximum file size exceeded
+Requested SSL level failed
+Failed to shut down the SSL connection
+Failed to load CRL file (path? access rights?, format?)
+Issuer check against peer certificate failed
+Send failed since rewinding of the data stream failed
+Login denied
+TFTP: File Not Found
+TFTP: Access Violation
+Disk full or allocation exceeded
+TFTP: Illegal operation
+TFTP: Unknown transfer ID
+Remote file already exists
+TFTP: No such user
+Remote file not found
+Error in the SSH layer
+Socket not ready for send/recv
+RTSP CSeq mismatch or invalid CSeq
+RTSP session error
+Unable to parse FTP file list
+Chunk callback failed
+The max connection limit is reached
+SSL public key does not match pinned public key
+SSL server certificate status verification FAILED
+Stream error in the HTTP/2 framing layer
+API function called from within callback
+An authentication function returned an error
+HTTP/3 error
+QUIC connection error
+proxy handshake error
+SSL Client Certificate required
+Unrecoverable error in select/poll
+An invalid CURLU pointer was passed as argument
+An invalid 'part' argument was passed as argument
+Malformed input to a URL function
+Port number was not a decimal number between 0 and 65535
+Unsupported URL scheme
+URL decode error, most likely because of rubbish in the input
+A memory function failed
+Credentials was passed in the URL when prohibited
+An unknown part ID was passed to a URL API function
+No scheme part in the URL
+No user part in the URL
+No password part in the URL
+No options part in the URL
+No host part in the URL
+No port part in the URL
+No query part in the URL
+No fragment part in the URL
+No zoneid part in the URL
+Bad login part
+Bad IPv6 address
+Bad hostname
+Bad file:// URL
+Unsupported number of slashes following scheme
+Bad scheme
+Bad fragment
+Bad query
+Bad password
+libcurl lacks IDN support
+CURLUcode unknown
+Call interrupted
+Bad access
+Bad argument
+Invalid arguments
+Out of file descriptors
+Call would block
+Blocking call in progress
+Descriptor is not a socket
+Need destination address
+Bad message size
+Bad protocol
+Protocol option is unsupported
+Protocol is unsupported
+Socket is unsupported
+Operation not supported
+Address family not supported
+Protocol family not supported
+Address already in use
+Address not available
+Network down
+Network unreachable
+Network has been reset
+Connection was aborted
+Connection was reset
+No buffer space
+Socket is already connected
+Socket is not connected
+Socket has been shut down
+Too many references
+Timed out
+Connection refused
+Name too long
+Host down
+Host unreachable
+Not empty
+Process limit reached
+Too many users
+Bad quota
+Something is stale
+Remote error
+Winsock library is not ready
+Winsock library not initialised
+Winsock version not supported
+Host not found
+Host not found, try again
+Unrecoverable error in call to nameserver
+No data record of requested type
+easy handle already used in multi handle
+cookie contains TAB, dropping
+oversized cookie dropped, name/val %zu + %zu bytes
+invalid octets in name/value, cookie dropped
+Included max number of cookies (%zu) in request!
+Closing connection
+can multiplex
+Server doesn't support multiplex yet, wait
+Server doesn't support multiplex (yet)
+Could multiplex, but not asked to
+Can not multiplex, even if we wanted to
+Server upgrade doesn't support multiplex yet, wait
+Server upgrade cannot be used
+client side MAX_CONCURRENT_STREAMS reached, skip (%zu)
+MAX_CONCURRENT_STREAMS reached, skip (%zu)
+Multiplexed connection found
+Found pending candidate for reuse and CURLOPT_PIPEWAIT is set
+memory shortage
+space-separated NOPROXY patterns are deprecated
+.netrc parser error
+Invalid IPv6 address format
+No more connections allowed to host: %zu
+No connections available in cache
+No connections available.
+NTLM picked AND auth done set, clear picked
+NTLM-proxy picked AND auth done set, clear picked
+Error while processing content unencoding: Unknown failure within decompression software.
+Unrecognized parameter value passed via CURLOPT_SSLVERSION
+CURL_SSLVERSION_MAX incompatible with CURL_SSLVERSION
+ALPN: server did not agree on a protocol. Uses default.
+Excessive alt-svc header, ignoring.
+Excessive alt-svc host name, ignoring.
+Unknown alt-svc port number, ignoring.
+Cannot rewind mime/post data
+necessary data rewind wasn't possible
+Transfer was pending, now try another
+operation aborted by pre-request callback
+getaddrinfo() thread failed to start
+Connection cache is full, closing the oldest one
+recv: no filter connected
+send: no filter connected
+Write callback asked for PAUSE when not supported
+Failure writing output to destination
+Failed writing header
+all eyeballers failed
+Connection time-out
+haproxy protocol not support with SSL encryption in place (QUIC?)
+Hostname in DNS cache was stale, zapped
+Hostname in DNS cache doesn't have needed family, zapped
+Not resolving .onion address (RFC 7686)
+too many IP, can't show
+Got invalid RTSP request
+Got invalid RTSP request: RTSPREQ_LAST
+Refusing to issue an RTSP SETUP without a Transport: header.
+Accept
+Accept: application/sdp
+CSeq cannot be set as a custom header.
+Session ID cannot be set as a custom header.
+Content-Type: text/parameters
+Content-Type: application/sdp
+Failed sending RTSP request
+Cannot write a 0 size RTP packet.
+Cannot pause RTP
+Failed writing RTP data
+Got a blank Session ID
+SMB upload needs to know the size up front
+Invalid input packet
+missing share in URL path for SMB
+Too long MQTT topic
+No MQTT topic found. Forgot to URL encode it?
+Got DISCONNECT
+Remaining length: %zu bytes
+EEEE AAAAGAIN
+server disconnected
+Connection disconnected
+State not handled yet
+lookup word is missing
+CLIENT libcurl 8.5.0-DEV
+Failed sending DICT request
+SUPPRESS GO AHEAD
+TIMING MARK
+EXTEND ASCII
+BYTE MACRO
+DE TERMINAL
+SUPDUP OUTPUT
+SEND LOCATION
+TERM TYPE
+END OF RECORD
+TACACS UID
+OUTPUT MARKING
+TERM SPEED
+(terminated by
+, not IAC SE)
+(Empty suboption?)
+In SUBOPTION processing, RCVD
+Malformed ACK packet, rejecting
+invalid blocksize value in OACK packet
+blksize is larger than max supported
+blksize is smaller than min supported
+server requested blksize larger than allocated
+blksize parsed from OACK
+tsize parsed from OACK
+Connected for transmit
+Connected for receive
+TFTP file name too long
+TFTP buffer too small for options
+tftp_send_first: internal error
+tftp_rx: internal error
+TFTP finished
+Internal state machine error
+Received too short packet
+Internal error: Unexpected packet
+Failed sending Gopher request
+Unexpected continuation response
+No known authentication mechanisms supported
+Cannot SELECT without a mailbox.
+Cannot FETCH without a UID.
+Cannot APPEND without a mailbox.
+Mime-Version: 1.0
+Cannot APPEND with unknown input file size
+Cannot SEARCH without a query string.
+PREAUTH connection, already authenticated
+Got unexpected imap-server response
+STARTTLS not available.
+STARTTLS denied
+Authentication cancelled
+Mailbox UIDVALIDITY has changed
+Select failed
+Failed to parse FETCH response.
+Got unexpected pop3-server response
+STLS not supported.
+STARTTLS not supported.
+Unexpectedly short EHLO response
+Failed to alloc scratch buffer
+Error accept()ing server connect
+Connection accepted from server
+Checking for server connect
+Accept timeout occurred while waiting server connect
+There is negative response in cache while serv connect
+Error while waiting for server connect
+Ready to accept data connection from server
+Ctrl conn has data while waiting for data conn
+Preparing for accepting server on data port
+FTP response timeout
+bind() failed, we ran out of ports
+Connect data stream passively
+Could not seek stream
+Failed to read data
+File already completely uploaded
+Failed EPSV attempt, exiting
+Failed EPSV attempt. Disabling EPSV
+Illegal port number in EPSV reply
+Weirdly formatted EPSV reply
+Couldn't interpret the 227-response
+disabling EPRT usage
+Failed to do PORT
+Connect data stream actively
+unsupported MDTM reply format
+MDTM failed: file does not exist or permission problem, continuing
+The requested document is not new enough
+The requested document is not old enough
+Skipping time comparison
+Couldn't set desired mode
+ftp server doesn't support SIZE
+File already completely downloaded
+The file does not exist
+Accept-ranges: bytes
+Couldn't use REST
+Data conn was not available immediately
+ACCT requested but none available
+Failed to clear the command channel (CCC)
+Failed to figure out path
+SITE NAMEFMT 1
+Server denied you to change to the given directory
+control connection looks dead
+partial download completed, closing connection
+Exceeded storage allocation
+No data was received
+Wildcard - Parsing started
+path contains control characters
+Uploading to a URL without a file name
+Request has same path as previous transfer
+Can't get the size of file.
+failed to resume file:// transfer
+Rewind stream before next send
+Please rewind output before next send
+Forcing HTTP/1.1 for NTLM
+Basic
+Authentication problem. Ignoring this.
+Ignoring duplicate digest auth header.
+Empty reply from server
+Expect: 100-continue
+Malformatted trailing header, skipping trailer
+Invalid TIMEVALUE
+Chunky upload is not supported by HTTP 1.0
+Transfer-Encoding: chunked
+Failed sending PUT request
+Content-Length: 0
+Failed sending POST request
+Failed sending HTTP POST request
+Failed sending HTTP request
+Ignoring the response-body
+The entire document is already downloaded
+HTTP server doesn't seem to support byte ranges. Cannot resume.
+Simulate an HTTP 304 response
+Overflow Content-Length: value
+Invalid Content-Length: value
+HTTP/1.0 proxy connection set to keep alive
+HTTP/1.1 proxy connection set close
+HTTP/1.0 connection set to keep alive
+Illegal STS header skipped
+HTTP 1.0, assume close after body
+Nul byte in header
+Header without colon
+Received HTTP/0.9 when not allowed
+Received 101, Switching to HTTP/2
+no chunk, no close, no size. Assume close to signal end
+Connection closure while negotiating auth (HTTP 1.0?)
+Got HTTP failure 417 while waiting for a 100
+Got HTTP failure 417 while sending data
+HTTP error before end of send, keep sending
+HTTP error before end of send, stop sending
+Keep sending data to get tossed away
+Unsupported HTTP/1 subversion in response
+Unsupported HTTP version in response
+Unsupported response code in HTTP response
+Lying server, not serving HTTP/2
+Moving trailers state machine from initialized to sending.
+operation aborted by trailing headers callback
+Successfully compiled trailers.
+operation aborted by callback
+Read callback asked for PAUSE when not supported
+read function returned funny value
+Signaling end of chunked upload after trailers.
+Signaling end of chunked upload via terminating chunk.
+Failed reading the chunked-encoded stream
+Leftovers after chunking: % lldu bytes
+we are done reading and this is set to close, stop send
+We are completely uploaded and fine
+select/poll returned error
+Done waiting for 100-continue
+transfer closed with outstanding read data remaining
+No URL set
+cannot mix POSTFIELDS with RESUME_FROM
+Switch from POST to GET
+REFUSED_STREAM, retrying a fresh connect
+Dload  Upload   Total   Spent    Left  Speed
+Callback aborted
+NTLM auth restarted
+NTLM handshake rejected
+NTLM handshake failure (internal error)
+Too long hexadecimal number
+Illegal or missing hexadecimal sequence
+Malformed encoding found
+Bad content-encoding found
+Serial Number
+Signature Algorithm
+Public Key Algorithm
+Start date
+Expire date
+Unable to load public key
+RSA Public Key
+OpenSSL CF BIO
+SSL_ERROR unknown
+Insufficient randomness
+ssl engine does not support loading certificates
+ssl engine didn't initialized the certificate properly.
+crypto engine not set, can't load certificate
+(memory blob)
+cannot add certificate to client CA list
+cannot add certificate to certificate chain
+curl user interface
+unable do create OpenSSL user-interface method
+failed to load private key from crypto engine
+unable to set private key
+crypto engine not set, can't load private key
+file type P12 for private key not supported
+not supported file type for private key
+unable to create an SSL structure
+Private key does not match the certificate public key
+SSL shutdown finished
+SSL shutdown, EOF from server
+SSL shutdown sent
+SSL shutdown send blocked
+SSL shutdown timeout
+SSL_get_shutdown() returned SSL_SENT_SHUTDOWN
+SSL_get_shutdown() returned SSL_RECEIVED_SHUTDOWN
+SSL_get_shutdown() returned SSL_SENT_SHUTDOWN|SSL_RECEIVED__SHUTDOWN
+SSL: illegal cert name field
+SSL: unable to obtain common name from peer certificate
+No OCSP response received
+Invalid OCSP response
+Could not get peer certificate chain
+OCSP response verification failed
+Error getting peer certificate
+Error computing OCSP ID
+Could not find certificate ID in OCSP response
+OCSP response has expired
+Hello request
+Client hello
+Server hello
+Newsession Ticket
+Server key exchange
+Client key exchange
+Request CERT
+Server finished
+CERT verify
+Certificate Status
+Encrypted Extensions
+Supplemental data
+End of early data
+Key update
+Next protocol
+Message hash
+TLS header
+TLS change cipher
+TLS alert
+TLS handshake
+TLS app data
+TLS Unknown
+Change cipher spec
+old SSL session ID is stale, removing
+failed to store ssl session
+SSL: Out of memory allocating for OID list
+error importing CA certificate blob
+successfully imported CA certificate blob
+error setting certificate file, continuing anyway
+error setting certificate path, continuing anyway
+successfully loaded CRL file:
+No SSLv2 support
+No SSLv3 support
+Unrecognized parameter passed via CURLOPT_SSLVERSION
+Error setting ALPN
+error signaled by ssl ctx callback
+SSL: couldn't create a context (handle)
+Failed set SNI
+SSL reusing session ID
+SSL certificate verification failed
+SSL: couldn't get peer certificate
+SSL: couldn't get X509-issuer name
+SSL certificate verify ok.
+SSL: public key does not match pinned public key
+SSL connection timeout
+Local port: %hu
+not connected yet
+recv from buffer
+partial read: empty buffer first
+buffered %zd additional bytes
+is_alive: poll error, assume dead
+is_alive: poll timeout, assume alive
+is_alive: err/hup/etc events, assume dead
+is_alive: valid events, looks alive
+installing subfilter for HTTP/1.1
+allocate connect buffer
+new tunnel state 'init'
+new tunnel state 'connect'
+new tunnel state 'receive'
+new tunnel state 'response'
+new tunnel state 'established'
+CONNECT phase completed
+new tunnel state 'failed'
+Failed sending CONNECT to proxy
+CONNECT responded chunked
+Proxy CONNECT connection closed
+Proxy CONNECT aborted
+chunk reading DONE
+CONNECT response too large
+Ignore chunked response-body
+CONNECT: no content-length or chunked
+Proxy CONNECT aborted due to timeout
+CONNECT start
+CONNECT send
+CONNECT receive
+CONNECT response
+CONNECT need to close+open
+Connect me again please
+PROXY UNKNOWN
+using HTTP/3
+using HTTP/2
+using HTTP/1.x
+connect, init
+connect, check h21
+connect, all failed
+connection to proxy closed
+Too long SOCKS proxy user name
+SOCKS4: too long host name
+SOCKS4 connect request
+connect request ack
+SOCKS4 reply has wrong version, version should be 0.
+SOCKS5: the destination hostname is too long to be resolved remotely by the proxy.
+initial SOCKS5 request
+initial SOCKS5 response
+Received invalid version in initial SOCKS5 response.
+SOCKS5 GSSAPI per-message authentication is not supported.
+No authentication method was acceptable.
+Undocumented SOCKS5 mode attempted to be used by server.
+Excessive user name length for proxy auth
+Excessive password length for proxy auth
+SOCKS5 sub-negotiation request
+SOCKS5 sub-negotiation response
+SOCKS5 connect request
+SOCKS5 connect request ack
+SOCKS5 reply has wrong version, version should be 5.
+SOCKS5 reply has wrong address type.
+SOCKS5 connect request address
+SOCKS5 request granted.
+unknown proxytype option given
+Bad label
+Out of range
+Label loop
+Too small
+RDATA length
+Bad RCODE
+Unexpected TYPE
+Unexpected CLASS
+No content
+bad error code
+Content-Type: application/dns-message
+server response timeout
+select/poll error
+cached response data too big to handle
+Excessive server response line length received, %zd bytes. Stripping
+Unsupported SASL authentication mechanism
+NTLM handshake failure (bad type-2 message). Target Info Offset Len is set incorrect by the peer
+NTLM handshake failure (bad type-2 message)
+incoming NTLM message too big
+user + domain + host name too big
+aws-sigv4: too many query pairs in URL
+first aws-sigv4 provider can't be empty
+aws-sigv4: service missing in parameters and hostname
+aws-sigv4: service too long in hostname
+aws-sigv4: region missing in parameters and hostname
+aws-sigv4: region too long in hostname
+incorrect header check
+unknown compression method
+invalid window size
+unknown header flags set
+header crc mismatch
+invalid block type
+invalid stored block lengths
+too many length or distance symbols
+invalid code lengths set
+invalid bit length repeat
+invalid code -- missing end-of-block
+invalid literal/lengths set
+invalid distances set
+invalid literal/length code
+invalid distance code
+invalid distance too far back
+incorrect data check
+incorrect length check
+need dictionary
+stream end
+file error
+stream error
+data error
+insufficient memory
+buffer error
+incompatible version
+bad asn1 object header
+bad get asn1 object call
+expecting an asn1 sequence
+asn1 length mismatch
+int_err_get (err.c)
+int_thread_get (err.c)
+You need to read the OpenSSL FAQ, http://www.openssl.org/support/faq.html
+run length compression
+Microsoft Smartcardlogin
+Microsoft Universal Principal Name
+base64 encoding
+platform: VC-WIN64A
+not available
+Load file into cache
+Load certs from files in a directory
+Load certs from STORE URIs
+client finished
+server finished
+SERVERINFO FOR
+SERVERINFOV2 FOR
+unknown state
+close notify
+bad record mac
+decompression failure
+handshake failure
+no certificate
+bad certificate
+unsupported certificate
+certificate expired
+certificate unknown
+illegal parameter
+decryption failed
+record overflow
+unknown CA
+access denied
+export restriction
+protocol version
+insufficient security
+user canceled
+no renegotiation
+unsupported extension
+certificate unobtainable
+unrecognized name
+bad certificate status response
+bad certificate hash value
+unknown PSK identity
+no application protocol
+SSL for verify callback
+TLS 1.3, server CertificateVerify
+TLS 1.3, client CertificateVerify
+No ciphers enabled for max supported SSL/TLS version
+c hs traffic
+c ap traffic
+s hs traffic
+s ap traffic
+exp master
+res master
+e exp master
+traffic upd
+res binder
+ext binder
+key expansion
+extended master secret
+master secret
+application data after close notify
+app data in handshake
+attempt to reuse session in different context
+at least (D)TLS 1.2 needed in Suite B mode
+bad change cipher spec
+bad cipher
+bad data returned by callback
+bad decompression
+bad dh value
+bad digest length
+bad early data
+bad ecc cert
+bad ecpoint
+bad extension
+bad handshake length
+bad handshake state
+bad hello request
+bad hrr version
+bad key share
+bad key update
+bad legacy version
+bad packet
+bad packet length
+bad protocol version number
+bad psk identity
+bad record type
+bad rsa encrypt
+bad srp a length
+bad srp parameters
+bad srtp mki value
+bad srtp protection profile list
+bad ssl filetype
+bad value
+bad write retry
+binder does not verify
+bio not set
+block cipher pad is wrong
+callback failed
+cannot change cipher
+cannot get group name
+ca dn length mismatch
+ca key too small
+ca md too weak
+ccs received early
+certificate verify failed
+cert cb error
+cert length mismatch
+ciphersuite digest has changed
+cipher code wrong length
+clienthello tlsext
+compressed length too long
+compression disabled
+compression failure
+compression id not within private range
+compression library error
+connection type not set
+context not dane enabled
+cookie gen callback failure
+cookie mismatch
+copy parameters failed
+custom ext handler already installed
+dane already enabled
+dane cannot override mtype full
+dane not enabled
+dane tlsa bad certificate
+dane tlsa bad certificate usage
+dane tlsa bad data length
+dane tlsa bad digest length
+dane tlsa bad matching type
+dane tlsa bad public key
+dane tlsa bad selector
+dane tlsa null data
+data between ccs and finished
+data length too long
+decryption failed or bad record mac
+dh key too small
+dh public value length is wrong
+digest check failed
+dtls message too big
+duplicate compression id
+ecc cert not for signing
+ecdh required for suiteb mode
+ee key too small
+empty srtp protection profile list
+encrypted length too long
+error in received cipher list
+error setting tlsa base domain
+exceeds max fragment size
+excessive message size
+extension not received
+extra data in message
+ext length mismatch
+failed to init async
+fragmented client hello
+got a fin before a ccs
+https proxy request
+http request
+illegal point compression
+illegal Suite B digest
+inappropriate fallback
+inconsistent compression
+inconsistent early data alpn
+inconsistent early data sni
+inconsistent extms
+invalid alert
+invalid ccs message
+invalid certificate or alg
+invalid command
+invalid compression algorithm
+invalid config
+invalid configuration name
+invalid context
+invalid ct validation type
+invalid key update type
+invalid max early data
+invalid null cmd name
+invalid sequence number
+invalid serverinfo data
+invalid session id
+invalid srp username
+invalid status response
+invalid ticket keys length
+legacy sigalg disallowed or unsupported
+length mismatch
+length too short
+library bug
+library has no ciphers
+missing dsa signing cert
+missing ecdsa signing cert
+missing fatal
+missing psk kex modes extension
+missing rsa certificate
+missing rsa encrypting cert
+missing rsa signing cert
+missing sigalgs extension
+missing signing cert
+can't find SRP server param
+missing supported groups extension
+missing tmp dh key
+missing tmp ecdh key
+mixed handshake and non handshake data
+not on record boundary
+not replacing certificate
+not server
+no certificates returned
+no certificate assigned
+no certificate set
+no change following hrr
+no ciphers available
+no ciphers specified
+no cipher match
+no client cert method
+no compression specified
+no cookie callback set
+Peer haven't sent GOST certificate, required for selected ciphersuite
+no method specified
+no pem extensions
+no private key assigned
+no protocols available
+no required digest
+no shared cipher
+no shared groups
+no shared signature algorithms
+no srtp profiles
+no suitable digest algorithm
+no suitable groups
+no suitable key share
+no suitable signature algorithm
+no valid scts
+no verify cookie callback
+null ssl ctx
+null ssl method passed
+ocsp callback failure
+old session cipher not returned
+old session compression algorithm not returned
+overflow error
+packet length too long
+parse tlsext
+path too long
+peer did not return a certificate
+pem name bad prefix
+pem name too short
+pipeline failure
+post handshake auth encoding err
+private key mismatch
+protocol is shutdown
+psk identity not found
+psk no client cb
+psk no server cb
+read bio not set
+read timeout expired
+record length mismatch
+record too small
+renegotiate ext too long
+renegotiation encoding err
+renegotiation mismatch
+request pending
+request sent
+required cipher missing
+required compression algorithm missing
+scsv received when renegotiating
+sct verification failed
+serverhello tlsext
+session id context uninitialized
+shutdown while in init
+signature algorithms error
+signature for non signing certificate
+error with the srp params
+srtp could not allocate profiles
+srtp protection profile list too long
+srtp unknown protection profile
+ssl3 ext invalid max fragment length
+ssl3 ext invalid servername
+ssl3 ext invalid servername type
+ssl3 session id too long
+sslv3 alert bad certificate
+sslv3 alert bad record mac
+sslv3 alert certificate expired
+sslv3 alert certificate revoked
+sslv3 alert certificate unknown
+sslv3 alert decompression failure
+sslv3 alert handshake failure
+sslv3 alert illegal parameter
+sslv3 alert no certificate
+sslv3 alert unexpected message
+sslv3 alert unsupported certificate
+ssl ctx has no default ssl version
+ssl handshake failure
+ssl library has no ciphers
+ssl negative length
+ssl session id callback failed
+ssl session id conflict
+ssl session id context too long
+ssl session id has bad length
+ssl session id too long
+ssl session version mismatch
+still in init
+tlsv13 alert certificate required
+tlsv13 alert missing extension
+tlsv1 alert access denied
+tlsv1 alert decode error
+tlsv1 alert decryption failed
+tlsv1 alert decrypt error
+tlsv1 alert export restriction
+tlsv1 alert inappropriate fallback
+tlsv1 alert insufficient security
+tlsv1 alert internal error
+tlsv1 alert no renegotiation
+tlsv1 alert protocol version
+tlsv1 alert record overflow
+tlsv1 alert unknown ca
+tlsv1 alert user cancelled
+tlsv1 bad certificate hash value
+tlsv1 bad certificate status response
+tlsv1 certificate unobtainable
+tlsv1 unrecognized name
+tlsv1 unsupported extension
+tls illegal exporter label
+tls invalid ecpointformat list
+too many key updates
+too many warn alerts
+too much early data
+unable to find ecdh parameters
+unable to find public key parameters
+unable to load ssl3 md5 routines
+unable to load ssl3 sha1 routines
+unexpected ccs message
+unexpected end of early data
+unexpected eof while reading
+unexpected message
+unexpected record
+unknown alert type
+unknown certificate type
+unknown cipher returned
+unknown cipher type
+unknown cmd name
+unknown key exchange type
+unknown pkey type
+unknown protocol
+unknown ssl version
+unsafe legacy renegotiation disabled
+unsolicited extension
+unsupported elliptic curve
+unsupported protocol
+unsupported ssl version
+unsupported status type
+use srtp not negotiated
+version too high
+version too low
+wrong certificate type
+wrong cipher returned
+wrong curve
+wrong signature size
+wrong signature type
+wrong ssl version
+wrong version number
+x509 verification setup problems
+Groups
+Options
+No groups enabled for max supported SSL/TLS version
+Group
+Filename
+List
+Current
+Shortcuts
+Select
+Undo
+End
+Frame
+Info
+Path
+Skip
+Roaming Licenses:
+Client Cached Licenses (only the highest version # shown):
+rlm_init() parameters:
+Local licenses which can be checked out:
+(Default Port)
+(no server)
+No license for product
+License is for another ISV
+License has expired
+Wrong host for license
+Bad signature in license
+Requested version not supported
+Bad date format - not permanent or dd-mm-yy
+Checkout request for too many licenses
+No license auth supplied to call (internal error)
+User/Host on excludeall list
+User/Host on exclude list
+User/Host not on the includeall list
+User/Host not on the include list
+Request would exceed license MAX
+License removed by server (lmremove)
+Communications error with license server
+License server does not support this product
+No handle supplied to call
+No heartbeat response received
+All licenses in use
+No hostid for uncounted license (bad license)
+In queue for license
+License syntax error
+Roam time exceeds maximum/expiration
+Server does not know this handle
+User/Host on Roam exclude list
+User/Host not on Roam include list
+Too many licenses Roaming now
+License expires before roam period ends
+Roam file data error
+Unlicensed platform
+Application from unlicensed timezone
+License start date in the future
+Cannot retrieve current date from time()
+Over soft license limit
+System clock has been set back
+Bad parameter passed to rlm_checkout()
+Roaming not permitted on failover servers
+Application is inactive
+Not on the named user list
+Uncounted license on Terminal Server is disabled
+Uncounted license on Virtual Machine is disabled
+Portable hostid removed
+Demo license has expired
+Failover server released license - primary up
+Server lost it's transferred license
+Incorrect password for license
+Metered license has no server hostid
+Insufficient count for metered license
+Roaming not allowed on servers with transient hostids
+Cannot re-connect to license server
+This license not allowed to roam
+Server too old for this operation
+Requested option not present
+Dynamic reservation not found on reclaim
+Reconnection info invalid (webservices)
+Local roam file already exists
+Bad format for RLM_ROAM_EXTEND environment
+Invalid extend code for roam extend
+No roaming license to extend
+Nested aliases detected
+webservices returned no JSON data
+webservices returned incorrect JSON data
+bad handshake on webservices checkout
+rlm_helper error on RLMCloud
+User not on personal license user list
+Incorrect password for Personal license
+Personal license already in use
+Checkout Failed
+License isn't a temporary license
+No server to return temp license to
+No handle supplied to call (internal error)
+Can't read license data
+Networking error (in msg_init())
+Write error to network
+Read error from network
+Unexpected response
+HELLO message for wrong server
+Private key error
+Error signing license
+Internal Error
+Connection refused at server
+No server in license file
+Bad communications handshake
+Can't get ethernet address
+malloc() system call error
+bind() system call error
+socket() system call error
+Public key error
+License Authentication failed
+Cannot write temporary license file
+No reportlog on this server
+ISV-defined hostid already registered
+Bad parameter passed to RLM function
+Roam data write error
+Roam data read error
+Heartbeat handler already installed
+Cannot create lockfile
+Cannot open lockfile
+Cannot set lock on lockfile
+Bad or missing or expired RLM license
+Bad hostname for network connect
+Cannot connect to specified URL
+Operation not allowed on server
+Bad return data from webserver (no status)
+Unlicensed activation binary (contact ISV)
+Bad HTTP transaction with activation server
+Demo activation file already exists
+Demo activation file write error
+No "rlm_demo" license available
+RLM not licensed on this platform
+RLM eval expired
+Client rejected server
+Unlicensed RLM component
+Semaphore failure - heartbeat not installed
+Activation server version too old
+Invalid license line in license file
+Invalid hostid on SERVER line
+No rehostable hostid top-level dir
+Cannot read rehostable hostid
+Cannot delete rehostable hostid
+Cannot create rehostable hostid
+Rehostable top-level directory exists
+Rehostable hostid exists
+No fulfillments to revoke
+Meter file read error
+Meter file write error
+Invalid meter increment parameter
+Counter not found for meter increment
+Activation Unlicensed
+Activation Pro Unlicensed
+Counted license requires server
+REPLACE license requires start/issued date
+METERED licenses cannot be UPGRADED
+Disconnected client data can't be found
+Operation not allowed on disconnected handle
+Too many open files
+No response from broadcast
+Broadcast response didn't include hostname
+License from server not authentic
+No license returned from server
+Client Cache data write error
+Client Cache data read error
+License from server has keywords I don't understand
+rlm does not know this ISV name
+rlm does not know this customer name
+Cannot open MySQL database
+Command-line utilities only allowed on server host
+Server timeout on read
+rlmsign did not sign any licenses
+Duplicate product name for disconnected transfer
+Bad or missing login credentials
+Function not supported with web services
+Function not available
+Returned JSON message from RLMCloud too large
+License Server did not return a license
+Temporary licenses come from RLMCloud servers only
+License is not a temporary license
+No license supplied to call
+Local license can't be converted to temp license
+Actpro HTTPS support not available
+No returned data from HTTPS
+Wrong host
+Translated binaries not supported
+RLM temp directory can't be created
+RLM Teams Unlicensed
+Comm package error
+New client connection
+EOF on channel
+Cannot connect to server
+Read interrupted
+comm_init() failure
+Cannot bind socket
+socket() call error
+Write() system call error
+Read() system call error
+Not enough data available
+Timeout on read()
+Too many error retries in comm pkg
+select() system call error
+Invalid request
+Process can create no more file descriptors
+Cannot find hostname in network database
+HTTP message received
+Bad Client Communication (comm VER)
+Bad Client Communication (comm REV)
+CURL error sending request
+Missing or bad signature for revoke
+No activation key supplied
+No product definition
+Can't write database (keyf table)
+Activation key already used
+Activation - Missing hostid
+Activation - Invalid hostid type
+Bad HTTP transaction
+Activation - Can't lock/connect database
+Can't read Activation database
+Can't write Activation database (licf table)
+Activation - Clock incorrect on client
+Activation - Bad redirect from webserver
+Activation - Too many hostid changes
+Activation - Domain on banned list
+Activation - Domain not on allowed list
+Activation key expired
+HTTP request denied (missing user/password)
+HTTP Internal server error (HTTP: 500)
+Bad or missing license generator settings
+Activation key not found in database
+No proxy authentication credentials supplied
+Proxy authentication failed
+Activation supports only BASIC authentication
+Activation license generator unlicensed
+Activtion Database read error
+Bad parameter passed to activation generator
+Unsupported command to license generator
+Activation count not returned after license expiration
+Activation key disabled
+Activation Key not fulfilled on this hostid
+Activation Key revoked on this hostid
+No fulfillments to remove
+Generated license too long for buffer
+Rehostable hostids not supported for this product
+License Generator not found at this URL
+(rlm cloud control) - no licenses found
+unencrypted activation requests not allowed
+Invalid activation key (illegal character)
+RLM Cloud can't write fulfillment data
+RLM Cloud Portal can't write fulfillment
+Request for more licenses than remain on key
+Bad license type for subscription key
+Contact information supplied is incomplete
+Cannot write entitlement fulfillment table
+RLM Teams Entitlement expired
+RLM Teams product definition expired
+RLM Teams product version not supported
+No RLM Teams fulfillment for this host
+Bad or missing settings file
+_act_request(): No license string space provided
+_act_request(): No activation URL provided
+_act_request(): Newline in activation key
+_act_request(): Newline in extra data
+_act_request(): Too much data to send
+_act_request(): Illegal character in extra license data
+_get_id(): illegal character in hostid
+_check_rehost(): Bad format
+_check_rehost(): No rehostable root dir
+_check_rehost(): No/bad top-level hostid file
+_rlminfo(): No comm structs
+_isvinfo(): No comm structs
+_poolinfo(): No comm structs
+_userlist(): No comm structs
+_detached_demo(): Bad template license
+_isv_cfg_set_name(): Bad name
+_add_isv_hostid(): No isv-defined hostid for compare routine
+_add_isv_hostid(): isv-defined hostid keyword missing or too long
+_sign_license(): No start/issued for replace license
+_sign_license(): unknown license type
+Too much data in rehost hostid
+_check_rehost(): Wrong amount of data in hostid
+_act_request(): hostid list too long
+_checkout(): No product name or version specified
+get_isv: can't open data file
+get_isv: data length incorrect
+get_isv: data read error
+get_isv: key read error
+rlm_init: path too long
+rlm_revoke(): no product specified
+no hostid supplied to check_rehost()
+bad data in rehostable descriptor file
+cannot read rehostable descriptor file
+rehostable not on reference hostid
+bad digest in rehostable data
+supplied rehostable hostid doesn't match file
+rehostable leaf directory not available
+rehostable leaf directory not readable
+rehostable hostid format corrupted
+rehostable hostid time incorrect
+rehostable file ID error
+rehostable file hierarchy corrupted
+Can't open roam file
+Roam data length too long
+Roam data length mismatch
+Roam data # of fields mismatch
+Auth product length bad
+Lic product length bad
+Auth ver length bad
+Lic ver length bad
+Exp length bad
+Bad file type requested from server
+Server has no options data
+Server cannot write options data
+Incomplete file data
+Server cannot retrieve debug log
+Server cannot find named user list
+Server cannot write named user list
+Server cannot add named user
+Too soon to remove named user
+Named user already on list
+Group not found for add
+Named user has license checked out
+Can't find named user
+Can't write xfer file
+Server cannot add xfer description
+Can't find xfer name
+No xfer descriptions
+No string provided to rlm_errstring() call
+Bad RLM_LICENSE error code
+Bad RLM_HANDLE error code
+Bad message error number
+(File length incorrect)
+(key missing)
+This error usually means that:
+While activation count has not been returned, the rehostable hostid was deleted
+Unknown RLM error
+Roam OK, extended
+Roam OK, not extended
+RLMSTAT: roamed OK - no RLM_ROAM
+mobile remote
+huawei mobile connect
+remote ndis
+virtual floppy
+dell virtual disk scsi disk device
+dell virtual disk
+virtual hdisk
+microsoft virtual disk
+Microsoft Loopback Adapter
+flash disk
+compact flash
+Alias Definition
+Token Definition
+bad server name
+server UP
+RLM DEBUG for all products
+No matching products found in license file
+Cannot contact license server
+RLM hostid list:
+License files:
+Invalid expiration date
+Illegal character in ISV name
+Illegal character in product name
+Illegal character in from-version string
+Illegal character in version string
+Illegal character in expiration date
+Illegal character in license count
+Count field must be a positive integer
+invalid expiration date
+UPGRADE licenses cannot contain TOKEN/ALIAS definitions
+Cannot UPGRADE Named User licenses
+Illegal character in Customer name
+Customer name too long
+ISV name too long
+Only one HOST line allowed per license file
+URL too long
+product name in token too long
+version in token too long
+token must contain 3 space-delimited fields
+Named user count must be an integer
+Named user min hours must be an integer
+metering parameters only allowed on METERED licenses
+invalid start date
+Max share
+client cache value
+hold value
+min_checkout value
+min_timeout value
+max_roam value
+max_roam_count value
+Named user license must be counted
+named user count
+named user min hours
+cannot disable both TerminalServer and TerminalServerAllowRD
+comm package error
+new client connection
+Cannot bind socket to address
+write error
+unexpected response
+timeout on read()
+select() error
+Bad request
+Out of descriptors
+Bad error number
+NO HANDLE
+request TOOBIG
+CLONE error
+TOO MANY ERRORS
+error in accept() syscall
+error in bind() syscall
+error in connect() syscall
+error in malloc() syscall
+error in receiv() syscall
+error in select() syscall
+error in send() syscall
+error in socket() syscall
+error in setsockopt() syscall
+RLM Activation Diagnostics at
+Proxy-Authorization: Basic
+UNKNOWN error
+User-Agent: RLM_ACTIVATION/1.1
+No Communications Handle
+EOF on communications
+Timeout on Communications
+Buffer too large for write
+Cannot clone communications handle
+read/select interrupted
+too many (sequential) errors
+accept() failure
+bind() failure
+connect() failure
+malloc() failure
+receive() failure
+select() failure
+send() failure
+socket() failure
+GetDefaultProxyConfiguration worked.
+access: NO Proxy
+access: Named Proxy
+No proxy from GetDefaultProxyConfiguration
+No proxy from GetProxyForUrl
+No proxy from GetProxyForUrl (GetIEProxyConfigForCurrentUser)
+PKCS12 import pass phrase
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020
+oActivation Key
+,Invalid object droppe
+oFoundry Support
+o Modo Japan Group
+6Activation Key
+:Activation Key
+Activation Ke
+h System ID
+OpenSSL: FATAL
+Microsoft Enhanced RSA and AES Cryptographic Provider
+Microsoft Enhanced Cryptographic Provider v1.0
+Intel Hardware Cryptographic Service Provider

@@ -1,0 +1,45 @@
+# source: fnusdShade.dll
+# candidates: 42
+
+!This program cannot be run in DOS mode.
+Unknown exception
+bad array new length
+vector too long
+string too long
+Invalid stage
+GetConnectedSource() requires non-NULL output-parameters.
+invalid string position
+Input connectability is 'interfaceOnly' and source does not have 'interfaceOnly' connectability.
+Input connectability is 'interfaceOnly' but source is not an input
+Input connectability is unspecified
+Invalid output
+Invalid source
+this function may not be called after GetInstance() or another SetInstanceConstructed() has completed
+Create Singleton
+race detected setting singleton instance
+unordered_map/set too long
+invalid hash bucket count
+undefined in the TfType system
+notice type
+True
+False
+Attempted invalid increment operation on a VtDictionary iterator
+Material
+MasterPrim is not a valid UsdPrim.
+No material prims specified on which to operate.
+iterator exhausted
+Shader
+bad allocation
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

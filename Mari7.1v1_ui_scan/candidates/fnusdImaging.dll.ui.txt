@@ -1,0 +1,77 @@
+# source: fnusdImaging.dll
+# candidates: 74
+
+!This program cannot be run in DOS mode.
+Unknown exception
+bad array new length
+string too long
+vector too long
+worldtoscreen metadata expected 16 values, got %zu
+unordered_map/set too long
+invalid hash bucket count
+map/set too long
+Unknown data source type
+invalid string position
+iterator exhausted
+Create Singleton
+race detected setting singleton instance
+Attempted invalid increment operation on a VtDictionary iterator
+Report change processing events
+Report collection queries
+Report Hydra computation usage in usdImaging.
+Coordinate systems
+Report instancer messages
+Report plugin status messages
+Report PI prototype stats as they are created
+Report PI culling debug info
+Report population events
+Report selection messages
+Report shader status messages
+Report non-authored, time-varying data changes
+Enable a cache for model:drawMode.
+negative refine level is not supported
+Attempted to call Populate more than once
+Expired rootPrim
+Mismatched parameters
+Mark dirty collection members
+(repopulating from root)
+no instancerContext
+get_next_capacity, allocator's max size reached
+undefined in the TfType system
+notice type
+_RemovePrim called on draw mode adapter!
+Run UpdateForTime every time any prim is marked dirty (legacy behavior)
+capsule.GetHeightAttr().Get(&height, time)
+capsule.GetRadiusAttr().Get(&radius, time)
+capsule.GetAxisAttr().Get(&axis, time)
+Expected data source locator with one element.
+Geometry lights are not yet supported in USD imaging
+Should use overidden ProcessPrimResync/ProcessPrimRemoval
+invalid vector subscript
+Enable loading scene lights.
+If true, the prototype propagating scene index will list as input scene indices all intermediate scene indices for all prototypes.
+plane.GetWidthAttr().Get(&width, time)
+plane.GetLengthAttr().Get(&length, time)
+plane.GetAxisAttr().Get(&axis, time)
+Portal lights are not yet supported in USD imaging
+Enable a shared cache for transforms.
+Enable a cache for material bindings.
+Enable a cache for visibility.
+Enable a cache for purpose.
+Enable a cache for point instancer indices.
+Failed to read point instancer protoIndices
+Invalid container data source input provided.
+bad allocation
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

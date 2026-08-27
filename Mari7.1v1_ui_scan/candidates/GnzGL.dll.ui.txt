@@ -1,0 +1,212 @@
+# source: GnzGL.dll
+# candidates: 209
+
+!This program cannot be run in DOS mode.
+AutoBinder tried to bind NULL object
+No known bindless texture support detected. You should not be using this TextureManager
+Detected TextureStreamer
+Size must be geater than 0
+Buffer Object is not NULL on create
+Buffer Object is NULL during StorageBuffer setup
+Buffer Object is NULL on bind
+Buffer Object's target is not set when bind() is called
+Bound BO useRange does not match the rebind Buffer Object
+Buffer Object is NULL on unbind
+Buffer Object is not bound on unbind
+Buffer Object is NULL on upload
+Buffer Object needs more and 0 values during upload
+Buffer Object is not bound on upload
+Buffer Object needs more and 0 value size during upload
+Buffer Object is not large enough to hold data
+Cannot use setTarget() for indexed buffer object such as GL_UNIFORM_BUFFER. Use setIndexedTarget() instead.
+Cannot use setIndexedTarget() for non-indexed buffer object such as GL_ARRAY_BUFFER. Use setTarget() instead.
+Buffer Object is NULL on map
+Buffer Object is not bound on map
+Buffer Object's Target is not set when map() is called
+Buffer Object is not bound on unmap
+Buffer Object's target is not set when unmap() is called
+Invalid argument colorCount
+Invalid argument width
+Invalid argument height
+Invalid argument frameCount
+NULL colors
+Invalid color count
+Invalid width
+Invalid height
+Invalid frame count
+imageBasedLightingDownscale shader program failed to compile
+imageBasedLightingDownscale shader program failed to link
+Vertex Array Object is already set
+GL_QUADS is not allowed
+Vertex Array Object is NULL on rebind
+Vertex Array Object is NULL on bind
+Vertex Array Object is not bound on draw
+Primitive type is not setup on draw
+DrawElementsIndirectCommandsCount is not set on draw
+Index type is not setup on draw
+Index buffer object is not set on draw
+Index count is not setup on draw
+Framebuffer Object is NULL on bind
+Framebuffer Object is already bound on bind
+Framebuffer Object is NULL on unbind
+Framebuffer Object is not bound on unbind
+Framebuffer Object is NULL on attach
+Framebuffer Object is not bound on attach
+Framebuffer Object is NULL on detach
+Framebuffer Object is not bound on detach
+Not all framebuffer attachment points are framebuffer attachment complete.
+No images are attached to the framebuffer.
+The combination of internal formats of the attached images violates an implementation-dependent set of restrictions.
+Framebuffer Object is not NULL on create
+Framebuffer Object is already bound on create
+Framebuffer Object is already bound on destroy
+invalid enum
+invalid value
+invalid operation
+invalid framebuffer operation
+out of memory
+unknown error
+window system
+shader compiler
+deprecated behaviour
+undefined behaviour
+push group
+pop group
+HDR format error: bad scanline width
+Unknown exception
+bad array new length
+prefilteredEnvMap shader program failed to compile
+prefilteredEnvMap shader program failed to link
+preintegratedBRDFTable shader program failed to compile
+preintegratedBRDFTable shader program failed to link
+Invalid argument textureCount
+Cannot load texture
+Invalid texture
+All textures must have the same width, height and format
+NULL textures
+Invalid texture count
+uint Index
+uniform sampler2D
+uniform isampler2D
+uniform samplerBuffer
+uniform isamplerBuffer
+Cubemap arrays not supported yet, sorry!
+Array textures not supported yet, sorry!
+Generating Mipmaps. For increased loading performance, include these in the .ktx file.
+Compressed texture
+Texture
+Invalid factor
+None
+Unknown
+Failed to upload buffers.
+Failed to compile GL shader
+Failed to link GL shader
+Failed to validate GL shader
+Shader program is not linked
+NULL render data variant used
+NULL QObject render data
+NULL render data used
+NULL render data texture used
+NULL program used
+Texture ID was zero, can't wrap a non-existent texture
+Not allowed to change a readonly texture
+Texutre is NULL on internalFormat()
+Texture target is not set on internalFormat()
+Texture target is not bound
+Texture internal format has already been set
+Texture width has already been set
+Texture height has already been set
+Only call setSize() for the base LOD of the texture
+Texutre is NULL on unit()
+Texture Target is not set on unit()
+Texture has not been bound on unit()
+Texture is not NULL on create
+Texture is NULL on destroy
+Texture is NULL on bind
+Texture Target is not set on bind
+There is no available texture units
+Texutre is NULL on unbind
+Texture Target is not set on unbind
+Texture has not been bound on unbind
+Loading image as GL_RG16F...
+Failed to find file
+TexturePool requested samples can't be less than 1
+- breakdown by texture format, width and height:
+shader program failed to compile:
+shader program failed to link:
+shader program failed to compile
+shader program failed to link
+No ShaderProgram is bound
+m_bufferObject is NULL on bind()
+There is no available uniformBlockBindings
+UniformBufferObject has not been bound on unbind
+m_bufferObject is NULL on uniformBlockBinding()
+UniformBufferObject has not been bound on uniformBlockBinding()
+Component Count may not be 0.
+Component Count must be setup before size is obtained
+Component Count and array Size do not match.
+Component Count must be setup before data is pushed
+Component Count is not large enough for the sdata being pushed
+Component Count is not large enough for the data being pushed
+Color count must match vertex count
+TexCoord count must match vertex count
+Normal count must match vertex count
+Vertex Array Object is bound during class destructor
+Vertex Array Object needs to be destroied before class destructor
+Vertex Array Object is already bound on rebind
+Vertex Array Object is not already bound on rebind
+Vertex Array Object is already bound on bind
+Vertex Array Object is NULL on unbind
+Vertex Array Object is not bound on unbind
+Vertex Array Object is NULL on isBound
+Must Supply a valid BO pointer
+Must Supply an existing BO attribute name
+Vertex Array Object is not NULL on create
+Vertex Array Object is already bound on create
+Vertex Array Object is already bound on destroy
+Attribute Index is NULL on enable array
+Vertex Array Object is NULL on enable array
+Vertex Array Object is not bound on enable array
+struct MriBlurData
+void accValues(in vec3 L,
+void main()
+uint getDrawID(void)
+void main(void)
+vec3 environment(vec3 dir, float lod)
+float calculateLOD(float roughness, float NdotH, float VdotH, float solidAngleTexel)
+float solidAngleForTexel(vec2 fragCoord, ivec2 resolution)
+vec3 prefilterEnvMap(float roughness, vec3 vertexCoord)
+vec2 uvToLatLong(vec2 uv)
+vec3 latLongToDirection(vec2 latlong)
+vec2 directionToLatLong(vec3 dir)
+vec2 latLongToUV(vec2 latlong)
+float solidAngleForLatLongTexel(vec2 fragCoord, ivec2 resolution)
+vec2 sampleToLatLong(ivec2 texSize, uint sampleNum)
+vec3 prefilterEnvMap(float roughness, vec3 N)
+vec3 gammaCorrect(vec3 color, float gamma)
+vec4 gammaCorrect(vec4 color, float gamma)
+mat3 mat3Rotation(mat4 m)
+vec2 directionToLatLong_Modo(vec3 dir)
+vec3 integrateBRDF(float roughness, float NdotV)
+float snoise(vec2 v)
+vec3 barycentricCoords(vec3 a, vec3 b, vec3 c, vec3 p)
+void initializeVisibilityBufferQuery(vec2 ndcCoord, inout uint pointer)
+void getFragmentInfo(vec2 ndcCoord, inout uint pointer, out vec4 position, out float depth, out vec3 normal, out vec2 texCoord)
+struct DrawElementsIndirectCommand
+layout (std140) uniform u_DrawElementsIndirectCommandsUniform
+uint floatBitsToUint(float f)
+float uintBitsToFloat(uint u)
+bad allocation
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

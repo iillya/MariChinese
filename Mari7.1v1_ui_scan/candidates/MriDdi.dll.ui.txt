@@ -1,0 +1,146 @@
+# source: MriDdi.dll
+# candidates: 143
+
+!This program cannot be run in DOS mode.
+Unknown exception
+bad array new length
+string too long
+Cache Buckets seems to misbehaving
+Clearing Previous Caches
+Invalid Number of Data Refs
+Clearing Refs
+Cleaning up
+Clearing old caches
+Data Block Manager has managed blocks
+Data Block Manager has live blocks
+Data Block Manager has live bytes
+Clearing Caches
+Cannot load incoming image
+Sub Cache path is not empty string
+Sub Cache path is not correct
+Cannot find test images to hash
+Hash Manager has hashes before testing
+Null Result
+Coming in Count Blocks with Non zero block count
+Cannot Initialize Data Block Manager
+Setup complete
+Pre cleanup
+Post cleanup
+Cannot find test tiles to hash
+Data Blocks Exists before testing
+Unexpected hash collision
+Cannot open test image Uniform.png
+Cannot load reference image
+Image is not the same as the reference
+Size of incoming group and extracted group are different
+Empty Group is not empty
+Cannot open test image Earch.png
+Tiled report as not being in memory when it should be
+Live blocks when there should be none
+Live bytes when there should be none
+Tiled report as being in memory when it should not be
+Failed to load all tiles within 10 seconds
+Cannot initialize data block manager
+New Block Data is NULL
+New Block is an invalid size
+Const Accessor is NULL
+Const Accessor Points to NULL
+Size of const accessor block is NULL
+Invalid accessor count
+Invalid accessor count after 2nd reference
+First accesor invalid
+Cannot Initialise Data Block Manager
+Num Buckets is different
+Size of data cache is different
+Cache Path is different
+Managed Block Count is not 0
+liveBytes Count is not 0
+liveBlocks Count is not 0
+Managed Blocks is not zero after cleanup
+Live Bytes is not zero after cleanup
+Live Blocks is not zero after cleanup
+Max Data Cache Size is not zero after cleanup
+Number of buckets is not zero after cleanup
+Number of cache roots is not zero after cleanup
+Garbage Collecting still enabled after cleanup
+Data Block Manager is still initialized after cleanup
+Size of Block(QByteArray(0) is not 0
+Cannot open Test Data file
+Compression Failed
+Block reports not compressed
+Decompress failed
+Decompressed block size differs from corpus
+Block is reporting compressed when it should not
+Blocks are not the same
+Failed From Array Test
+Cannot initialize Data Block Manager
+Ptr One set to zero
+Ptr Two set to zero
+Ptr Three set to zero
+Ptr Four set to zero
+Datablock Manager has lost initialization
+Cleanup has not deinitializer data block manager
+Hash Count is Not Zero
+Pointers are not Equal 3
+Mismatch is Num hahses
+Hash Manager Still Hash Some hashes Left
+Block Manager Has Live Blocks
+Size is NULL
+Data is NULL
+Invalid Access count
+Invaild Access count
+Size of data accessed is different
+Data accessed is different
+Each DontCache block should have unique hash
+Cache blockes should have the same cache if the data is the same
+There should be exactly 2 files at this point
+Both Block and Pointer Are Null
+Null Block Value in That
+Failed to decompress data block.
+Failed to compress data block.
+DDI Compression
+Subcache Set to %1 twice
+Setup called twice on DataBlock Manager
+Warning: No Virtual Memory System detected.
+Warning: It is highly recomended that you use Mari with a virtual memory system.
+Cannot Create cache root at %1
+Data Block Manager Not Initialized. Aborting
+Hash %1 is Not Contained in the LRU
+Lock Block %1 already contained in LRU
+Null Value in Hash to Block Map
+Garbage Collecting
+Negative value passed for size.
+Requested Block is larger than the maximum allocation size %1 / %2
+Number of cache paths is zero
+Hash String is too Short %1
+Cannot find suitable cache reading thread %1 for %2
+Invalid Cache Bucket
+Failed to decompress block data.
+DDI Write
+Cannot Write to File %1 : '%2' - wrote %3 bytes (expecting %4 bytes)
+No Positive Ref Count in Dec Ref
+Hash Size is Zero
+m_Size is Zero or less
+Size of data is incorrect is %1, should be %2
+Hashing Failed
+Hashing Failed - Invalid Hash Length
+Null Value for m_DataHash
+Null Value of m_DataHash
+DDI FATAL Error, aborting
+Null Hash Passed to Filename Builder
+We have the following live non-cached hashes:
+bad allocation
+Size
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

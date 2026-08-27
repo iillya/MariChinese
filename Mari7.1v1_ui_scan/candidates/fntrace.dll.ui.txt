@@ -1,0 +1,47 @@
+# source: fntrace.dll
+# candidates: 44
+
+!This program cannot be run in DOS mode.
+Unknown exception
+bad array new length
+vector too long
+map/set too long
+unordered_map/set too long
+invalid hash bucket count
+string too long
+End
+Unknown
+Corrupt stack state.
+Invalid stack state.
+Marker has no or expired parent.
+NULL child is not allowed.
+Default
+this function may not be called after GetInstance() or another SetInstanceConstructed() has completed
+Create Singleton
+race detected setting singleton instance
+TraceRegistry global collector
+list too long
+Number of iterations:
+inclusive    exclusive
+incl./iter   excl./iter       samples/iter
+MallocTags enabled
+Trace global reporter
+undefined in the TfType system
+notice type
+Writing JSON
+Error parsing JSON
+Main Thread
+bad allocation
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

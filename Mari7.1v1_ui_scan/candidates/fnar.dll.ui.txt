@@ -1,0 +1,39 @@
+# source: fnar.dll
+# candidates: 36
+
+!This program cannot be run in DOS mode.
+Unknown exception
+bad array new length
+string too long
+Print debug output during asset resolver initialization
+vector too long
+Search path:
+Invalid file handle
+Invalid output file
+Failed to allocate buffer of %zu bytes for asset.
+Failed to read asset into memory. Expected %zu bytes, read %zu.
+invalid string position
+Disables plugin resolver implementation, falling back to default supplied by Ar.
+Disables plugin URI resolver implementations.
+Invalid resolver type
+Cannot open package-relative paths for write
+ArGetResolver(): Plugin asset resolver disabled via PXR_AR_DISABLE_PLUGIN_RESOLVER.
+ArGetResolver(): Plugin URI asset resolvers disabled via PXR_AR_DISABLE_PLUGIN_URI_RESOLVERS.
+Unexpected cache scope data
+unordered_map/set too long
+invalid hash bucket count
+Cannot call GetTime on an invalid ArTimestamp
+bad allocation
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

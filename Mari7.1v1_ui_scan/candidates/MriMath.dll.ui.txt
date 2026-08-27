@@ -1,0 +1,24 @@
+# source: MriMath.dll
+# candidates: 21
+
+!This program cannot be run in DOS mode.
+MriMathRegisterTypes called multiple times
+Convertion requested on non Vector4 Variant
+Convertion requested on non Vector3 Variant
+Unknown exception
+bad array new length
+vector too long
+bad allocation
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

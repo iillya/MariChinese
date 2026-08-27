@@ -1,0 +1,125 @@
+# source: fnhio.dll
+# candidates: 122
+
+!This program cannot be run in DOS mode.
+LcI LcYLM
+Unknown exception
+bad array new length
+string too long
+unknown image type
+bad code lengths
+bad huffman code
+can't merge dc and ac
+expected marker
+bad DRI len
+bad DQT type
+bad DQT table
+bad DHT header
+bad COM len
+bad APP len
+unknown marker
+bad SOS component count
+bad SOS len
+bad DC huff
+bad AC huff
+bad SOF len
+no header height
+too large
+bad component count
+bad DNL len
+bad DNL height
+bad req_comp
+bad sizes
+bad codelengths
+output buffer limit
+zlib corrupt
+read past buffer
+bad zlib header
+no preset dict
+bad compression
+bad png sig
+not enough pixels
+invalid filter
+invalid width
+multiple IHDR
+bad IHDR len
+bad ctype
+bad comp method
+bad filter method
+bad interlace method
+0-pixel image
+first not IHDR
+invalid PLTE
+tRNS after IDAT
+tRNS before PLTE
+bad tRNS len
+tRNS with alpha
+invalid gAMA
+bad bits_per_channel
+unknown BMP
+BMP JPEG/PNG
+bad offset
+bad masks
+bad format
+bad palette
+wrong version
+wrong channel count
+unsupported bit depth
+wrong color format
+no clear code
+too many codes
+illegal code in raster
+bad Image Descriptor
+missing color table
+unknown code
+unsupported format
+unsupported data layout
+invalid decoded scanline length
+Invalid crop parameters
+_IsValidCrop(cropTop, cropBottom, cropLeft, cropRight)
+unable to get_pixels
+Unable to crop and resize
+Failed to copy data to storage.data
+stb expects linear float data to write filetype hdr
+Unable to write
+vector too long
+Hio GLSLFX info
+Hio image texture plugin registration and loading
+Hio field texture data plugin registration and loading
+glslfx dictionary parsing
+Cannot create VtDictionary from empty string
+Input string did not evaluate to a JSON dictionary:
+unknown value type
+Restricts HioFieldTextureData plugin loading to the specified plugin
+New
+Add
+unordered_map/set too long
+invalid hash bucket count
+map/set too long
+invalid string position
+Creating GLSLFX data from istream
+no filename
+Attempted invalid increment operation on a VtDictionary iterator
+Restricts HioImage plugin loading to the specified plugin
+Create Singleton
+race detected setting singleton instance
+Invalid type
+Invalid channel count
+Unsupported HioFormat
+Missing Format
+Unsupported format
+bad allocation
+XXXX PNG chunk not known
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

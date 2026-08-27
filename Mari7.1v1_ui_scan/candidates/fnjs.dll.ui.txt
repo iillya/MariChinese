@@ -1,0 +1,43 @@
+# source: fnjs.dll
+# candidates: 40
+
+!This program cannot be run in DOS mode.
+Unknown exception
+bad array new length
+string too long
+map/set too long
+The document is empty.
+The document root must not be followed by other values.
+Invalid value.
+Missing a name for object member.
+Missing a colon after a name of object member.
+The surrogate pair in string is invalid.
+Invalid escape character in string.
+Missing a closing quotation mark in string.
+Invalid encoding in string.
+Number too big to be stored in double.
+Miss fraction part in number.
+Miss exponent in number.
+Terminate parsing due to Handler error.
+Unspecific syntax error.
+Unknown error.
+Stream error
+JSON string is empty
+Unexpected value count: %zu
+Unknown JsValue type
+vector too long
+Key is empty
+bad allocation
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

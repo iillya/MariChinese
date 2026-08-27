@@ -1,0 +1,48 @@
+# source: fnvt.dll
+# candidates: 45
+
+!This program cannot be run in DOS mode.
+Unknown exception
+bad array new length
+vector too long
+Log a stack trace when a VtArray is copied to detach it from shared storage, to help track down unintended copies.
+string too long
+map/set too long
+VtDictionaryOver: NULL dictionary pointer.
+VtDictionaryOver: NULL dictionary pointer
+VtDictionaryOverRecursive: NULL dictionary pointer.
+iterator exhausted
+', which is not in the dictionary.
+Attempted to get value for key '
+Attempted invalid increment operation on a VtDictionary iterator
+bad numeric conversion: overflow
+bad numeric conversion: negative overflow
+bad numeric conversion: positive overflow
+Register
+VtValue _FindOrCreateDefaultValue
+TfSafeTypeCompare(newValue.GetType(), type)
+this function may not be called after GetInstance() or another SetInstanceConstructed() has completed
+Create Singleton
+race detected setting singleton instance
+Called TfPyObject without python being initialized!
+Python object does not support the buffer protocol
+Failed to get dimensioned, typed buffer
+NULL view in getbuffer
+Fortran contiguity unsupported
+writable buffers unsupported
+unordered_map/set too long
+invalid hash bucket count
+bad allocation
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

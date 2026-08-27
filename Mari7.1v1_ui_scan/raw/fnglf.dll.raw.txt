@@ -1,0 +1,2714 @@
+# source: fnglf.dll
+# bytes: 233336
+# strings: 2710
+
+[A] !This program cannot be run in DOS mode.
+[A] Rich
+[A] .text
+[A] `.rdata
+[A] @.data
+[A] .pdata
+[A] @.pxrctorP
+[A] @.rsrc
+[A] @.reloc
+[A] tWH
+[A] t-H
+[A] \$0H
+[A] @SH
+[A] t1H
+[A] H0H
+[A] EGH
+[A] HHH
+[A] M?H;
+[A] t0H
+[A] t*H
+[A] MGH3
+[A] tMH
+[A] 'I+
+[A] 'H+
+[A] |$ AVH
+[A] D84
+[A] v)H
+[A] t5L
+[A] p'I
+[A] A'H;
+[A] |$HH
+[A] l$8H
+[A] t$@H
+[A] r,H
+[A] w!I
+[A] r4H
+[A] r.H
+[A] J'H;
+[A] t5H
+[A] SVWATAUAVAWH
+[A] D$(H
+[A] r4I
+[A] L$'I;
+[A] x'H
+[A] <:I
+[A] D$0I
+[A] |$ L
+[A] u#I;
+[A] tjf
+[A] LH;
+[A] |$ H
+[A] t L+
+[A] tXL
+[A] w3I
+[A] @A_A^A]A\_^[
+[A] uzH
+[A] t$8f
+[A] ^0H
+[A] u H
+[A] t$8H
+[A] l$@H
+[A] @SVAVAWH
+[A] l$PH
+[A] |$XL
+[A] d$`M
+[A] l$ H
+[A] w;H
+[A] w*H
+[A] r<H
+[A] $?M
+[A] t$xK
+[A] raH
+[A] T$pM
+[A] d$`H
+[A] |$XH
+[A] l$PL
+[A] (A_A^^[
+[A] t$ H
+[A] WATAUAVAWH
+[A] I#t$0H
+[A] )H;
+[A] t=H
+[A] \$hH
+[A] l$pH
+[A] t$xH
+[A] 0A_A^A]A\_
+[A] UUUUUUU
+[A] I9D$
+[A] L$ H
+[A] D$(
+[A] D$(3
+[A] N H
+[A] N(L
+[A] l$`I
+[A] I#m0H
+[A] tTH
+[A] \$ H
+[A] M#u0M
+[A] I;U
+[A] J9L
+[A] t?H
+[A] r9I
+[A] s$H
+[A] <$H
+[A] <$M;
+[A] \$0H;P
+[A] D$0H
+[A] VWAVH
+[A] q H
+[A] D$xH
+[A] ^@H
+[A] w0H
+[A] T$ H
+[A] L$0
+[A] 5B%
+[A] t$8M
+[A] D$ H
+[A] T$@H
+[A] r H
+[A] J(H
+[A] B(H
+[A] O0H
+[A] T$x
+[A] T$(H
+[A] t$(H
+[A] PA^_^
+[A] A D
+[A] S(H+
+[A] w$I
+[A] C H
+[A] C(H
+[A] t>H
+[A] t3H
+[A] |$0
+[A] |$0H
+[A] \$8H
+[A] t6H
+[A] @WH
+[A] tBL
+[A] G@H
+[A] W@H
+[A] O@H
+[A] \$0M
+[A] toH
+[A] t$0H
+[A] t$0H+
+[A] w I
+[A] \$8f
+[A] W H
+[A] D$0
+[A] AVH
+[A] D$03
+[A] L$8L
+[A] u3L
+[A] D$0L9H s
+[A] L$8H
+[A] D$8
+[A] A8H
+[A] @ H9
+[A] skH
+[A] H9F
+[A] tuH
+[A] L$(
+[A] D$(I
+[A] )D$ L
+[A] @(H
+[A] \$`H
+[A] t$hH
+[A] |$pH
+[A] PA^
+[A] VWAUAVAWH
+[A] A0H
+[A] @@L
+[A] M9P s
+[A] M;Q r
+[A] u0I
+[A] N0H#
+[A] I;~
+[A] u!H;
+[A] T$0I
+[A] j H
+[A] J(L
+[A] D$pI
+[A] M0H
+[A] T$p
+[A] \$(H
+[A] \$xH
+[A] @A_A^A]_^
+[A] d$ UAVAWH
+[A] H;^
+[A] u H;
+[A] G0H;X
+[A] tYM
+[A] S(H
+[A] C I
+[A] C(I
+[A] tcH
+[A] tYH
+[A] unH
+[A] \$pI
+[A] [ I
+[A] s(I
+[A] {0M
+[A] c8I
+[A] A_A^]
+[A] |$ ATAVAWH
+[A] `E3
+[A] q L
+[A] D8a
+[A] D$Hp
+[A] D$8L
+[A] d$XH
+[A] D$@H
+[A] D$P
+[A] \$`I
+[A] k(I
+[A] s0I
+[A] {8I
+[A] A_A^A\
+[A] \$0I
+[A] @WAVAWH
+[A] q0L
+[A] F@I
+[A] H9P s
+[A] H;W
+[A] \$pH
+[A] O(H
+[A] l$xH
+[A] V0L
+[A] I;^
+[A] tmI
+[A] V0I#
+[A] H9Z
+[A] D$@
+[A] G0L
+[A] u,H;A
+[A] u&H
+[A] X0H
+[A] PA_A^_
+[A] \$ L
+[A] |$8H;
+[A] r)H
+[A] N'H;
+[A] t.H
+[A] w>I
+[A] |$8H
+[A] \$HH
+[A] D$@I
+[A] UWATAVAWH
+[A] E8H
+[A] rxI
+[A] 7M+
+[A] d$(L
+[A] |$ E3
+[A] M(H
+[A] tM3
+[A] t9H
+[A] t$0
+[A] U0H
+[A] tuH;
+[A] tgH
+[A] L$HH
+[A] L$PH
+[A] D$XT
+[A] L$`
+[A] D$h
+[A] D$H
+[A] L$X
+[A] L$pH
+[A] L$xH
+[A] T$pH
+[A] \$8
+[A] M8H3
+[A] [8I
+[A] s@I
+[A] A_A^A\_]
+[A] t#H
+[A] u1H;P
+[A] u+H
+[A] \$0
+[A] L9p
+[A] L93u
+[A] M90u4
+[A] fff
+[A] L9r
+[A] L9q
+[A] L91u
+[A] H;x
+[A] H;X
+[A] u"H
+[A] L;P
+[A] UVWATAUAVAWH
+[A] l$hH
+[A] F0I
+[A] ^8L
+[A] t$pI
+[A] ~0L#
+[A] K9,
+[A] t0L
+[A] t!H
+[A] uVK9
+[A] t$`
+[A] A_A^A]A\_^]
+[A] I;C
+[A] uGI
+[A] H;Q
+[A] uJI
+[A] H;P
+[A] O H
+[A] U|J
+[A] E0L#
+[A] <$I;
+[A] tRN
+[A] t$pH
+[A] H9E
+[A] d$ E3
+[A] l$(A
+[A] D8i4t
+[A] H#E0H
+[A] $H;
+[A] tOH
+[A] D$ L
+[A] |$ I
+[A] H#u0H
+[A] H9L
+[A] I#R0H
+[A] t:H
+[A] t$H
+[A] t|H
+[A] H(I;H(r<uMI
+[A] |$ 2
+[A] tFH
+[A] UATAUAVAWH
+[A] e I
+[A] $I;
+[A] u5H
+[A] V H
+[A] @8q4t
+[A] @(M
+[A] e`I
+[A] )E'H
+[A] U'H
+[A] S H
+[A] t"H
+[A] [0I
+[A] s8I
+[A] {@I
+[A] A_A^A]A\]
+[A] D$@H;C t
+[A] t,H
+[A] T$0
+[A] D$0H;C
+[A] L$@
+[A] t;H
+[A] t$ WH
+[A] D$pH;G`t
+[A] _hH
+[A] OXL
+[A] yGH
+[A] D$@3
+[A] D$8H
+[A] L$0H
+[A] \$`
+[A] k I
+[A] D$pH;
+[A] D$@`
+[A] T$@
+[A] UWAUAVAWH
+[A] EwHc
+[A] D$ E3
+[A] FHM#
+[A] N I;
+[A] t(M
+[A] A9x
+[A] t@L
+[A] A_A^A]_]
+[A] HcM
+[A] w$tA
+[A] r-H
+[A] D;}
+[A] t$ E3
+[A] pA_A^A]A\_^]
+[A] @VWH
+[A] \$PH
+[A] t$(
+[A] ~8H
+[A] F0H
+[A] l$X
+[A] l$0I
+[A] H#~0H
+[A] u/L
+[A] t!L
+[A] FL;
+[A] t_L;
+[A] l$0L
+[A] l$XH
+[A] \$PL
+[A] 8_^
+[A] L$ SVWH
+[A] t$X
+[A] t$ L
+[A] 0_^[
+[A] VWATAVAWH
+[A] HcH
+[A] |1(H
+[A] L1HH
+[A] HcA
+[A] D0PH
+[A] @t+H
+[A] ~&H
+[A] T1XH
+[A] L1H
+[A] ~(H
+[A] D1(
+[A] \$pL
+[A] L9HH
+[A] 0A_A^A\_^
+[A] D$HH
+[A] uMH
+[A] L$HH3
+[A] uIH
+[A] D$0P
+[A] L$x
+[A] l$(H
+[A] D$8d
+[A] uTL
+[A] D$XH
+[A] D$`q
+[A] D$p
+[A] L$P
+[A] D$ $
+[A] k@I
+[A] A_A^A]_^
+[A] LcH
+[A] t$ I
+[A] @t4
+[A] \$x
+[A] u(f
+[A] t(H
+[A] \$xL
+[A] @SVATAVH
+[A] l$PI
+[A] l$`H
+[A] |$ H;
+[A] w:I
+[A] w)J
+[A] r9H
+[A] H'H;
+[A] <7H
+[A] l$pM
+[A] rTH
+[A] (A^A\^[
+[A] t$PH
+[A] tVH
+[A] A@H
+[A] CXHc
+[A] CPHc
+[A] C8H
+[A] wII
+[A] C@H
+[A] KhH
+[A] %X{
+[A] HcP
+[A] Lc@
+[A] t8L
+[A] tUH
+[A] t%H
+[A] @SUVWAVH
+[A] D$`
+[A] D$X
+[A] D$P{
+[A] |$0D
+[A] L$h
+[A] r5H
+[A] L$hH
+[A] D$x
+[A] T$XH
+[A] rUH
+[A] L$@H
+[A] A^_^][
+[A] |$ UATAUAVAWH
+[A] \$0E2
+[A] D$PH
+[A] \$0E3
+[A] D$PHcH
+[A] D$XL
+[A] u9H
+[A] EhI
+[A] MxA
+[A] $"<
+[A] L;E
+[A] u#H
+[A] D$pH
+[A] T$8H
+[A] r!H
+[A] ExH
+[A] CEhf
+[A] EHL
+[A] mXL
+[A] MXL
+[A] U`H
+[A] r1H
+[A] MHH
+[A] mXH
+[A] r7H
+[A] MhH
+[A] EhH
+[A] EpH
+[A] ExT
+[A] {HI
+[A] to3
+[A] w?H
+[A] \$@H
+[A] t$HH
+[A] VWAWH
+[A] w!H
+[A] w:H
+[A] w)H
+[A] w&I
+[A] A__^
+[A] UVWAUAWH
+[A] A_A]_^]
+[A] AXHc8H
+[A] t)H;
+[A] 8I+
+[A] d$PH
+[A] K L
+[A] K@H
+[A] CX+
+[A] C8L
+[A] CPD
+[A] ShL
+[A] t$Xt
+[A] KtI
+[A] d$P@
+[A] A8L
+[A] t@H
+[A] A:P
+[A] |$ AV
+[A] I9Jhs
+[A] JhM
+[A] rhD
+[A] D$0L
+[A] t_A
+[A] (M;
+[A] wrM
+[A] tbA
+[A] tWN
+[A] B8L
+[A] t%I
+[A] BXHc
+[A] B@H
+[A] B A+
+[A] B@L
+[A] |$(H
+[A] |$ M
+[A] A8M
+[A] JhI
+[A] ZhH
+[A] >H+
+[A] >A+
+[A] Q8L
+[A] tOI
+[A] @PHc
+[A] r<I
+[A] t4A
+[A] u-I
+[A] PhI;
+[A] PhI
+[A] @8H
+[A] @SUATAVAWH
+[A] t$`H
+[A] |$hL
+[A] l$pr
+[A] vxI
+[A] v,H
+[A] t2H
+[A] p'H
+[A] |$hI
+[A] t$`L
+[A] 0A_A^A\][
+[A] t$ WATAUAVAWH
+[A] JpH
+[A] D$xL
+[A] RhH
+[A] L$pL
+[A] Z`L
+[A] T$hH
+[A] ZXL
+[A] zPH
+[A] \$XH
+[A] rHH
+[A] |$PH
+[A] j@H
+[A] t$HL
+[A] r8H
+[A] l$@L
+[A] z0L
+[A] t$8L
+[A] b(L
+[A] j L
+[A] |$0L
+[A] A_A^A]A\_
+[A] D$0M
+[A] D$0z
+[A] L$HI
+[A] T$8M
+[A] D$Pf
+[A] \$P
+[A] D$Pz
+[A] D$pM
+[A] D$pz
+[A] \$p
+[A] T$xH
+[A] D$ M
+[A] D$pf
+[A] L$p
+[A] uGH
+[A] WAVAWH
+[A] SHH
+[A] R L
+[A] {HH
+[A] S8H
+[A] K H
+[A] wHI
+[A] {0H
+[A] l$HH
+[A] A_A^_
+[A] u+f
+[A] L$ SH
+[A] w{H
+[A] i(H
+[A] H,H
+[A] N,H
+[A] N4H
+[A] F@H
+[A] n@H
+[A] P8H
+[A] ^8H
+[A] @8k
+[A] S@H
+[A] D$ A
+[A] SUVWAVH
+[A] A,D
+[A] q4H
+[A] i8H
+[A] i@H
+[A] G4H
+[A] tFD
+[A] _8H
+[A] w8H
+[A] %YH
+[A] %aH
+[A] Y H
+[A] t$ WAVAWH
+[A] I@H
+[A] V@H
+[A] -F]
+[A] 5/]
+[A] taH
+[A] u?H
+[A] |$X@
+[A] |$`H
+[A] uEH
+[A] l$hL
+[A] [(I
+[A] k0I
+[A] A_A^_H
+[A] L$0I
+[A] t1L
+[A] uOH
+[A] uFH
+[A] tFL
+[A] E@D
+[A] L$0D
+[A] %MV
+[A] A9u(
+[A] }4I
+[A] ],E
+[A] FHD
+[A] fLH
+[A] ~XH
+[A] t$0I
+[A] u8H
+[A] t{H
+[A] I9G
+[A] |$@H
+[A] M8H
+[A] u[I
+[A] $r3H
+[A] A$H
+[A] P$H
+[A] d$hH
+[A] M@H3
+[A] uHH
+[A] |$@
+[A] D$@O
+[A] r6H
+[A] L$(H
+[A] L$PH3
+[A] u:H
+[A] N8H
+[A] upfff
+[A] tEH
+[A] L$8
+[A] L$`H
+[A] tBH
+[A] H@H
+[A] UVWAVAWH
+[A] l$(
+[A] L$H
+[A] H H
+[A] pA_A^_^]
+[A] E@H
+[A] T$XE3
+[A] T$PH
+[A] E H
+[A] U H
+[A] T$HH
+[A] U8H
+[A] M H
+[A] D$`H
+[A] D$d
+[A] D$f
+[A] T$`H
+[A] IcF
+[A] D$j
+[A] A_A^_^]
+[A] tJH
+[A] CHD
+[A] sLH
+[A] CXH
+[A] 0A^_^
+[A] t$XH
+[A] vOH
+[A] u-@
+[A] N0D
+[A] L$8D
+[A] D$0D
+[A] d$(D
+[A] d$ 3
+[A] t)I
+[A] \$PI
+[A] A_A^A\_^
+[A] ;Q,u
+[A] ;A0
+[A] ^,H
+[A] {@H
+[A] F,H
+[A] GPH
+[A] T$0H
+[A] s I
+[A] t)H
+[A] D$8J
+[A] @USVWATAUAVAWH
+[A] K I
+[A] W I
+[A] |$HA
+[A] uZH
+[A] E,A
+[A] E0Lc
+[A] T$D
+[A] xDH
+[A] \$ D
+[A] @@3
+[A] D$pA
+[A] L$xL
+[A] l$8A
+[A] ^NPf
+[A] ^FPf
+[A] t&I
+[A] Eht
+[A] mhH
+[A] Ext
+[A] UpH
+[A] mxH
+[A] t$HI
+[A] x@I
+[A] 5d@
+[A] D$`u
+[A] D$hI
+[A] |$`
+[A] D$0A
+[A] t$0L
+[A] E@L
+[A] mPH
+[A] A`H
+[A] UXH
+[A] M@H
+[A] $$H
+[A] t-L
+[A] 2r3H
+[A] A2H
+[A] D$ 2
+[A] P2H
+[A] MPH
+[A] L$0L
+[A] A_A^A]A\_^[]
+[A] x<H
+[A] pLH
+[A] yHH
+[A] |GH
+[A] v0A
+[A] l$ E
+[A] @`H
+[A] CHf
+[A] AHD
+[A] E/L
+[A] D9y8
+[A] uBL
+[A] d$HL
+[A] N<H
+[A] u@L
+[A] ~<H
+[A] E'_
+[A] M/H3
+[A] Q H
+[A] ^HH
+[A] N@H
+[A] VHH
+[A] -t-
+[A] vqH
+[A] u>H
+[A] D$@7
+[A] d$H
+[A] D$h>
+[A] d$p
+[A] V$L
+[A] A_A^A\H
+[A] t03
+[A] |$X
+[A] \$P3
+[A] t$XD
+[A] eHD
+[A] uDE3
+[A] uYA
+[A] D$hH
+[A] l$xD
+[A] D$ D
+[A] MPD
+[A] }XM
+[A] |$@D
+[A] t$8
+[A] |$(
+[A] MPE
+[A] W`H
+[A] AZ@
+[A] y[H
+[A] sHI
+[A] Y8uTH
+[A] \$H
+[A] t]H
+[A] Ip3
+[A] K03
+[A] C,3
+[A] |$8u
+[A] t4H
+[A] |$8
+[A] D$`A
+[A] tDL
+[A] t7H
+[A] \$02
+[A] tGH
+[A] \$(u
+[A] \$(
+[A] D$PA
+[A] t$PL
+[A] t[H
+[A] t$ @
+[A] |$hH
+[A] @A^
+[A] 0[H
+[A] \$0L
+[A] t$8E3
+[A] wEI
+[A] s0H
+[A] D8w
+[A] @SWAVH
+[A] urH
+[A] l$@I
+[A] |$PM
+[A] K r
+[A] s0H;
+[A] t2x5H
+[A] A^_[
+[A] l$03
+[A] tPf
+[A] wtI
+[A] w(I
+[A] l$0H
+[A] l$(I;
+[A] L$xf
+[A] uKL
+[A] s0L
+[A] tRxUL
+[A] u9I
+[A] V I
+[A] v0H
+[A] ,H;
+[A] \$@I
+[A] =nF
+[A] x UATAUAVAWH
+[A] L9n
+[A] t_H
+[A] W8H
+[A] g0H
+[A] {HA
+[A] L;B
+[A] w>H
+[A] v/H
+[A] t$PI
+[A] t[fff
+[A] A A
+[A] I0A
+[A] A@A
+[A] IPA
+[A] A`A
+[A] IpH
+[A] Q8H
+[A] 4CH
+[A] q\f
+[A] qbH
+[A] HpH
+[A] @8x4t
+[A] tIH
+[A] I H
+[A] wkI
+[A] zxL
+[A] r0H
+[A] z H
+[A] |$xH
+[A] OPH
+[A] WaH
+[A] WbH
+[A] WdH
+[A] OhH
+[A] OlH
+[A] WpH
+[A] WtH
+[A] J H
+[A] (D$ f
+[A] 0A_A^A]A\_^]
+[A] .B$
+[A] .B(
+[A] .B,
+[A] .B0
+[A] .B4
+[A] .B8
+[A] .B<
+[A] .B@
+[A] .BD
+[A] .BH
+[A] .BL
+[A] .BP
+[A] .BT
+[A] .BX
+[A] .B\
+[A] Ba8Aa
+[A] Bb8Ab
+[A] Bd9Ad
+[A] .Bh
+[A] .Bl
+[A] Bp9Ap
+[A] Bt9At
+[A] t#f
+[A] C`8G`
+[A] L;F
+[A] V r
+[A] N r
+[A] N M
+[A] F0L;F0
+[A] t|L
+[A] u'H
+[A] t.L
+[A] A9Q
+[A] uGE
+[A] D9A
+[A] L$0H3
+[A] O I;
+[A] tRE
+[A] t A
+[A] L$ H;
+[A] t<H
+[A] wbH
+[A] r+H
+[A] K'H;
+[A] Kh/
+[A] t|M
+[A] D$(L
+[A] vlH;
+[A] t$(L
+[A] t$0t.ff
+[A] >Hi
+[A] @A_A^A\
+[A] w L;
+[A] tTI
+[A] O(H;
+[A] oHH;
+[A] sXH
+[A] D$ H;
+[A] wh3
+[A] t$@
+[A] C`D9GptLE
+[A] GpD
+[A] GtI
+[A] D$(Mi
+[A] t$xL
+[A] 0A_A^A]A\_^[
+[A] O'I;
+[A] 4<I
+[A] u"I;
+[A] L$ L
+[A] D$8H+
+[A] v.H
+[A] O'H
+[A] H+D$(H
+[A] L$ I
+[A] t.I
+[A] w2I
+[A] 4$H
+[A] sBI
+[A] L$0H;
+[A] A^_^
+[A] y H
+[A] C0H
+[A] G(H
+[A] G0H
+[A] G8L
+[A] W0H;W8t1H
+[A] G H
+[A] t$0I+
+[A] 'L+
+[A] w#L
+[A] tbH
+[A] wBI
+[A] F H
+[A] M I;
+[A] @ H
+[A] w4I
+[A] HiS
+[A] y0I
+[A] @ I
+[A] @UVWATAUAVAWH
+[A] M9/
+[A] t+D8o
+[A] }@H
+[A] }HH
+[A] }PH
+[A] N H+N
+[A] e O
+[A] 4dI
+[A] u0H
+[A] ]8I
+[A] ](L
+[A] F8H
+[A] G$I
+[A] G4I
+[A] YVH
+[A] YFh
+[A] Y^@
+[A] YF`
+[A] Y~X
+[A] Yn8
+[A] Yvx
+[A] g@I
+[A] G`I
+[A] OHI
+[A] OLI
+[A] N0H
+[A] ](@
+[A] ](I
+[A] ]8L
+[A] tRH
+[A] q 3
+[A] t1f
+[A] tyH
+[A] I H+H
+[A] l$ VWAVH
+[A] k8I
+[A] Npf
+[A] t)L
+[A] ~'f
+[A] z2u0
+[A] z"u
+[A] Y0H
+[A] \$$H
+[A] T$$
+[A] \$@HcT$$H
+[A] |$$
+[A] YUP
+[A] YE0
+[A] YMp
+[A] Y](
+[A] T$l
+[A] d$pH
+[A] D$|L
+[A] D$8H;D$@t
+[A] ;D$$
+[A] T$X
+[A] .D$Xz5u3
+[A] .D$\z$u"
+[A] .D$`z
+[A] .D$dz
+[A] { A
+[A] T$h
+[A] t$@I+
+[A] w>L
+[A] /Ii
+[A] l$(u
+[A] d$03
+[A] tqH
+[A] H9h(te
+[A] d$0H
+[A] D$0@
+[A] u`H
+[A] upH
+[A] UxH
+[A] E`HcH
+[A] }xE3
+[A] D$`L
+[A] t$pL
+[A] t$@A
+[A] D$8A
+[A] D$PL;
+[A] tcL
+[A] m H
+[A] E(H
+[A] u@H
+[A] |$HL
+[A] l$8I
+[A] u4H
+[A] D8s
+[A] u1H
+[A] fffffff
+[A] H9D$@
+[A] H L
+[A] )EPL
+[A] UPH
+[A] L;d$P
+[A] t'H
+[A] T$xL;
+[A] 1r3H
+[A] A1I
+[A] D$ 1
+[A] P1I
+[A] t&H
+[A] u3H
+[A] r3H
+[A] /r3H
+[A] A/I
+[A] D$ /
+[A] P/I
+[A] _ H
+[A] O L
+[A] |$`H+
+[A] |$`L
+[A] D$8M
+[A] T$pH+
+[A] D$XA
+[A] L$XL
+[A] t$0H;
+[A] t H
+[A] wVHi
+[A] v=H
+[A] L>H
+[A] A4H
+[A] @@H
+[A] z{uy
+[A] .B znul
+[A] .B$zau_
+[A] .B(zTuR
+[A] .B,zGuE
+[A] .B0z:u8
+[A] .B4z-u+
+[A] .B8z u
+[A] .B<z
+[A] A@f
+[A] .B@z
+[A] ?L;
+[A] wMH
+[A] v(H
+[A] ;H+
+[A] \$HI
+[A] wUH
+[A] v4H
+[A] #L+
+[A] |$XI
+[A] ?H;
+[A] D$xN
+[A] w.I
+[A] A_A^A]A\_^[
+[A] L+)I
+[A] d$hI
+[A] r)I
+[A] X'H
+[A] d$h
+[A] \$xI
+[A] t1I
+[A] Q(H
+[A] Q0H
+[A] Q@H
+[A] QHH
+[A] QPH
+[A] QXH
+[A] Q`H
+[A] QhH
+[A] QpH
+[A] QxH
+[A] 9kxt
+[A] kx9k|t
+[A] k|9
+[A] K`H
+[A] tAH
+[A] SpH+
+[A] k`H
+[A] khH
+[A] kpH
+[A] KHH
+[A] SXH+
+[A] kHH
+[A] kPH
+[A] kXH
+[A] K0H
+[A] C@H+
+[A] k0H
+[A] k8H
+[A] k@H
+[A] C(H+
+[A] wcI
+[A] k H
+[A] k(H
+[A] P_H
+[A] %;r
+[A] O|A
+[A] G H+G
+[A] rNH
+[A] D$8y
+[A] \$HE3
+[A] D$8h
+[A] D$@o
+[A] T$@L
+[A] t$PA
+[A] D$ I+D$
+[A] rRH
+[A] D$L
+[A] D$T
+[A] M'I;
+[A] \$HL
+[A] l$@
+[A] |gI
+[A] ~"L
+[A] ~mA
+[A] rgA
+[A] @I;
+[A] |rH
+[A] T$H
+[A] t,L
+[A] tCH
+[A] A H+A
+[A] AhI
+[A] H+A`H
+[A] rjH
+[A] F`H
+[A] KpH
+[A] uUH
+[A] D$0Q
+[A] uRH
+[A] C|H
+[A] A|H
+[A] A H
+[A] H+A
+[A] rFH
+[A] A0Hc
+[A] API
+[A] H+AHH
+[A] FHH
+[A] @USVWAVH
+[A] )E@
+[A] )MP
+[A] )E`
+[A] )Mp
+[A] )M0
+[A] )D$
+[A] )L$0
+[A] )D$@
+[A] )L$P
+[A] )D$`
+[A] )L$p
+[A] (M0
+[A] (D$ H
+[A] (L$0I
+[A] (D$@A
+[A] (L$PA
+[A] (D$`A
+[A] (L$pA
+[A] F`A
+[A] A^_^[]
+[A] u8M;
+[A] A9@
+[A] GPH+GHH
+[A] GhH+G`H
+[A] OHL
+[A] O`L
+[A] 0H;
+[A] F8H9F0
+[A] AXD
+[A] \$XL
+[A] D$h^
+[A] v H
+[A] T$P
+[A] V8H;V@t
+[A] L$PD
+[A] UVWH
+[A] J@H
+[A] D$0g
+[A] D$8o
+[A] P_^]
+[A] A8H9A0
+[A] _0H;
+[A] t!f
+[A] G0H;G8t
+[A] D$hX
+[A] D$p_
+[A] L$XH
+[A] L$xH3
+[A] wWH
+[A] t33
+[A] |$H3
+[A] tSH
+[A] D$@H+
+[A] A(H
+[A] G L
+[A] H;W t1H
+[A] H9Q t
+[A] A L
+[A] wfI
+[A] %tK
+[A] tlH
+[A] thH
+[A] tQH
+[A] whI
+[A] L$@H3
+[A] w1H
+[A] D$0J
+[A] wjA
+[A] wtA
+[A] wrA
+[A] w?t3
+[A] w>t2
+[A] D$04
+[A] %D:
+[A] %6:
+[A] %(:
+[A] SVWAVH
+[A] 8A^_^[
+[A] \$8H;
+[A] t!eH
+[A] u$H
+[A] t.2
+[A] uxHc
+[A] 9PE
+[A] f9A
+[A] uTL+
+[A] x AVH
+[A] Y8H
+[A] %V3
+[A] @SE
+[A] McP
+[A] t$3
+[A] \$03
+[A] %_9
+[A] %=0
+[A] D$@@
+[A] X L
+[A] wEH
+[A] u2L
+[A] @A^_^
+[A] ntelA
+[A] ineID
+[A] Genu
+[A] u[H
+[A] t(=`
+[A] t!=p
+[A] w$H
+[A] |&3
+[A] ss3
+[A] D$ "
+[A] \$(3
+[A] d$8
+[A] L$ 3
+[A] D$H3
+[A] %p)
+[A] @SVWH
+[A] T$`L
+[A] L$(3
+[A] @_^[
+[A] \$ UH
+[A] utH
+[A] H1E
+[A] M H1E
+[A] H3E H3E
+[A] ={t
+[A] %b(
+[A] %>(
+[A] %"(
+[A] %`(
+[A] %*(
+[A] %L(
+[A] %.(
+[A] %0(
+[A] %2(
+[A] %P(
+[A] %B(
+[A] @UH
+[A] SUH
+[A] %r'
+[A] U(H
+[A] SUWH
+[A] ] H
+[A] E0H
+[A] E0%
+[A] MxL
+[A] UhH
+[A] @SUH
+[A] 8csm
+[A] (][
+[A] T$ L
+[A] Unknown exception
+[A] bad array new length
+[A] glf
+[A] TfScriptModuleLoader
+[A] arch
+[A] garch
+[A] hio
+[A] sdf
+[A] trace
+[A] fnpxr.Glf
+[A] vector too long
+[A] string too long
+[A] GLF_DEBUG_CONTEXT_CAPS
+[A] GLF_DEBUG_ERROR_STACKTRACE
+[A] GLF_DEBUG_SHADOW_TEXTURES
+[A] GLF_DEBUG_DUMP_SHADOW_TEXTURES
+[A] GLF_DEBUG_POST_SURFACE_LIGHTING
+[A] TfDebug
+[A] Glf report when context caps are initialized and dump contents
+[A] Glf dump stack trace on GL error
+[A] Glf logging for shadow map management
+[A] Glf outputs shadows textures to image files
+[A] Glf post surface lighting setup
+[A] bad_weak_ptr
+[A] map/set too long
+[A] Failed axiom: ' %s '
+[A] Y:\.cs\6668e3\1\USD_src\pxr\imaging\glf\glContextRegistry.cpp
+[A] No shared context registered.
+[A] class std::shared_ptr<class fnInternal_v23_05__pxrReserved__::GlfGLContext> __cdecl fnInternal_v23_05__pxrReserved__::GlfGLContextRegistry::GetShared(void)
+[A] GetShared
+[A] _data->contextsByState.erase(i->second)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfGLContextRegistry::Remove(const class fnInternal_v23_05__pxrReserved__::GlfGLContext *)
+[A] Remove
+[A] Y:/.cs/6668e3/1/USD_src/pxr/base/tf/instantiateSingleton.h
+[A] Create Singleton
+[A] TfSingleton::_CreateInstance
+[A] class fnInternal_v23_05__pxrReserved__::GlfGLContextRegistry *__cdecl fnInternal_v23_05__pxrReserved__::TfSingleton<class fnInternal_v23_05__pxrReserved__::GlfGLContextRegistry>::_CreateInstance(struct std::atomic<class fnInternal_v23_05__pxrReserved__::GlfGLContextRegistry *> &)
+[A] _CreateInstance
+[A] race detected setting singleton instance
+[A] instance.exchange(newInst) == nullptr
+[A] unordered_map/set too long
+[A] invalid hash bucket count
+[A] samplerUnit >= 0
+[A] int __cdecl fnInternal_v23_05__pxrReserved__::GlfBindingMap::GetSamplerUnit(const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] GetSamplerUnit
+[A] Y:\.cs\6668e3\1\USD_src\pxr\imaging\glf\bindingMap.cpp
+[A] binding >= 0
+[A] int __cdecl fnInternal_v23_05__pxrReserved__::GlfBindingMap::GetUniformBinding(const class fnInternal_v23_05__pxrReserved__::TfToken &)
+[A] GetUniformBinding
+[A] Inconsistent attribute binding detected.
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfBindingMap::_AddActiveAttributeBindings(unsigned int)
+[A] _AddActiveAttributeBindings
+[A] GlfBindingMap
+[A] Attribute bindings
+[A] %s : %d
+[A] Sampler bindings
+[A] Uniform bindings
+[A] GlfContextCaps has not been initialized
+[A] const class fnInternal_v23_05__pxrReserved__::GlfContextCaps &__cdecl fnInternal_v23_05__pxrReserved__::GlfContextCaps::GetInstance(void)
+[A] GetInstance
+[A] Y:\.cs\6668e3\1\USD_src\pxr\imaging\glf\contextCaps.cpp
+[A] GlfGLContext::GetCurrentGLContext()->IsValid()
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfContextCaps::_LoadCaps(void)
+[A] _LoadCaps
+[A] Can't parse GL_VERSION %s
+[A] (dot && dot != glVersionStr)
+[A] GL version                         =
+[A] GL_VERSION                         =
+[A] GL_RENDERER                        =
+[A] GL_VENDOR                          =
+[A] GlfContextCaps:
+[A] class fnInternal_v23_05__pxrReserved__::GlfContextCaps *__cdecl fnInternal_v23_05__pxrReserved__::TfSingleton<class fnInternal_v23_05__pxrReserved__::GlfContextCaps>::_CreateInstance(struct std::atomic<class fnInternal_v23_05__pxrReserved__::GlfContextCaps *> &)
+[A] GLF_ENABLE_DIAGNOSTIC_TRACE
+[A] Enable glDebug* diagnostic tracing in Glf.
+[A] Tf_EnvSettingRegistry
+[A] GL error code: 0x
+[A] GL error:
+[A] , reported from
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfPostPendingGLErrors(const class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &)
+[A] GlfPostPendingGLErrors
+[A] Y:\.cs\6668e3\1\USD_src\pxr\imaging\glf\diagnostic.cpp
+[A] ==== GL Error Stack ====
+[A] GL debug output: source: %s type: %s id: %d severity: %s message: %s
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfDefaultDebugOutputMessageCallback(unsigned int,unsigned int,unsigned int,unsigned int,int,const char *,const void *)
+[A] GlfDefaultDebugOutputMessageCallback
+[A] GL debug output: %s
+[A] GL_DEBUG_SOURCE_API
+[A] GL_DEBUG_SOURCE_WINDOW_SYSTEM
+[A] GL_DEBUG_SOURCE_SHADER_COMPILER
+[A] GL_DEBUG_SOURCE_THIRD_PARTY
+[A] GL_DEBUG_SOURCE_APPLICATION
+[A] GL_DEBUG_SOURCE_OTHER
+[A] GL_DEBUG_TYPE_ERROR
+[A] GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR
+[A] GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR
+[A] GL_DEBUG_TYPE_PORTABILITY
+[A] GL_DEBUG_TYPE_PERFORMANCE
+[A] GL_DEBUG_TYPE_OTHER
+[A] GL_DEBUG_TYPE_MARKER
+[A] GL_DEBUG_TYPE_PUSH_GROUP
+[A] GL_DEBUG_TYPE_POP_GROUP
+[A] GL_DEBUG_SEVERITY_NOTIFICATION
+[A] GL_DEBUG_SEVERITY_HIGH
+[A] GL_DEBUG_SEVERITY_MEDIUM
+[A] GL_DEBUG_SEVERITY_LOW
+[A] unknown debug enum
+[A] const char *__cdecl fnInternal_v23_05__pxrReserved__::GlfDebugEnumToString(unsigned int)
+[A] GlfDebugEnumToString
+[A] unknown
+[A] GLF_DRAW_TARGETS_NUM_SAMPLES
+[A] Number of samples greater than 1 forces MSAA.
+[A] Tried to free invalid framebuffer
+[A] glIsFramebuffer(_framebuffer)
+[A] __cdecl fnInternal_v23_05__pxrReserved__::GlfDrawTarget::~GlfDrawTarget(void)
+[A] ~GlfDrawTarget
+[A] Y:\.cs\6668e3\1\USD_src\pxr\imaging\glf\drawTarget.cpp
+[A] Tried to free invalid multisampled framebuffer
+[A] glIsFramebuffer(_framebufferMS)
+[A] Cannot change the size of an unbound GlfDrawTarget
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfDrawTarget::AddAttachment(const class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &,unsigned int,unsigned int,unsigned int)
+[A] AddAttachment
+[A] Attachment "%s" was not added and cannot be bound in MatDisplayMaterial
+[A] attachment->GetGlTextureName() > 0
+[A] " already exists for this DrawTarget
+[A] Attachment "
+[A] " does not exist for this DrawTarget
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfDrawTarget::DeleteAttachment(const class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &)
+[A] DeleteAttachment
+[A] Cannot clone TfNullPtr attachments.
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfDrawTarget::CloneAttachments(const class fnInternal_v23_05__pxrReserved__::TfWeakPtr<class fnInternal_v23_05__pxrReserved__::GlfDrawTarget> &)
+[A] CloneAttachments
+[A] DrawTarget has uninitialized attachments map.
+[A] _attachmentsPtr
+[A] class std::map<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class fnInternal_v23_05__pxrReserved__::TfRefPtr<class fnInternal_v23_05__pxrReserved__::GlfDrawTarget::Attachment>,struct std::less<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > >,class std::allocator<struct std::pair<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const ,class fnInternal_v23_05__pxrReserved__::TfRefPtr<class fnInternal_v23_05__pxrReserved__::GlfDrawTarget::Attachment> > > > &__cdecl fnInternal_v23_05__pxrReserved__::GlfDrawTarget::_GetAttachments(void) const
+[A] _GetAttachments
+[A] Cannot change the size of an unbound DrawTarget
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfDrawTarget::SetSize(class fnInternal_v23_05__pxrReserved__::GfVec2i)
+[A] SetSize
+[A] Failed to allocate multisampled framebuffer
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfDrawTarget::_GenFrameBuffer(void)
+[A] _GenFrameBuffer
+[A] Failed to allocate framebuffer
+[A] Attachment index cannot be negative
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfDrawTarget::_BindAttachment(const class fnInternal_v23_05__pxrReserved__::TfRefPtr<class fnInternal_v23_05__pxrReserved__::GlfDrawTarget::Attachment> &)
+[A] _BindAttachment
+[A] Exceeding number of Attachments available
+[A] attach < _GetMaxAttachments()
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfDrawTarget::Bind(void)
+[A] _owningContext->IsCurrent()
+[A] Bind
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfDrawTarget::Unbind(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfDrawTarget::Resolve(void)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfDrawTarget::Resolve(const class std::vector<class fnInternal_v23_05__pxrReserved__::GlfDrawTarget *,class std::allocator<class fnInternal_v23_05__pxrReserved__::GlfDrawTarget *> > &)
+[A] WriteToFile
+[A] bool __cdecl fnInternal_v23_05__pxrReserved__::GlfDrawTarget::WriteToFile(const class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &,const class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &,const class fnInternal_v23_05__pxrReserved__::GfMatrix4d &,const class fnInternal_v23_05__pxrReserved__::GfMatrix4d &)
+[A] glGetTexImage
+[A] writing image
+[A] " is not a valid variable name for this DrawTarget
+[A] DrawTarget has no framebuffer
+[A] depth
+[A] zfile
+[A] Failed to write image to %s
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfDrawTarget::Attachment::_GenTexture(void)
+[A] Only GL_FLOAT textures can be used for the depth attachment point
+[A] _GenTexture
+[A] Tried to delete an invalid texture
+[A] glIsTexture(_textureName)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfDrawTarget::Attachment::_DeleteTexture(void)
+[A] _DeleteTexture
+[A] glIsTexture(_textureNameMS)
+[A] width
+[A] height
+[A] memoryUsed
+[A] format
+[A] imageFilePath
+[A] DrawTarget
+[A] referenceCount
+[A] numSamples
+[A] class fnInternal_v23_05__pxrReserved__::GlfDrawTarget::Attachment *__cdecl fnInternal_v23_05__pxrReserved__::TfRefPtr<class fnInternal_v23_05__pxrReserved__::GlfDrawTarget::Attachment>::operator ->(void) const
+[A] operator ->
+[A] Y:/.cs/6668e3/1/USD_src/pxr/base/tf/refPtr.h
+[A] class fnInternal_v23_05__pxrReserved__::GlfDrawTarget *__cdecl fnInternal_v23_05__pxrReserved__::TfWeakPtrFacade<class fnInternal_v23_05__pxrReserved__::TfWeakPtr,class fnInternal_v23_05__pxrReserved__::GlfDrawTarget>::operator ->(void) const
+[A] Y:/.cs/6668e3/1/USD_src/pxr/base/tf/weakPtrFacade.h
+[A] class fnInternal_v23_05__pxrReserved__::GlfDrawTarget::AttachmentsContainer *__cdecl fnInternal_v23_05__pxrReserved__::TfRefPtr<class fnInternal_v23_05__pxrReserved__::GlfDrawTarget::AttachmentsContainer>::operator ->(void) const
+[A] class fnInternal_v23_05__pxrReserved__::Tf_Remnant *__cdecl fnInternal_v23_05__pxrReserved__::TfRefPtr<class fnInternal_v23_05__pxrReserved__::Tf_Remnant>::operator ->(void) const
+[A] MakeCurrent
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfGLContext::MakeCurrent(const class std::shared_ptr<class fnInternal_v23_05__pxrReserved__::GlfGLContext> &)
+[A] Lighting
+[A] Shadow
+[A] Material
+[A] PostSurfaceShaderParams
+[A] shadowCompareTextures
+[A] %s[%zd]
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfSimpleLightingContext::BindUniformBlocks(const class fnInternal_v23_05__pxrReserved__::TfWeakPtr<class fnInternal_v23_05__pxrReserved__::GlfBindingMap> &)
+[A] _lightingUniformBlock
+[A] _shadowUniformBlock
+[A] _materialUniformBlock
+[A] _Init
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfSimpleLightingContext::_PostSurfaceShaderState::_Init(const class std::vector<class fnInternal_v23_05__pxrReserved__::GlfSimpleLight,class std::allocator<class fnInternal_v23_05__pxrReserved__::GlfSimpleLight> > &)
+[A] Invalid shader params size (%zd bytes) for %s (must be a multiple of %zd)
+[A] Y:\.cs\6668e3\1\USD_src\pxr\imaging\glf\simpleLightingContext.cpp
+[A] PostSurfaceLight: %s: %s
+[A] light
+[A] Params
+[A] , color, Pworld.xyz
+[A] postSurface.light
+[A] WorldSpace(
+[A] color = Apply
+[A] layout(std140) uniform PostSurfaceShaderParams {
+[A] } postSurface;
+[A] MAT4 GetWorldToViewInverseMatrix();
+[A] vec4 postSurfaceShader(vec4 Peye, vec3 Neye, vec4 color)
+[A] vec4 Pworld = vec4(GetWorldToViewInverseMatrix() * Peye);
+[A] color.rgb /= color.a;
+[A] color.rgb *= color.a;
+[A] return color;
+[A] _postSurfaceShaderUniformBlock
+[A] _ComputeHash
+[A] unsigned __int64 __cdecl fnInternal_v23_05__pxrReserved__::_ComputeHash(const class std::vector<class fnInternal_v23_05__pxrReserved__::GlfSimpleLight,class std::allocator<class fnInternal_v23_05__pxrReserved__::GlfSimpleLight> > &)
+[A] class fnInternal_v23_05__pxrReserved__::GlfBindingMap *__cdecl fnInternal_v23_05__pxrReserved__::TfWeakPtrFacade<class fnInternal_v23_05__pxrReserved__::TfWeakPtr,class fnInternal_v23_05__pxrReserved__::GlfBindingMap>::operator ->(void) const
+[A] class fnInternal_v23_05__pxrReserved__::GlfUniformBlock *__cdecl fnInternal_v23_05__pxrReserved__::TfRefPtr<class fnInternal_v23_05__pxrReserved__::GlfUniformBlock>::operator ->(void) const
+[A] class fnInternal_v23_05__pxrReserved__::GlfSimpleShadowArray *__cdecl fnInternal_v23_05__pxrReserved__::TfRefPtr<class fnInternal_v23_05__pxrReserved__::GlfSimpleShadowArray>::operator ->(void) const
+[A] Shadow depth sampler has not been allocated
+[A] unsigned int __cdecl fnInternal_v23_05__pxrReserved__::GlfSimpleShadowArray::GetShadowMapDepthSampler(void) const
+[A] GetShadowMapDepthSampler
+[A] Y:\.cs\6668e3\1\USD_src\pxr\imaging\glf\simpleShadowArray.cpp
+[A] Shadow compare sampler has not been allocated
+[A] unsigned int __cdecl fnInternal_v23_05__pxrReserved__::GlfSimpleShadowArray::GetShadowMapCompareSampler(void) const
+[A] GetShadowMapCompareSampler
+[A] index < _resolutions.size()
+[A] class fnInternal_v23_05__pxrReserved__::GfVec2i __cdecl fnInternal_v23_05__pxrReserved__::GlfSimpleShadowArray::GetShadowMapSize(unsigned __int64) const
+[A] GetShadowMapSize
+[A] index < _viewMatrix.size()
+[A] class fnInternal_v23_05__pxrReserved__::GfMatrix4d __cdecl fnInternal_v23_05__pxrReserved__::GlfSimpleShadowArray::GetViewMatrix(unsigned __int64) const
+[A] GetViewMatrix
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfSimpleShadowArray::SetViewMatrix(unsigned __int64,const class fnInternal_v23_05__pxrReserved__::GfMatrix4d &)
+[A] SetViewMatrix
+[A] index < _projectionMatrix.size()
+[A] class fnInternal_v23_05__pxrReserved__::GfMatrix4d __cdecl fnInternal_v23_05__pxrReserved__::GlfSimpleShadowArray::GetProjectionMatrix(unsigned __int64) const
+[A] GetProjectionMatrix
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfSimpleShadowArray::SetProjectionMatrix(unsigned __int64,const class fnInternal_v23_05__pxrReserved__::GfMatrix4d &)
+[A] SetProjectionMatrix
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfSimpleShadowArray::BeginCapture(unsigned __int64,bool)
+[A] %s/GlfSimpleShadowArray.index_%zu.tif
+[A] Wrote shadow texture: %s
+[A] Failed to write shadow texture: %s
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfSimpleShadowArray::EndCapture(unsigned __int64)
+[A] _shadowDepthSampler
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfSimpleShadowArray::_AllocTextures(void)
+[A] _AllocTextures
+[A] _shadowCompareSampler
+[A] _textures.empty()
+[A] Unexpected entry state in %s
+[A] Created shadow map texture of size %dx%d (id %#x)
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfSimpleShadowArray::_FreeTextures(void)
+[A] Texture index is out of bounds
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfSimpleShadowArray::_BindFramebuffer(unsigned __int64)
+[A] _BindFramebuffer
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfSimpleShadowArray::_UnbindFramebuffer(void)
+[A] TfType
+[A] texels
+[A] layout
+[A] TfType::Define
+[A] void __cdecl fnInternal_v23_05__pxrReserved__::GlfUniformBlock::Update(const void *,int)
+[A] Unsupported format
+[A] int __cdecl fnInternal_v23_05__pxrReserved__::GlfGetNumElements(unsigned int)
+[A] GlfGetNumElements
+[A] Y:\.cs\6668e3\1\USD_src\pxr\imaging\glf\utils.cpp
+[A] Unsupported type
+[A] int __cdecl fnInternal_v23_05__pxrReserved__::GlfGetElementSize(unsigned int)
+[A] GlfGetElementSize
+[A] enum fnInternal_v23_05__pxrReserved__::HioFormat __cdecl fnInternal_v23_05__pxrReserved__::GlfGetHioFormat(unsigned int,unsigned int,bool)
+[A] GlfGetHioFormat
+[A] Framebuffer unsupported
+[A] Framebuffer incomplete attachment
+[A] Framebuffer incomplete missing attachment
+[A] Framebuffer incomplete dimensions
+[A] Framebuffer incomplete formats
+[A] Framebuffer incomplete draw buffer
+[A] Framebuffer incomplete read buffer
+[A] Framebuffer error 0x%x
+[A] SleepConditionVariableCS
+[A] WakeAllConditionVariable
+[A] bad allocation
+[A] .text$di
+[A] .text$mn
+[A] .text$mn$00
+[A] .text$x
+[A] .text$yd
+[A] .idata$5
+[A] .00cfg
+[A] .CRT$XCA
+[A] .CRT$XCU
+[A] .CRT$XCZ
+[A] .CRT$XIA
+[A] .CRT$XIC
+[A] .CRT$XIZ
+[A] .CRT$XLA
+[A] .CRT$XLZ
+[A] .CRT$XPA
+[A] .CRT$XPZ
+[A] .CRT$XTA
+[A] .CRT$XTZ
+[A] .rdata
+[A] .rdata$T
+[A] .rdata$r
+[A] .rdata$voltmd
+[A] .rdata$zzzdbg
+[A] .rtc$IAA
+[A] .rtc$IZZ
+[A] .rtc$TAA
+[A] .rtc$TZZ
+[A] .tls
+[A] .tls$
+[A] .tls$ZZZ
+[A] .xdata
+[A] .xdata$x
+[A] .edata
+[A] .idata$2
+[A] .idata$3
+[A] .idata$4
+[A] .idata$6
+[A] .data
+[A] .data$r
+[A] .data$rs
+[A] .bss
+[A] .pxrctor
+[A] .rsrc$01
+[A] .rsrc$02
+[A] `qX
+[A] `:0
+[A] P20
+[A] p d
+[A] hUY
+[A] (UY
+[A] `(R
+[A] `1Z
+[A] (}Z
+[A] (y[
+[A] |P.
+[A] (E\
+[A] $t"
+[A] $d!
+[A] @2p+
+[A] `jp+
+[A] (Ua
+[A] (]c
+[A] @08~
+[A] `)d
+[A] 'tE
+[A] 'dD
+[A] '4C
+[A] (]e
+[A] `)f
+[A] `If
+[A] (Eh
+[A] (Ii
+[A] $t)
+[A] $d(
+[A] $4'
+[A] (Mj
+[A] `2@
+[A] (mk
+[A] p2@
+[A] @2@
+[A] (mm
+[A] (mn
+[A] `5o
+[A] P2P
+[A] (Up
+[A] P2@
+[A] (mr
+[A] (Ys
+[A] #t)
+[A] #d(
+[A] #4'
+[A] (%t
+[A] (1u
+[A] `au
+[A] ()w
+[A] 5-x;
+[A] &h<
+[A] (ix
+[A] "xC
+[A] `2p
+[A] (Ay
+[A] (my
+[A] `6@
+[A] @>0
+[A] 8]z
+[A] (E{
+[A] p20;
+[A] hv0
+[A] (|*h
+[A] 9z}
+[A] 8]~
+[A] 2 ,
+[A] fnglf.dll
+[A] ??0GlfDebugGroup@fnInternal_v23_05__pxrReserved__@@QEAA@PEBD@Z
+[A] ??0GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@IEAA@AEBV?$TfWeakPtr@VGlfDrawTarget@fnInternal_v23_05__pxrReserved__@@@1@@Z
+[A] ??0GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@IEAA@AEBVGfVec2i@1@_N@Z
+[A] ??0GlfGLContext@fnInternal_v23_05__pxrReserved__@@IEAA@XZ
+[A] ??0GlfGLContextRegistrationInterface@fnInternal_v23_05__pxrReserved__@@IEAA@XZ
+[A] ??0GlfGLContextScopeHolder@fnInternal_v23_05__pxrReserved__@@QEAA@AEBV?$shared_ptr@VGlfGLContext@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ??0GlfGLQueryObject@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??0GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAA@AEBVGfVec4f@1@@Z
+[A] ??0GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@IEAA@XZ
+[A] ??0GlfSimpleMaterial@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??0GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??0GlfTexture@fnInternal_v23_05__pxrReserved__@@IEAA@W4ImageOriginLocation@HioImage@1@@Z
+[A] ??0GlfTexture@fnInternal_v23_05__pxrReserved__@@IEAA@XZ
+[A] ??0GlfTextureTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??0GlfUniformBlock@fnInternal_v23_05__pxrReserved__@@IEAA@PEBD@Z
+[A] ??1Attachment@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@UEAA@XZ
+[A] ??1GlfDebugGroup@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@MEAA@XZ
+[A] ??1GlfGLContext@fnInternal_v23_05__pxrReserved__@@UEAA@XZ
+[A] ??1GlfGLContextRegistrationInterface@fnInternal_v23_05__pxrReserved__@@UEAA@XZ
+[A] ??1GlfGLContextScopeHolder@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1GlfGLQueryObject@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1GlfGLRawContext@fnInternal_v23_05__pxrReserved__@@UEAA@XZ
+[A] ??1GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@MEAA@XZ
+[A] ??1GlfSimpleMaterial@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@UEAA@XZ
+[A] ??1GlfTexture@fnInternal_v23_05__pxrReserved__@@UEAA@XZ
+[A] ??1GlfTextureTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1GlfUniformBlock@fnInternal_v23_05__pxrReserved__@@UEAA@XZ
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBV?$vector@VGlfSimpleLight@fnInternal_v23_05__pxrReserved__@@V?$allocator@VGlfSimpleLight@fnInternal_v23_05__pxrReserved__@@@std@@@2@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGlfSimpleLight@0@@Z
+[A] ??8GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBV01@@Z
+[A] ??8GlfSimpleMaterial@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBV01@@Z
+[A] ??9GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBV01@@Z
+[A] ??9GlfSimpleMaterial@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBV01@@Z
+[A] ??_FGlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXXZ
+[A] ?AddAttachment@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@III@Z
+[A] ?AddCustomBindings@GlfBindingMap@fnInternal_v23_05__pxrReserved__@@QEAAXI@Z
+[A] ?AllocSamplers@GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEAAXXZ
+[A] ?AreSharing@GlfGLContext@fnInternal_v23_05__pxrReserved__@@SA_NAEBV?$shared_ptr@VGlfGLContext@fnInternal_v23_05__pxrReserved__@@@std@@0@Z
+[A] ?AssignSamplerUnitsToProgram@GlfBindingMap@fnInternal_v23_05__pxrReserved__@@QEAAXI@Z
+[A] ?AssignUniformBindingsToProgram@GlfBindingMap@fnInternal_v23_05__pxrReserved__@@QEAAXI@Z
+[A] ?Begin@GlfGLQueryObject@fnInternal_v23_05__pxrReserved__@@QEAAXI@Z
+[A] ?BeginCapture@GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEAAX_K_N@Z
+[A] ?BeginPrimitivesGenerated@GlfGLQueryObject@fnInternal_v23_05__pxrReserved__@@QEAAXXZ
+[A] ?BeginSamplesPassed@GlfGLQueryObject@fnInternal_v23_05__pxrReserved__@@QEAAXXZ
+[A] ?BeginTimeElapsed@GlfGLQueryObject@fnInternal_v23_05__pxrReserved__@@QEAAXXZ
+[A] ?Bind@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEAAXXZ
+[A] ?Bind@GlfUniformBlock@fnInternal_v23_05__pxrReserved__@@QEAAXAEBV?$TfWeakPtr@VGlfBindingMap@fnInternal_v23_05__pxrReserved__@@@2@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ?BindSamplers@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEAAXAEBV?$TfWeakPtr@VGlfBindingMap@fnInternal_v23_05__pxrReserved__@@@2@@Z
+[A] ?BindUniformBlocks@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEAAXAEBV?$TfWeakPtr@VGlfBindingMap@fnInternal_v23_05__pxrReserved__@@@2@@Z
+[A] ?ClearAttachments@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEAAXXZ
+[A] ?CloneAttachments@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEAAXAEBV?$TfWeakPtr@VGlfDrawTarget@fnInternal_v23_05__pxrReserved__@@@2@@Z
+[A] ?ComputeNumShadowsUsed@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEBAHXZ
+[A] ?ComputeShaderSource@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEAAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVTfToken@2@@Z
+[A] ?ComputeShaderSourceHash@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEAA_KXZ
+[A] ?Debug@GlfBindingMap@fnInternal_v23_05__pxrReserved__@@QEBAXXZ
+[A] ?DeleteAttachment@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ?DoneCurrent@GlfGLContext@fnInternal_v23_05__pxrReserved__@@SAXXZ
+[A] ?End@GlfGLQueryObject@fnInternal_v23_05__pxrReserved__@@QEAAXXZ
+[A] ?EndCapture@GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEAAX_K@Z
+[A] ?GetAmbient@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAAEBVGfVec4f@2@XZ
+[A] ?GetAmbient@GlfSimpleMaterial@fnInternal_v23_05__pxrReserved__@@QEBAAEBVGfVec4f@2@XZ
+[A] ?GetAttachment@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEAA?AV?$TfRefPtr@VAttachment@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@@2@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ?GetAttachments@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEBAAEBV?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$TfRefPtr@VAttachment@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$TfRefPtr@VAttachment@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@@std@@@2@@std@@XZ
+[A] ?GetAttenuation@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAAEBVGfVec3f@2@XZ
+[A] ?GetAttributeIndex@GlfBindingMap@fnInternal_v23_05__pxrReserved__@@QEAAHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ?GetAttributeIndex@GlfBindingMap@fnInternal_v23_05__pxrReserved__@@QEAAHAEBVTfToken@2@@Z
+[A] ?GetBindings@Attachment@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@UEAA?AV?$vector@UBinding@GlfTexture@fnInternal_v23_05__pxrReserved__@@V?$allocator@UBinding@GlfTexture@fnInternal_v23_05__pxrReserved__@@@std@@@std@@AEBVTfToken@3@I@Z
+[A] ?GetContentsID@GlfTexture@fnInternal_v23_05__pxrReserved__@@QEBA_KXZ
+[A] ?GetCurrentGLContext@GlfGLContext@fnInternal_v23_05__pxrReserved__@@SA?AV?$shared_ptr@VGlfGLContext@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetDiffuse@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAAEBVGfVec4f@2@XZ
+[A] ?GetDiffuse@GlfSimpleMaterial@fnInternal_v23_05__pxrReserved__@@QEBAAEBVGfVec4f@2@XZ
+[A] ?GetDomeLightTextureFile@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAAEBVSdfAssetPath@2@XZ
+[A] ?GetEmission@GlfSimpleMaterial@fnInternal_v23_05__pxrReserved__@@QEBAAEBVGfVec4f@2@XZ
+[A] ?GetFramebufferId@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEBAIXZ
+[A] ?GetFramebufferMSId@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEBAIXZ
+[A] ?GetID@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAAEBVSdfPath@2@XZ
+[A] ?GetInstance@GlfContextCaps@fnInternal_v23_05__pxrReserved__@@SAAEBV12@XZ
+[A] ?GetLights@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEBAAEBV?$vector@VGlfSimpleLight@fnInternal_v23_05__pxrReserved__@@V?$allocator@VGlfSimpleLight@fnInternal_v23_05__pxrReserved__@@@std@@@std@@XZ
+[A] ?GetMaterial@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEBAAEBVGlfSimpleMaterial@2@XZ
+[A] ?GetMemoryRequested@GlfTexture@fnInternal_v23_05__pxrReserved__@@QEBA_KXZ
+[A] ?GetMemoryUsed@GlfTexture@fnInternal_v23_05__pxrReserved__@@QEBA_KXZ
+[A] ?GetNumLightsUsed@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEBAHXZ
+[A] ?GetNumShadowMapPasses@GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEBA_KXZ
+[A] ?GetOriginLocation@GlfTexture@fnInternal_v23_05__pxrReserved__@@QEBA?AW4ImageOriginLocation@HioImage@2@XZ
+[A] ?GetPosition@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAAEBVGfVec4f@2@XZ
+[A] ?GetPostSurfaceIdentifier@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAAEBVTfToken@2@XZ
+[A] ?GetPostSurfaceShaderParams@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAAEBV?$VtArray@E@2@XZ
+[A] ?GetPostSurfaceShaderSource@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+[A] ?GetProjectionMatrix@GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEBA?AVGfMatrix4d@2@_K@Z
+[A] ?GetResult@GlfGLQueryObject@fnInternal_v23_05__pxrReserved__@@QEAA_JXZ
+[A] ?GetResultNoWait@GlfGLQueryObject@fnInternal_v23_05__pxrReserved__@@QEAA_JXZ
+[A] ?GetSamplerUnit@GlfBindingMap@fnInternal_v23_05__pxrReserved__@@QEAAHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ?GetSamplerUnit@GlfBindingMap@fnInternal_v23_05__pxrReserved__@@QEAAHAEBVTfToken@2@@Z
+[A] ?GetSceneAmbient@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEBAAEBVGfVec4f@2@XZ
+[A] ?GetShadowBias@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAMXZ
+[A] ?GetShadowBlur@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAMXZ
+[A] ?GetShadowIndexEnd@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAHXZ
+[A] ?GetShadowIndexStart@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAHXZ
+[A] ?GetShadowMapCompareSampler@GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEBAIXZ
+[A] ?GetShadowMapDepthSampler@GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEBAIXZ
+[A] ?GetShadowMapSize@GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEBA?AVGfVec2i@2@_K@Z
+[A] ?GetShadowMapTexture@GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEBAIH@Z
+[A] ?GetShadowMatrices@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAAEBV?$vector@VGfMatrix4d@fnInternal_v23_05__pxrReserved__@@V?$allocator@VGfMatrix4d@fnInternal_v23_05__pxrReserved__@@@std@@@std@@XZ
+[A] ?GetShadowResolution@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAHXZ
+[A] ?GetShadows@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEBAAEBV?$TfRefPtr@VGlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@@2@XZ
+[A] ?GetSharedGLContext@GlfGLContext@fnInternal_v23_05__pxrReserved__@@SA?AV?$shared_ptr@VGlfGLContext@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?GetShininess@GlfSimpleMaterial@fnInternal_v23_05__pxrReserved__@@QEBANXZ
+[A] ?GetSpecular@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAAEBVGfVec4f@2@XZ
+[A] ?GetSpecular@GlfSimpleMaterial@fnInternal_v23_05__pxrReserved__@@QEBAAEBVGfVec4f@2@XZ
+[A] ?GetSpotCutoff@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAAEBMXZ
+[A] ?GetSpotDirection@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAAEBVGfVec3f@2@XZ
+[A] ?GetSpotFalloff@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAAEBMXZ
+[A] ?GetTextureInfo@Attachment@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@UEAA?AVVtDictionary@3@_N@Z
+[A] ?GetTextureMemoryAllocated@GlfTexture@fnInternal_v23_05__pxrReserved__@@SA_KXZ
+[A] ?GetTransform@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBAAEBVGfMatrix4d@2@XZ
+[A] ?GetUniformBinding@GlfBindingMap@fnInternal_v23_05__pxrReserved__@@QEAAHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ?GetUniformBinding@GlfBindingMap@fnInternal_v23_05__pxrReserved__@@QEAAHAEBVTfToken@2@@Z
+[A] ?GetUseColorMaterialDiffuse@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEBA_NXZ
+[A] ?GetUseLighting@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEBA_NXZ
+[A] ?GetUseShadows@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEBA_NXZ
+[A] ?GetViewMatrix@GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEBA?AVGfMatrix4d@2@_K@Z
+[A] ?GetWorldToShadowMatrix@GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEBA?AVGfMatrix4d@2@_K@Z
+[A] ?GlfCheckGLFrameBufferStatus@fnInternal_v23_05__pxrReserved__@@YA_NIPEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ?GlfDebugEnumToString@fnInternal_v23_05__pxrReserved__@@YAPEBDI@Z
+[A] ?GlfDebugLabelBuffer@fnInternal_v23_05__pxrReserved__@@YAXIPEBD@Z
+[A] ?GlfDebugLabelProgram@fnInternal_v23_05__pxrReserved__@@YAXIPEBD@Z
+[A] ?GlfDebugLabelShader@fnInternal_v23_05__pxrReserved__@@YAXIPEBD@Z
+[A] ?GlfDefaultDebugOutputMessageCallback@fnInternal_v23_05__pxrReserved__@@YAXIIIIHPEBDPEBX@Z
+[A] ?GlfGetElementSize@fnInternal_v23_05__pxrReserved__@@YAHI@Z
+[A] ?GlfGetHioFormat@fnInternal_v23_05__pxrReserved__@@YA?AW4HioFormat@1@II_N@Z
+[A] ?GlfGetNumElements@fnInternal_v23_05__pxrReserved__@@YAHI@Z
+[A] ?GlfHasExtensions@fnInternal_v23_05__pxrReserved__@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ?GlfPostPendingGLErrors@fnInternal_v23_05__pxrReserved__@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ?GlfRegisterDefaultDebugOutputMessageCallback@fnInternal_v23_05__pxrReserved__@@YAXXZ
+[A] ?GlfTextureTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UGlfTextureTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UGlfTextureTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?HasIntensity@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBA_NXZ
+[A] ?HasShadow@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBA_NXZ
+[A] ?HasUniformBinding@GlfBindingMap@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ?HasUniformBinding@GlfBindingMap@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBVTfToken@2@@Z
+[A] ?InitInstance@GlfContextCaps@fnInternal_v23_05__pxrReserved__@@SAXXZ
+[A] ?InitSamplerUnitBindings@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEBAXAEBV?$TfWeakPtr@VGlfBindingMap@fnInternal_v23_05__pxrReserved__@@@2@@Z
+[A] ?InitUniformBlockBindings@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEBAXAEBV?$TfWeakPtr@VGlfBindingMap@fnInternal_v23_05__pxrReserved__@@@2@@Z
+[A] ?IsBound@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEBA_NXZ
+[A] ?IsCameraSpaceLight@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBA_NXZ
+[A] ?IsCurrent@GlfGLContext@fnInternal_v23_05__pxrReserved__@@QEBA_NXZ
+[A] ?IsDomeLight@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEBA_NXZ
+[A] ?IsInitialized@GlfGLContext@fnInternal_v23_05__pxrReserved__@@SA_NXZ
+[A] ?IsMagFilterSupported@GlfTexture@fnInternal_v23_05__pxrReserved__@@UEAA_NI@Z
+[A] ?IsMinFilterSupported@GlfTexture@fnInternal_v23_05__pxrReserved__@@UEAA_NI@Z
+[A] ?IsOriginLowerLeft@GlfTexture@fnInternal_v23_05__pxrReserved__@@QEBA_NXZ
+[A] ?IsSharing@GlfGLContext@fnInternal_v23_05__pxrReserved__@@QEAA_NAEBV?$shared_ptr@VGlfGLContext@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?IsValid@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEAA_NPEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ?IsValid@GlfGLRawContext@fnInternal_v23_05__pxrReserved__@@UEBA_NXZ
+[A] ?MakeCurrent@GlfGLContext@fnInternal_v23_05__pxrReserved__@@SAXAEBV?$shared_ptr@VGlfGLContext@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?New@Attachment@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@SA?AV?$TfRefPtr@VAttachment@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@@3@HIIIVGfVec2i@3@I@Z
+[A] ?New@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@SA?AV?$TfRefPtr@VGlfDrawTarget@fnInternal_v23_05__pxrReserved__@@@2@AEBV?$TfWeakPtr@VGlfDrawTarget@fnInternal_v23_05__pxrReserved__@@@2@@Z
+[A] ?New@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@SA?AV?$TfRefPtr@VGlfDrawTarget@fnInternal_v23_05__pxrReserved__@@@2@AEBVGfVec2i@2@_N@Z
+[A] ?New@GlfGLRawContext@fnInternal_v23_05__pxrReserved__@@SA?AV?$shared_ptr@VGlfGLRawContext@fnInternal_v23_05__pxrReserved__@@@std@@AEBVGarchWGLContextState@2@@Z
+[A] ?New@GlfGLRawContext@fnInternal_v23_05__pxrReserved__@@SA?AV?$shared_ptr@VGlfGLRawContext@fnInternal_v23_05__pxrReserved__@@@std@@XZ
+[A] ?New@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@SA?AV?$TfRefPtr@VGlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@@2@XZ
+[A] ?New@GlfUniformBlock@fnInternal_v23_05__pxrReserved__@@SA?AV?$TfRefPtr@VGlfUniformBlock@fnInternal_v23_05__pxrReserved__@@@2@PEBD@Z
+[A] ?ResizeTexture@Attachment@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVGfVec2i@3@@Z
+[A] ?Resolve@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEAAXXZ
+[A] ?Resolve@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@SAXAEBV?$vector@PEAVGlfDrawTarget@fnInternal_v23_05__pxrReserved__@@V?$allocator@PEAVGlfDrawTarget@fnInternal_v23_05__pxrReserved__@@@std@@@std@@@Z
+[A] ?SetAmbient@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVGfVec4f@2@@Z
+[A] ?SetAmbient@GlfSimpleMaterial@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVGfVec4f@2@@Z
+[A] ?SetAttenuation@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVGfVec3f@2@@Z
+[A] ?SetCamera@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVGfMatrix4d@2@0@Z
+[A] ?SetDiffuse@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVGfVec4f@2@@Z
+[A] ?SetDiffuse@GlfSimpleMaterial@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVGfVec4f@2@@Z
+[A] ?SetDomeLightTextureFile@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVSdfAssetPath@2@@Z
+[A] ?SetEmission@GlfSimpleMaterial@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVGfVec4f@2@@Z
+[A] ?SetHasIntensity@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAX_N@Z
+[A] ?SetHasShadow@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAX_N@Z
+[A] ?SetID@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVSdfPath@2@@Z
+[A] ?SetIsCameraSpaceLight@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAX_N@Z
+[A] ?SetIsDomeLight@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAX_N@Z
+[A] ?SetLights@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEAAXAEBV?$vector@VGlfSimpleLight@fnInternal_v23_05__pxrReserved__@@V?$allocator@VGlfSimpleLight@fnInternal_v23_05__pxrReserved__@@@std@@@std@@@Z
+[A] ?SetMaterial@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVGlfSimpleMaterial@2@@Z
+[A] ?SetMemoryRequested@GlfTexture@fnInternal_v23_05__pxrReserved__@@QEAAX_K@Z
+[A] ?SetPosition@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVGfVec4f@2@@Z
+[A] ?SetPostSurfaceParams@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVTfToken@2@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$VtArray@E@2@@Z
+[A] ?SetProjectionMatrix@GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEAAX_KAEBVGfMatrix4d@2@@Z
+[A] ?SetSceneAmbient@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVGfVec4f@2@@Z
+[A] ?SetShadowBias@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXM@Z
+[A] ?SetShadowBlur@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXM@Z
+[A] ?SetShadowIndexEnd@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXH@Z
+[A] ?SetShadowIndexStart@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXH@Z
+[A] ?SetShadowMapResolutions@GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEAAXAEBV?$vector@VGfVec2i@fnInternal_v23_05__pxrReserved__@@V?$allocator@VGfVec2i@fnInternal_v23_05__pxrReserved__@@@std@@@std@@@Z
+[A] ?SetShadowMatrices@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXAEBV?$vector@VGfMatrix4d@fnInternal_v23_05__pxrReserved__@@V?$allocator@VGfMatrix4d@fnInternal_v23_05__pxrReserved__@@@std@@@std@@@Z
+[A] ?SetShadowResolution@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXH@Z
+[A] ?SetShadows@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEAAXAEBV?$TfRefPtr@VGlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@@2@@Z
+[A] ?SetShininess@GlfSimpleMaterial@fnInternal_v23_05__pxrReserved__@@QEAAXN@Z
+[A] ?SetSize@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEAAXVGfVec2i@2@@Z
+[A] ?SetSpecular@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVGfVec4f@2@@Z
+[A] ?SetSpecular@GlfSimpleMaterial@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVGfVec4f@2@@Z
+[A] ?SetSpotCutoff@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXAEBM@Z
+[A] ?SetSpotDirection@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVGfVec3f@2@@Z
+[A] ?SetSpotFalloff@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXAEBM@Z
+[A] ?SetStateFromOpenGL@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEAAXXZ
+[A] ?SetTextures@GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEAAXV?$vector@IV?$allocator@I@std@@@std@@@Z
+[A] ?SetTransform@GlfSimpleLight@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVGfMatrix4d@2@@Z
+[A] ?SetUseColorMaterialDiffuse@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEAAX_N@Z
+[A] ?SetUseLighting@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEAAX_N@Z
+[A] ?SetViewMatrix@GlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@QEAAX_KAEBVGfMatrix4d@2@@Z
+[A] ?TouchContents@Attachment@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEAAXXZ
+[A] ?TouchContents@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEAAXXZ
+[A] ?Unbind@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEAAXXZ
+[A] ?UnbindSamplers@GlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@QEAAXAEBV?$TfWeakPtr@VGlfBindingMap@fnInternal_v23_05__pxrReserved__@@@2@@Z
+[A] ?Update@GlfUniformBlock@fnInternal_v23_05__pxrReserved__@@QEAAXPEBXH@Z
+[A] ?WriteToFile@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0AEBVGfMatrix4d@2@1@Z
+[A] ?_IsEqual@GlfGLRawContext@fnInternal_v23_05__pxrReserved__@@MEBA_NAEBV?$shared_ptr@VGlfGLContext@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?_IsSharing@GlfGLRawContext@fnInternal_v23_05__pxrReserved__@@MEBA_NAEBV?$shared_ptr@VGlfGLContext@fnInternal_v23_05__pxrReserved__@@@std@@@Z
+[A] ?_MakeCurrent@GlfGLRawContext@fnInternal_v23_05__pxrReserved__@@MEAAXXZ
+[A] ?_MakeNewContextCurrent@GlfGLContextScopeHolder@fnInternal_v23_05__pxrReserved__@@IEAAXXZ
+[A] ?_OnMemoryRequestedDirty@GlfTexture@fnInternal_v23_05__pxrReserved__@@MEAAXXZ
+[A] ?_RestoreOldContext@GlfGLContextScopeHolder@fnInternal_v23_05__pxrReserved__@@IEAAXXZ
+[A] ?_SetMemoryUsed@GlfTexture@fnInternal_v23_05__pxrReserved__@@IEAAX_K@Z
+[A] ?_UpdateContentsID@GlfTexture@fnInternal_v23_05__pxrReserved__@@IEAAXXZ
+[A] ??0GarchWGLContextState@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??8GarchWGLContextState@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBV01@@Z
+[A] ?GetHash@GarchWGLContextState@fnInternal_v23_05__pxrReserved__@@QEBA_KXZ
+[A] ?MakeCurrent@GarchWGLContextState@fnInternal_v23_05__pxrReserved__@@QEAAXXZ
+[A] ?GarchGetNullGLPlatformContextState@fnInternal_v23_05__pxrReserved__@@YA?AVGarchWGLContextState@1@XZ
+[A] ?glGetActiveAttrib@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIIHPEAH0PEAIPEAD@ZEA
+[A] ?glGetActiveUniform@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIIHPEAH0PEAIPEAD@ZEA
+[A] ?glGetActiveUniformBlockName@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIIHPEAHPEAD@ZEA
+[A] ?glGetAttribLocation@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AHIPEBD@ZEA
+[A] ?glGetProgramiv@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIIPEAH@ZEA
+[A] ?glGetUniformBlockIndex@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AIIPEBD@ZEA
+[A] ?glGetUniformLocation@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AHIPEBD@ZEA
+[A] ?glProgramUniform1i@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIHH@ZEA
+[A] ?glUniformBlockBinding@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIII@ZEA
+[A] ?GarchGLApiLoad@GLApi@internal@fnInternal_v23_05__pxrReserved__@@YA_NXZ
+[A] ?glGetIntegerv@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIPEAH@ZEA
+[A] ?glGetString@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6APEBEI@ZEA
+[A] ?gluErrorString@GLApi@internal@fnInternal_v23_05__pxrReserved__@@YAPEBEI@Z
+[A] ?GARCH_GL_KHR_debug@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3_NA
+[A] ?glBeginQuery@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXII@ZEA
+[A] ?glDebugMessageCallbackARB@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXP6AXIIIIHPEBDPEBX@Z1@ZEA
+[A] ?glDebugMessageControlARB@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIIIHPEBIE@ZEA
+[A] ?glDeleteQueries@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXHPEBI@ZEA
+[A] ?glEnable@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXI@ZEA
+[A] ?glEndQuery@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXI@ZEA
+[A] ?glGenQueries@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXHPEAI@ZEA
+[A] ?glGetError@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AIXZEA
+[A] ?glGetQueryObjecti64v@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIIPEA_J@ZEA
+[A] ?glObjectLabel@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIIHPEBD@ZEA
+[A] ?glPopDebugGroup@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXXZEA
+[A] ?glPushDebugGroup@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIIHPEBD@ZEA
+[A] ?glActiveTexture@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXI@ZEA
+[A] ?glBindFramebuffer@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXII@ZEA
+[A] ?glBindTexture@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXII@ZEA
+[A] ?glBlitFramebuffer@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXHHHHHHHHII@ZEA
+[A] ?glDeleteFramebuffers@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXHPEBI@ZEA
+[A] ?glDeleteTextures@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXHPEBI@ZEA
+[A] ?glFramebufferTexture2D@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIIIIH@ZEA
+[A] ?glGenFramebuffers@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXHPEAI@ZEA
+[A] ?glGenTextures@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXHPEAI@ZEA
+[A] ?glGetTexImage@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIHIIPEAX@ZEA
+[A] ?glIsFramebuffer@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AEI@ZEA
+[A] ?glIsTexture@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AEI@ZEA
+[A] ?glPixelStorei@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIH@ZEA
+[A] ?glPopClientAttrib@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXXZEA
+[A] ?glPushClientAttrib@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXI@ZEA
+[A] ?glTexImage2D@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIHHHHHIIPEBX@ZEA
+[A] ?glTexImage2DMultisample@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIHIHHE@ZEA
+[A] ?glTexParameteri@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIIH@ZEA
+[A] ?DoneCurrent@GarchWGLContextState@fnInternal_v23_05__pxrReserved__@@SAXXZ
+[A] ?IsValid@GarchWGLContextState@fnInternal_v23_05__pxrReserved__@@QEBA_NXZ
+[A] ?glBindSampler@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXII@ZEA
+[A] ?glGetDoublev@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIPEAN@ZEA
+[A] ?glGetFloatv@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIPEAM@ZEA
+[A] ?glGetLightfv@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIIPEAM@ZEA
+[A] ?glGetMaterialfv@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIIPEAM@ZEA
+[A] ?glIsEnabled@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AEI@ZEA
+[A] ?glClear@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXI@ZEA
+[A] ?glDeleteSamplers@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXHPEBI@ZEA
+[A] ?glDepthRange@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXNN@ZEA
+[A] ?glDisable@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXI@ZEA
+[A] ?glFramebufferTexture@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIIIH@ZEA
+[A] ?glGenSamplers@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXHPEAI@ZEA
+[A] ?glReadPixels@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXHHHHIIPEAX@ZEA
+[A] ?glSamplerParameterfv@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIIPEBM@ZEA
+[A] ?glSamplerParameteri@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIIH@ZEA
+[A] ?glViewport@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXHHHH@ZEA
+[A] ?glBindBuffer@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXII@ZEA
+[A] ?glBindBufferBase@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXIII@ZEA
+[A] ?glBufferData@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXI_JPEBXI@ZEA
+[A] ?glBufferSubData@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXI_J0PEBX@ZEA
+[A] ?glDeleteBuffers@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXHPEBI@ZEA
+[A] ?glGenBuffers@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AXHPEAI@ZEA
+[A] ?glIsBuffer@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AEI@ZEA
+[A] ?glCheckFramebufferStatus@GLApi@internal@fnInternal_v23_05__pxrReserved__@@3P6AII@ZEA
+[A] fngarch.dll
+[A] ?OpenForWriting@HioImage@fnInternal_v23_05__pxrReserved__@@SA?AV?$shared_ptr@VHioImage@fnInternal_v23_05__pxrReserved__@@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@4@@Z
+[A] ??0HioGlslfxTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1HioGlslfxTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?HioGlslfxTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UHioGlslfxTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UHioGlslfxTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] fnhio.dll
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVSdfPath@0@@Z
+[A] ?_RemovePathTokenFromTable@Sdf_PathNode@fnInternal_v23_05__pxrReserved__@@IEBAXXZ
+[A] ??3Sdf_PrimPartPathNode@fnInternal_v23_05__pxrReserved__@@SAXPEAX@Z
+[A] ??3Sdf_PropPartPathNode@fnInternal_v23_05__pxrReserved__@@SAXPEAX@Z
+[A] ??1Sdf_PrimPathNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ??1Sdf_PrimPropertyPathNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ??1Sdf_PrimVariantSelectionNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ??1Sdf_TargetPathNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ??1Sdf_RelationalAttributePathNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ??1Sdf_MapperPathNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ??1Sdf_MapperArgPathNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ??1Sdf_ExpressionPathNode@fnInternal_v23_05__pxrReserved__@@AEAA@XZ
+[A] ??0SdfAssetPath@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVSdfAssetPath@0@@Z
+[A] ?_regionStarts@?$Sdf_Pool@USdf_PathPrimTag@fnInternal_v23_05__pxrReserved__@@$0BI@$07$0EAAA@@fnInternal_v23_05__pxrReserved__@@0PAPEADA
+[A] ?GetText@SdfPath@fnInternal_v23_05__pxrReserved__@@QEBAPEBDXZ
+[A] fnsdf.dll
+[A] ?lookup@registry@converter@python@foundryboost@@YAAEBUregistration@234@Utype_info@34@@Z
+[A] ?throw_error_already_set@python@foundryboost@@YAXXZ
+[A] ??1?$handle@U_object@@@python@foundryboost@@QEAA@XZ
+[A] ?get@?$handle@U_object@@@python@foundryboost@@QEBAPEAU_object@@XZ
+[A] ??0arg_to_python_base@detail@converter@python@foundryboost@@QEAA@PEDXAEBUregistration@234@@Z
+[A] ??1arg_to_python_base@detail@converter@python@foundryboost@@QEAA@XZ
+[A] foundryboost_python310-vc143-mt-x64-1_80.dll
+[A] ??AVtDictionary@fnInternal_v23_05__pxrReserved__@@QEAAAEAVVtValue@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ?VtStreamOut@fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEBEAEAV23@@Z
+[A] ?VtStreamOutArray@fnInternal_v23_05__pxrReserved__@@YAXAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@PEBUVt_ShapeData@1@V?$TfFunctionRef@$$A6AXAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@@Z@1@@Z
+[A] fnvt.dll
+[A] ??8GfMatrix4d@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBV01@@Z
+[A] ??XGfMatrix4d@fnInternal_v23_05__pxrReserved__@@QEAAAEAV01@AEBV01@@Z
+[A] ?SetScale@GfMatrix4d@fnInternal_v23_05__pxrReserved__@@QEAAAEAV12@AEBVGfVec3d@2@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfMatrix4d@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfVec4f@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVGfVec3f@0@@Z
+[A] ?SetDiagonal@GfMatrix4d@fnInternal_v23_05__pxrReserved__@@QEAAAEAV12@N@Z
+[A] ?GetInverse@GfMatrix4d@fnInternal_v23_05__pxrReserved__@@QEBA?AV12@PEANN@Z
+[A] ??DfnInternal_v23_05__pxrReserved__@@YA?AVGfVec4f@0@AEBV10@AEBVGfMatrix4d@0@@Z
+[A] ?SetTranslate@GfMatrix4d@fnInternal_v23_05__pxrReserved__@@QEAAAEAV12@AEBVGfVec3d@2@@Z
+[A] fngf.dll
+[A] ?Scope@TraceCollector@fnInternal_v23_05__pxrReserved__@@SAXAEBVTraceKey@2@_K1@Z
+[A] ?_isEnabled@TraceCollector@fnInternal_v23_05__pxrReserved__@@0U?$atomic@H@std@@A
+[A] fntrace.dll
+[A] ?Tf_RegistryInitCtor@fnInternal_v23_05__pxrReserved__@@YAXPEBD@Z
+[A] ?Tf_RegistryInitDtor@fnInternal_v23_05__pxrReserved__@@YAXPEBD@Z
+[A] ?Add@Tf_RegistryInit@fnInternal_v23_05__pxrReserved__@@SAXPEBDP6AXPEAX1@Z0@Z
+[A] ??0TfToken@fnInternal_v23_05__pxrReserved__@@QEAA@PEBD@Z
+[A] ?_PossiblyDestroyRep@TfToken@fnInternal_v23_05__pxrReserved__@@AEBAXXZ
+[A] ?GetInstance@TfScriptModuleLoader@fnInternal_v23_05__pxrReserved__@@SAAEAV12@XZ
+[A] ?RegisterLibrary@TfScriptModuleLoader@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVTfToken@2@0AEBV?$vector@VTfToken@fnInternal_v23_05__pxrReserved__@@V?$allocator@VTfToken@fnInternal_v23_05__pxrReserved__@@@std@@@std@@@Z
+[A] ?_AddName@TfEnum@fnInternal_v23_05__pxrReserved__@@SAXV12@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@1@Z
+[A] ?_RegisterDebugSymbolImpl@TfDebug@fnInternal_v23_05__pxrReserved__@@SAXPEAU_Node@12@PEBD1@Z
+[A] ?IssueFatalError@Tf_DiagnosticLiteHelper@fnInternal_v23_05__pxrReserved__@@QEBAXPEBDZZ
+[A] ?Tf_PostErrorHelper@fnInternal_v23_05__pxrReserved__@@YAXAEBVTfCallContext@1@W4TfDiagnosticType@1@PEBDZZ
+[A] ?Tf_FailedVerifyHelper@fnInternal_v23_05__pxrReserved__@@YA_NAEBVTfCallContext@1@PEBD1@Z
+[A] ?Tf_VerifyStringFormat@fnInternal_v23_05__pxrReserved__@@YAPEBDPEBDZZ
+[A] ?IssueFatalError@Tf_DiagnosticHelper@fnInternal_v23_05__pxrReserved__@@QEBAXPEBDZZ
+[A] ?_Begin@TfMallocTag@fnInternal_v23_05__pxrReserved__@@CAPEAU_ThreadData@12@PEBDPEAU312@@Z
+[A] ?_End@TfMallocTag@fnInternal_v23_05__pxrReserved__@@CAXPEAU_ThreadData@12@@Z
+[A] ?_isInitialized@TfMallocTag@fnInternal_v23_05__pxrReserved__@@0U?$atomic@_N@std@@A
+[A] ??0TfToken@fnInternal_v23_05__pxrReserved__@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ?_InitializeNode@TfDebug@fnInternal_v23_05__pxrReserved__@@CAXAEAU_Node@12@PEBD@Z
+[A] ?Tf_PostErrorHelper@fnInternal_v23_05__pxrReserved__@@YAXAEBVTfCallContext@1@W4TfDiagnosticType@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ?Tf_PostWarningHelper@fnInternal_v23_05__pxrReserved__@@YAXAEBVTfCallContext@1@PEBDZZ
+[A] ?Msg@Helper@TfDebug@fnInternal_v23_05__pxrReserved__@@SAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+[A] ?TfGetStackTrace@fnInternal_v23_05__pxrReserved__@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+[A] ?TfStringPrintf@fnInternal_v23_05__pxrReserved__@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBDZZ
+[A] ??$Tf_InitializeEnvSetting@H@fnInternal_v23_05__pxrReserved__@@YAXPEAU?$TfEnvSetting@H@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVTfToken@0@@Z
+[A] ?_FindByTypeid@TfType@fnInternal_v23_05__pxrReserved__@@CAAEBV12@AEBVtype_info@@@Z
+[A] ??0TfPyObjWrapper@fnInternal_v23_05__pxrReserved__@@QEAA@Vobject@api@python@foundryboost@@@Z
+[A] ??0TfPyLock@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1TfPyLock@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?TfStringGetSuffix@fnInternal_v23_05__pxrReserved__@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV23@D@Z
+[A] ??1TfRefBase@fnInternal_v23_05__pxrReserved__@@MEAA@XZ
+[A] ?_RemoveRef@Tf_RefPtr_UniqueChangedCounter@fnInternal_v23_05__pxrReserved__@@SA_NPEBVTfRefBase@2@@Z
+[A] ?_AddRef@Tf_RefPtr_UniqueChangedCounter@fnInternal_v23_05__pxrReserved__@@SAHPEBVTfRefBase@2@@Z
+[A] ?Tf_PostNullSmartPtrDereferenceFatalError@fnInternal_v23_05__pxrReserved__@@YAXAEBVTfCallContext@1@PEBD@Z
+[A] ?Invoke2@Tf_ExpiryNotifier@fnInternal_v23_05__pxrReserved__@@SAXPEBX@Z
+[A] ?TfStringTokenize@fnInternal_v23_05__pxrReserved__@@YA?AV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@PEBD@Z
+[A] ??0TfToken@fnInternal_v23_05__pxrReserved__@@QEAA@PEBDW4_ImmortalTag@01@@Z
+[A] ?_GetEmptyString@TfToken@fnInternal_v23_05__pxrReserved__@@CAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+[A] ?Msg@Helper@TfDebug@fnInternal_v23_05__pxrReserved__@@SAXPEBDZZ
+[A] ?Tf_PostWarningHelper@fnInternal_v23_05__pxrReserved__@@YAXAEBVTfCallContext@1@W4TfDiagnosticType@1@PEBDZZ
+[A] ?GetCanonicalTypeName@TfType@fnInternal_v23_05__pxrReserved__@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVtype_info@@@Z
+[A] ?Declare@TfType@fnInternal_v23_05__pxrReserved__@@SAAEBV12@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$vector@VTfType@fnInternal_v23_05__pxrReserved__@@V?$allocator@VTfType@fnInternal_v23_05__pxrReserved__@@@std@@@4@P6AXV12@@Z@Z
+[A] ?_DefineCppType@TfType@fnInternal_v23_05__pxrReserved__@@AEBAXAEBVtype_info@@_K_N2@Z
+[A] fntf.dll
+[A] ??0Arch_ConstructorInit@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1Arch_ConstructorInit@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?ArchGetDemangled@fnInternal_v23_05__pxrReserved__@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBD@Z
+[A] ?ArchIsMainThread@fnInternal_v23_05__pxrReserved__@@YA_NXZ
+[A] ?ArchHash64@fnInternal_v23_05__pxrReserved__@@YA_KPEBD_K1@Z
+[A] ?ArchGetPrettierFunctionName@fnInternal_v23_05__pxrReserved__@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV23@0@Z
+[A] ?ArchNormPath@fnInternal_v23_05__pxrReserved__@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV23@_N@Z
+[A] ?ArchGetTmpDir@fnInternal_v23_05__pxrReserved__@@YAPEBDXZ
+[A] fnarch.dll
+[A] _Py_Dealloc
+[A] PyLong_FromLong
+[A] PyLong_FromUnsignedLong
+[A] PyLong_FromUnsignedLongLong
+[A] _Py_NoneStruct
+[A] python310.dll
+[A] ?_Xlength_error@std@@YAXPEBD@Z
+[A] _Thrd_yield
+[A] ?uncaught_exception@std@@YA_NXZ
+[A] ?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHD@Z
+[A] ?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAA_JPEBD_J@Z
+[A] ?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAAXH_N@Z
+[A] ?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAXXZ
+[A] ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@H@Z
+[A] ?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@XZ
+[A] ?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
+[A] ?setf@ios_base@std@@QEAAHHH@Z
+[A] ??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAA@XZ
+[A] ??1?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAA@XZ
+[A] ?_Pninc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAPEADXZ
+[A] ??1?$basic_ios@DU?$char_traits@D@std@@@std@@UEAA@XZ
+[A] ??0?$basic_ios@DU?$char_traits@D@std@@@std@@IEAA@XZ
+[A] ??0?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z
+[A] ??1?$basic_ostream@DU?$char_traits@D@std@@@std@@UEAA@XZ
+[A] ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@P6AAEAVios_base@1@AEAV21@@Z@Z
+[A] ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@I@Z
+[A] ?imbue@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAXAEBVlocale@2@@Z
+[A] ?setbuf@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAPEAV12@PEAD_J@Z
+[A] ?xsgetn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEAD_J@Z
+[A] ?uflow@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHXZ
+[A] ?showmanyc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JXZ
+[A] ?xsputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEBD_J@Z
+[A] ?sync@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHXZ
+[A] ?_Lock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAAXXZ
+[A] ?_Unlock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAAXXZ
+[A] ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@_K@Z
+[A] ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@_N@Z
+[A] ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@M@Z
+[A] ??0?$basic_iostream@DU?$char_traits@D@std@@@std@@QEAA@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@@Z
+[A] ??1?$basic_iostream@DU?$char_traits@D@std@@@std@@UEAA@XZ
+[A] MSVCP140.dll
+[A] __std_terminate
+[A] __std_exception_copy
+[A] __std_exception_destroy
+[A] _CxxThrowException
+[A] __CxxFrameHandler4
+[A] memcpy
+[A] memmove
+[A] _purecall
+[A] __std_type_info_name
+[A] memcmp
+[A] strchr
+[A] __std_type_info_compare
+[A] __RTDynamicCast
+[A] memset
+[A] __current_exception
+[A] __current_exception_context
+[A] __C_specific_handler
+[A] __std_type_info_destroy_list
+[A] VCRUNTIME140.dll
+[A] VCRUNTIME140_1.dll
+[A] _invalid_parameter_noinfo_noreturn
+[A] ceilf
+[A] __acrt_iob_func
+[A] __stdio_common_vfprintf
+[A] terminate
+[A] _callnewh
+[A] malloc
+[A] _seh_filter_dll
+[A] _configure_narrow_argv
+[A] _initialize_narrow_environment
+[A] _initialize_onexit_table
+[A] _register_onexit_function
+[A] _execute_onexit_table
+[A] _crt_atexit
+[A] _cexit
+[A] free
+[A] _initterm
+[A] _initterm_e
+[A] api-ms-win-crt-runtime-l1-1-0.dll
+[A] api-ms-win-crt-math-l1-1-0.dll
+[A] api-ms-win-crt-stdio-l1-1-0.dll
+[A] api-ms-win-crt-heap-l1-1-0.dll
+[A] InitializeSListHead
+[A] CloseHandle
+[A] EnterCriticalSection
+[A] LeaveCriticalSection
+[A] InitializeCriticalSectionAndSpinCount
+[A] DeleteCriticalSection
+[A] SetEvent
+[A] ResetEvent
+[A] WaitForSingleObjectEx
+[A] CreateEventW
+[A] GetModuleHandleW
+[A] GetProcAddress
+[A] RtlCaptureContext
+[A] RtlLookupFunctionEntry
+[A] RtlVirtualUnwind
+[A] IsDebuggerPresent
+[A] UnhandledExceptionFilter
+[A] SetUnhandledExceptionFilter
+[A] IsProcessorFeaturePresent
+[A] GetCurrentProcess
+[A] TerminateProcess
+[A] QueryPerformanceCounter
+[A] GetCurrentProcessId
+[A] GetCurrentThreadId
+[A] GetSystemTimeAsFileTime
+[A] DisableThreadLibraryCalls
+[A] KERNEL32.dll
+[A] .?AVbad_array_new_length@std@@
+[A] .?AVbad_alloc@std@@
+[A] .?AVexception@std@@
+[A] .?AW4GLF_DEBUG_CONTEXT_CAPS__DebugCodes@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVbad_weak_ptr@std@@
+[A] .?AVGlfGLContextRegistry@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGlfContextCaps@fnInternal_v23_05__pxrReserved__@@
+[A] ._K
+[A] .?AV?$TfRefPtr@VAttachment@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$TfWeakPtr@VGlfDrawTarget@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$TfRefPtr@VAttachmentsContainer@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$TfRefPtr@VTf_Remnant@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVTfToken@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGfMatrix4d@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGlfGLRawContext@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$TfWeakPtr@VGlfBindingMap@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$TfRefPtr@VGlfUniformBlock@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$TfRefPtr@VGlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGlfGLContextRegistrationInterface@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV?$basic_stringbuf@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@
+[A] .?AV?$basic_streambuf@DU?$char_traits@D@std@@@std@@
+[A] .?AV?$basic_ostringstream@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@
+[A] .?AV?$basic_ostream@DU?$char_traits@D@std@@@std@@
+[A] .?AV?$basic_ios@DU?$char_traits@D@std@@@std@@
+[A] .?AVios_base@std@@
+[A] .?AV?$_Iosb@H@std@@
+[A] .?AVTfRefBase@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGlfDrawTarget@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVTfWeakBase@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVAttachment@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGlfTexture@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVAttachmentsContainer@GlfDrawTarget@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGlfGLContext@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_Ref_count_base@std@@
+[A] .?AV?$_Ref_count@VGlfGLRawContext@fnInternal_v23_05__pxrReserved__@@@std@@
+[A] .?AV?$basic_stringstream@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@
+[A] .?AV?$basic_iostream@DU?$char_traits@D@std@@@std@@
+[A] .?AV?$basic_istream@DU?$char_traits@D@std@@@std@@
+[A] .?AVGlfSimpleLightingContext@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGlfSimpleShadowArray@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVGlfUniformBlock@fnInternal_v23_05__pxrReserved__@@
+[A] .?AVtype_info@@
+[A] <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+[A] <assembly xmlns='urn:schemas-microsoft-com:asm.v1' manifestVersion='1.0'>
+[A] <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+[A] <security>
+[A] <requestedPrivileges>
+[A] <requestedExecutionLevel level='asInvoker' uiAccess='false' />
+[A] </requestedPrivileges>
+[A] </security>
+[A] </trustInfo>
+[A] </assembly>
+[A] =]0
+[A] N0L0
+[A] 010
+[A] !ZFmw?
+[A] 0w1
+[A] US1
+[A] Microsoft Corporation1H0F
+[A] ?Microsoft Identity Verification Root Certificate Authority 20200
+[A] 200416183616Z
+[A] 450416184440Z0w1
+[A] mZMyS
+[A] sgI
+[A] mbj
+[A] -oI
+[A] -b-/
+[A] hMr
+[A] [oy&
+[A] 2={W
+[A] s]2V
+[A] !W>
+[A] 'I{
+[A] @Y(
+[A] 3Yt
+[A] {Pm
+[A] Q,4
+[A] O`(
+[A] T0R0
+[A] jZ]tC0
+[A] I>t
+[A] V,e
+[A] ~2(
+[A] gs-
+[A] t'R
+[A] 6"A
+[A] 2va
+[A] ^QM"
+[A] |!W
+[A] w(p
+[A] [:[
+[A] e\t
+[A] zjt
+[A] wuX_5
+[A] d8;_
+[A] Kx;-
+[A] iJ*
+[A] 0Z1
+[A] Microsoft Corporation1+0)
+[A] "Microsoft ID Verified CS EOC CA 020
+[A] 241126051451Z
+[A] 241129051451Z0n1
+[A] GB1
+[A] London1&0$
+[A] THE FOUNDRY VISIONMONGERS LTD1&0$
+[A] THE FOUNDRY VISIONMONGERS LTD0
+[A] 4{6L
+[A] B$C
+[A] O^6
+[A] ch1
+[A] 503
+[A] {|f
+[A] ^0g
+[A] `0^0\
+[A] Vhttp://www.microsoft.com/pkiops/crl/Microsoft%20ID%20Verified%20CS%20EOC%20CA%2002.crl0
+[A] Xhttp://www.microsoft.com/pkiops/certs/Microsoft%20ID%20Verified%20CS%20EOC%20CA%2002.crt0-
+[A] !http://oneocsp.microsoft.com/ocsp0f
+[A] _0]0Q
+[A] 0A0?
+[A] 3http://www.microsoft.com/pkiops/Docs/Repository.htm0
+[A] lQ<S
+[A] 6Eh
+[A] PM[q
+[A] EKmh
+[A] E1]
+[A] Z^]
+[A] 8p9d
+[A] ,wE
+[A] K_s
+[A] Zku
+[A] 5L>
+[A] :G4
+[A] z\2
+[A] 0c1
+[A] Microsoft Corporation1402
+[A] +Microsoft ID Verified Code Signing PCA 20210
+[A] 210413173153Z
+[A] 260413173153Z0Z1
+[A] |?2
+[A] nmt
+[A] hGox
+[A] 4kT
+[A] BXbk
+[A] +\_[
+[A] *zm
+[A] ]ifWb
+[A] I7?
+[A] ZtHP
+[A] :</q
+[A] 7B8Ov
+[A] o7?z
+[A] Y16#
+[A] J:R75g(
+[A] e0h
+[A] _(2e
+[A] Kze
+[A] QT bYW
+[A] \L$
+[A] 05m
+[A] q3{
+[A] ^0T
+[A] M0K0I
+[A] Hj0
+[A] i0g0e
+[A] _http://www.microsoft.com/pkiops/crl/Microsoft%20ID%20Verified%20Code%20Signing%20PCA%202021.crl0
+[A] ahttp://www.microsoft.com/pkiops/certs/Microsoft%20ID%20Verified%20Code%20Signing%20PCA%202021.crt0-
+[A] !http://oneocsp.microsoft.com/ocsp0
+[A] EI`
+[A] ?c>@
+[A] #bM
+[A] uX|[
+[A] nDB
+[A] St0
+[A] UF9
+[A] GLm
+[A] _02wM
+[A] =-6
+[A] A:?
+[A] 5UG
+[A] l[[
+[A] LWn
+[A] WI1DR
+[A] $|lt|
+[A] zo)B
+[A] r){L
+[A] _Zm|}e
+[A] E1I
+[A] .7g
+[A] 210401200520Z
+[A] 360401201520Z0c1
+[A] TzLIli
+[A] w)M
+[A] '0C
+[A] wn6
+[A] ,eN
+[A] (:y
+[A] 7&%
+[A] 86a
+[A] MSb
+[A] ]SK
+[A] 4Bo
+[A] W{92
+[A] i!V
+[A] k4NtI
+[A] S[9
+[A] C,{K
+[A] nrAn
+[A] 7@:p[RF
+[A] 0Tn
+[A] }0{0y
+[A] shttp://www.microsoft.com/pkiops/crl/Microsoft%20Identity%20Verification%20Root%20Certificate%20Authority%202020.crl0
+[A] uhttp://www.microsoft.com/pkiops/certs/Microsoft%20Identity%20Verification%20Root%20Certificate%20Authority%202020.crt0-
+[A] W#L
+[A] [9}
+[A] WOC
+[A] lt)l
+[A] @?^
+[A] b(_
+[A] 4o,MDo
+[A] 989
+[A] 0"D
+[A] LW1
+[A] .40+
+[A] E'UUSR
+[A] 8y;T
+[A] >3{
+[A] h-Y:`W
+[A] $J$
+[A] 0q0Z1
+[A] "Microsoft ID Verified CS EOC CA 02
+[A] q12w
+[A] ##V
+[A] #[4
+[A] e.:
+[A] -sWy@
+[A] 'K@-
+[A] w~}
+[A] "s]-
+[A] $#P
+[A] 8i\
+[A] PD+
+[A] |L[
+[A] +=TgK
+[A] [Wv
+[A] N*a
+[A] z:r
+[A] 20241126133532.09Z0
+[A] Washington1
+[A] Redmond1
+[A] Microsoft Corporation1-0+
+[A] $Microsoft Ireland Operations Limited1&0$
+[A] Thales TSS ESN:4E89-9666-FFE71503
+[A] ,Microsoft Public RSA Time Stamping Authority
+[A] 201119203231Z
+[A] 351119204231Z0a1
+[A] Microsoft Corporation1200
+[A] )Microsoft Public RSA Timestamping CA 20200
+[A] eFGw
+[A] ]po
+[A] J{t1
+[A] xmVk\
+[A] bT<.
+[A] _Xr!e
+[A] =$7I
+[A] .k;
+[A] Pd~y
+[A] |Qa
+[A] maJ
+[A] x7m
+[A] Bwg#D
+[A] gs<
+[A] L[rA}
+[A] ?Q<p
+[A] ki(:5/Hc@
+[A] !0T
+[A] uhttp://www.microsoft.com/pkiops/certs/Microsoft%20Identity%20Verification%20Root%20Certificate%20Authority%202020.crt0
+[A] Lxh
+[A] 2KS
+[A] Smu
+[A] t[|
+[A] Tv'
+[A] xjWk`
+[A] d%f
+[A] u*Q
+[A] (t5
+[A] N\rv!a
+[A] Dkb&
+[A] Zo<O
+[A] ?_h
+[A] ][0
+[A] 0a1
+[A] 240418175915Z
+[A] 250417175915Z0
+[A] ,Microsoft Public RSA Time Stamping Authority0
+[A] 9mZ
+[A] mux
+[A] tJF0
+[A] "o+=
+[A] NUER
+[A] R^r;
+[A] Pc@*
+[A] vf4
+[A] =e!q\Iu
+[A] H6T
+[A] >=5kcs
+[A] B1&
+[A] L?x[
+[A] [1<:
+[A] 3Fik
+[A] 2,I]
+[A] _!j
+[A] ]=jBh\U
+[A] 9_id
+[A] Hl<
+[A] `aZ
+[A] [x4
+[A] eiB
+[A] 83H
+[A] !0l
+[A] e0c0a
+[A] [http://www.microsoft.com/pkiops/crl/Microsoft%20Public%20RSA%20Timestamping%20CA%202020.crl0y
+[A] m0k0i
+[A] ]http://www.microsoft.com/pkiops/certs/Microsoft%20Public%20RSA%20Timestamping%20CA%202020.crt0
+[A] ^'"g
+[A] =rmj8
+[A] .Xi
+[A] B=?
+[A] e|{
+[A] PK3
+[A] `JU(!
+[A] [.J
+[A] yb\o$
+[A] (*v_
+[A] P4-}
+[A] 4Nt&u
+[A] b[c
+[A] i4a
+[A] 0x0a1
+[A] )Microsoft Public RSA Timestamping CA 2020
+[A] 241126133532Z0/
+[A] ?wp
+[A] `&[
+[A] ?A@
+[A] 0|0e
+[A] c0a1
+[A] 4TY
+[A] E07X
+[A] g0e
+[A] 20241126113445Z
+[A] 20241127113445Z0w0=
+[A] 1/0-0
+[A] 1(0&0
+[A] gz1
+[A] :EH
+[A] 1l5
+[A] pDh
+[A] :jY
+[A] opy
+[A] PAH
+[A] [\%
+[A] q`9
+[A] SF&
+[A] "I2
+[A] Fk1kV
+[A] CO,
+[A] BjC
+[A] RhDz
+[A] "Bw
+[A] TmW
+[A] \od
+[A] LVN
+[A] ?*(
+[U] api-ms-win-core-synch-l1-2-0.dll
+[U] kernel32.dll
+[U] !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+[U] SubC

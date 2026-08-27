@@ -1,0 +1,1875 @@
+# source: fnpxOsd.dll
+# bytes: 126848
+# strings: 1871
+
+[A] !This program cannot be run in DOS mode.
+[A] fRich
+[A] .text
+[A] `.rdata
+[A] @.data
+[A] .pdata
+[A] @.pxrctor
+[A] @.rsrc
+[A] @.reloc
+[A] tWH
+[A] t-H
+[A] \$0H
+[A] @SH
+[A] t1H
+[A] H0H
+[A] H H
+[A] t0H
+[A] t*H
+[A] \$pI
+[A] tMH
+[A] 'I+
+[A] 'H+
+[A] VWATAVAWH
+[A] HcH
+[A] |1(H
+[A] t$ H
+[A] L1HH
+[A] HcA
+[A] D0PH
+[A] D$(
+[A] @t+H
+[A] ~&H
+[A] T1XH
+[A] L1H
+[A] ~(H
+[A] \$pH
+[A] D1(
+[A] t$`
+[A] \$pL
+[A] |$ H
+[A] L9HH
+[A] \$hH
+[A] 0A_A^A\_^
+[A] t}WH
+[A] t$8H
+[A] Y 3
+[A] r.H
+[A] w4I
+[A] \$xH
+[A] LcH
+[A] t$ I
+[A] @t4
+[A] t,H
+[A] \$x
+[A] u(f
+[A] t(H
+[A] \$xL
+[A] %?&
+[A] O I
+[A] A H
+[A] G0H
+[A] O(H
+[A] D$P
+[A] OHH
+[A] OXH
+[A] GPH
+[A] D$X
+[A] OpH
+[A] GxH
+[A] C H
+[A] C0H
+[A] K8H
+[A] CHH
+[A] CXH
+[A] K`H
+[A] CpH
+[A] \$0
+[A] K I
+[A] I H
+[A] K0H
+[A] C(H
+[A] KHH
+[A] KXH
+[A] CPH
+[A] KpH
+[A] CxH
+[A] T$`H
+[A] G`3
+[A] Gp3
+[A] wxH
+[A] s8H
+[A] s`H
+[A] t$8
+[A] T$XH
+[A] C`H
+[A] D$8H
+[A] t"H
+[A] G H
+[A] w(H
+[A] G8H
+[A] GHH
+[A] wPH
+[A] G`H
+[A] GpH
+[A] \$@H
+[A] t$HH
+[A] I0L
+[A] B@L
+[A] A@M
+[A] A8H
+[A] IXL
+[A] BhL
+[A] AhM
+[A] A`H
+[A] r,H
+[A] w!I
+[A] Q H
+[A] r-H
+[A] w"I
+[A] D$0H
+[A] L$0I
+[A] T$0I
+[A] @SUVWAVH
+[A] t'H
+[A] @0H
+[A] N0H
+[A] D$ H
+[A] l$(
+[A] (D$ f
+[A] D$PL
+[A] D$PI
+[A] NXH
+[A] l$8
+[A] (D$0f
+[A] D$`L
+[A] D$`I
+[A] V8H
+[A] D$@H
+[A] l$H
+[A] (D$@f
+[A] D$pL
+[A] D$pI
+[A] V`H
+[A] t2H
+[A] A^_^][
+[A] q H
+[A] H;r u
+[A] H9C
+[A] t&H
+[A] t)L
+[A] W I
+[A] \$02
+[A] VWAVH
+[A] l$(u
+[A] D$0
+[A] t$0H
+[A] ucH
+[A] uNH
+[A] t=H
+[A] S8H
+[A] S`H
+[A] D$`A
+[A] t$`L
+[A] L$`
+[A] l$pH
+[A] @A^_^
+[A] A9Q
+[A] uGE
+[A] D9A
+[A] \$8H
+[A] t$ WH
+[A] l$ H
+[A] t$(u
+[A] W8H
+[A] W`H
+[A] D$PA
+[A] l$PL
+[A] L$P
+[A] \$XH
+[A] l$`H
+[A] t$hH
+[A] l$ WH
+[A] l$(H
+[A] D$0u
+[A] D$8
+[A] D$`H
+[A] D$`
+[A] |$0
+[A] D$PH
+[A] T$8H
+[A] l$hH
+[A] D$h
+[A] D$hH
+[A] D$0L
+[A] T$(H
+[A] L$ H
+[A] T$hH
+[A] L$h
+[A] Q`H
+[A] Y8L
+[A] T$(L
+[A] \$ L
+[A] \$`H
+[A] T$0H
+[A] D$(H
+[A] t_H
+[A] K H
+[A] tlH
+[A] gfffffffH
+[A] |$ ATAVAWH
+[A] ?L;
+[A] t<H
+[A] wUH
+[A] K'H;
+[A] x'H
+[A] v4H
+[A] #L+
+[A] l$HH
+[A] t$PH
+[A] |$XI
+[A] A_A^A\
+[A] SVWATAUAVAWH
+[A] gfffffffI
+[A] fffffff
+[A] \$(H
+[A] \$ H
+[A] d$xH
+[A] |$xI
+[A] tsL
+[A] (I;
+[A] w@L
+[A] 0A_A^A]A\_^[
+[A] WAVAWH
+[A] v5I
+[A] u+H;
+[A] tgH;
+[A] u%H
+[A] }+K
+[A] A9D
+[A] ~6fff
+[A] A_A^_
+[A] tiM
+[A] fff
+[A] @(A
+[A] D$HM
+[A] t*I
+[A] T$ M
+[A] L$(
+[A] T$ H
+[A] T$@H
+[A] r5H
+[A] L$(H
+[A] L$HH3
+[A] tSH
+[A] rMH
+[A] w{H
+[A] l$8H
+[A] t$@H
+[A] UVWATAUAVAWH
+[A] L$ 3
+[A] t$(H
+[A] l$0u
+[A] d$8H
+[A] E0H
+[A] D$@
+[A] D$H
+[A] L$H
+[A] D$HH
+[A] D$X*
+[A] u>A
+[A] I;W
+[A] F(f
+[A] A*I
+[A] D$@I
+[A] t$`H
+[A] t$HI
+[A] r4I
+[A] D$ A
+[A] t$ L
+[A] L$hH3
+[A] pA_A^A]A\_^]
+[A] t>H
+[A] |$0H
+[A] H;K
+[A] S@H
+[A] X0H
+[A] r4H
+[A] D$ L
+[A] L$HL
+[A] =+[
+[A] HXH
+[A] H`H
+[A] p UWATAVAWH
+[A] r1H
+[A] tqL;
+[A] /1w
+[A] N8I
+[A] FXL
+[A] t;H
+[A] [@I
+[A] sHA
+[A] A_A^A\_]
+[A] t!H
+[A] A0H
+[A] L$0
+[A] T$HH
+[A] L$0H
+[A] L$PH3
+[A] =YQ
+[A] =cQ
+[A] H(H
+[A] J8H
+[A] BXL
+[A] D$83
+[A] D$@?
+[A] C8M;
+[A] B`H
+[A] L$8
+[A] D$P/
+[A] T$PH
+[A] L$8H
+[A] L$`H3
+[A] [ I
+[A] s(I
+[A] =~J
+[A] HpH
+[A] HhH
+[A] H8H
+[A] H@H
+[A] =#G
+[A] HxH
+[A] HPH
+[A] HHH
+[A] J'H;
+[A] ?H;
+[A] wWH
+[A] A'H;
+[A] v=H
+[A] w[H
+[A] ?I;
+[A] L+!I
+[A] t$XI
+[A] r)I
+[A] N'I;
+[A] X'H
+[A] t$X
+[A] t$XH
+[A] \$hJ
+[A] w-I
+[A] A_A^A\_^
+[A] v+H
+[A] \$HH
+[A] K'H
+[A] \$HH;
+[A] |$XL
+[A] w)I
+[A] \$PH
+[A] A^_^
+[A] SVWAVAWH
+[A] 4?H
+[A] |$X
+[A] |$XH
+[A] \$hL
+[A] t3H
+[A] w'I
+[A] A_A^_^[
+[A] J0H
+[A] JXH
+[A] t~H
+[A] (H;
+[A] w(L
+[A] USVWAVH
+[A] E8H
+[A] U0H
+[A] E@H
+[A] tmH
+[A] taH
+[A] tQL
+[A] t8H
+[A] PA^_^[]
+[A] UVWH
+[A] D$x
+[A] D$xL
+[A] L$xL
+[A] |$0H;
+[A] L$8H+
+[A] @_^]
+[A] @USVWAVAWH
+[A] D8p4t
+[A] uPH
+[A] @PH
+[A] t+H
+[A] D$ @
+[A] @HH
+[A] MgH
+[A] @ H
+[A] EgI
+[A] @(H
+[A] MwH
+[A] @XH
+[A] EwI
+[A] @`H
+[A] EoH
+[A] EoL
+[A] EwH
+[A] EgH
+[A] A_A^_^[]
+[A] =w0
+[A] =@0
+[A] O8H
+[A] Q0HcI
+[A] D$0J
+[A] D$XP
+[A] w0I
+[A] USVWATAUAVAWH
+[A] \$H
+[A] M0H
+[A] M8H
+[A] L$`H
+[A] D$pH
+[A] L$hH
+[A] T$PL
+[A] T$8L
+[A] t|E
+[A] D$pA
+[A] tJL
+[A] ]HL
+[A] mPH
+[A] EX.
+[A] M`D
+[A] uhM
+[A] T$@M
+[A] D$pB
+[A] D$xI
+[A] E@N
+[A] |vI
+[A] ]pH
+[A] MxH
+[A] D$ D
+[A] L$0L
+[A] unI
+[A] H;t$xH
+[A] D$@L
+[A] T$8I
+[A] D$pJc
+[A] \$HL
+[A] H9u
+[A] tqL
+[A] xEI
+[A] D;A
+[A] Hc}
+[A] x&I
+[A] @`A
+[A] t?H
+[A] tBH
+[A] tDH
+[A] M@H
+[A] A_A^A]A\_^[]
+[A] \$8I
+[A] ppH
+[A] E`H
+[A] M0L
+[A] KcT
+[A] M`H
+[A] k I
+[A] SUVWATAUAVAWH
+[A] 0I;
+[A] t"I
+[A] L1 f
+[A] D$ ;
+[A] Lc!
+[A] {pI
+[A] O0E
+[A] Hc|$@H
+[A] 1vWH
+[A] tCI
+[A] ~Xff
+[A] 1E3
+[A] t)fff
+[A] D1 Ic
+[A] xA_A^A]A\_^][
+[A] D$(L
+[A] vQH
+[A] l$ VWATAVAWH
+[A] Hc\$@3
+[A] |$$L
+[A] d$`H
+[A] F0L
+[A] OhM
+[A] 0v.I
+[A] GpI+
+[A] OhMc
+[A] D$(9
+[A] L$$;8H
+[A] |$$H
+[A] F0H
+[A] ?Hc
+[A] CvEH
+[A] 0v.H
+[A] LcE
+[A] kHI
+[A] @USVWATAVAWH
+[A] N@H
+[A] V H
+[A] NhH
+[A] VHH
+[A] VpH
+[A] L$@H
+[A] H0I
+[A] A_A^A\_^[]
+[A] Y H
+[A] z H
+[A] H9F
+[A] t H+
+[A] @USVWH
+[A] ufH
+[A] tUH
+[A] @t;
+[A] H0@
+[A] X_^[]
+[A] S L
+[A] K@H
+[A] SHL
+[A] KhH
+[A] SpL
+[A] O'I;
+[A] 4<I
+[A] D$0I
+[A] u"I;
+[A] LH;
+[A] t L+
+[A] t@L
+[A] w3I
+[A] @A_A^A]A\_^[
+[A] WATAUAVAWH
+[A] M8E3
+[A] M@E3
+[A] MHE3
+[A] MPE3
+[A] MXE3
+[A] M`E3
+[A] MhE3
+[A] MpE3
+[A] MxE3
+[A] H;S
+[A] t1I
+[A] E H
+[A] E(H
+[A] EHH
+[A] EPH
+[A] EXH
+[A] EhH
+[A] EpH
+[A] ExH
+[A] A_A^A]A\_
+[A] KxH
+[A] KPH
+[A] K(H
+[A] D$xN
+[A] A_A^A]A\_^[
+[A] t$hI
+[A] D$xH
+[A] t$h
+[A] \$xJ
+[A] w.I
+[A] \$0L
+[A] t$8E3
+[A] S8H+
+[A] wAH
+[A] s(L
+[A] s0L
+[A] D8w
+[A] l$@H
+[A] 46H
+[A] A(H
+[A] A@H
+[A] AHH
+[A] APH
+[A] AXH
+[A] AhH
+[A] ApH
+[A] AxH
+[A] t@H
+[A] \$ AVH
+[A] l$0H
+[A] ~UH
+[A] t$8A
+[A] |$@
+[A] |$@H
+[A] tOH
+[A] tIH
+[A] tJH
+[A] sxL
+[A] SpH+
+[A] s`L
+[A] shL
+[A] spH
+[A] tAH
+[A] SXH+
+[A] sHL
+[A] sPL
+[A] sXH
+[A] S@H+
+[A] wfI
+[A] s8L
+[A] s@H
+[A] S(H+
+[A] w I
+[A] s L
+[A] s(H
+[A] D$03
+[A] l$8L
+[A] @8h
+[A] u4D
+[A] D$0D9H }
+[A] A8h
+[A] @ 9
+[A] }eH
+[A] H9A
+[A] tnH
+[A] @ I
+[A] h(I
+[A] h0I
+[A] h8I
+[A] )D$ H
+[A] t$pH
+[A] I;C
+[A] uGI
+[A] H;Q
+[A] uJI
+[A] H+9H
+[A] wSH
+[A] |$ UATAUAVAWH
+[A] L$8Hcq
+[A] Hc9
+[A] 6Hc
+[A] eHH
+[A] McG
+[A] |$hI
+[A] G8I+G0H
+[A] OHHc
+[A] wxL
+[A] v"H
+[A] EPA
+[A] E`A
+[A] L$p
+[A] D$HE3
+[A] |$@L
+[A] |$XE3
+[A] d$4H
+[A] HcB
+[A] N0L
+[A] FHH
+[A] d$(E;
+[A] l$ B
+[A] D;D$t~
+[A] HcT
+[A] ~.M
+[A] E9$
+[A] E9d
+[A] D;E
+[A] D$4D9D
+[A] uqI;
+[A] \$P
+[A] ~`I;
+[A] I;V
+[A] twD
+[A] D;,
+[A] D$(I
+[A] |$(D
+[A] Lc|
+[A] D;t$t}
+[A] 7Hc
+[A] D$tD;
+[A] ~"H
+[A] H;V
+[A] LcD$tI
+[A] HcL$tH
+[A] d$ C
+[A] $Hc
+[A] D;u
+[A] d$4D
+[A] ~,H
+[A] d$4
+[A] HcM
+[A] D$`A;
+[A] U@L
+[A] l$hA
+[A] |$8A
+[A] A;0I
+[A] l$H=
+[A] ~AM
+[A] HcJ
+[A] IcG
+[A] MPH
+[A] Lc$
+[A] HcD
+[A] T$`HcD
+[A] <"H
+[A] ]pD
+[A] EpD
+[A] }|N
+[A] t3M
+[A] LcD$`I
+[A] l$HL
+[A] |$8I
+[A] tEH
+[A] T$@I+
+[A] E0M
+[A] [8I
+[A] s@I
+[A] {HI
+[A] A_A^A]A\]
+[A] @SUVWATAUAVAWH
+[A] uzA
+[A] D9)~[D
+[A] HcD:
+[A] D;.|
+[A] T$pLc
+[A] t"L
+[A] l$pE3
+[A] L$ A
+[A] D$@D
+[A] T$HI
+[A] D$@9X }
+[A] ;Y }fM9_
+[A] |$(L
+[A] T$0
+[A] X 3
+[A] H8L
+[A] )D$@L
+[A] T$@I
+[A] Q(A;
+[A] D$`L;
+[A] t,I
+[A] D$hI
+[A] t7H+
+[A] A_A^A]A\_^][
+[A] OcL
+[A] L$ L
+[A] McA
+[A] tWE
+[A] YxM
+[A] t E9T
+[A] ~4I
+[A] YxL
+[A] KcL
+[A] Kc<
+[A] T$ KcL
+[A] uZE
+[A] ?Lc
+[A] C0J
+[A] 1Ic
+[A] KHD
+[A] $Lc
+[A] JcL
+[A] u]D
+[A] CHI
+[A] D;$
+[A] 6Lc
+[A] E99
+[A] T$ D
+[A] |$(H
+[A] 8A_A^A]A\_^][
+[A] HcY
+[A] \$hD
+[A] JcT
+[A] 4PE
+[A] ~gE
+[A] G0JcL
+[A] L;d$h
+[A] 4PH
+[A] ~SE
+[A] GxD
+[A] E;L
+[A] L;|$h
+[A] Lcl$`M
+[A] ~kE
+[A] GHJcL
+[A] A_A^A]A\_^]
+[A] vLH
+[A] |$ AVH
+[A] ,v*H
+[A] LcF
+[A] |$HH
+[A] \$ UVWATAUAVAWH
+[A] A8I+
+[A] L$@
+[A] Hc4
+[A] IcD
+[A] 99u
+[A] t^A
+[A] t$8M
+[A] \$(L
+[A] L$HM
+[A] L$@I
+[A] L$@A;9
+[A] t$0M
+[A] IHI
+[A] APH+
+[A] T$@f
+[A] Ic4
+[A] \$(
+[A] |$ L
+[A] L$HI
+[A] IHH
+[A] T$@L
+[A] T$@A;9
+[A] IxI
+[A] IcT
+[A] 98u
+[A] t$pL
+[A] \$h
+[A] D$l
+[A] \$lL
+[A] L$HA
+[A] |$@E9y
+[A] T$PI
+[A] L$XA
+[A] L$XH
+[A] T$PA;q
+[A] ~UM
+[A] u2Ic
+[A] t$(
+[A] T$@
+[A] T$ L
+[A] |$(
+[A] \$(D
+[A] t<L
+[A] \$0I
+[A] t,L
+[A] API+AHH
+[A] t*L
+[A] u/H
+[A] L$ SUVWH
+[A] l$xH
+[A] l$(L
+[A] 8_^][
+[A] L$ SVWH
+[A] 0_^[
+[A] SVWH
+[A] D$XL
+[A] t&f
+[A] _^[
+[A] 81G
+[A] w0H
+[A] w8H
+[A] w@H
+[A] wHH
+[A] wXH
+[A] w`H
+[A] whH
+[A] wpH
+[A] G@H+G0H
+[A] D$XH
+[A] W8H;W@t
+[A] GpL+G`H
+[A] t]H
+[A] *H+
+[A] I0E3
+[A] C8H+
+[A] ~KA
+[A] D8s(t
+[A] C8H
+[A] KHA
+[A] l$0H+
+[A] ~0I
+[A] AVH
+[A] tPL
+[A] *L+
+[A] w9I
+[A] I8H
+[A] L+I0H
+[A] Y`I
+[A] FvDH
+[A] GhH
+[A] G`E3
+[A] O`H
+[A] G`L
+[A] WPH+
+[A] ~NA
+[A] O`J
+[A] O`K
+[A] GHJ
+[A] I0H
+[A] B8H+
+[A] A8H+A0H
+[A] SUVWATAVAWH
+[A] A0L
+[A] d$(A9,$
+[A] IcL
+[A] ti3
+[A] }]Lc
+[A] A;,$
+[A] d$(E3
+[A] D9S
+[A] D;S
+[A] d$(A
+[A] D$4E9
+[A] \$@A
+[A] |$hL
+[A] (D$`D
+[A] L$pf
+[A] (D$pf
+[A] ~TL
+[A] T$8G
+[A] u&A
+[A] u E
+[A] D8|$0u
+[A] 7f#
+[A] D;l$4
+[A] 7fA
+[A] 7fD
+[A] fD#
+[A] u<L
+[A] D$PHcH
+[A] u~L
+[A] IcJ
+[A] IcB
+[A] D$XD;
+[A] 7E3
+[A] tOD
+[A] ~7L
+[A] L$@;
+[A] A_A^A\_^][
+[A] UVWAVAWH
+[A] A0M
+[A] u?H
+[A] uND
+[A] t4M
+[A] u"H
+[A] A_A^_^]
+[A] ~4L
+[A] RD;
+[A] N0Ic
+[A] F8I
+[A] NHI+F0H
+[A] tWD
+[A] D$hJ
+[A] L+!H
+[A] O'H
+[A] D$XH;
+[A] tLH
+[A] {xH
+[A] {`H
+[A] {hH
+[A] {pH
+[A] tCH
+[A] {HH
+[A] {PH
+[A] {XH
+[A] t9H
+[A] weI
+[A] {0H
+[A] {8H
+[A] {@H
+[A] { H
+[A] {(H
+[A] T$pL
+[A] |$"@
+[A] D$#
+[A] HcX
+[A] O'H;
+[A] p'H
+[A] d$@H
+[A] <7L
+[A] t$@fD
+[A] d$$I
+[A] ~xH
+[A] Bv@I
+[A] D$$I
+[A] v!H
+[A] }<H
+[A] v)H
+[A] m0L
+[A] L$8D
+[A] d$(I
+[A] d$PH
+[A] <!D
+[A] |$\JcL!
+[A] ~;E
+[A] T$XNcD
+[A] L$hM
+[A] L+M
+[A] L$!F
+[A] d$$
+[A] d$@
+[A] tgIc:I
+[A] BxL
+[A] DIc@
+[A] ~03
+[A] E9(
+[A] E9h
+[A] T$xL
+[A] l$hfff
+[A] Hc<
+[A] LcD
+[A] CxL
+[A] }vB
+[A] K0I
+[A] 91A
+[A] tmIc
+[A] L$@A
+[A] AIcD$
+[A] AHc|$hI
+[A] D$(E9
+[A] E9D$
+[A] l$x
+[A] |$\H
+[A] L$!L
+[A] tFfA
+[A] u?A
+[A] tcHc
+[A] T$`3
+[A] GA;
+[A] E9E
+[A] 1Hc
+[A] |$\L
+[A] |$!
+[A] L$8L
+[A] d$P
+[A] ~:I
+[A] FxH
+[A] |$(I
+[A] d$PI
+[A] <v:I
+[A] u\I
+[A] 5v7H
+[A] d$0L
+[A] d$HE3
+[A] HcI
+[A] <HI
+[A] FHA
+[A] F`Ic
+[A] ~ A
+[A] D$@fB
+[A] L$PHcL
+[A] ~XI
+[A] u*I
+[A] F`H
+[A] L$0Lc,
+[A] u)@
+[A] u#A
+[A] |$#
+[A] T$(I
+[A] unE8f
+[A] ucf
+[A] D$"A
+[A] f9K
+[A] f9C
+[A] D$"L
+[A] ;D$p
+[A] f9B
+[A] uPI
+[A] L$0Hc
+[A] D$"
+[A] d$H
+[A] L$PH
+[A] L$PI
+[A] d$HL
+[A] t:H
+[A] Jc4
+[A] <HHc
+[A] GHD
+[A] t/3
+[A] fA;
+[A] u};
+[A] ~aHc
+[A] G0A
+[A] w=fE
+[A] ?fA
+[A] u6Ic
+[A] G0D
+[A] fD;R
+[A] uILc
+[A] t+K
+[A] HD;
+[A] P8H+P0H
+[A] v8I
+[A] V0H
+[A] Hcx
+[A] :v8I
+[A] F@H+
+[A] NHHcP
+[A] N`HcP
+[A] ~xfD
+[A] L$ SVW
+[A] $0(
+[A] $p(
+[A] T$0L
+[A] SUWH
+[A] D$ M
+[A] )|$pM;
+[A] )D$`A
+[A] )L$PM
+[A] )T$@H
+[A] )\$0E
+[A] }`f
+[A] tXI;
+[A] (T$@D
+[A] (L$PD
+[A] (D$`
+[A] (|$p
+[A] (\$0L
+[A] t8H;
+[A] L$ H3
+[A] _][
+[A] uVH
+[A] t'fA
+[A] H L
+[A] SVWAVH
+[A] |$`H
+[A] 8A^_^[
+[A] \$8H;
+[A] |$pH
+[A] \$PI
+[A] [(I
+[A] s0I
+[A] t!eH
+[A] T$X
+[A] u$H
+[A] t.2
+[A] uxHc
+[A] 9PE
+[A] f9A
+[A] uTL+
+[A] $I;
+[A] x AVH
+[A] Y8H
+[A] t$3
+[A] \$03
+[A] @SE
+[A] McP
+[A] D$@@
+[A] t H
+[A] t$H
+[A] X L
+[A] wEH
+[A] u2L
+[A] u@L
+[A] t)H
+[A] ntelA
+[A] ineID
+[A] Genu
+[A] u[H
+[A] t(=`
+[A] t!=p
+[A] w$H
+[A] |&3
+[A] ss3
+[A] D$ "
+[A] D$ $
+[A] \$(3
+[A] d$8
+[A] D$T
+[A] D$H3
+[A] @SVWH
+[A] T$`L
+[A] L$pH
+[A] L$(3
+[A] @_^[
+[A] \$ UH
+[A] utH
+[A] H1E
+[A] M H1E
+[A] H3E H3E
+[A] ='5
+[A] =\B
+[A] =0B
+[A] @UH
+[A] U`H
+[A] SUH
+[A] U H
+[A] U(H
+[A] UhH
+[A] UXH
+[A] UxH
+[A] UPH
+[A] MxL
+[A] @SUH
+[A] M(H
+[A] 8csm
+[A] (][
+[A] Unknown exception
+[A] bad array new length
+[A] vector too long
+[A] pxOsd
+[A] TfScriptModuleLoader
+[A] arch
+[A] trace
+[A] fnpxr.PxOsd
+[A] ComputeHash
+[A] unsigned __int64 __cdecl fnInternal_v23_05__pxrReserved__::PxOsdMeshTopology::ComputeHash(void) const
+[A] operator ==
+[A] bool __cdecl fnInternal_v23_05__pxrReserved__::PxOsdMeshTopology::operator ==(const class fnInternal_v23_05__pxrReserved__::PxOsdMeshTopology &) const
+[A] Validate
+[A] class fnInternal_v23_05__pxrReserved__::PxOsdMeshTopologyValidation __cdecl fnInternal_v23_05__pxrReserved__::PxOsdMeshTopology::Validate(void) const
+[A] ), (
+[A] , (
+[A] string too long
+[A] TfEnum
+[A] PxOsdMeshTopologyValidation::Code::InvalidScheme
+[A] PxOsdMeshTopologyValidation::Code::InvalidOrientation
+[A] PxOsdMeshTopologyValidation::Code::InvalidTriangleSubdivision
+[A] PxOsdMeshTopologyValidation::Code::InvalidVertexInterpolationRule
+[A] PxOsdMeshTopologyValidation::Code::InvalidFaceVaryingInterpolationRule
+[A] PxOsdMeshTopologyValidation::Code::InvalidCreaseMethod
+[A] PxOsdMeshTopologyValidation::Code::InvalidCreaseLengthElement
+[A] PxOsdMeshTopologyValidation::Code::InvalidCreaseIndicesSize
+[A] PxOsdMeshTopologyValidation::Code::InvalidCreaseIndicesElement
+[A] PxOsdMeshTopologyValidation::Code::InvalidCreaseWeightsSize
+[A] PxOsdMeshTopologyValidation::Code::NegativeCreaseWeights
+[A] PxOsdMeshTopologyValidation::Code::InvalidCornerIndicesElement
+[A] PxOsdMeshTopologyValidation::Code::NegativeCornerWeights
+[A] PxOsdMeshTopologyValidation::Code::InvalidCornerWeightsSize
+[A] PxOsdMeshTopologyValidation::Code::InvalidFaceVertexCountsElement
+[A] PxOsdMeshTopologyValidation::Code::InvalidFaceVertexIndicesElement
+[A] PxOsdMeshTopologyValidation::Code::InvalidFaceVertexIndicesSize
+[A] PxOsdMeshTopologyValidation
+[A] __cdecl fnInternal_v23_05__pxrReserved__::PxOsdMeshTopologyValidation::PxOsdMeshTopologyValidation(const class fnInternal_v23_05__pxrReserved__::PxOsdMeshTopology &)
+[A] scheme
+[A] orientation
+[A] triangle subdivision
+[A] vertex interpolation rule
+[A] face varying interpolation rule
+[A] crease method
+[A] Crease lengths must be greater than or equal to 2.
+[A] Crease indices size '%zu' doesn't match expected '%zu'.
+[A] Crease weights size '%zu' doesn't match either per edge '%zu' or per crease '%zu' sizes.
+[A] Corner weights size '%zu' doesn't match expected '%zu'.
+[A] Negative crease weights.
+[A] Negative corner weights.
+[A] Corner index element missing from face vertex indices array.
+[A] Crease index element missing from face vertex indices array.
+[A] Hole indices cannot be negative.
+[A] Hole indices must be less than face count '%zu'.
+[A] Face vertex counts must be greater than 2.
+[A] Face vertex indices element must be greater than 0.
+[A] Face vertex indices size '%zu' does not match expected size '%zu'.
+[A] '%s' is not a valid '%s' token.
+[A] Can't apply loop subdivision on prim %s, since it has non-triangle face(s).
+[A] enum OpenSubdiv::v3_5_0::Sdc::SchemeType __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::Converter::GetType(void) const
+[A] GetType
+[A] Y:\.cs\6668e3\1\USD_src\pxr\imaging\pxOsd\refinerFactory.cpp
+[A] Unsupported scheme (%s) (%s)
+[A] Unknown vertex boundary interpolation rule (%s) (%s)
+[A] class OpenSubdiv::v3_5_0::Sdc::Options __cdecl fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::Converter::GetOptions(void) const
+[A] GetOptions
+[A] Unknown face-varying boundary interpolation rule (%s) (%s)
+[A] Unknown creasing method (%s) (%s)
+[A] Unknown triangle subdivision rule (%s) (%s)
+[A] Invalid length of crease sharpnesses (%s)
+[A] bool __cdecl OpenSubdiv::v3_5_0::Far::TopologyRefinerFactory<struct fnInternal_v23_05__pxrReserved__::`anonymous namespace'::Converter>::assignComponentTags(class OpenSubdiv::v3_5_0::Far::TopologyRefiner &,const struct fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::Converter &)
+[A] assignComponentTags
+[A] creaseIndices[%d] (%d) is out of bounds on %s
+[A] Set edge sharpness cannot find edge (%d-%d) (%s)
+[A] Invalid length of corner sharpnesses at prim %s
+[A] Set vertex sharpness cannot find vertex (%d) (%s)
+[A] Set hole cannot find face (%d) (%s)
+[A] ofs + numVerts <= fvIndices.size()
+[A] bool __cdecl OpenSubdiv::v3_5_0::Far::TopologyRefinerFactory<struct fnInternal_v23_05__pxrReserved__::`anonymous namespace'::Converter>::assignFaceVaryingTopology(class OpenSubdiv::v3_5_0::Far::TopologyRefiner &,const struct fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::Converter &)
+[A] assignFaceVaryingTopology
+[A] %s (%s)
+[A] void __cdecl OpenSubdiv::v3_5_0::Far::TopologyRefinerFactory<struct fnInternal_v23_05__pxrReserved__::`anonymous namespace'::Converter>::reportInvalidTopology(enum OpenSubdiv::v3_5_0::Vtr::internal::Level::TopologyError,const char *,const struct fnInternal_v23_05__pxrReserved__::`anonymous-namespace'::Converter &)
+[A] reportInvalidTopology
+[A] all
+[A] none
+[A] cornersOnly
+[A] cornersPlus1
+[A] cornersPlus2
+[A] boundaries
+[A] bilinear
+[A] catmullClark
+[A] loop
+[A] edgeOnly
+[A] edgeAndCorner
+[A] uniform
+[A] chaikin
+[A] leftHanded
+[A] rightHanded
+[A] smooth
+[A] map/set too long
+[A] MISSING_EDGE_FACES
+[A] MISSING_EDGE_VERTS
+[A] MISSING_FACE_EDGES
+[A] MISSING_FACE_VERTS
+[A] MISSING_VERT_FACES
+[A] MISSING_VERT_EDGES
+[A] FAILED_CORRELATION_EDGE_FACE
+[A] FAILED_CORRELATION_FACE_VERT
+[A] FAILED_CORRELATION_FACE_EDGE
+[A] FAILED_ORIENTATION_INCIDENT_EDGE
+[A] FAILED_ORIENTATION_INCIDENT_FACE
+[A] FAILED_ORIENTATION_INCIDENT_FACES_EDGES
+[A] DEGENERATE_EDGE
+[A] NON_MANIFOLD_EDGE
+[A] INVALID_CREASE_EDGE
+[A] INVALID_CREASE_VERT
+[A] %s - missing face-verts
+[A] %s - missing vert-faces
+[A] %s - face %d correlation of vert %d failed
+[A] %s - missing edge-faces
+[A] %s - missing face-edges
+[A] %s - face %d correlation of edge %d failed
+[A] %s - missing edge-verts
+[A] %s - missing vert-edges
+[A] %s - edge %d correlation of vert %d failed
+[A] %s - vertex %d cannot orient incident faces and edges
+[A] %s - vertex %d orientation failure at incident face %d
+[A] %s - vertex %d orientation failure at incident edge %d
+[A] %s - Error in eIndex = %d:  degenerate edge not tagged marked non-manifold
+[A] %s - edge %d with %d incident faces not tagged non-manifold
+[A] Failure in TopologyRefinerFactory<>::Create() -- mesh contains no vertices.
+[A] Failure in TopologyRefinerFactory<>::Create() -- meshes without faces not yet supported.
+[A] Failure in TopologyRefinerFactory<>::Create() -- face with %d vertices > %d max.
+[A] Failure in TopologyRefinerFactory<>::Create() -- mesh contains no face-vertices.
+[A] Failure in TopologyRefinerFactory<>::Create() -- non-triangular faces not supported by Loop scheme.
+[A] Failure in TopologyRefinerFactory<>::Create() -- vertex with valence %d > %d max.
+[A] Failure in TopologyRefinerFactory<>::Create() -- maximum valence not assigned.
+[A] Failure in TopologyRefinerFactory<>::Create() -- invalid topology detected from partial specification.
+[A] Failure in TopologyRefinerFactory<>::Create() -- invalid topology detected as fully specified.
+[A] Failure in TopologyRefinerFactory<>::Create() -- face-varying channel %d has no values.
+[A] catmark
+[A] No Error
+[A] Fatal Error
+[A] Coding Error (internal)
+[A] Coding Error
+[A] Error
+[A] %s: %s
+[A] SleepConditionVariableCS
+[A] WakeAllConditionVariable
+[A] bad allocation
+[A] .text$di
+[A] .text$mn
+[A] .text$mn$00
+[A] .text$x
+[A] .text$yd
+[A] .idata$5
+[A] .00cfg
+[A] .CRT$XCA
+[A] .CRT$XCU
+[A] .CRT$XCZ
+[A] .CRT$XIA
+[A] .CRT$XIC
+[A] .CRT$XIZ
+[A] .CRT$XLA
+[A] .CRT$XLZ
+[A] .CRT$XPA
+[A] .CRT$XPZ
+[A] .CRT$XTA
+[A] .CRT$XTZ
+[A] .rdata
+[A] .rdata$T
+[A] .rdata$r
+[A] .rdata$voltmd
+[A] .rdata$zzzdbg
+[A] .rtc$IAA
+[A] .rtc$IZZ
+[A] .rtc$TAA
+[A] .rtc$TZZ
+[A] .tls
+[A] .tls$
+[A] .tls$ZZZ
+[A] .xdata
+[A] .xdata$x
+[A] .edata
+[A] .idata$2
+[A] .idata$3
+[A] .idata$4
+[A] .idata$6
+[A] .data
+[A] .data$r
+[A] .data$rs
+[A] .bss
+[A] .pxrctor
+[A] .rsrc$01
+[A] .rsrc$02
+[A] `Ip
+[A] (yp
+[A] `20
+[A] P20
+[A] `9q
+[A] (Er
+[A] 85s
+[A] @:p'
+[A] @08~
+[A] (=u
+[A] (}u
+[A] .02
+[A] .@2
+[A] .P1
+[A] .`1
+[A] .p1
+[A] (Aw
+[A] (uw
+[A] 2 $
+[A] (9z
+[A] (yz
+[A] b0w
+[A] ZPv
+[A] `6@4
+[A] (h&
+[A] (I|
+[A] (A}
+[A] . 5
+[A] .05
+[A] .@5
+[A] .P5
+[A] .`5
+[A] .p5
+[A] 'tM
+[A] 'dL
+[A] '4K
+[A] 'ta
+[A] 'd`
+[A] '4_
+[A] pB.
+[A] `B.
+[A] fnpxOsd.dll
+[A] ??0PxOsdMeshTopology@fnInternal_v23_05__pxrReserved__@@QEAA@AEBVTfToken@1@0AEBV?$VtArray@H@1@11@Z
+[A] ??0PxOsdMeshTopology@fnInternal_v23_05__pxrReserved__@@QEAA@AEBVTfToken@1@0AEBV?$VtArray@H@1@11AEBVPxOsdSubdivTags@1@@Z
+[A] ??0PxOsdMeshTopology@fnInternal_v23_05__pxrReserved__@@QEAA@AEBVTfToken@1@0AEBV?$VtArray@H@1@1@Z
+[A] ??0PxOsdMeshTopology@fnInternal_v23_05__pxrReserved__@@QEAA@AEBVTfToken@1@0AEBV?$VtArray@H@1@1AEBVPxOsdSubdivTags@1@@Z
+[A] ??0PxOsdMeshTopology@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??0PxOsdOpenSubdivTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1PxOsdOpenSubdivTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVPxOsdMeshTopology@0@@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVPxOsdSubdivTags@0@@Z
+[A] ??8PxOsdMeshTopology@fnInternal_v23_05__pxrReserved__@@QEBA_NAEBV01@@Z
+[A] ??8fnInternal_v23_05__pxrReserved__@@YA_NAEBVPxOsdSubdivTags@0@0@Z
+[A] ??9fnInternal_v23_05__pxrReserved__@@YA_NAEBVPxOsdMeshTopology@0@0@Z
+[A] ??9fnInternal_v23_05__pxrReserved__@@YA_NAEBVPxOsdSubdivTags@0@0@Z
+[A] ?ComputeHash@PxOsdMeshTopology@fnInternal_v23_05__pxrReserved__@@QEBA_KXZ
+[A] ?ComputeHash@PxOsdSubdivTags@fnInternal_v23_05__pxrReserved__@@QEBA_KXZ
+[A] ?Create@PxOsdRefinerFactory@fnInternal_v23_05__pxrReserved__@@SA?AV?$shared_ptr@VTopologyRefiner@Far@v3_5_0@OpenSubdiv@@@std@@AEBVPxOsdMeshTopology@2@AEBV?$vector@V?$VtArray@H@fnInternal_v23_05__pxrReserved__@@V?$allocator@V?$VtArray@H@fnInternal_v23_05__pxrReserved__@@@std@@@4@VTfToken@2@@Z
+[A] ?Create@PxOsdRefinerFactory@fnInternal_v23_05__pxrReserved__@@SA?AV?$shared_ptr@VTopologyRefiner@Far@v3_5_0@OpenSubdiv@@@std@@AEBVPxOsdMeshTopology@2@VTfToken@2@@Z
+[A] ?PxOsdOpenSubdivTokens@fnInternal_v23_05__pxrReserved__@@3V?$TfStaticData@UPxOsdOpenSubdivTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@U?$Tf_StaticDataDefaultFactory@UPxOsdOpenSubdivTokens_StaticTokenType@fnInternal_v23_05__pxrReserved__@@@2@@1@A
+[A] ?Validate@PxOsdMeshTopology@fnInternal_v23_05__pxrReserved__@@QEBA?AVPxOsdMeshTopologyValidation@2@XZ
+[A] ?WithHoleIndices@PxOsdMeshTopology@fnInternal_v23_05__pxrReserved__@@QEBA?AV12@AEBV?$VtArray@H@2@@Z
+[A] ?WithScheme@PxOsdMeshTopology@fnInternal_v23_05__pxrReserved__@@QEBA?AV12@AEBVTfToken@2@@Z
+[A] ?WithSubdivTags@PxOsdMeshTopology@fnInternal_v23_05__pxrReserved__@@QEBA?AV12@AEBVPxOsdSubdivTags@2@@Z
+[A] ?VtStreamOutArray@fnInternal_v23_05__pxrReserved__@@YAXAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@PEBUVt_ShapeData@1@V?$TfFunctionRef@$$A6AXAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@@Z@1@@Z
+[A] ?VtStreamOut@fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEBMAEAV23@@Z
+[A] fnvt.dll
+[A] ?Scope@TraceCollector@fnInternal_v23_05__pxrReserved__@@SAXAEBVTraceKey@2@_K1@Z
+[A] ?_isEnabled@TraceCollector@fnInternal_v23_05__pxrReserved__@@0U?$atomic@H@std@@A
+[A] fntrace.dll
+[A] ?Tf_RegistryInitCtor@fnInternal_v23_05__pxrReserved__@@YAXPEBD@Z
+[A] ?Tf_RegistryInitDtor@fnInternal_v23_05__pxrReserved__@@YAXPEBD@Z
+[A] ?Add@Tf_RegistryInit@fnInternal_v23_05__pxrReserved__@@SAXPEBDP6AXPEAX1@Z0@Z
+[A] ??0TfToken@fnInternal_v23_05__pxrReserved__@@QEAA@PEBD@Z
+[A] ?_PossiblyDestroyRep@TfToken@fnInternal_v23_05__pxrReserved__@@AEBAXXZ
+[A] ?GetInstance@TfScriptModuleLoader@fnInternal_v23_05__pxrReserved__@@SAAEAV12@XZ
+[A] ?RegisterLibrary@TfScriptModuleLoader@fnInternal_v23_05__pxrReserved__@@QEAAXAEBVTfToken@2@0AEBV?$vector@VTfToken@fnInternal_v23_05__pxrReserved__@@V?$allocator@VTfToken@fnInternal_v23_05__pxrReserved__@@@std@@@std@@@Z
+[A] ?_GetEmptyString@TfToken@fnInternal_v23_05__pxrReserved__@@CAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+[A] ?_AddName@TfEnum@fnInternal_v23_05__pxrReserved__@@SAXV12@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@1@Z
+[A] ?TfStringPrintf@fnInternal_v23_05__pxrReserved__@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBDZZ
+[A] ?Tf_PostWarningHelper@fnInternal_v23_05__pxrReserved__@@YAXAEBVTfCallContext@1@PEBDZZ
+[A] ?Tf_FailedVerifyHelper@fnInternal_v23_05__pxrReserved__@@YA_NAEBVTfCallContext@1@PEBD1@Z
+[A] ??6fnInternal_v23_05__pxrReserved__@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV12@AEBVTfToken@0@@Z
+[A] ??0TfToken@fnInternal_v23_05__pxrReserved__@@QEAA@PEBDW4_ImmortalTag@01@@Z
+[A] fntf.dll
+[A] ??0Arch_ConstructorInit@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ??1Arch_ConstructorInit@fnInternal_v23_05__pxrReserved__@@QEAA@XZ
+[A] ?ArchHash64@fnInternal_v23_05__pxrReserved__@@YA_KPEBD_K1@Z
+[A] fnarch.dll
+[A] _Py_Dealloc
+[A] _Py_NoneStruct
+[A] python310.dll
+[A] ?_Xlength_error@std@@YAXPEBD@Z
+[A] ?uncaught_exception@std@@YA_NXZ
+[A] ?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHD@Z
+[A] ?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAA_JPEBD_J@Z
+[A] ?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAAXH_N@Z
+[A] ?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAXXZ
+[A] ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@H@Z
+[A] ?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@XZ
+[A] MSVCP140.dll
+[A] __std_terminate
+[A] __std_exception_copy
+[A] __std_exception_destroy
+[A] _CxxThrowException
+[A] __CxxFrameHandler4
+[A] memcmp
+[A] memset
+[A] memcpy
+[A] memmove
+[A] __current_exception
+[A] __current_exception_context
+[A] __C_specific_handler
+[A] __std_type_info_destroy_list
+[A] VCRUNTIME140.dll
+[A] VCRUNTIME140_1.dll
+[A] _invalid_parameter_noinfo_noreturn
+[A] __acrt_iob_func
+[A] __stdio_common_vfprintf
+[A] __stdio_common_vsprintf
+[A] terminate
+[A] _callnewh
+[A] malloc
+[A] _seh_filter_dll
+[A] _configure_narrow_argv
+[A] _initialize_narrow_environment
+[A] _initialize_onexit_table
+[A] _register_onexit_function
+[A] _execute_onexit_table
+[A] _crt_atexit
+[A] _cexit
+[A] free
+[A] _initterm
+[A] _initterm_e
+[A] api-ms-win-crt-runtime-l1-1-0.dll
+[A] api-ms-win-crt-heap-l1-1-0.dll
+[A] api-ms-win-crt-stdio-l1-1-0.dll
+[A] CloseHandle
+[A] EnterCriticalSection
+[A] LeaveCriticalSection
+[A] InitializeCriticalSectionAndSpinCount
+[A] DeleteCriticalSection
+[A] SetEvent
+[A] ResetEvent
+[A] WaitForSingleObjectEx
+[A] CreateEventW
+[A] GetModuleHandleW
+[A] GetProcAddress
+[A] RtlCaptureContext
+[A] RtlLookupFunctionEntry
+[A] RtlVirtualUnwind
+[A] IsDebuggerPresent
+[A] UnhandledExceptionFilter
+[A] SetUnhandledExceptionFilter
+[A] IsProcessorFeaturePresent
+[A] GetCurrentProcess
+[A] TerminateProcess
+[A] QueryPerformanceCounter
+[A] GetCurrentProcessId
+[A] GetCurrentThreadId
+[A] GetSystemTimeAsFileTime
+[A] DisableThreadLibraryCalls
+[A] InitializeSListHead
+[A] KERNEL32.dll
+[A] .?AVbad_array_new_length@std@@
+[A] .?AVbad_alloc@std@@
+[A] .?AVexception@std@@
+[A] .?AW4Code@PxOsdMeshTopologyValidation@fnInternal_v23_05__pxrReserved__@@
+[A] .?AV_Ref_count_base@std@@
+[A] .?AV?$_Ref_count@VTopologyRefiner@Far@v3_5_0@OpenSubdiv@@@std@@
+[A] .?AVtype_info@@
+[A] <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+[A] <assembly xmlns='urn:schemas-microsoft-com:asm.v1' manifestVersion='1.0'>
+[A] <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+[A] <security>
+[A] <requestedPrivileges>
+[A] <requestedExecutionLevel level='asInvoker' uiAccess='false' />
+[A] </requestedPrivileges>
+[A] </security>
+[A] </trustInfo>
+[A] </assembly>
+[A] =^0
+[A] N0L0
+[A] 010
+[A] 0w1
+[A] US1
+[A] Microsoft Corporation1H0F
+[A] ?Microsoft Identity Verification Root Certificate Authority 20200
+[A] 200416183616Z
+[A] 450416184440Z0w1
+[A] mZMyS
+[A] sgI
+[A] mbj
+[A] -oI
+[A] -b-/
+[A] hMr
+[A] [oy&
+[A] 2={W
+[A] s]2V
+[A] !W>
+[A] 'I{
+[A] @Y(
+[A] 3Yt
+[A] {Pm
+[A] Q,4
+[A] O`(
+[A] T0R0
+[A] jZ]tC0
+[A] I>t
+[A] V,e
+[A] ~2(
+[A] gs-
+[A] t'R
+[A] 6"A
+[A] 2va
+[A] ^QM"
+[A] |!W
+[A] w(p
+[A] [:[
+[A] e\t
+[A] zjt
+[A] wuX_5
+[A] d8;_
+[A] Kx;-
+[A] iJ*
+[A] 0Z1
+[A] Microsoft Corporation1+0)
+[A] "Microsoft ID Verified CS EOC CA 020
+[A] 241126051451Z
+[A] 241129051451Z0n1
+[A] GB1
+[A] London1&0$
+[A] THE FOUNDRY VISIONMONGERS LTD1&0$
+[A] THE FOUNDRY VISIONMONGERS LTD0
+[A] 4{6L
+[A] B$C
+[A] O^6
+[A] ch1
+[A] 503
+[A] {|f
+[A] ^0g
+[A] `0^0\
+[A] Vhttp://www.microsoft.com/pkiops/crl/Microsoft%20ID%20Verified%20CS%20EOC%20CA%2002.crl0
+[A] Xhttp://www.microsoft.com/pkiops/certs/Microsoft%20ID%20Verified%20CS%20EOC%20CA%2002.crt0-
+[A] !http://oneocsp.microsoft.com/ocsp0f
+[A] _0]0Q
+[A] 0A0?
+[A] 3http://www.microsoft.com/pkiops/Docs/Repository.htm0
+[A] lQ<S
+[A] 6Eh
+[A] PM[q
+[A] EKmh
+[A] E1]
+[A] Z^]
+[A] 8p9d
+[A] ,wE
+[A] K_s
+[A] Zku
+[A] 5L>
+[A] :G4
+[A] z\2
+[A] 0c1
+[A] Microsoft Corporation1402
+[A] +Microsoft ID Verified Code Signing PCA 20210
+[A] 210413173153Z
+[A] 260413173153Z0Z1
+[A] |?2
+[A] nmt
+[A] hGox
+[A] 4kT
+[A] BXbk
+[A] +\_[
+[A] *zm
+[A] ]ifWb
+[A] I7?
+[A] ZtHP
+[A] :</q
+[A] 7B8Ov
+[A] o7?z
+[A] Y16#
+[A] J:R75g(
+[A] e0h
+[A] _(2e
+[A] Kze
+[A] QT bYW
+[A] \L$
+[A] 05m
+[A] q3{
+[A] ^0T
+[A] M0K0I
+[A] Hj0
+[A] i0g0e
+[A] _http://www.microsoft.com/pkiops/crl/Microsoft%20ID%20Verified%20Code%20Signing%20PCA%202021.crl0
+[A] ahttp://www.microsoft.com/pkiops/certs/Microsoft%20ID%20Verified%20Code%20Signing%20PCA%202021.crt0-
+[A] !http://oneocsp.microsoft.com/ocsp0
+[A] EI`
+[A] ?c>@
+[A] #bM
+[A] uX|[
+[A] nDB
+[A] St0
+[A] UF9
+[A] GLm
+[A] _02wM
+[A] =-6
+[A] A:?
+[A] 5UG
+[A] l[[
+[A] LWn
+[A] WI1DR
+[A] $|lt|
+[A] zo)B
+[A] r){L
+[A] _Zm|}e
+[A] E1I
+[A] .7g
+[A] 210401200520Z
+[A] 360401201520Z0c1
+[A] TzLIli
+[A] w)M
+[A] '0C
+[A] wn6
+[A] ,eN
+[A] (:y
+[A] 7&%
+[A] 86a
+[A] MSb
+[A] ]SK
+[A] 4Bo
+[A] W{92
+[A] i!V
+[A] k4NtI
+[A] S[9
+[A] C,{K
+[A] nrAn
+[A] 7@:p[RF
+[A] 0Tn
+[A] }0{0y
+[A] shttp://www.microsoft.com/pkiops/crl/Microsoft%20Identity%20Verification%20Root%20Certificate%20Authority%202020.crl0
+[A] uhttp://www.microsoft.com/pkiops/certs/Microsoft%20Identity%20Verification%20Root%20Certificate%20Authority%202020.crt0-
+[A] W#L
+[A] [9}
+[A] WOC
+[A] lt)l
+[A] @?^
+[A] b(_
+[A] 4o,MDo
+[A] 989
+[A] 0"D
+[A] LW1
+[A] .40+
+[A] E'UUSR
+[A] 8y;T
+[A] >3{
+[A] h-Y:`W
+[A] $J$
+[A] 0q0Z1
+[A] "Microsoft ID Verified CS EOC CA 02
+[A] jYdv
+[A] .mp
+[A] M9 +
+[A] ct,e
+[A] ser
+[A] $[yd
+[A] zl;
+[A] rOy
+[A] u`+
+[A] Rsu#
+[A] i}1
+[A] ;;Np
+[A] W}`
+[A] 20241126133544.484Z0
+[A] Washington1
+[A] Redmond1
+[A] Microsoft Corporation1-0+
+[A] $Microsoft Ireland Operations Limited1&0$
+[A] Thales TSS ESN:C392-9641-45401503
+[A] ,Microsoft Public RSA Time Stamping Authority
+[A] 201119203231Z
+[A] 351119204231Z0a1
+[A] Microsoft Corporation1200
+[A] )Microsoft Public RSA Timestamping CA 20200
+[A] eFGw
+[A] ]po
+[A] J{t1
+[A] xmVk\
+[A] bT<.
+[A] _Xr!e
+[A] =$7I
+[A] .k;
+[A] Pd~y
+[A] |Qa
+[A] maJ
+[A] x7m
+[A] Bwg#D
+[A] gs<
+[A] L[rA}
+[A] ?Q<p
+[A] ki(:5/Hc@
+[A] !0T
+[A] uhttp://www.microsoft.com/pkiops/certs/Microsoft%20Identity%20Verification%20Root%20Certificate%20Authority%202020.crt0
+[A] Lxh
+[A] 2KS
+[A] Smu
+[A] t[|
+[A] Tv'
+[A] xjWk`
+[A] d%f
+[A] u*Q
+[A] (t5
+[A] N\rv!a
+[A] Dkb&
+[A] Zo<O
+[A] ?_h
+[A] ][0
+[A] 0a1
+[A] 240418175908Z
+[A] 250417175908Z0
+[A] ,Microsoft Public RSA Time Stamping Authority0
+[A] WK:
+[A] H(pI
+[A] U}`
+[A] sx%
+[A] <j$
+[A] ?,:
+[A] 0R#
+[A] NO^"
+[A] B&Zf
+[A] h)V
+[A] .>9a
+[A] 4Z8
+[A] P5w
+[A] X0[i&
+[A] !0l
+[A] e0c0a
+[A] [http://www.microsoft.com/pkiops/crl/Microsoft%20Public%20RSA%20Timestamping%20CA%202020.crl0y
+[A] m0k0i
+[A] ]http://www.microsoft.com/pkiops/certs/Microsoft%20Public%20RSA%20Timestamping%20CA%202020.crt0
+[A] rJ+Pq
+[A] '-u
+[A] :^"
+[A] [#8]1
+[A] `2l
+[A] Kp7Y
+[A] URN
+[A] aFoh0Su
+[A] x-/4v
+[A] w0:
+[A] c++E
+[A] BzC
+[A] j2O
+[A] KC[e
+[A] _ U
+[A] 'G.
+[A] 1J1
+[A] 0x0a1
+[A] )Microsoft Public RSA Timestamping CA 2020
+[A] 241126133544Z0/
+[A] #o_
+[A] ^H!
+[A] 7*$FiP"
+[A] x0|0e
+[A] c0a1
+[A] }J-t
+[A] g0e
+[A] 20241126112727Z
+[A] 20241127112727Z0w0=
+[A] 1/0-0
+[A] 1(0&0
+[A] OG2K
+[A] P6_
+[A] >#b
+[A] |B50
+[A] dyS0
+[A] 3m+
+[A] 1_GG0
+[A] kT3H
+[A] TJaKG
+[A] f0Qk}
+[A] MGM
+[A] IV]
+[A] ;nX
+[A] i3}
+[A] A%x,
+[A] ~~5
+[A] i}]
+[A] F[f23
+[A] e*'e
+[A] Eg[
+[A] [Q-
+[A] ufwZ
+[U] api-ms-win-core-synch-l1-2-0.dll
+[U] kernel32.dll
+[U] SubC

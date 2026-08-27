@@ -1,0 +1,33 @@
+# source: fnusdRi.dll
+# candidates: 30
+
+!This program cannot be run in DOS mode.
+Unknown exception
+bad array new length
+vector too long
+string too long
+Invalid stage
+SplineAPI is not correctly initialized
+SplineAPI is configured for an unsupported value type '
+Could not get the interpolation attribute.
+Could not get the position attribute.
+Interpolation attribute has invalid value '
+' but expected '
+Positions attribute must be sorted in increasing order
+Values attribute and positions attribute must have the same number of entries
+If on, UsdRiStatementsAPI will read old-style attributes.  Otherwise, primvars in the ri: namespace will be read instead.
+invalid string position
+bad allocation
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

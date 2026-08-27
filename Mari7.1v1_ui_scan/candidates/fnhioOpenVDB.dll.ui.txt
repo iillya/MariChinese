@@ -1,0 +1,65 @@
+# source: fnhioOpenVDB.dll
+# candidates: 62
+
+!This program cannot be run in DOS mode.
+Unknown exception
+bad array new length
+string too long
+HioVDB texture loading
+map/set too long
+invalid string position
+OpenVDB grid has non-linear transform which is not supported
+Could not get map underlying transform of OpenVDB grid
+OpenVDB grid has non-affine map which is not supported
+Unsupported OpenVDB grid type
+New
+Opening VDB file
+Closing VDB file
+Target memory was met.
+WARNING: the target memory was EXCEEDED
+iterator references a null node
+vector too long
+HioOpenVDB_TextureData: Copy to dense
+Copy to dense
+can't construct a dense grid with an empty bounding box
+Information about Tree:
+Background value:
+Min value:
+Max value:
+Number of active voxels:
+Number of active tiles:
+Bounding box of active voxels:
+Dimensions of active voxels:
+Percentage of active voxels:
+Average leaf node fill ratio:
+Number of unallocated nodes:
+Tree is empty!
+Memory footprint:
+Active leaf voxels:
+Dense equivalent:
+% of an equivalent dense volume
+Actual footprint is
+% of actual footprint
+Leaf voxel footprint is
+Tree pointer is null
+to a grid of type
+Cannot assign a tree of type
+Additional metadata:
+task is undefined
+Reading VDB grids from HioOpenVDBArAssetInterface.
+Reading VDB grids from ArAsset buffer.
+Reading VDB grids from ArAsset buffer
+bad allocation
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020

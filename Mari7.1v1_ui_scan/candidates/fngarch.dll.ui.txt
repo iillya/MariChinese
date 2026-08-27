@@ -1,0 +1,34 @@
+# source: fngarch.dll
+# candidates: 31
+
+!This program cannot be run in DOS mode.
+Unknown exception
+bad array new length
+map/set too long
+RegisterClass failed
+CreateWindowEx failed
+SetPixelFormat failed
+wglCreateContext failed
+vector too long
+string too long
+invalid enum
+invalid value
+invalid operation
+stack overflow
+stack underflow
+out of memory
+invalid framebuffer operation
+bad allocation
+Microsoft Corporation1H0F
+Microsoft Corporation1+0)
+"Microsoft ID Verified CS EOC CA 020
+THE FOUNDRY VISIONMONGERS LTD0
+Microsoft Corporation1402
++Microsoft ID Verified Code Signing PCA 20210
+"Microsoft ID Verified CS EOC CA 02
+Microsoft Corporation1-0+
+,Microsoft Public RSA Time Stamping Authority
+Microsoft Corporation1200
+)Microsoft Public RSA Timestamping CA 20200
+,Microsoft Public RSA Time Stamping Authority0
+)Microsoft Public RSA Timestamping CA 2020
