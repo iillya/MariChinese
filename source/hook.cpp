@@ -1013,10 +1013,8 @@ bool loadTranslationsFromJson(const QString &path) {
             continue;
         const QString key = it.key();
         const QString value = it.value().toString();
-        // 跳过空键/空值，以及带 "||" 的控制 ID 键（SpeedTree 同款）。
+        // 跳过空键/空值。
         if (key.isEmpty() || value.isEmpty())
-            continue;
-        if (key.contains(QLatin1String("||")))
             continue;
         g_translations.insert(key, value);
         any = true;
