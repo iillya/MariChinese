@@ -11,14 +11,16 @@ set "ROOT=%~dp0.."
 set "CPP=%ROOT%\source"
 set "OUT=%ROOT%\build\out"
 set "OBJDIR=%ROOT%\build\obj"
-set "QT=%ROOT%\third_party\qt5sdk"
+rem ä¼åä½¿ç¨ä»åºå¤å±äº« Qt SDKï¼_ThirdParty\qt5sdkï¼ï¼å¶æ¬¡ä»åºå third_partyãååéå° C:\Qt512
+set "QT=%ROOT%\..\_ThirdParty\qt5sdk"
+if not exist "%QT%\lib\Qt5Widgets.lib" set "QT=%ROOT%\third_party\qt5sdk"
 if not exist "%QT%\lib\Qt5Widgets.lib" set "QT=C:\Qt512\5.12.0\msvc2017_64"
 if not exist "%OUT%" mkdir "%OUT%"
 if not exist "%OBJDIR%" mkdir "%OBJDIR%"
 
 if not exist "%QT%\lib\Qt5Widgets.lib" (
     echo [ERROR] Qt 5 x64 MSVC SDK not found.
-    echo Expected either %ROOT%\third_party\qt5sdk or C:\Qt512\5.12.0\msvc2017_64
+    echo Expected either %ROOT%\..\_ThirdParty\qt5sdk or %ROOT%\third_party\qt5sdk
     exit /b 1
 )
 
