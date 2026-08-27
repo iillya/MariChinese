@@ -376,29 +376,32 @@ static void captureUntranslated() {
     int added = 0;
     for (const auto &kv : pending)
         if (merged.emplace(kv.first, "").second) ++added;
-    if (added <= 0) return;   // 本次没有新增，保持文件不动
 
-    std::string json = "{\n  \"$schema\": \"sp-translation-v1\",\n"
-                       "  \"id\": \"mari-untranslated\",\n"
-                       "  \"language\": \"zh-CN\",\n"
-                       "  \"description\": \"Shift+` 增量采集的未翻译词条（待填写）\",\n"
-                       "  \"translations\": {\n";
-    bool first = true;
-    for (const auto &kv : merged) {
-        if (!first) json += ",\n";
-        json += "    \"" + jsonEscape(kv.first) + "\": \"" + jsonEscape(kv.second) + "\"";
-        first = false;
+    // 有新增才写文件（避免无意义改写已存在的桌面文件）；无论新增多少都弹窗反馈。
+    if (added > 0) {
+        std::string json = "{\n  \"$schema\": \"sp-translation-v1\",\n"
+                           "  \"id\": \"mari-untranslated\",\n"
+                           "  \"language\": \"zh-CN\",\n"
+                           "  \"description\": \"Shift+` 增量采集的未翻译词条（待填写）\",\n"
+                           "  \"translations\": {\n";
+        bool first = true;
+        for (const auto &kv : merged) {
+            if (!first) json += ",\n";
+            json += "    \"" + jsonEscape(kv.first) + "\": \"" + jsonEscape(kv.second) + "\"";
+            first = false;
+        }
+        json += "\n  }\n}\n";
+
+        HANDLE h = CreateFileW(path.c_str(), GENERIC_WRITE, 0, nullptr, CREATE_ALWAYS,
+                               FILE_ATTRIBUTE_NORMAL, nullptr);
+        if (h != INVALID_HANDLE_VALUE) {
+            DWORD wr = 0;
+            const bool wrote = WriteFile(h, json.data(), (DWORD)json.size(), &wr, nullptr) &&
+                               wr == json.size();
+            CloseHandle(h);
+            (void)wrote;
+        }
     }
-    json += "\n  }\n}\n";
-
-    HANDLE h = CreateFileW(path.c_str(), GENERIC_WRITE, 0, nullptr, CREATE_ALWAYS,
-                           FILE_ATTRIBUTE_NORMAL, nullptr);
-    if (h == INVALID_HANDLE_VALUE) return;
-    DWORD wr = 0;
-    const bool wrote = WriteFile(h, json.data(), (DWORD)json.size(), &wr, nullptr) &&
-                       wr == json.size();
-    CloseHandle(h);
-    if (!wrote) return;
 
     // 延迟到按键事件处理完再弹窗，避免在事件过滤器里弹模态对话框。
     const int addedCount = added;
