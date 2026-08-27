@@ -10,6 +10,8 @@
 #include <QtCore/QAbstractEventDispatcher>
 #include <QtCore/QAbstractNativeEventFilter>
 #include <QtCore/QAbstractItemModel>
+#include <QtCore/QModelIndex>
+#include <QtCore/QVariant>
 #include <QtCore/QIdentityProxyModel>
 #include <QtCore/QMetaObject>
 #include <QtCore/QTimer>
@@ -299,6 +301,31 @@ static void collectMenuActions(QMenu *menu, const std::function<void(const QStri
     }
 }
 
+// 顺 model 递归下钻采集词条。折叠树里未展开的节点在 view 层不可见，
+// 但其文本仍在 model 中。这里从根索引一路 child() 向下，能拿到所有层级
+// 的 DisplayRole 文本，且不改动任何节点/展开状态。带深度与预算保护。
+static void collectModelDeep(QAbstractItemModel *model, const QModelIndex &parent,
+                             const std::function<void(const QString &)> &add,
+                             int depth, int &budget,
+                             int maxDepth = 64) {
+    if (!model || depth > maxDepth || budget <= 0)
+        return;
+    const int rows = model->rowCount(parent);
+    const int cols = model->columnCount();
+    for (int r = 0; r < rows && budget > 0; ++r) {
+        const QModelIndex idx = model->index(r, 0, parent);
+        for (int c = 0; c < cols && budget > 0; ++c) {
+            const QModelIndex child = model->index(r, c, parent);
+            const QVariant v = child.data(Qt::DisplayRole);
+            if (v.isValid())
+                add(v.toString());
+            --budget;
+        }
+        // 递归下钻当前行的子节点（第 0 列作为树根）。
+        collectModelDeep(model, idx, add, depth + 1, budget, maxDepth);
+    }
+}
+
 // 手动“未翻译文本嗅探”（Shift + `）：只读地遍历当前界面，把尚未收录的
 // 英文原文追加到桌面 <Desktop>\untranslated_zh.json（sp-translation-v1，空值）。
 // 每次只新增已存在的词条（绝不覆盖、保留已填写的译法）。只在快捷键触发，
@@ -335,17 +362,8 @@ static void captureUntranslated() {
         if (auto *tb = qobject_cast<QToolBar *>(w))
             for (QAction *a : tb->actions()) add(a->text());
         if (auto *view = qobject_cast<QAbstractItemView *>(w)) {
-            if (view->model() && cellBudget > 0) {
-                QAbstractItemModel *model = view->model();
-                const int rows = model->rowCount(), cols = model->columnCount();
-                if (rows > 0 && rows < 100000 && cols > 0 && cols < 64) {
-                    for (int r = 0; r < rows && cellBudget > 0; ++r)
-                        for (int c = 0; c < cols && cellBudget > 0; ++c) {
-                            add(model->data(model->index(r, c), Qt::DisplayRole).toString());
-                            --cellBudget;
-                        }
-                }
-            }
+            if (view->model() && cellBudget > 0)
+                collectModelDeep(view->model(), QModelIndex(), add, 0, cellBudget);
         }
     }
     // 启动以来绘制层捕获的未翻译字符串。
