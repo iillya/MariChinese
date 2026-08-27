@@ -7,6 +7,8 @@
 // Qt5Gui.dll 即可精确拦截。
 // ---------------------------------------------------------------------------
 #include <QtCore/QCoreApplication>
+#include <QtCore/QAbstractEventDispatcher>
+#include <QtCore/QAbstractNativeEventFilter>
 #include <QtCore/QAbstractItemModel>
 #include <QtCore/QIdentityProxyModel>
 #include <QtCore/QMetaObject>
@@ -1552,6 +1554,83 @@ bool installAttributionActions() {
            installed.contains(g_githubAction);
 }
 
+// ---------------------------------------------------------------------------
+// 原生消息层键盘拦截
+// Mari 主界面是原生窗口（OpenGL 视口），Qt 的 QKeyEvent 不会派发进来，
+// 因此 SpeedTree 那种 QApplication::installEventFilter 方式拿不到按键。
+// 这里改用 QAbstractNativeEventFilter 拦截 Windows WM_KEYDOWN，在消息层
+// 识别 Shift + ` 与中/英切换键（F3 等），不依赖窗口焦点或控件类型。
+// ---------------------------------------------------------------------------
+static UINT qtKeyToVk(int key) {
+    if (key >= Qt::Key_F1 && key <= Qt::Key_F12)
+        return VK_F1 + (key - Qt::Key_F1);
+    if (key >= Qt::Key_A && key <= Qt::Key_Z)
+        return 'A' + (key - Qt::Key_A);
+    if (key >= Qt::Key_0 && key <= Qt::Key_9)
+        return '0' + (key - Qt::Key_0);
+    if (key == Qt::Key_Space) return VK_SPACE;
+    if (key == Qt::Key_Tab) return VK_TAB;
+    if (key == Qt::Key_Return) return VK_RETURN;
+    if (key == Qt::Key_Backspace) return VK_BACK;
+    if (key == Qt::Key_Escape) return VK_ESCAPE;
+    if (key == Qt::Key_Delete) return VK_DELETE;
+    if (key == Qt::Key_Insert) return VK_INSERT;
+    if (key == Qt::Key_Home) return VK_HOME;
+    if (key == Qt::Key_End) return VK_END;
+    if (key == Qt::Key_PageUp) return VK_PRIOR;
+    if (key == Qt::Key_PageDown) return VK_NEXT;
+    if (key == Qt::Key_Left) return VK_LEFT;
+    if (key == Qt::Key_Right) return VK_RIGHT;
+    if (key == Qt::Key_Up) return VK_UP;
+    if (key == Qt::Key_Down) return VK_DOWN;
+    return 0;
+}
+
+class NativeKeyFilter final : public QAbstractNativeEventFilter {
+public:
+    // 通过 WM_KEYDOWN/WM_KEYUP 跟踪 Shift 状态，不依赖全局物理键状态，
+    // 这样无论真实输入还是程序投递的消息都能正确判定组合键。
+    bool shiftDown_ = false;
+
+    bool nativeEventFilter(const QByteArray &eventType, void *message,
+                           long *result) override {
+        Q_UNUSED(eventType);
+        Q_UNUSED(result);
+        if (!message)
+            return false;
+        MSG *msg = static_cast<MSG *>(message);
+        const bool isDown = (msg->message == WM_KEYDOWN ||
+                             msg->message == WM_SYSKEYDOWN);
+        const bool isUp = (msg->message == WM_KEYUP ||
+                           msg->message == WM_SYSKEYUP);
+        if (!isDown && !isUp)
+            return false;
+
+        const UINT vk = static_cast<UINT>(msg->wParam);
+        if (vk == VK_SHIFT) {
+            shiftDown_ = isDown;
+            return false;
+        }
+        // 自动重复的按住事件忽略，只在真正的按下瞬间触发一次。
+        if ((msg->lParam & 0x40000000) != 0)   // bit30 = 上一次按键状态
+            return false;
+
+        // Shift + ` (~)：未翻译词条嗅探。VK_OEM_3 是 `/~ 键（ESC 下方）。
+        if (vk == VK_OEM_3 && shiftDown_) {
+            captureUntranslated();
+            return true;
+        }
+
+        // 中/英切换快捷键：把 Qt::Key 转成 VK 后比对（Shift 组合不触发）。
+        const UINT toggleVk = qtKeyToVk(g_toggleKey);
+        if (!shiftDown_ && toggleVk && vk == toggleVk) {
+            toggleTranslation();
+            return true;
+        }
+        return false;
+    }
+};
+
 class ApplicationEventFilter final : public QObject {
 public:
     using QObject::QObject;
@@ -1597,6 +1676,9 @@ void runOnGuiThread(QApplication *app) {
     installFontMeasurementHooks();
     installAllComboDisplayDelegates();
     app->installEventFilter(new ApplicationEventFilter(app));
+    // 原生消息层按键拦截：覆盖天然不派发 QKeyEvent 的原生/3D 视口窗口。
+    if (QAbstractEventDispatcher *dispatcher = QAbstractEventDispatcher::instance())
+        dispatcher->installNativeEventFilter(new NativeKeyFilter);
     installAttributionActions();
     // 晚加载 DLL（如按需加载的插件）会绕过启动时的 IAT 扫描，定期重扫。
     auto *rescanTimer = new QTimer(app);
