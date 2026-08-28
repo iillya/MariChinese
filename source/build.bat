@@ -11,18 +11,31 @@ set "ROOT=%~dp0.."
 set "CPP=%ROOT%\source"
 set "OUT=%ROOT%\build\out"
 set "OBJDIR=%ROOT%\build\obj"
-rem ä¼åä½¿ç¨ä»åºå¤å±äº« Qt SDKï¼_ThirdParty\qt5sdkï¼ï¼å¶æ¬¡ä»åºå third_partyãååéå° C:\Qt512
-set "QT=%ROOT%\..\_ThirdParty\qt5sdk"
+set "ICONDIR=%ROOT%\icon"
+rem QT5_BASELINE may point at the Qt 5.6.1 x64 MSVC SDK used for release builds.
+rem Later Qt 5 SDKs remain useful for local checks, but cannot prove the minimum ABI.
+set "QT=%QT5_BASELINE%"
+if not exist "%QT%\lib\Qt5Widgets.lib" set "QT=%ROOT%\..\_ThirdParty\qt5sdk"
 if not exist "%QT%\lib\Qt5Widgets.lib" set "QT=%ROOT%\third_party\qt5sdk"
 if not exist "%QT%\lib\Qt5Widgets.lib" set "QT=C:\Qt512\5.12.0\msvc2017_64"
-if not exist "%OUT%" mkdir "%OUT%"
-if not exist "%OBJDIR%" mkdir "%OBJDIR%"
-
 if not exist "%QT%\lib\Qt5Widgets.lib" (
     echo [ERROR] Qt 5 x64 MSVC SDK not found.
     echo Expected either %ROOT%\..\_ThirdParty\qt5sdk or %ROOT%\third_party\qt5sdk
     exit /b 1
 )
+
+if exist "%OUT%" rmdir /s /q "%OUT%"
+if exist "%OBJDIR%" rmdir /s /q "%OBJDIR%"
+if exist "%OUT%" (
+    echo [ERROR] Cannot clean %OUT%. Close Mari and try again.
+    exit /b 1
+)
+if exist "%OBJDIR%" (
+    echo [ERROR] Cannot clean %OBJDIR%. Close build tools and try again.
+    exit /b 1
+)
+mkdir "%OUT%"
+mkdir "%OBJDIR%"
 
 set "VCVARS=C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
 if not exist "%VCVARS%" (
@@ -32,29 +45,56 @@ if not exist "%VCVARS%" (
 call "%VCVARS%" >nul
 
 echo === Compiling hook DLL ===
-cl /nologo /O2 /W3 /LD /EHsc /std:c++17 /Zc:__cplusplus /permissive- /utf-8 ^
+cl /nologo /O2 /W4 /c /EHsc /std:c++17 /Zc:__cplusplus /permissive- /utf-8 ^
    /I"%QT%\include" ^
    "%CPP%\hook.cpp" ^
-   /Fo"%OBJDIR%\hook.obj" ^
-   /Fe:"%OUT%\MariChineseHook.dll" ^
-   /link /IMPLIB:"%OBJDIR%\MariChineseHook.lib" ^
+   /Fo"%OBJDIR%\hook.obj"
+if errorlevel 1 exit /b 1
+
+cl /nologo /O2 /W4 /c /EHsc /std:c++17 /Zc:__cplusplus /permissive- /utf-8 ^
+   /DMARI_DPI_EMBEDDED /I"%QT%\include" ^
+   "%ROOT%\experiments\dpi_vtable\dpi_hook.cpp" ^
+   /Fo"%OBJDIR%\dpi_feature.obj"
+if errorlevel 1 exit /b 1
+
+link /nologo /DLL "%OBJDIR%\hook.obj" "%OBJDIR%\dpi_feature.obj" ^
+   /OUT:"%OUT%\MariChineseHook.dll" ^
+   /IMPLIB:"%OBJDIR%\MariChineseHook.lib" ^
    "%QT%\lib\Qt5Core.lib" "%QT%\lib\Qt5Gui.lib" "%QT%\lib\Qt5Widgets.lib" ^
    user32.lib shell32.lib psapi.lib version.lib
 if errorlevel 1 exit /b 1
 
 echo === Compiling launcher ===
-cl /nologo /O2 /W3 /EHsc /utf-8 ^
+rc /nologo /fo "%OBJDIR%\app_icon.res" "%ICONDIR%\app_icon.rc"
+if errorlevel 1 exit /b 1
+cl /nologo /O2 /W4 /EHsc /std:c++17 /permissive- /utf-8 ^
    "%CPP%\launcher.cpp" ^
    /Fo"%OBJDIR%\launcher.obj" ^
+   "%OBJDIR%\app_icon.res" ^
    /Fe:"%OUT%\MariChineseLauncher.exe" ^
    /link /SUBSYSTEM:WINDOWS user32.lib
+if errorlevel 1 exit /b 1
+
+echo === Compiling installer ===
+cl /nologo /O2 /W4 /EHsc /std:c++17 /permissive- /utf-8 ^
+   "%CPP%\installer.cpp" ^
+   /Fo"%OBJDIR%\installer.obj" ^
+   "%OBJDIR%\app_icon.res" ^
+   /Fe:"%OUT%\MariChineseInstaller.exe" ^
+   /link /SUBSYSTEM:WINDOWS user32.lib shell32.lib ole32.lib advapi32.lib bcrypt.lib comctl32.lib gdi32.lib dwmapi.lib ^
+   /MANIFEST:EMBED /MANIFESTUAC:"level='requireAdministrator' uiAccess='false'"
 if errorlevel 1 exit /b 1
 
 echo === Staging runtime dictionary ===
 if not exist "%OUT%\translations" mkdir "%OUT%\translations"
 copy /Y "%ROOT%\translations\dictionary_zh.json" "%OUT%\translations\dictionary_zh.json" >nul
 
+echo === Packing release installer ===
+python "%CPP%\embed_files.py"
+if errorlevel 1 exit /b 1
+
 echo Build complete:
 echo   %OUT%\MariChineseHook.dll
 echo   %OUT%\MariChineseLauncher.exe
+echo   %ROOT%\dist\MariChineseInstaller.exe
 endlocal

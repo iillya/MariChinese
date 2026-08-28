@@ -2,7 +2,7 @@
 //  Mari 中文汉化 - 启动器
 // ============================================================================
 //  Mari 没有插件入口，所以这个启动器（与 Toolbag / SpeedTree 汉化器一致）
-//  以 SUSPENDED 状态启动 Mari7.5v2.exe，用远端 LoadLibraryW 线程注入
+//  以 SUSPENDED 状态启动已安装的 Mari，用远端 LoadLibraryW 线程注入
 //  MariChineseHook.dll，然后恢复运行。原程序文件从不修改；命令行参数
 //  （例如 .mri 项目路径）原样透传给 Mari。
 // ============================================================================
@@ -10,6 +10,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #include <tlhelp32.h>
+#include <cwchar>
 #include <string>
 #include <vector>
 
@@ -56,8 +57,28 @@ std::wstring FindMariExeInDir(const std::wstring &dir) {
     return result;
 }
 
-// 找到 Mari 可执行文件：先从启动器位置向上查找，再检查当前支持的
-// 默认安装目录。测试目标包括 Mari 7.1v1 和 7.5v2。
+std::wstring FindMariUnderProgramFiles(const std::wstring &programFiles) {
+    WIN32_FIND_DATAW data{};
+    HANDLE find = FindFirstFileW((programFiles + L"\\Mari*").c_str(), &data);
+    if (find == INVALID_HANDLE_VALUE)
+        return L"";
+    std::wstring result;
+    do {
+        if (!(data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) ||
+            wcscmp(data.cFileName, L".") == 0 || wcscmp(data.cFileName, L"..") == 0)
+            continue;
+        const std::wstring candidate = programFiles + L"\\" + data.cFileName +
+                                       L"\\Bundle\\bin";
+        const std::wstring found = FindMariExeInDir(candidate);
+        if (!found.empty() && (result.empty() || _wcsicmp(found.c_str(), result.c_str()) > 0))
+            result = found;
+    } while (FindNextFileW(find, &data));
+    FindClose(find);
+    return result;
+}
+
+// 优先从启动器位置向上查找；仅在安装目录损坏或启动器被单独移动时，
+// 才枚举 Program Files 下所有 Mari 安装，不依赖具体 Mari 版本号。
 std::wstring FindMariExe(const std::wstring &start) {
     std::wstring dir = start;
     for (int depth = 0; depth < 12; ++depth) {
@@ -72,18 +93,32 @@ std::wstring FindMariExe(const std::wstring &start) {
     if (pfLen == 0 || pfLen >= MAX_PATH)
         pfLen = GetEnvironmentVariableW(L"ProgramW6432", pf, MAX_PATH);
     if (pfLen && pfLen < MAX_PATH) {
-        const wchar_t *versions[] = {L"Mari7.5v2", L"Mari7.1v1"};
-        for (const wchar_t *version : versions) {
-            const std::wstring dirCandidate =
-                std::wstring(pf) + L"\\" + version + L"\\Bundle\\bin";
-            const std::wstring exeCandidate = FindMariExeInDir(dirCandidate);
-            if (!exeCandidate.empty()) return exeCandidate;
-        }
+        return FindMariUnderProgramFiles(pf);
     }
     return L"";
 }
 
-LPTHREAD_START_ROUTINE ResolveLoadLibrary(DWORD pid) {
+bool SameArchitecture(HANDLE targetProcess) {
+    using IsWow64Process2Fn = BOOL (WINAPI *)(HANDLE, USHORT *, USHORT *);
+    const auto isWow64Process2 = reinterpret_cast<IsWow64Process2Fn>(
+        GetProcAddress(GetModuleHandleW(L"kernel32.dll"), "IsWow64Process2"));
+    if (isWow64Process2) {
+        USHORT localProcess = 0, localNative = 0;
+        USHORT remoteProcess = 0, remoteNative = 0;
+        if (!isWow64Process2(GetCurrentProcess(), &localProcess, &localNative) ||
+            !isWow64Process2(targetProcess, &remoteProcess, &remoteNative))
+            return false;
+        const USHORT localMachine = localProcess ? localProcess : localNative;
+        const USHORT remoteMachine = remoteProcess ? remoteProcess : remoteNative;
+        return localMachine == remoteMachine;
+    }
+    BOOL localWow64 = FALSE, remoteWow64 = FALSE;
+    return IsWow64Process(GetCurrentProcess(), &localWow64) &&
+           IsWow64Process(targetProcess, &remoteWow64) &&
+           localWow64 == remoteWow64;
+}
+
+LPTHREAD_START_ROUTINE ResolveLoadLibrary(HANDLE targetProcess, DWORD pid) {
     HMODULE local = GetModuleHandleW(L"kernel32.dll");
     if (!local) return nullptr;
     FARPROC fn = GetProcAddress(local, "LoadLibraryW");
@@ -102,7 +137,35 @@ LPTHREAD_START_ROUTINE ResolveLoadLibrary(DWORD pid) {
         }
         CloseHandle(snap);
     }
-    return reinterpret_cast<LPTHREAD_START_ROUTINE>(fn);
+    // A newly created suspended process can temporarily omit kernel32 from
+    // Toolhelp's module list. Windows shares system-DLL mappings
+    // for same-architecture processes in one boot session; retain the proven
+    // compatibility path, but never use it across architectures.
+    return SameArchitecture(targetProcess)
+        ? reinterpret_cast<LPTHREAD_START_ROUTINE>(fn)
+        : nullptr;
+}
+
+void ConfigureDpi(const std::wstring &directory) {
+    const std::wstring settings = directory + L"\\settings.ini";
+    const int enabled = GetPrivateProfileIntW(L"Dpi", L"Enabled", 0,
+                                               settings.c_str());
+    if (!enabled)
+        return;
+
+    wchar_t value[32] = L"1.75";
+    GetPrivateProfileStringW(L"Dpi", L"ScaleFactor", L"1.75", value,
+                             static_cast<DWORD>(_countof(value)),
+                             settings.c_str());
+    wchar_t *end = nullptr;
+    const double factor = std::wcstod(value, &end);
+    if (end == value || *end != L'\0' || factor < 1.0 || factor > 3.0) {
+        wcscpy_s(value, L"1.75");
+    }
+    SetEnvironmentVariableW(L"QT_ENABLE_HIGHDPI_SCALING", L"1");
+    SetEnvironmentVariableW(L"QT_AUTO_SCREEN_SCALE_FACTOR", L"1");
+    SetEnvironmentVariableW(L"QT_SCALE_FACTOR", value);
+    SetEnvironmentVariableW(L"MARI_CHINESE_DPI_SCALE", value);
 }
 
 } // namespace
@@ -121,6 +184,8 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR cmdLine, int) {
                     L"Mari 中文补丁", MB_OK | MB_ICONERROR);
         return 1;
     }
+
+    ConfigureDpi(dir);
 
     STARTUPINFOW si{}; si.cb = sizeof(si);
     PROCESS_INFORMATION pi{};
@@ -143,7 +208,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR cmdLine, int) {
         WriteProcessMemory(pi.hProcess, remote, dllPath.c_str(), bytes, &written) &&
         written == bytes;
 
-    auto loadLib = ResolveLoadLibrary(pi.dwProcessId);
+    auto loadLib = ResolveLoadLibrary(pi.hProcess, pi.dwProcessId);
     HANDLE thread = nullptr;
     if (pathOk && loadLib)
         thread = CreateRemoteThread(pi.hProcess, nullptr, 0, loadLib, remote, 0, nullptr);

@@ -4,7 +4,8 @@ setlocal
 set "ROOT=%~dp0..\.."
 set "SRC=%~dp0"
 set "OUT=%ROOT%\build\dpi-experiment"
-set "QT=%ROOT%\third_party\qt5sdk"
+set "QT=%QT5_BASELINE%"
+if not exist "%QT%\lib\Qt5Widgets.lib" set "QT=%ROOT%\third_party\qt5sdk"
 if not exist "%QT%\lib\Qt5Widgets.lib" set "QT=C:\Qt512\5.12.0\msvc2017_64"
 set "VCVARS=C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
 

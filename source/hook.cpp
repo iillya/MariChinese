@@ -2,9 +2,8 @@
 // Mari 中文汉化 - 纯显示层翻译引擎
 // 只 hook QPainter::drawText（8 个重载），在绘制层把控件文本翻译成中文。
 // 英文原文始终留在控件 text() / model 的 DisplayRole 里，开关只是翻转
-// 状态 + 重绘，不改动任何数据。Mari 7.5 用 Qt 5.15.2，drawText 的 MSVC
-// mangled 名与 Qt 5.12.5 一致，因此用 Qt 5.12.5 SDK 编译、链接到 Mari 的
-// Qt5Gui.dll 即可精确拦截。
+// 状态 + 重绘，不改动任何数据。运行时从宿主 Qt5 DLL 解析可用能力；找不到
+// 的可选入口独立降级，不依赖 Mari 版本名、固定 RVA 或固定虚表槽位。
 // ---------------------------------------------------------------------------
 #include <QtCore/QCoreApplication>
 #include <QtCore/QAbstractEventDispatcher>
@@ -68,9 +67,12 @@
 #include <set>
 #include <functional>
 #include <algorithm>
+#include <atomic>
 #include <cstddef>
 #include <utility>
 #include <typeinfo>
+
+#include "../experiments/dpi_vtable/dpi_feature.h"
 
 namespace {
 
@@ -78,11 +80,10 @@ QHash<QString, QString> g_translations;   // 英文原文 -> 中文
 // SpeedTree 同款：归一化英文键 -> 中文 的模糊索引，以及按小写原文排序的键表（用于省略号前缀查找）。
 QHash<QString, QString> g_foldedTranslations;
 std::vector<QPair<QString, QString>> g_sortedKeys;   // (小写原文, 原文)
-QHash<QString, QString> g_normCache;                 // 原文 -> 归一化结果
-static constexpr size_t kMaxNormCache = 100000;
 std::set<std::string> g_paintSeen;                   // Shift+` 嗅探：未翻译字符串集合
 static constexpr size_t kMaxPaintSeen = 100000;
-bool g_enabled = true;
+SRWLOCK g_paintSeenLock = SRWLOCK_INIT;
+std::atomic_bool g_enabled{true};
 bool g_hooksInstalled = false;
 bool g_nodeTextHookInstalled = false;
 int g_toggleKey = Qt::Key_F3;
@@ -125,8 +126,12 @@ bool isTranslatableString(const QString &s) {
 // 统一空白/下划线、全角转半角、去组合字符、大小写折叠。
 QString normalizeForMatch(QString text) {
     const QString original = text;
-    auto cached = g_normCache.constFind(original);
-    if (cached != g_normCache.constEnd())
+    // drawText may run outside the GUI thread. A per-thread bounded cache keeps
+    // the hot path lock-free and avoids mutating a shared QHash while painting.
+    thread_local QHash<QString, QString> cache;
+    static constexpr int kThreadCacheLimit = 4096;
+    auto cached = cache.constFind(original);
+    if (cached != cache.constEnd())
         return cached.value();
 
     text.replace(QChar(0x00A0), QLatin1Char(' '));
@@ -157,8 +162,8 @@ QString normalizeForMatch(QString text) {
     }
     stripped.remove(QLatin1Char(' '));
     QString result = stripped.normalized(QString::NormalizationForm_C);
-    if (g_normCache.size() < kMaxNormCache)
-        g_normCache.insert(original, result);
+    if (cache.size() < kThreadCacheLimit)
+        cache.insert(original, result);
     return result;
 }
 
@@ -166,7 +171,6 @@ QString normalizeForMatch(QString text) {
 void rebuildLookupIndex() {
     g_foldedTranslations.clear();
     g_sortedKeys.clear();
-    g_normCache.clear();
     for (auto it = g_translations.cbegin(); it != g_translations.cend(); ++it)
         g_foldedTranslations.insert(normalizeForMatch(it.key()), it.value());
     g_sortedKeys.reserve(g_translations.size());
@@ -241,9 +245,24 @@ QString lookupTranslation(const QString &text) {
             return elided + stateSuffix;
     }
     // Shift+` 嗅探：记录未翻译且看似可翻译的界面文案（有上限）。
-    if (g_paintSeen.size() < kMaxPaintSeen && isTranslatableString(trimmed))
-        g_paintSeen.insert(trimmed.toUtf8().constData());
+    if (isTranslatableString(trimmed)) {
+        const QByteArray utf8 = trimmed.toUtf8();
+        // 嗅探只是诊断功能，绝不能让高频绘制路径等待文件导出线程。
+        // 锁繁忙时丢弃本次样本；相同文字后续绘制还会再次采集。
+        if (TryAcquireSRWLockExclusive(&g_paintSeenLock)) {
+            if (g_paintSeen.size() < kMaxPaintSeen)
+                g_paintSeen.insert(utf8.constData());
+            ReleaseSRWLockExclusive(&g_paintSeenLock);
+        }
+    }
     return {};
+}
+
+std::vector<std::string> paintSeenSnapshot() {
+    AcquireSRWLockShared(&g_paintSeenLock);
+    std::vector<std::string> result(g_paintSeen.begin(), g_paintSeen.end());
+    ReleaseSRWLockShared(&g_paintSeenLock);
+    return result;
 }
 
 // JSON 字符串转义（键/值）。
@@ -327,15 +346,16 @@ static void collectModelDeep(QAbstractItemModel *model, const QModelIndex &paren
 }
 
 // 手动“未翻译文本嗅探”（Shift + `）：只读地遍历当前界面，把尚未收录的
-// 英文原文追加到桌面 <Desktop>\untranslated_zh.json（sp-translation-v1，空值）。
+// 英文原文追加到桌面 <Desktop>\Mari_untranslated_zh.json（sp-translation-v1，空值）。
 // 每次只新增已存在的词条（绝不覆盖、保留已填写的译法）。只在快捷键触发，
 // 不改动任何控件/数据。
 static void captureUntranslated() {
     std::map<std::string, std::string> pending;
     auto add = [&](const QString &s) {
         if (!isTranslatableString(s)) return;
+        if (!lookupTranslation(s).isEmpty()) return;
         const std::string k = s.trimmed().toUtf8().constData();
-        if (k.empty() || g_translations.contains(QString::fromUtf8(k.c_str()))) return;
+        if (k.empty()) return;
         pending.emplace(k, "");
     };
 
@@ -367,15 +387,17 @@ static void captureUntranslated() {
         }
     }
     // 启动以来绘制层捕获的未翻译字符串。
-    for (const std::string &s : g_paintSeen)
-        if (!s.empty() && !g_translations.contains(QString::fromUtf8(s.c_str())))
+    for (const std::string &s : paintSeenSnapshot())
+        if (!s.empty() &&
+            lookupTranslation(QString::fromUtf8(s.c_str())).isEmpty())
             pending.emplace(s, "");
 
     wchar_t desktop[MAX_PATH] = {};
     if (FAILED(SHGetFolderPathW(nullptr, CSIDL_DESKTOPDIRECTORY, nullptr, 0, desktop)) ||
         !desktop[0])
         return;
-    const std::wstring path = std::wstring(desktop) + L"\\untranslated_zh.json";
+    const std::wstring path =
+        std::wstring(desktop) + L"\\Mari_untranslated_zh.json";
 
     // 读入上次采集的结果，只新增、不覆盖（保留可能已填写的译法）。
     std::map<std::string, std::string> merged;
@@ -482,6 +504,7 @@ QString displayTranslation(const QString &text) {
 // QFontMetrics 测量钩子的类型与全局（提前声明，供 hooked 函数使用）
 // ---------------------------------------------------------------------------
 typedef int (__cdecl *FmHAdv)(const QFontMetrics *, const QString &, int);
+typedef int (__cdecl *FmWidth)(const QFontMetrics *, const QString &, int);
 typedef void *(__cdecl *FmBRectRaw)(const QFontMetrics *self, QRect *result,
                                     const QString &text);
 typedef void *(__cdecl *FmBRectRectRaw)(const QFontMetrics *self, QRect *result,
@@ -502,6 +525,7 @@ typedef void *(__cdecl *FmElideRaw)(const QFontMetrics *self, QString *result,
                                     int width, int flags);
 
 typedef qreal (__cdecl *FmFHAdv)(const QFontMetricsF *, const QString &, int);
+typedef qreal (__cdecl *FmFWidth)(const QFontMetricsF *, const QString &, int);
 typedef void *(__cdecl *FmFBRectRaw)(const QFontMetricsF *self, QRectF *result,
                                      const QString &text);
 typedef void *(__cdecl *FmFBRectRectRaw)(const QFontMetricsF *self, QRectF *result,
@@ -518,6 +542,7 @@ typedef void *(__cdecl *FmFElideRaw)(const QFontMetricsF *self, QString *result,
                                      qreal width, int flags);
 
 FmHAdv g_fmHAdv = nullptr;
+FmWidth g_fmWidth = nullptr;
 FmBRectRaw g_fmBRect = nullptr;
 FmBRectRectRaw g_fmBRectRect = nullptr;
 FmBRectXYWHRaw g_fmBRectXYWH = nullptr;
@@ -525,6 +550,7 @@ FmSizeRaw g_fmSize = nullptr;
 FmTBRectRaw g_fmTBRect = nullptr;
 FmElideRaw g_fmElide = nullptr;
 FmFHAdv g_fmfHAdv = nullptr;
+FmFWidth g_fmfWidth = nullptr;
 FmFBRectRaw g_fmfBRect = nullptr;
 FmFBRectRectRaw g_fmfBRectRect = nullptr;
 FmFSizeRaw g_fmfSize = nullptr;
@@ -553,6 +579,8 @@ public:
     }
 };
 
+QSize proxyDisplayTextSize(const QFontMetrics &metrics, const QString &text);
+
 class ComboPaintDelegate final : public QAbstractItemDelegate {
 public:
     ComboPaintDelegate(QAbstractItemView *view, QAbstractItemDelegate *original)
@@ -570,7 +598,15 @@ public:
 
     QSize sizeHint(const QStyleOptionViewItem &option,
                    const QModelIndex &index) const override {
-        return original_ ? original_->sizeHint(option, index) : QSize();
+        if (!original_ || !index.isValid())
+            return {};
+        const QAbstractItemModel *model = index.model();
+        if (proxy_.sourceModel() != model)
+            proxy_.setSourceModel(const_cast<QAbstractItemModel *>(model));
+        QSize result = original_->sizeHint(option, proxy_.mapFromSource(index));
+        result.setWidth(qMax(result.width(), proxyDisplayTextSize(
+            option.fontMetrics, index.data(Qt::DisplayRole).toString()).width()));
+        return result;
     }
 
 private:
@@ -618,32 +654,12 @@ int installComboDisplayDelegate(QAbstractItemView *view) {
 }
 
 // ---------------------------------------------------------------------------
-// DisplayLayer：QProxyStyle。覆盖所有经 QStyle::drawItemText 绘制的控件文本
-// （按钮/复选框/菜单项/分组框标题/选项卡/combo 按钮/表头/工具按钮）以及
-// itemTextRect 测量。只用 Qt 公开虚函数，不依赖 mangled 符号，Qt 5/6 安全。
+// 仅用 QProxyStyle 的公开测量接口计算 combo 显示文本尺寸。
+// 不把它安装为全局样式，避免改变 Mari 的自定义绘制和尺寸。
 // ---------------------------------------------------------------------------
 class ChineseProxyStyle final : public QProxyStyle {
 public:
     using QProxyStyle::QProxyStyle;
-
-    void drawItemText(QPainter *painter, const QRect &rect, int flags,
-                      const QPalette &pal, bool enabled, const QString &text,
-                      QPalette::ColorRole textRole = QPalette::NoRole) const override {
-        const QString translated = displayTranslation(text);
-        const QString draw = translated.isEmpty() ? text : translated;
-        if (text == QStringLiteral("Bilibili神说要凑数汉化") ||
-            text == QStringLiteral("Github仓库")) {
-            QPalette linkPalette = pal;
-            const QColor blue(0x66, 0xAA, 0xFF);
-            linkPalette.setColor(QPalette::WindowText, blue);
-            linkPalette.setColor(QPalette::ButtonText, blue);
-            QProxyStyle::drawItemText(painter, rect, flags, linkPalette,
-                                      enabled, draw, textRole);
-            return;
-        }
-        QProxyStyle::drawItemText(painter, rect, flags, pal, enabled,
-                                  draw, textRole);
-    }
 
     QRect itemTextRect(const QFontMetrics &fm, const QRect &r, int flags,
                        bool enabled, const QString &text) const override {
@@ -654,21 +670,29 @@ public:
 };
 
 bool g_proxyStyleInstalled = false;
+QPointer<ChineseProxyStyle> g_chineseProxyStyle;
+
+QSize proxyDisplayTextSize(const QFontMetrics &metrics, const QString &text) {
+    if (!g_chineseProxyStyle)
+        return metrics.size(Qt::TextSingleLine, text);
+    return g_chineseProxyStyle->itemTextRect(
+        metrics, QRect(0, 0, 32767, 32767),
+        Qt::AlignLeft | Qt::AlignVCenter | Qt::TextSingleLine,
+        true, text).size();
+}
 
 void installProxyStyle() {
     if (g_proxyStyleInstalled || !QApplication::instance())
         return;
-    // Keep the proven 096e4f5 behavior: give QProxyStyle a separately created
-    // base style instead of transferring ownership of Mari's live style.
-    const QString key = QApplication::style()
-        ? QApplication::style()->objectName()
-        : QString();
+    QStyle *current = QApplication::style();
+    const QString key = current ? current->objectName() : QString();
     QStyle *base = QStyleFactory::create(
         key.isEmpty() ? QStringLiteral("fusion") : key);
     if (!base)
         base = QStyleFactory::create(QStringLiteral("fusion"));
     if (base) {
-        QApplication::setStyle(new ChineseProxyStyle(base));
+        g_chineseProxyStyle = new ChineseProxyStyle(base);
+        g_chineseProxyStyle->setParent(QApplication::instance());
         g_proxyStyleInstalled = true;
     }
 }
@@ -699,15 +723,19 @@ QString measureText(const QString &text) {
 }
 
 int cjkPad(const QFontMetrics *fm) {
-    if (g_fmHAdv) {
-        int w = g_fmHAdv(fm, QStringLiteral("中"), -1);
+    if (g_fmHAdv || g_fmWidth) {
+        const int w = g_fmHAdv
+            ? g_fmHAdv(fm, QStringLiteral("中"), -1)
+            : g_fmWidth(fm, QStringLiteral("中"), -1);
         if (w > 0) return w;
     }
     return fm->height();
 }
 int cjkPadF(const QFontMetricsF *fm) {
-    if (g_fmfHAdv) {
-        qreal w = g_fmfHAdv(fm, QStringLiteral("中"), -1);
+    if (g_fmfHAdv || g_fmfWidth) {
+        const qreal w = g_fmfHAdv
+            ? g_fmfHAdv(fm, QStringLiteral("中"), -1)
+            : g_fmfWidth(fm, QStringLiteral("中"), -1);
         if (w > 0) return (int)w;
     }
     return (int)fm->height();
@@ -720,6 +748,15 @@ int hookedFontHAdv(const QFontMetrics *fm, const QString &text, int len) {
     if (len >= 0 && len > t.size()) len = static_cast<int>(t.size());
     if (g_fmHAdv) return g_fmHAdv(fm, t, len) + (tr.isEmpty() ? 0 : cjkPad(fm));
     return 0;
+}
+int hookedFontWidth(const QFontMetrics *fm, const QString &text, int len) {
+    QString t = text;
+    const QString tr = measureText(text);
+    if (!tr.isEmpty()) t = tr;
+    if (len >= 0 && len > t.size()) len = static_cast<int>(t.size());
+    return g_fmWidth
+        ? g_fmWidth(fm, t, len) + (tr.isEmpty() ? 0 : cjkPad(fm))
+        : 0;
 }
 int hookedFontHAdvOpt(const QFontMetrics *fm, const QString &text,
                       const QTextOption &opt) {
@@ -754,8 +791,8 @@ void *hookedFontBRectXYWH(const QFontMetrics *fm, QRect *result, int x, int y,
     QString t = text;
     QString tr = measureText(text);
     if (!tr.isEmpty()) t = tr;
-    if (g_fmBRectXYWH) g_fmBRectXYWH(fm, result, x, y, w, h, flags, t, tabstops,
-                                     tabarray);
+    if (g_fmBRectXYWH) g_fmBRectXYWH(fm, result, x, y, w, h, flags, t,
+                                     tabstops, tabarray);
     if (!tr.isEmpty()) result->setWidth(result->width() + cjkPad(fm));
     return result;
 }
@@ -793,6 +830,15 @@ qreal hookedFontFHAdv(const QFontMetricsF *fm, const QString &text, int len) {
     if (len >= 0 && len > t.size()) len = static_cast<int>(t.size());
     if (g_fmfHAdv) return g_fmfHAdv(fm, t, len) + (tr.isEmpty() ? 0 : cjkPadF(fm));
     return 0;
+}
+qreal hookedFontFWidth(const QFontMetricsF *fm, const QString &text, int len) {
+    QString t = text;
+    const QString tr = measureText(text);
+    if (!tr.isEmpty()) t = tr;
+    if (len >= 0 && len > t.size()) len = static_cast<int>(t.size());
+    return g_fmfWidth
+        ? g_fmfWidth(fm, t, len) + (tr.isEmpty() ? 0 : cjkPadF(fm))
+        : 0;
 }
 void *hookedFontFBRect(const QFontMetricsF *fm, QRectF *result, const QString &text) {
     QString t = text;
@@ -865,6 +911,23 @@ GraphicsSimpleTextPaint g_graphicsSimpleTextPaint = nullptr;
 
 enum class NodeTextRole { Unknown, Title, Input, Output };
 
+bool isAttributionText(const QString &text) {
+    return text == QStringLiteral("Bilibili神说要凑数汉化") ||
+           text == QStringLiteral("Github仓库");
+}
+
+void beginAttributionPaint(QPainter *painter, const QString &text) {
+    if (!painter || !isAttributionText(text))
+        return;
+    painter->save();
+    painter->setPen(QColor(0x66, 0xAA, 0xFF));
+}
+
+void endAttributionPaint(QPainter *painter, const QString &text) {
+    if (painter && isAttributionText(text))
+        painter->restore();
+}
+
 NodeTextRole nodeTextRole(const QGraphicsSimpleTextItem *textItem) {
     bool belongsToNode = false;
     for (QGraphicsItem *item = textItem ? textItem->parentItem() : nullptr;
@@ -883,40 +946,56 @@ NodeTextRole nodeTextRole(const QGraphicsSimpleTextItem *textItem) {
 
 void hookedDrawPoint(QPainter *p, const QPoint &pt, const QString &text) {
     QString t = displayTranslation(text);
+    beginAttributionPaint(p, text);
     g_drawPoint(p, pt, t.isEmpty() ? text : t);
+    endAttributionPaint(p, text);
 }
 void hookedDrawPointF(QPainter *p, const QPointF &pt, const QString &text) {
     QString t = displayTranslation(text);
+    beginAttributionPaint(p, text);
     g_drawPointF(p, pt, t.isEmpty() ? text : t);
+    endAttributionPaint(p, text);
 }
 void hookedDrawPointF2(QPainter *p, const QPointF &pt, const QString &text,
                        int flags, int just) {
     QString t = displayTranslation(text);
+    beginAttributionPaint(p, text);
     g_drawPointF2(p, pt, t.isEmpty() ? text : t, flags, just);
+    endAttributionPaint(p, text);
 }
 void hookedDrawRect(QPainter *p, const QRect &r, int flags, const QString &text,
                     QRect *br) {
     QString t = displayTranslation(text);
+    beginAttributionPaint(p, text);
     g_drawRect(p, r, flags, t.isEmpty() ? text : t, br);
+    endAttributionPaint(p, text);
 }
 void hookedDrawRectFOption(QPainter *p, const QRectF &r, const QString &text,
                            const QTextOption &opt) {
     QString t = displayTranslation(text);
+    beginAttributionPaint(p, text);
     g_drawRectFOption(p, r, t.isEmpty() ? text : t, opt);
+    endAttributionPaint(p, text);
 }
 void hookedDrawRectFAlign(QPainter *p, const QRectF &r, int flags,
                           const QString &text, QRectF *br) {
     QString t = displayTranslation(text);
+    beginAttributionPaint(p, text);
     g_drawRectFAlign(p, r, flags, t.isEmpty() ? text : t, br);
+    endAttributionPaint(p, text);
 }
 void hookedDrawXY(QPainter *p, int x, int y, const QString &text) {
     QString t = displayTranslation(text);
+    beginAttributionPaint(p, text);
     g_drawXY(p, x, y, t.isEmpty() ? text : t);
+    endAttributionPaint(p, text);
 }
 void hookedDrawXYWH(QPainter *p, int x, int y, int w, int h, int flags,
                     const QString &text, QRect *br) {
     QString t = displayTranslation(text);
+    beginAttributionPaint(p, text);
     g_drawXYWH(p, x, y, w, h, flags, t.isEmpty() ? text : t, br);
+    endAttributionPaint(p, text);
 }
 
 void hookedGraphicsSimpleTextPaint(QGraphicsSimpleTextItem *self, QPainter *painter,
@@ -1136,6 +1215,7 @@ void patchFontModules() {
     struct Sym { void *orig; void *hook; };
     Sym syms[] = {
         {(void *)g_fmHAdv, (void *)&hookedFontHAdv},
+        {(void *)g_fmWidth, (void *)&hookedFontWidth},
         {(void *)g_fmBRect, (void *)&hookedFontBRect},
         {(void *)g_fmBRectRect, (void *)&hookedFontBRectRect},
         {(void *)g_fmBRectXYWH, (void *)&hookedFontBRectXYWH},
@@ -1143,6 +1223,7 @@ void patchFontModules() {
         {(void *)g_fmTBRect, (void *)&hookedFontTBRect},
         {(void *)g_fmElide, (void *)&hookedFontElide},
         {(void *)g_fmfHAdv, (void *)&hookedFontFHAdv},
+        {(void *)g_fmfWidth, (void *)&hookedFontFWidth},
         {(void *)g_fmfBRect, (void *)&hookedFontFBRect},
         {(void *)g_fmfBRectRect, (void *)&hookedFontFBRectRect},
         {(void *)g_fmfSize, (void *)&hookedFontFSize},
@@ -1167,9 +1248,11 @@ bool isExecutableCodeAddr(const void *p) {
 
 bool fontSymbolsAreValid() {
     const void *ptrs[] = {
-        (void *)g_fmHAdv, (void *)g_fmBRect, (void *)g_fmBRectRect,
+        (void *)g_fmHAdv, (void *)g_fmWidth,
+        (void *)g_fmBRect, (void *)g_fmBRectRect,
         (void *)g_fmBRectXYWH, (void *)g_fmSize, (void *)g_fmTBRect,
-        (void *)g_fmElide, (void *)g_fmfHAdv, (void *)g_fmfBRect,
+        (void *)g_fmElide, (void *)g_fmfHAdv, (void *)g_fmfWidth,
+        (void *)g_fmfBRect,
         (void *)g_fmfBRectRect, (void *)g_fmfSize, (void *)g_fmfTBRect,
         (void *)g_fmfElide,
     };
@@ -1192,6 +1275,8 @@ void installFontMeasurementHooks() {
         return;
     g_fmHAdv = (FmHAdv)GetProcAddress(qtGui,
         "?horizontalAdvance@QFontMetrics@@QEBAHAEBVQString@@H@Z");
+    g_fmWidth = (FmWidth)GetProcAddress(qtGui,
+        "?width@QFontMetrics@@QEBAHAEBVQString@@H@Z");
     g_fmBRect = (FmBRectRaw)GetProcAddress(qtGui,
         "?boundingRect@QFontMetrics@@QEBA?AVQRect@@AEBVQString@@@Z");
     g_fmBRectRect = (FmBRectRectRaw)GetProcAddress(qtGui,
@@ -1207,6 +1292,8 @@ void installFontMeasurementHooks() {
 
     g_fmfHAdv = (FmFHAdv)GetProcAddress(qtGui,
         "?horizontalAdvance@QFontMetricsF@@QEBANAEBVQString@@H@Z");
+    g_fmfWidth = (FmFWidth)GetProcAddress(qtGui,
+        "?width@QFontMetricsF@@QEBANAEBVQString@@H@Z");
     g_fmfBRect = (FmFBRectRaw)GetProcAddress(qtGui,
         "?boundingRect@QFontMetricsF@@QEBA?AVQRectF@@AEBVQString@@@Z");
     g_fmfBRectRect = (FmFBRectRectRaw)GetProcAddress(qtGui,
@@ -1479,11 +1566,30 @@ class LanguageMenuMouseFilter final : public QObject {
 public:
     using QObject::QObject;
     bool eventFilter(QObject *object, QEvent *event) override {
+        auto *menuBar = qobject_cast<QMenuBar *>(object);
+        if (!menuBar)
+            return false;
+        if (event->type() == QEvent::MouseMove) {
+            auto *mouseEvent = static_cast<QMouseEvent *>(event);
+            const bool overLink =
+                (g_authorAction && menuBar->actionGeometry(g_authorAction)
+                                       .contains(mouseEvent->pos())) ||
+                (g_githubAction && menuBar->actionGeometry(g_githubAction)
+                                       .contains(mouseEvent->pos()));
+            if (overLink)
+                menuBar->setCursor(Qt::PointingHandCursor);
+            else
+                menuBar->unsetCursor();
+            return false;
+        }
+        if (event->type() == QEvent::Leave) {
+            menuBar->unsetCursor();
+            return false;
+        }
         if (event->type() != QEvent::MouseButtonPress || !g_languageAction)
             return false;
-        auto *menuBar = qobject_cast<QMenuBar *>(object);
         auto *mouseEvent = static_cast<QMouseEvent *>(event);
-        if (menuBar && mouseEvent->button() == Qt::RightButton &&
+        if (mouseEvent->button() == Qt::MiddleButton &&
             menuBar->actionGeometry(g_languageAction).contains(mouseEvent->pos())) {
             openToggleHotkeyDialog();
             return true;
@@ -1521,6 +1627,8 @@ bool installAttributionActions() {
     if (!g_languageAction) {
         g_languageAction = new QAction(QStringLiteral("中/英"), menuBar);
         g_languageAction->setObjectName(QStringLiteral("mari_chinese_language"));
+        g_languageAction->setToolTip(
+            QStringLiteral("左键切换中英文，中键设置快捷键"));
         QObject::connect(g_languageAction, &QAction::triggered,
                          [] { toggleTranslation(); });
     }
@@ -1546,6 +1654,7 @@ bool installAttributionActions() {
     g_githubAction->setParent(menuBar);
     if (!menuBar->property("mari_chinese_mouse_filter").toBool()) {
         menuBar->installEventFilter(new LanguageMenuMouseFilter(menuBar));
+        menuBar->setMouseTracking(true);
         menuBar->setProperty("mari_chinese_mouse_filter", true);
     }
 
@@ -1656,6 +1765,8 @@ public:
         if (event->type() == QEvent::Show) {
             if (auto *combo = qobject_cast<QComboBox *>(object))
                 installComboDisplayDelegate(combo->view());
+            if (!g_nodeTextHookInstalled && installNodeGraphTextHook())
+                patchLateLoadedModules();
         } else if ((event->type() == QEvent::ActionAdded ||
                     event->type() == QEvent::ActionRemoved) &&
                    qobject_cast<QMenuBar *>(object)) {
@@ -1685,6 +1796,13 @@ public:
 };
 
 void runOnGuiThread(QApplication *app) {
+    bool dpiScaleOk = false;
+    const double dpiScale = QString::fromLocal8Bit(
+                                qgetenv("MARI_CHINESE_DPI_SCALE"))
+                                .toDouble(&dpiScaleOk);
+    if (dpiScaleOk && dpiScale >= 1.0 && dpiScale <= 3.0)
+        StartMariDpiFeature(app, dpiScale, false);
+
     const std::wstring dir = modulePathW();
     const std::wstring folder = dir.find_last_of(L"\\/") == std::wstring::npos
         ? dir : dir.substr(0, dir.find_last_of(L"\\/"));
@@ -1725,6 +1843,13 @@ void runOnGuiThread(QApplication *app) {
     });
     if (!installNodeGraphTextHook()) {
         nodeTimer->start();
+        const QPointer<QTimer> nodeTimerGuard(nodeTimer);
+        QTimer::singleShot(60000, app, [nodeTimerGuard] {
+            if (nodeTimerGuard) {
+                nodeTimerGuard->stop();
+                nodeTimerGuard->deleteLater();
+            }
+        });
     } else {
         nodeTimer->deleteLater();
     }
@@ -1744,8 +1869,9 @@ DWORD WINAPI worker(LPVOID) {
     }
     if (!app)
         return 1;
-    QMetaObject::invokeMethod(app, [app] { runOnGuiThread(app); },
-                              Qt::QueuedConnection);
+    // The context overload is available on the Qt 5.6 compatibility baseline
+    // and guarantees execution on QApplication's thread.
+    QTimer::singleShot(0, app, [app] { runOnGuiThread(app); });
     return 0;
 }
 
