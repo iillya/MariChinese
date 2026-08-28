@@ -2,7 +2,6 @@
 #include <windows.h>
 #include <tlhelp32.h>
 
-#include <cwchar>
 #include <string>
 #include <vector>
 
@@ -12,55 +11,6 @@ bool isFile(const std::wstring &path) {
     const DWORD attributes = GetFileAttributesW(path.c_str());
     return attributes != INVALID_FILE_ATTRIBUTES &&
            !(attributes & FILE_ATTRIBUTE_DIRECTORY);
-}
-
-std::wstring findMariInDirectory(const std::wstring &directory) {
-    WIN32_FIND_DATAW data{};
-    HANDLE search = FindFirstFileW((directory + L"\\Mari*.exe").c_str(), &data);
-    if (search == INVALID_HANDLE_VALUE) return {};
-    std::wstring result;
-    do {
-        const std::wstring name = data.cFileName;
-        if (!(data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) &&
-            name.size() > 4 && name[4] >= L'0' && name[4] <= L'9') {
-            result = directory + L"\\" + name;
-            break;
-        }
-    } while (FindNextFileW(search, &data));
-    FindClose(search);
-    return result;
-}
-
-std::wstring findMariExecutable() {
-    wchar_t configured[32768]{};
-    const DWORD configuredLength = GetEnvironmentVariableW(
-        L"MARI_DPI_TEST_EXE", configured,
-        static_cast<DWORD>(_countof(configured)));
-    if (configuredLength && configuredLength < _countof(configured) &&
-        isFile(configured))
-        return configured;
-
-    wchar_t programFiles[MAX_PATH]{};
-    const DWORD length = GetEnvironmentVariableW(
-        L"ProgramFiles", programFiles,
-        static_cast<DWORD>(_countof(programFiles)));
-    if (!length || length >= _countof(programFiles)) return {};
-    WIN32_FIND_DATAW data{};
-    HANDLE search = FindFirstFileW(
-        (std::wstring(programFiles) + L"\\Mari*").c_str(), &data);
-    if (search == INVALID_HANDLE_VALUE) return {};
-    std::wstring result;
-    do {
-        if (!(data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) continue;
-        const std::wstring candidate = std::wstring(programFiles) + L"\\" +
-            data.cFileName + L"\\Bundle\\bin";
-        const std::wstring found = findMariInDirectory(candidate);
-        if (!found.empty() &&
-            (result.empty() || _wcsicmp(found.c_str(), result.c_str()) > 0))
-            result = found;
-    } while (FindNextFileW(search, &data));
-    FindClose(search);
-    return result;
 }
 
 std::wstring parentDir(const std::wstring &path) {
@@ -134,23 +84,18 @@ bool waitForModule(DWORD pid, const wchar_t *moduleName, DWORD timeoutMs) {
 int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR commandLine, int) {
     const std::wstring directory = parentDir(ownPath());
     const std::wstring dllPath = directory + L"\\MariDpiVtableTest.dll";
-    const std::wstring exePath = findMariExecutable();
+    const std::wstring exePath =
+        L"C:\\Program Files\\Mari7.1v1\\Bundle\\bin\\Mari7.1v1.exe";
     if (!isFile(exePath) || !isFile(dllPath)) {
-        MessageBoxW(nullptr, L"找不到 Mari 主程序或 DPI 实验 DLL。",
+        MessageBoxW(nullptr, L"找不到 Mari 7.1v1 或 DPI 实验 DLL。",
                     L"Mari DPI 实验", MB_OK | MB_ICONERROR);
         return 1;
     }
 
-    // Use Mari's native Qt scaling environment before process creation.
-    // MARI_DPI_TEST_SCALE allows controlled A/B tests; normal runs remain 2.0.
-    wchar_t scale[32] = L"2";
-    const DWORD scaleLength = GetEnvironmentVariableW(
-        L"MARI_DPI_TEST_SCALE", scale, static_cast<DWORD>(_countof(scale)));
-    if (!scaleLength || scaleLength >= _countof(scale))
-        wcscpy_s(scale, L"2");
+    // Exactly the same native Qt scaling configuration as Mari7.5v2_4K.bat.
     SetEnvironmentVariableW(L"QT_ENABLE_HIGHDPI_SCALING", L"1");
     SetEnvironmentVariableW(L"QT_AUTO_SCREEN_SCALE_FACTOR", L"1");
-    SetEnvironmentVariableW(L"QT_SCALE_FACTOR", scale);
+    SetEnvironmentVariableW(L"QT_SCALE_FACTOR", L"2");
 
     std::wstring fullCommand = L"\"" + exePath + L"\"";
     if (commandLine && *commandLine) fullCommand += L" " + std::wstring(commandLine);
@@ -162,7 +107,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR commandLine, int) {
     const std::wstring workDir = parentDir(exePath);
     if (!CreateProcessW(exePath.c_str(), command.data(), nullptr, nullptr, FALSE,
                         0, nullptr, workDir.c_str(), &startup, &process)) {
-        MessageBoxW(nullptr, L"无法启动 Mari。", L"Mari DPI 实验",
+        MessageBoxW(nullptr, L"无法启动 Mari 7.1v1。", L"Mari DPI 实验",
                     MB_OK | MB_ICONERROR);
         return 2;
     }

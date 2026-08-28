@@ -72,7 +72,6 @@
 #include <utility>
 #include <typeinfo>
 
-#include "../experiments/dpi_vtable/dpi_feature.h"
 
 namespace {
 
@@ -1796,13 +1795,6 @@ public:
 };
 
 void runOnGuiThread(QApplication *app) {
-    bool dpiScaleOk = false;
-    const double dpiScale = QString::fromLocal8Bit(
-                                qgetenv("MARI_CHINESE_DPI_SCALE"))
-                                .toDouble(&dpiScaleOk);
-    if (dpiScaleOk && dpiScale >= 1.0 && dpiScale <= 3.0)
-        StartMariDpiFeature(app, dpiScale, false);
-
     const std::wstring dir = modulePathW();
     const std::wstring folder = dir.find_last_of(L"\\/") == std::wstring::npos
         ? dir : dir.substr(0, dir.find_last_of(L"\\/"));

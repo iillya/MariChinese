@@ -2,9 +2,11 @@
 //  Mari 中文汉化 - 启动器
 // ============================================================================
 //  Mari 没有插件入口，所以这个启动器（与 Toolbag / SpeedTree 汉化器一致）
-//  以 SUSPENDED 状态启动已安装的 Mari，用远端 LoadLibraryW 线程注入
-//  MariChineseHook.dll，然后恢复运行。原程序文件从不修改；命令行参数
-//  （例如 .mri 项目路径）原样透传给 Mari。
+//  启动已安装的 Mari，等 Qt5Widgets 就绪后用远端 LoadLibraryW 线程注入
+//  MariChineseHook.dll，再（若启用）注入 MariDpiVtable.dll 修复 4K 视口。
+//  采用普通启动而非挂起启动：挂起启动 + 提前注入汉化会改变 Qt 对 GL 画布
+//  的生命周期，导致画布 resizeGL 不被调用，4K 下画布缩小。原程序文件从不
+//  修改；命令行参数（例如 .mri 项目路径）原样透传给 Mari。
 // ============================================================================
 
 #define WIN32_LEAN_AND_MEAN
@@ -123,35 +125,65 @@ LPTHREAD_START_ROUTINE ResolveLoadLibrary(HANDLE targetProcess, DWORD pid) {
     if (!local) return nullptr;
     FARPROC fn = GetProcAddress(local, "LoadLibraryW");
     if (!fn) return nullptr;
-    uintptr_t rva = (uintptr_t)fn - (uintptr_t)local;
-    HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, pid);
-    if (snap != INVALID_HANDLE_VALUE) {
-        MODULEENTRY32W mod{}; mod.dwSize = sizeof(mod);
-        if (Module32FirstW(snap, &mod)) {
-            do {
-                if (_wcsicmp(mod.szModule, L"kernel32.dll") == 0) {
-                    CloseHandle(snap);
-                    return (LPTHREAD_START_ROUTINE)((uintptr_t)mod.modBaseAddr + rva);
-                }
-            } while (Module32NextW(snap, &mod));
-        }
-        CloseHandle(snap);
-    }
-    // A newly created suspended process can temporarily omit kernel32 from
-    // Toolhelp's module list. Windows shares system-DLL mappings
-    // for same-architecture processes in one boot session; retain the proven
-    // compatibility path, but never use it across architectures.
+    (void)pid;
     return SameArchitecture(targetProcess)
-        ? reinterpret_cast<LPTHREAD_START_ROUTINE>(fn)
-        : nullptr;
+        ? reinterpret_cast<LPTHREAD_START_ROUTINE>(fn) : nullptr;
 }
 
-void ConfigureDpi(const std::wstring &directory) {
+bool WaitForModule(DWORD pid, const wchar_t *moduleName, DWORD timeoutMs) {
+    const ULONGLONG started = GetTickCount64();
+    while (GetTickCount64() - started < timeoutMs) {
+        HANDLE snapshot = CreateToolhelp32Snapshot(
+            TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, pid);
+        if (snapshot != INVALID_HANDLE_VALUE) {
+            MODULEENTRY32W module{};
+            module.dwSize = sizeof(module);
+            if (Module32FirstW(snapshot, &module)) {
+                do {
+                    if (_wcsicmp(module.szModule, moduleName) == 0) {
+                        CloseHandle(snapshot);
+                        return true;
+                    }
+                } while (Module32NextW(snapshot, &module));
+            }
+            CloseHandle(snapshot);
+        }
+        Sleep(100);
+    }
+    return false;
+}
+
+bool InjectDll(HANDLE process, DWORD pid, const std::wstring &path) {
+    const SIZE_T bytes = (path.size() + 1) * sizeof(wchar_t);
+    void *remote = VirtualAllocEx(process, nullptr, bytes,
+                                  MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+    SIZE_T written = 0;
+    if (!remote || !WriteProcessMemory(process, remote, path.c_str(), bytes,
+                                        &written) || written != bytes) {
+        if (remote) VirtualFreeEx(process, remote, 0, MEM_RELEASE);
+        return false;
+    }
+    const auto loadLibrary = ResolveLoadLibrary(process, pid);
+    HANDLE thread = loadLibrary ? CreateRemoteThread(
+        process, nullptr, 0, loadLibrary, remote, 0, nullptr) : nullptr;
+    bool loaded = false;
+    if (thread) {
+        const DWORD wait = WaitForSingleObject(thread, 30000);
+        DWORD result = 0;
+        loaded = wait == WAIT_OBJECT_0 && GetExitCodeThread(thread, &result) &&
+                 result != 0;
+        CloseHandle(thread);
+    }
+    VirtualFreeEx(process, remote, 0, MEM_RELEASE);
+    return loaded;
+}
+
+bool ConfigureDpi(const std::wstring &directory) {
     const std::wstring settings = directory + L"\\settings.ini";
     const int enabled = GetPrivateProfileIntW(L"Dpi", L"Enabled", 0,
                                                settings.c_str());
     if (!enabled)
-        return;
+        return false;
 
     wchar_t value[32] = L"1.75";
     GetPrivateProfileStringW(L"Dpi", L"ScaleFactor", L"1.75", value,
@@ -166,6 +198,7 @@ void ConfigureDpi(const std::wstring &directory) {
     SetEnvironmentVariableW(L"QT_AUTO_SCREEN_SCALE_FACTOR", L"1");
     SetEnvironmentVariableW(L"QT_SCALE_FACTOR", value);
     SetEnvironmentVariableW(L"MARI_CHINESE_DPI_SCALE", value);
+    return true;
 }
 
 } // namespace
@@ -176,6 +209,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR cmdLine, int) {
     const std::wstring exePath = FindMariExe(dir);
     const std::wstring root = ParentDir(exePath);
     const std::wstring dllPath = dir + L"\\MariChineseHook.dll";
+    const std::wstring dpiDllPath = dir + L"\\MariDpiVtable.dll";
 
     if (root.empty() || !IsFile(dllPath) || !IsFile(exePath)) {
         MessageBoxW(nullptr,
@@ -185,7 +219,12 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR cmdLine, int) {
         return 1;
     }
 
-    ConfigureDpi(dir);
+    const bool dpiEnabled = ConfigureDpi(dir);
+    if (dpiEnabled && !IsFile(dpiDllPath)) {
+        MessageBoxW(nullptr, L"缺少 4K 视口修复 DLL，请重新安装。",
+                    L"Mari 中文补丁", MB_OK | MB_ICONERROR);
+        return 1;
+    }
 
     STARTUPINFOW si{}; si.cb = sizeof(si);
     PROCESS_INFORMATION pi{};
@@ -193,51 +232,43 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR cmdLine, int) {
     if (cmdLine && *cmdLine) { cl += L" "; cl += cmdLine; }
     std::vector<wchar_t> clBuf(cl.begin(), cl.end()); clBuf.push_back(L'\0');
 
+    // 普通启动（不挂起）：Mari 进程即刻运行并加载 Qt。DPI 对照实验证明，
+    // 挂起启动 + 先注入汉化会改变 Qt 对 GL 画布的生命周期（resizeGL 不再被
+    // 调用），导致 4K 下画布缩小。改为等待 Qt 就绪后再注入，复现独立实验
+    // 的成功路径。
     if (!CreateProcessW(exePath.c_str(), clBuf.data(), nullptr, nullptr, FALSE,
-                        CREATE_SUSPENDED, nullptr, root.c_str(), &si, &pi)) {
+                        0, nullptr, root.c_str(), &si, &pi)) {
         MessageBoxW(nullptr, L"无法启动 Mari。",
                     L"Mari 中文补丁", MB_OK | MB_ICONERROR);
         return 2;
     }
 
-    size_t bytes = (dllPath.size() + 1) * sizeof(wchar_t);
-    void *remote = VirtualAllocEx(pi.hProcess, nullptr, bytes,
-                                  MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
-    SIZE_T written = 0;
-    bool pathOk = remote &&
-        WriteProcessMemory(pi.hProcess, remote, dllPath.c_str(), bytes, &written) &&
-        written == bytes;
-
-    auto loadLib = ResolveLoadLibrary(pi.hProcess, pi.dwProcessId);
-    HANDLE thread = nullptr;
-    if (pathOk && loadLib)
-        thread = CreateRemoteThread(pi.hProcess, nullptr, 0, loadLib, remote, 0, nullptr);
-
-    bool ok = false;
-    bool remoteThreadCompleted = false;
-    if (thread) {
-        DWORD wait = WaitForSingleObject(thread, 30000);
-        remoteThreadCompleted = wait == WAIT_OBJECT_0;
-        DWORD loadResult = 0;
-        const bool loaded = wait == WAIT_OBJECT_0 &&
-                            GetExitCodeThread(thread, &loadResult) &&
-                            loadResult != 0;
-        CloseHandle(thread);
-        ok = loaded;
+    // 等待 Qt 就绪后再注入。汉化 DLL 自身的 worker 线程会在 QApplication
+    // 出现后再初始化，因此 Qt 就绪后注入是安全的。
+    const bool qtReady = WaitForModule(pi.dwProcessId, L"Qt5Widgets.dll", 30000);
+    bool ok = qtReady;
+    if (!qtReady) {
+        MessageBoxW(nullptr,
+                    L"等待 Mari 的 Qt5Widgets.dll 超时。",
+                    L"Mari 中文补丁", MB_OK | MB_ICONWARNING);
     }
 
-    if (ok && ResumeThread(pi.hThread) != (DWORD)-1) {
-        ok = true;
-    } else {
-        ok = false;
-        TerminateProcess(pi.hProcess, 3);
-        WaitForSingleObject(pi.hProcess, 5000);
-        MessageBoxW(nullptr, L"汉化注入失败，已终止 Mari（原文件未受影响）。",
-                    L"Mari 中文补丁", MB_OK | MB_ICONERROR);
+    // 先注入汉化 DLL，再注入 DPI DLL（顺序：汉化先建立界面，DPI 后修补画布）。
+    if (ok) {
+        ok = InjectDll(pi.hProcess, pi.dwProcessId, dllPath);
+        if (!ok) {
+            MessageBoxW(nullptr,
+                        L"汉化注入失败，已终止 Mari（原文件未受影响）。",
+                        L"Mari 中文补丁", MB_OK | MB_ICONERROR);
+        }
     }
-
-    if (remote && remoteThreadCompleted)
-        VirtualFreeEx(pi.hProcess, remote, 0, MEM_RELEASE);
+    if (ok && dpiEnabled) {
+        if (!InjectDll(pi.hProcess, pi.dwProcessId, dpiDllPath)) {
+            MessageBoxW(nullptr,
+                        L"Mari 已启动，但 4K 视口修复加载失败。",
+                        L"Mari 中文补丁", MB_OK | MB_ICONWARNING);
+        }
+    }
     CloseHandle(pi.hThread);
     CloseHandle(pi.hProcess);
     return ok ? 0 : 3;

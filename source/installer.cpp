@@ -49,6 +49,7 @@ struct State {
     std::wstring directory;
     std::vector<BYTE> executable;
     std::vector<PayloadEntry> entries;
+    bool sidecarPayload = false;
     HWND directoryEdit = nullptr;
     HWND dpiCheck = nullptr;
     HWND scaleEdit = nullptr;
@@ -63,6 +64,45 @@ struct State {
     bool dpiEnabled = true;
     std::wstring scale = L"1.75";
 };
+
+std::wstring OwnPath();
+
+bool LoadSidecarPayload(State &state) {
+    const std::filesystem::path own = OwnPath();
+    const std::filesystem::path base = own.parent_path();
+    const std::pair<const wchar_t *, const wchar_t *> files[] = {
+        {L"MariChineseLauncher.exe", L"MariChineseLauncher.exe"},
+        {L"MariChineseHook.dll", L"MariChineseHook.dll"},
+        {L"MariDpiVtable.dll", L"MariDpiVtable.dll"},
+        {L"dictionary_zh.json", L"translations\\dictionary_zh.json"},
+    };
+    state.executable.clear();
+    state.entries.clear();
+    for (const auto &file : files) {
+        const std::filesystem::path source = base / file.first;
+        std::ifstream input(source, std::ios::binary);
+        if (!input) {
+            state.executable.clear();
+            state.entries.clear();
+            return false;
+        }
+        input.seekg(0, std::ios::end);
+        const std::streamoff length = input.tellg();
+        if (length <= 0) return false;
+        input.seekg(0);
+        PayloadEntry entry;
+        entry.name = file.second;
+        entry.offset = state.executable.size();
+        entry.size = static_cast<uint64_t>(length);
+        state.executable.resize(state.executable.size() + static_cast<size_t>(length));
+        input.read(reinterpret_cast<char *>(state.executable.data() + entry.offset),
+                   length);
+        if (!input) return false;
+        state.entries.push_back(entry);
+    }
+    state.sidecarPayload = true;
+    return true;
+}
 
 int DpiValue(int value, UINT dpi) { return MulDiv(value, static_cast<int>(dpi), 96); }
 
@@ -205,6 +245,7 @@ bool LoadPayload(State &state) {
 }
 
 bool HashMatches(const State &state, const PayloadEntry &entry) {
+    if (state.sidecarPayload) return true;
     if (entry.size > (std::numeric_limits<ULONG>::max)()) return false;
     BCRYPT_ALG_HANDLE algorithm = nullptr;
     BCRYPT_HASH_HANDLE hash = nullptr;
@@ -923,7 +964,7 @@ int APIENTRY wWinMain(HINSTANCE instance, HINSTANCE, PWSTR, int) {
     InitCommonControlsEx(&controls);
     CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED | COINIT_DISABLE_OLE1DDE);
     State state;
-    if (!LoadPayload(state)) {
+    if (!LoadPayload(state) && !LoadSidecarPayload(state)) {
         MessageBoxW(nullptr, L"安装程序数据不完整，请重新构建或下载。",
                     kTitle, MB_OK | MB_ICONERROR);
         CoUninitialize();

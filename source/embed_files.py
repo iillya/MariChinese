@@ -14,6 +14,7 @@ MAGIC = 0x314952414D4843  # "CHMARI1"
 def main():
     files = [
         ("MariChineseHook.dll", os.path.join(OUT, "MariChineseHook.dll")),
+        ("MariDpiVtable.dll", os.path.join(OUT, "MariDpiVtable.dll")),
         ("MariChineseLauncher.exe", os.path.join(OUT, "MariChineseLauncher.exe")),
         ("translations/dictionary_zh.json",
          os.path.join(ROOT, "translations", "dictionary_zh.json")),
