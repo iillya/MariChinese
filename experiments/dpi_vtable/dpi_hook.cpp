@@ -25,7 +25,6 @@ struct CanvasPatch {
 };
 
 constexpr qreal kCanvasDevicePixelRatio = 1.0;
-constexpr int kOrthoResizeMultiplier = 2;
 
 HINSTANCE g_instance = nullptr;
 SRWLOCK g_patchLock = SRWLOCK_INIT;
@@ -61,12 +60,6 @@ bool isTrackedClass(const QWidget *widget) {
 bool isCanvas(const QWidget *widget) {
     return widget &&
            qstrcmp(widget->metaObject()->className(), "MriCanvasWidget") == 0;
-}
-
-bool isOrthoCanvas(const QWidget *widget) {
-    QWidget *parent = widget ? widget->parentWidget() : nullptr;
-    QWidget *container = parent ? parent->parentWidget() : nullptr;
-    return container && container->objectName() == QStringLiteral("Ortho");
 }
 
 void discoverVtableIndices() {
@@ -152,10 +145,7 @@ int hookedMetric(const QWidget *self, int metric) {
 }
 
 void hookedResizeGl(QWidget *self, int width, int height) {
-    if (isOrthoCanvas(self)) {
-        width *= kOrthoResizeMultiplier;
-        height *= kOrthoResizeMultiplier;
-    }
+    // 不额外放大渲染分辨率：保持 Mari 原始 resizeGL 宽高。
     if (const ResizeGlFn original = originalResizeGlFor(self))
         original(self, width, height);
 }
