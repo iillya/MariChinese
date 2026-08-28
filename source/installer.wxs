@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*"
+           Name="Mari 中文补丁"
+           Language="2052"
+           Codepage="936"
+           Version="1.0.0"
+           Manufacturer="MariChinese"
+           UpgradeCode="84DD1206-3EF9-4EEB-99C4-A23D94AF470E">
+    <Package InstallerVersion="500"
+             Compressed="yes"
+             InstallScope="perUser"
+             Description="Mari 7.5 中文补丁与 3D 视口 DPI 修复" />
+    <MajorUpgrade DowngradeErrorMessage="已安装更新版本的 Mari 中文补丁。" />
+    <MediaTemplate EmbedCab="yes" />
+    <Icon Id="MariIcon" SourceFile="$(var.ProjectDir)\icon\mari.ico" />
+    <Property Id="ARPPRODUCTICON" Value="MariIcon" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="LocalAppDataFolder">
+        <Directory Id="ProgramsDirectory" Name="Programs">
+          <Directory Id="INSTALLFOLDER" Name="MariChinese">
+            <Directory Id="TranslationsFolder" Name="translations" />
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ProgramMenuDir" Name="Mari 中文补丁" />
+      </Directory>
+    </Directory>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="LauncherComponent" Guid="8AE5B58F-8385-4FD7-9568-65D9BDC997D9">
+        <File Id="LauncherFile" Source="$(var.PayloadDir)\MariChineseLauncher.exe" />
+        <RegistryValue Root="HKCU" Key="Software\MariChinese\Components" Name="Launcher" Type="integer" Value="1" KeyPath="yes" />
+        <RemoveFolder Id="RemoveInstallFolder" On="uninstall" />
+      </Component>
+      <Component Id="HookComponent" Guid="A00AE471-E644-44B5-AC9D-A15C39B5A976">
+        <File Id="HookFile" Source="$(var.PayloadDir)\MariChineseHook.dll" />
+        <RegistryValue Root="HKCU" Key="Software\MariChinese\Components" Name="Hook" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+      <Component Id="SettingsComponent" Guid="D74865CE-C9BB-47B8-9891-5C87A32E2143">
+        <File Id="SettingsFile" Source="$(var.PayloadDir)\settings.ini" />
+        <RegistryValue Root="HKCU" Key="Software\MariChinese\Components" Name="Settings" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="TranslationsFolder">
+      <Component Id="DictionaryComponent" Guid="0C7F5321-97B8-49D2-9577-1F0651DB8E37">
+        <File Id="DictionaryFile" Source="$(var.PayloadDir)\translations\dictionary_zh.json" />
+        <RegistryValue Root="HKCU" Key="Software\MariChinese\Components" Name="Dictionary" Type="integer" Value="1" KeyPath="yes" />
+        <RemoveFolder Id="RemoveTranslationsFolder" On="uninstall" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="ProgramMenuDir">
+      <Component Id="ShortcutComponent" Guid="*">
+        <Shortcut Id="StartMenuShortcut"
+                  Name="Mari 中文版"
+                  Description="启动 Mari 7.5 中文版"
+                  Target="[INSTALLFOLDER]MariChineseLauncher.exe"
+                  WorkingDirectory="INSTALLFOLDER"
+                  Icon="MariIcon" />
+        <RemoveFolder Id="RemoveProgramMenuDir" On="uninstall" />
+        <RemoveFolder Id="RemoveProgramsDirectory" Directory="ProgramsDirectory" On="uninstall" />
+        <RegistryValue Root="HKCU"
+                       Key="Software\MariChinese"
+                       Name="Installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="MainFeature" Title="Mari 中文补丁" Level="1">
+      <ComponentRef Id="LauncherComponent" />
+      <ComponentRef Id="HookComponent" />
+      <ComponentRef Id="SettingsComponent" />
+      <ComponentRef Id="DictionaryComponent" />
+      <ComponentRef Id="ShortcutComponent" />
+    </Feature>
+  </Product>
+</Wix>

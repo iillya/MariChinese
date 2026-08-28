@@ -12,7 +12,6 @@
 #include <QtCore/QModelIndex>
 #include <QtCore/QVariant>
 #include <QtCore/QIdentityProxyModel>
-#include <QtCore/QMetaObject>
 #include <QtCore/QTimer>
 #include <QtCore/QUrl>
 #include <QtCore/QDir>
@@ -24,14 +23,12 @@
 #include <QtCore/QPair>
 #include <QtCore/QPointer>
 #include <QtCore/QString>
-#include <QtCore/QSet>
 #include <QtGui/QPainter>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QKeyEvent>
 #include <QtGui/QKeySequence>
 #include <QtGui/QMouseEvent>
 #include <QtGui/QFontMetrics>
-#include <QtGui/QPalette>
 #include <QtGui/QTextOption>
 #include <QtWidgets/QAbstractItemDelegate>
 #include <QtWidgets/QAbstractItemView>
@@ -756,15 +753,6 @@ int hookedFontWidth(const QFontMetrics *fm, const QString &text, int len) {
     return g_fmWidth
         ? g_fmWidth(fm, t, len) + (tr.isEmpty() ? 0 : cjkPad(fm))
         : 0;
-}
-int hookedFontHAdvOpt(const QFontMetrics *fm, const QString &text,
-                      const QTextOption &opt) {
-    QString t = text;
-    QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    (void)opt;
-    if (g_fmHAdv) return g_fmHAdv(fm, t, -1) + (tr.isEmpty() ? 0 : cjkPad(fm));
-    return 0;
 }
 void *hookedFontBRect(const QFontMetrics *fm, QRect *result, const QString &text) {
     QString t = text;

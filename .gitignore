@@ -35,15 +35,9 @@
 /build/
 /dist/
 
-# Bundled Qt SDK (large download, not part of source)
-/third_party/
-
 # Python cache
 __pycache__/
 *.pyc
-
-# Old cmake scaffolding (superseded by source/build.bat)
-/source/cpp/
 
 # Diagnostic logs / screenshots
 *.log

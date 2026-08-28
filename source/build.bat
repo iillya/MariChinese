@@ -60,7 +60,7 @@ if errorlevel 1 exit /b 1
 
 echo === Compiling proven late-loaded DPI DLL ===
 cl /nologo /O2 /W4 /LD /EHsc /std:c++17 /Zc:__cplusplus /permissive- /utf-8 ^
-   /I"%QT%\include" "%ROOT%\experiments\dpi_vtable\dpi_hook.cpp" ^
+   /I"%QT%\include" "%CPP%\dpi_hook.cpp" ^
    /Fo"%OBJDIR%\dpi_vtable.obj" /Fe:"%OUT%\MariDpiVtable.dll" ^
    /link "%QT%\lib\Qt5Core.lib" "%QT%\lib\Qt5Gui.lib" ^
    "%QT%\lib\Qt5Widgets.lib" user32.lib

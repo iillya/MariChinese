@@ -47,16 +47,6 @@ bool isExecutableAddress(const void *address) {
     return (info.Protect & executable) != 0;
 }
 
-bool isTrackedClass(const QWidget *widget) {
-    if (!widget)
-        return false;
-    const QByteArray className(widget->metaObject()->className());
-    return className == "MriCanvasWidget" ||
-           className == "MriCanvasContainer" ||
-           className == "MriProjectController" ||
-           className == "MriProjectListWidget";
-}
-
 bool isCanvas(const QWidget *widget) {
     return widget &&
            qstrcmp(widget->metaObject()->className(), "MriCanvasWidget") == 0;
@@ -145,7 +135,7 @@ int hookedMetric(const QWidget *self, int metric) {
 }
 
 void hookedResizeGl(QWidget *self, int width, int height) {
-    // 不额外放大渲染分辨率：保持 Mari 原始 resizeGL 宽高。
+    // resizeGL 不影响实际视口渲染分辨率，保持原始宽高透传。
     if (const ResizeGlFn original = originalResizeGlFor(self))
         original(self, width, height);
 }
@@ -212,7 +202,7 @@ void patchCanvas(QWidget *widget) {
 void observeWidget(QWidget *widget) {
     if (!widget)
         return;
-    if (!isTrackedClass(widget))
+    if (!isCanvas(widget))
         return;
     for (const QPointer<QWidget> &known : g_observedWidgets) {
         if (known == widget)
