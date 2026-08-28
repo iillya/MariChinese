@@ -61,7 +61,7 @@ struct State {
     HBRUSH editBrush = nullptr;
     HICON windowIcon = nullptr;
     int operation = 0;
-    bool dpiEnabled = true;
+    bool dpiEnabled = false;
     std::wstring scale = L"1.75";
 };
 
@@ -765,7 +765,7 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
             WS_TABSTOP | BS_AUTOCHECKBOX, DpiValue(48, dpi), DpiValue(235, dpi),
             DpiValue(185, dpi), DpiValue(26, dpi), window,
             reinterpret_cast<HMENU>(static_cast<INT_PTR>(kDpiCheck)), nullptr, nullptr);
-        SendMessageW(state->dpiCheck, BM_SETCHECK, BST_CHECKED, 0);
+        SendMessageW(state->dpiCheck, BM_SETCHECK, BST_UNCHECKED, 0);
         HWND hint = CreateWindowW(L"STATIC",
             L"适用于 4K 或高 DPI 屏幕，默认缩放系数 1.75",
             WS_CHILD | WS_VISIBLE, DpiValue(48, dpi), DpiValue(270, dpi),
@@ -788,6 +788,8 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
             DpiValue(132, dpi), DpiValue(40, dpi), window,
             reinterpret_cast<HMENU>(static_cast<INT_PTR>(kUninstallButton)),
             nullptr, nullptr);
+        // 默认不启用 4K 屏优化，缩放系数输入框随之禁用，勾选后再启用。
+        EnableWindow(state->scaleEdit, FALSE);
         for (HWND control : {subtitle, label, state->directoryEdit, browse,
                              state->dpiCheck, hint, scaleLabel, state->scaleEdit,
                              install, uninstall})
