@@ -20,13 +20,14 @@ std::wstring parentDir(const std::wstring &path) {
 
 std::wstring ownPath() {
     std::vector<wchar_t> buffer(1024);
-    for (;;) {
+    while (buffer.size() <= 32768) {
         const DWORD size = GetModuleFileNameW(nullptr, buffer.data(),
                                              static_cast<DWORD>(buffer.size()));
         if (!size) return L"";
         if (size < buffer.size() - 1) return std::wstring(buffer.data(), size);
         buffer.resize(buffer.size() * 2);
     }
+    return L"";
 }
 
 LPTHREAD_START_ROUTINE remoteLoadLibrary(DWORD pid) {
@@ -105,9 +106,11 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR commandLine, int) {
     PROCESS_INFORMATION process{};
     const std::wstring workDir = parentDir(exePath);
     if (!CreateProcessW(exePath.c_str(), command.data(), nullptr, nullptr, FALSE,
-                        0, nullptr, workDir.c_str(), &startup,
-                        &process))
+                        0, nullptr, workDir.c_str(), &startup, &process)) {
+        MessageBoxW(nullptr, L"无法启动 Mari 7.1v1。", L"Mari DPI 实验",
+                    MB_OK | MB_ICONERROR);
         return 2;
+    }
 
     // Native Qt scaling is already active from process creation. This DPI-only
     // experiment can wait until Qt is initialized instead of injecting into a
@@ -133,17 +136,22 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR commandLine, int) {
                                         loadLibrary, remote, 0, nullptr);
     }
     bool loaded = false;
+    bool remoteThreadCompleted = false;
     if (thread) {
         const DWORD wait = WaitForSingleObject(thread, 30000);
+        remoteThreadCompleted = wait == WAIT_OBJECT_0;
         DWORD result = 0;
         loaded = wait == WAIT_OBJECT_0 && GetExitCodeThread(thread, &result) && result;
         CloseHandle(thread);
     }
     if (!loaded) {
         TerminateProcess(process.hProcess, 3);
+        WaitForSingleObject(process.hProcess, 5000);
         MessageBoxW(nullptr, L"DPI 实验注入失败。", L"Mari DPI 实验",
                     MB_OK | MB_ICONERROR);
     }
+    if (remote && (remoteThreadCompleted || !loaded))
+        VirtualFreeEx(process.hProcess, remote, 0, MEM_RELEASE);
     CloseHandle(process.hThread);
     CloseHandle(process.hProcess);
     return loaded ? 0 : 4;

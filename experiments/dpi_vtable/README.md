@@ -1,12 +1,27 @@
 # Mari DPI vtable 独立实验
 
-此实验不包含任何汉化功能，只做两件事：
+该目录与正式汉化代码完全隔离，不加载词典，也不安装样式、绘制、字体测量或数据 Hook。
 
-1. 按 `Mari7.5v2_4K.bat` 设置 Qt 原生缩放环境变量；
-2. 仅让 `QOpenGLWidget` 视口返回 DPR=1，避免 Qt 创建 2 倍 FBO、而 Mari 仍按逻辑像素渲染，导致内容缩在左下角。
+## 当前行为
 
-当前按视图实验：UV、Perspective、Ortho/UV 和 2D 使用 DPR=1。Ortho 的 0.5 仅保留为 Qt 下限验证，实际会被限制为 DPR=1。
+1. 启动器按 `Mari7.5v2_4K.bat` 设置 Qt 原生缩放：
+   - `QT_ENABLE_HIGHDPI_SCALING=1`
+   - `QT_AUTO_SCREEN_SCALE_FACTOR=1`
+   - `QT_SCALE_FACTOR=2`
+2. 仅对运行时类型为 `MriCanvasWidget` 的画布修改两个虚函数：
+   - 画布 DPR 固定为 `1`；
+   - `Ortho` 画布传给原始 `resizeGL` 的宽高乘以 `2`。
+3. `metric` 与 `resizeGL` 的 vtable 下标均在运行时从 Qt 对象识别，不使用固定数字。
+4. 新画布通过 Qt 生命周期事件注册，不再每秒遍历全部控件。
 
-测试目标固定为 `C:\Program Files\Mari7.1v1\Bundle\bin\Mari7.1v1.exe`。
+## 日志
 
-实验状态每 2 秒追加记录到 `dpi_vtable_history.log`。
+实验每 2 秒把已登记画布的状态追加到 DLL 同目录的 `dpi_vtable_history.log`。日志达到 4 MiB 后轮换为 `.log.1`，最多保留两份。
+
+## 构建与测试
+
+运行 `build.bat`，输出位于 `build\dpi-experiment`。测试目标固定为：
+
+`C:\Program Files\Mari7.1v1\Bundle\bin\Mari7.1v1.exe`
+
+请勿把该实验 DLL 放入正式汉化安装包。

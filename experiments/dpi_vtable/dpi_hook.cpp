@@ -1,21 +1,20 @@
-// Standalone Mari DPI experiment. No translation, style, painter, delegate,
-// font-metrics or data hooks are installed by this DLL.
+// Standalone Mari DPI experiment. This DLL contains no localization hooks.
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDateTime>
+#include <QtCore/QEvent>
 #include <QtCore/QFile>
 #include <QtCore/QMetaObject>
+#include <QtCore/QPointer>
 #include <QtCore/QTextStream>
 #include <QtCore/QTimer>
-#include <QtGui/QGuiApplication>
-#include <QtGui/QWindow>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QOpenGLWidget>
 #include <QtWidgets/QWidget>
 
-#include <set>
+#include <atomic>
 #include <vector>
 
 namespace {
@@ -23,70 +22,69 @@ namespace {
 using QWidgetMetricFn = int (__cdecl *)(const QWidget *, int);
 using ResizeGlFn = void (__cdecl *)(QWidget *, int, int);
 
-struct VtablePatch {
-    void **slot = nullptr;
-    void *original = nullptr;
+struct CanvasPatch {
+    void **vtable = nullptr;
+    QWidgetMetricFn originalMetric = nullptr;
+    ResizeGlFn originalResizeGl = nullptr;
 };
 
-QWidgetMetricFn g_originalMetric = nullptr;
-ResizeGlFn g_originalResizeGl = nullptr;
-std::vector<VtablePatch> g_patches;
+constexpr qreal kCanvasDevicePixelRatio = 1.0;
+constexpr int kOrthoResizeMultiplier = 2;
+constexpr qint64 kMaxLogBytes = 4 * 1024 * 1024;
+
 HINSTANCE g_instance = nullptr;
+SRWLOCK g_patchLock = SRWLOCK_INIT;
+std::vector<CanvasPatch> g_canvasPatches;
+std::vector<QPointer<QWidget>> g_observedWidgets;
 int g_metricIndex = -1;
-constexpr int kResizeGlIndex = 46;
+int g_resizeGlIndex = -1;
 std::vector<int> g_resizeGlCandidates;
-int g_orthoResizeCalls = 0;
-int g_lastOrthoInputWidth = 0;
-int g_lastOrthoInputHeight = 0;
+std::atomic<int> g_orthoResizeCalls{0};
+std::atomic<int> g_lastOrthoInputWidth{0};
+std::atomic<int> g_lastOrthoInputHeight{0};
 
-qreal ratioForCanvas(const QWidget *widget) {
-    Q_UNUSED(widget);
-    return 1.0;
-}
-
-void locateResizeGlCandidates() {
-    if (!g_resizeGlCandidates.empty())
-        return;
-    HMODULE widgets = GetModuleHandleW(L"Qt5Widgets.dll");
-    if (!widgets)
-        return;
-    void *resizeAddress = reinterpret_cast<void *>(GetProcAddress(
-        widgets, "?resizeGL@QOpenGLWidget@@MEAAXHH@Z"));
-    if (!resizeAddress)
-        return;
-    QOpenGLWidget base;
-    void **baseVtable = *reinterpret_cast<void ***>(&base);
-    // Qt implements initializeGL(), paintGL() and resizeGL() with the same
-    // empty stub. Record every matching runtime-vtable slot; their declaration
-    // order will identify resizeGL without relying on an external SDK layout.
-    for (int index = 0; index < 128; ++index) {
-        if (baseVtable[index] == resizeAddress)
-            g_resizeGlCandidates.push_back(index);
-    }
+bool isExecutableAddress(const void *address) {
+    if (!address)
+        return false;
+    MEMORY_BASIC_INFORMATION info{};
+    if (VirtualQuery(address, &info, sizeof(info)) != sizeof(info) ||
+        info.State != MEM_COMMIT ||
+        (info.Protect & (PAGE_NOACCESS | PAGE_GUARD)))
+        return false;
+    const DWORD executable = PAGE_EXECUTE | PAGE_EXECUTE_READ |
+                             PAGE_EXECUTE_READWRITE | PAGE_EXECUTE_WRITECOPY;
+    return (info.Protect & executable) != 0;
 }
 
 QString dllDirectory() {
     std::vector<wchar_t> buffer(1024);
-    for (;;) {
-        const DWORD size = GetModuleFileNameW(g_instance, buffer.data(),
-                                             static_cast<DWORD>(buffer.size()));
-        if (!size) return {};
+    while (buffer.size() <= 32768) {
+        const DWORD size = GetModuleFileNameW(
+            g_instance, buffer.data(), static_cast<DWORD>(buffer.size()));
+        if (!size)
+            return {};
         if (size < buffer.size() - 1) {
-            QString path = QString::fromWCharArray(buffer.data(), size);
+            const QString path = QString::fromWCharArray(buffer.data(), size);
             return path.left(path.lastIndexOf(QLatin1Char('\\')));
         }
         buffer.resize(buffer.size() * 2);
     }
+    return {};
 }
 
-int hookedMetric(const QWidget *self, int metric) {
-    const auto kind = static_cast<QPaintDevice::PaintDeviceMetric>(metric);
-    const qreal ratio = ratioForCanvas(self);
-    if (kind == QPaintDevice::PdmDevicePixelRatio)
-        return ratio >= 2.0 ? static_cast<int>(ratio) : 1;
-    if (kind == QPaintDevice::PdmDevicePixelRatioScaled)
-        return static_cast<int>(ratio * QPaintDevice::devicePixelRatioFScale());
-    return g_originalMetric ? g_originalMetric(self, metric) : 1;
+bool isTrackedClass(const QWidget *widget) {
+    if (!widget)
+        return false;
+    const QByteArray className(widget->metaObject()->className());
+    return className == "MriCanvasWidget" ||
+           className == "MriCanvasContainer" ||
+           className == "MriProjectController" ||
+           className == "MriProjectListWidget";
+}
+
+bool isCanvas(const QWidget *widget) {
+    return widget &&
+           qstrcmp(widget->metaObject()->className(), "MriCanvasWidget") == 0;
 }
 
 bool isOrthoCanvas(const QWidget *widget) {
@@ -95,124 +93,256 @@ bool isOrthoCanvas(const QWidget *widget) {
     return container && container->objectName() == QStringLiteral("Ortho");
 }
 
-void hookedResizeGl(QWidget *self, int width, int height) {
-    if (isOrthoCanvas(self)) {
-        ++g_orthoResizeCalls;
-        g_lastOrthoInputWidth = width;
-        g_lastOrthoInputHeight = height;
-        width *= 2;
-        height *= 2;
+void discoverVtableIndices() {
+    if (g_metricIndex >= 0 && g_resizeGlIndex >= 0)
+        return;
+    HMODULE qtWidgets = GetModuleHandleW(L"Qt5Widgets.dll");
+    if (!qtWidgets)
+        return;
+
+    void *metricAddress = reinterpret_cast<void *>(GetProcAddress(
+        qtWidgets,
+        "?metric@QOpenGLWidget@@MEBAHW4PaintDeviceMetric@QPaintDevice@@@Z"));
+    void *resizeAddress = reinterpret_cast<void *>(GetProcAddress(
+        qtWidgets, "?resizeGL@QOpenGLWidget@@MEAAXHH@Z"));
+    if (!metricAddress || !resizeAddress)
+        return;
+
+    g_resizeGlCandidates.clear();
+    QOpenGLWidget baseProbe;
+    void **baseVtable = *reinterpret_cast<void ***>(&baseProbe);
+    for (int index = 0; index < 128; ++index) {
+        if (g_metricIndex < 0 && baseVtable[index] == metricAddress)
+            g_metricIndex = index;
+        if (baseVtable[index] == resizeAddress)
+            g_resizeGlCandidates.push_back(index);
     }
-    if (g_originalResizeGl)
-        g_originalResizeGl(self, width, height);
+
+    // MSVC folds several empty Qt virtual functions to the same address.
+    // QOpenGLWidget declares initializeGL(), resizeGL(), paintGL() consecutively;
+    // identify the isolated three-slot run and select its middle member.
+    for (std::size_t first = 0; first < g_resizeGlCandidates.size();) {
+        std::size_t last = first;
+        while (last + 1 < g_resizeGlCandidates.size() &&
+               g_resizeGlCandidates[last + 1] ==
+                   g_resizeGlCandidates[last] + 1)
+            ++last;
+        if (last - first + 1 == 3) {
+            g_resizeGlIndex = g_resizeGlCandidates[first + 1];
+            break;
+        }
+        first = last + 1;
+    }
 }
 
-void scanOpenGlWidgets() {
-    HMODULE widgets = GetModuleHandleW(L"Qt5Widgets.dll");
-    if (!widgets || !QApplication::instance())
-        return;
-    void *metricAddress = reinterpret_cast<void *>(GetProcAddress(
-        widgets,
-        "?metric@QOpenGLWidget@@MEBAHW4PaintDeviceMetric@QPaintDevice@@@Z"));
-    if (!metricAddress)
-        return;
-    g_originalMetric = reinterpret_cast<QWidgetMetricFn>(metricAddress);
-
-    if (g_metricIndex < 0) {
-        QOpenGLWidget probe;
-        void **probeVtable = *reinterpret_cast<void ***>(&probe);
-        for (int index = 0; index < 128; ++index) {
-            if (probeVtable[index] == metricAddress) {
-                g_metricIndex = index;
-                break;
-            }
+QWidgetMetricFn originalMetricFor(const QWidget *widget) {
+    void **vtable = widget ? *reinterpret_cast<void ***>(
+        const_cast<QWidget *>(widget)) : nullptr;
+    AcquireSRWLockShared(&g_patchLock);
+    QWidgetMetricFn result = nullptr;
+    for (const CanvasPatch &patch : g_canvasPatches) {
+        if (patch.vtable == vtable) {
+            result = patch.originalMetric;
+            break;
         }
     }
-    if (g_metricIndex < 0)
-        return;
+    ReleaseSRWLockShared(&g_patchLock);
+    return result;
+}
 
-    std::set<void **> visited;
-    for (QWidget *widget : QApplication::allWidgets()) {
-        if (!widget ||
-            qstrcmp(widget->metaObject()->className(), "MriCanvasWidget") != 0)
-            continue;
-        QWidget *parent = widget->parentWidget();
-        QWidget *container = parent ? parent->parentWidget() : nullptr;
-        const QString viewName = container ? container->objectName() : QString();
-        void **vtable = *reinterpret_cast<void ***>(widget);
-        if (!vtable || !visited.insert(vtable).second)
-            continue;
-        void **slot = &vtable[g_metricIndex];
-        if (*slot != reinterpret_cast<void *>(&hookedMetric)) {
-            DWORD oldProtection = 0;
-            if (VirtualProtect(slot, sizeof(void *), PAGE_READWRITE, &oldProtection)) {
-                g_originalMetric = reinterpret_cast<QWidgetMetricFn>(*slot);
-                g_patches.push_back({slot, *slot});
-                *slot = reinterpret_cast<void *>(&hookedMetric);
-                DWORD ignored = 0;
-                VirtualProtect(slot, sizeof(void *), oldProtection, &ignored);
-                FlushInstructionCache(GetCurrentProcess(), slot, sizeof(void *));
-            }
-        }
-        void **resizeSlot = &vtable[kResizeGlIndex];
-        if (*resizeSlot != reinterpret_cast<void *>(&hookedResizeGl)) {
-            DWORD oldProtection = 0;
-            if (VirtualProtect(resizeSlot, sizeof(void *), PAGE_READWRITE,
-                               &oldProtection)) {
-                g_originalResizeGl = reinterpret_cast<ResizeGlFn>(*resizeSlot);
-                g_patches.push_back({resizeSlot, *resizeSlot});
-                *resizeSlot = reinterpret_cast<void *>(&hookedResizeGl);
-                DWORD ignored = 0;
-                VirtualProtect(resizeSlot, sizeof(void *), oldProtection, &ignored);
-                FlushInstructionCache(GetCurrentProcess(), resizeSlot,
-                                      sizeof(void *));
-            }
+ResizeGlFn originalResizeGlFor(QWidget *widget) {
+    void **vtable = widget ? *reinterpret_cast<void ***>(widget) : nullptr;
+    AcquireSRWLockShared(&g_patchLock);
+    ResizeGlFn result = nullptr;
+    for (const CanvasPatch &patch : g_canvasPatches) {
+        if (patch.vtable == vtable) {
+            result = patch.originalResizeGl;
+            break;
         }
     }
+    ReleaseSRWLockShared(&g_patchLock);
+    return result;
+}
+
+std::size_t patchCount() {
+    AcquireSRWLockShared(&g_patchLock);
+    const std::size_t result = g_canvasPatches.size();
+    ReleaseSRWLockShared(&g_patchLock);
+    return result;
+}
+
+int hookedMetric(const QWidget *self, int metric) {
+    const auto kind = static_cast<QPaintDevice::PaintDeviceMetric>(metric);
+    if (kind == QPaintDevice::PdmDevicePixelRatio)
+        return static_cast<int>(kCanvasDevicePixelRatio);
+    if (kind == QPaintDevice::PdmDevicePixelRatioScaled) {
+        return static_cast<int>(kCanvasDevicePixelRatio *
+                                QPaintDevice::devicePixelRatioFScale());
+    }
+    const QWidgetMetricFn original = originalMetricFor(self);
+    return original ? original(self, metric) : 1;
+}
+
+void hookedResizeGl(QWidget *self, int width, int height) {
+    if (isOrthoCanvas(self)) {
+        g_orthoResizeCalls.fetch_add(1, std::memory_order_relaxed);
+        g_lastOrthoInputWidth.store(width, std::memory_order_relaxed);
+        g_lastOrthoInputHeight.store(height, std::memory_order_relaxed);
+        width *= kOrthoResizeMultiplier;
+        height *= kOrthoResizeMultiplier;
+    }
+    if (const ResizeGlFn original = originalResizeGlFor(self))
+        original(self, width, height);
+}
+
+bool replaceVtableSlot(void **slot, void *replacement) {
+    if (!slot || !replacement)
+        return false;
+    DWORD oldProtection = 0;
+    if (!VirtualProtect(slot, sizeof(void *), PAGE_READWRITE, &oldProtection))
+        return false;
+    *slot = replacement;
+    DWORD ignored = 0;
+    VirtualProtect(slot, sizeof(void *), oldProtection, &ignored);
+    FlushInstructionCache(GetCurrentProcess(), slot, sizeof(void *));
+    return true;
+}
+
+void patchCanvas(QWidget *widget) {
+    if (!isCanvas(widget))
+        return;
+    discoverVtableIndices();
+    if (g_metricIndex < 0 || g_resizeGlIndex < 0)
+        return;
+
+    void **vtable = *reinterpret_cast<void ***>(widget);
+    if (!vtable)
+        return;
+
+    AcquireSRWLockExclusive(&g_patchLock);
+    for (const CanvasPatch &patch : g_canvasPatches) {
+        if (patch.vtable == vtable) {
+            ReleaseSRWLockExclusive(&g_patchLock);
+            return;
+        }
+    }
+
+    void **metricSlot = &vtable[g_metricIndex];
+    void **resizeSlot = &vtable[g_resizeGlIndex];
+    const auto originalMetric = reinterpret_cast<QWidgetMetricFn>(*metricSlot);
+    const auto originalResize = reinterpret_cast<ResizeGlFn>(*resizeSlot);
+    if (!isExecutableAddress(reinterpret_cast<void *>(originalMetric)) ||
+        !isExecutableAddress(reinterpret_cast<void *>(originalResize))) {
+        ReleaseSRWLockExclusive(&g_patchLock);
+        return;
+    }
+
+    g_canvasPatches.push_back({vtable, originalMetric, originalResize});
+    const bool metricPatched = replaceVtableSlot(
+        metricSlot, reinterpret_cast<void *>(&hookedMetric));
+    const bool resizePatched = replaceVtableSlot(
+        resizeSlot, reinterpret_cast<void *>(&hookedResizeGl));
+    if (!metricPatched || !resizePatched) {
+        if (metricPatched)
+            replaceVtableSlot(metricSlot, reinterpret_cast<void *>(originalMetric));
+        if (resizePatched)
+            replaceVtableSlot(resizeSlot, reinterpret_cast<void *>(originalResize));
+        g_canvasPatches.pop_back();
+    }
+    ReleaseSRWLockExclusive(&g_patchLock);
+}
+
+void observeWidget(QWidget *widget) {
+    if (!isTrackedClass(widget))
+        return;
+    for (const QPointer<QWidget> &known : g_observedWidgets) {
+        if (known == widget)
+            return;
+    }
+    g_observedWidgets.push_back(widget);
+    patchCanvas(widget);
+}
+
+void pruneObservedWidgets() {
+    for (auto it = g_observedWidgets.begin(); it != g_observedWidgets.end();) {
+        if (*it)
+            ++it;
+        else
+            it = g_observedWidgets.erase(it);
+    }
+}
+
+class WidgetLifecycleFilter final : public QObject {
+public:
+    using QObject::QObject;
+
+    bool eventFilter(QObject *object, QEvent *event) override {
+        if (event->type() == QEvent::Polish || event->type() == QEvent::Show) {
+            if (auto *widget = qobject_cast<QWidget *>(object))
+                observeWidget(widget);
+        }
+        return false;
+    }
+};
+
+QString historyPath() {
+    return dllDirectory() + QStringLiteral("/dpi_vtable_history.log");
+}
+
+void rotateHistoryIfNeeded() {
+    const QString current = historyPath();
+    QFile file(current);
+    if (!file.exists() || file.size() < kMaxLogBytes)
+        return;
+    const QString previous = current + QStringLiteral(".1");
+    QFile::remove(previous);
+    QFile::rename(current, previous);
 }
 
 bool writeWidgetSnapshot() {
-    QFile output(dllDirectory() + QStringLiteral("/dpi_vtable_history.log"));
+    pruneObservedWidgets();
+    rotateHistoryIfNeeded();
+    QFile output(historyPath());
     if (!output.open(QIODevice::Append | QIODevice::Text))
         return false;
+
     QTextStream stream(&output);
-    int count = 0;
     stream << "--- " << QDateTime::currentDateTime().toString(Qt::ISODate)
            << " metricIndex=" << g_metricIndex
            << " resizeGlCandidates=";
     for (int index : g_resizeGlCandidates)
         stream << index << ',';
     stream
-           << " resizeGlIndex=" << kResizeGlIndex
-           << " orthoResizeCalls=" << g_orthoResizeCalls
-           << " lastOrthoInput=" << g_lastOrthoInputWidth << 'x'
-           << g_lastOrthoInputHeight
-           << " patchCount=" << g_patches.size() << " ---\n";
-    for (QWidget *widget : QApplication::allWidgets()) {
+           << " resizeGlIndex=" << g_resizeGlIndex
+           << " orthoResizeCalls="
+           << g_orthoResizeCalls.load(std::memory_order_relaxed)
+           << " lastOrthoInput="
+           << g_lastOrthoInputWidth.load(std::memory_order_relaxed) << 'x'
+           << g_lastOrthoInputHeight.load(std::memory_order_relaxed)
+           << " patchCount=" << patchCount() << " ---\n";
+
+    int count = 0;
+    for (const QPointer<QWidget> &guard : g_observedWidgets) {
+        QWidget *widget = guard.data();
         if (!widget)
             continue;
-        const QString cls = QString::fromLatin1(widget->metaObject()->className());
-        if (cls != QStringLiteral("MriCanvasWidget") &&
-            cls != QStringLiteral("MriCanvasContainer") &&
-            cls != QStringLiteral("MriProjectController") &&
-            cls != QStringLiteral("MriProjectListWidget"))
-            continue;
-        stream << "class=" << cls
-               << " ptr=0x" << QString::number(
-                      reinterpret_cast<quintptr>(widget), 16)
+        stream << "class=" << widget->metaObject()->className()
+               << " ptr=0x"
+               << QString::number(reinterpret_cast<quintptr>(widget), 16)
                << " object=" << widget->objectName()
                << " size=" << widget->width() << 'x' << widget->height()
                << " dpr=" << widget->devicePixelRatioF()
-               << " targetDpr=" << ratioForCanvas(widget)
+               << " targetDpr=" << kCanvasDevicePixelRatio
                << " visible=" << widget->isVisible()
                << " QOpenGLWidget=" << widget->inherits("QOpenGLWidget")
                << " QGLWidget=" << widget->inherits("QGLWidget");
         if (QWidget *parent = widget->parentWidget()) {
             stream << " parent=" << parent->metaObject()->className()
                    << ':' << parent->objectName();
-            if (QWidget *grandparent = parent->parentWidget())
+            if (QWidget *grandparent = parent->parentWidget()) {
                 stream << " grandparent=" << grandparent->metaObject()->className()
                        << ':' << grandparent->objectName();
+            }
         }
         stream << '\n';
         ++count;
@@ -221,12 +351,12 @@ bool writeWidgetSnapshot() {
 }
 
 void startExperiment(QApplication *app) {
-    locateResizeGlCandidates();
-    scanOpenGlWidgets();
-    auto *timer = new QTimer(app);
-    timer->setInterval(1000);
-    QObject::connect(timer, &QTimer::timeout, [] { scanOpenGlWidgets(); });
-    timer->start();
+    discoverVtableIndices();
+    app->installEventFilter(new WidgetLifecycleFilter(app));
+    for (QWidget *widget : QApplication::allWidgets())
+        observeWidget(widget);
+
+    writeWidgetSnapshot();
     auto *snapshotTimer = new QTimer(app);
     snapshotTimer->setInterval(2000);
     QObject::connect(snapshotTimer, &QTimer::timeout,
@@ -236,7 +366,7 @@ void startExperiment(QApplication *app) {
 
 DWORD WINAPI worker(LPVOID) {
     QApplication *app = nullptr;
-    for (int i = 0; i < 3000; ++i) {
+    for (int attempt = 0; attempt < 3000; ++attempt) {
         if (QCoreApplication::instance()) {
             app = qobject_cast<QApplication *>(QCoreApplication::instance());
             if (app)
