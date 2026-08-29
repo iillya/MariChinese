@@ -47,9 +47,18 @@ bool isExecutableAddress(const void *address) {
     return (info.Protect & executable) != 0;
 }
 
-bool isCanvas(const QWidget *widget) {
-    return widget &&
-           qstrcmp(widget->metaObject()->className(), "MriCanvasWidget") == 0;
+// Mari does not use OpenGL only for the main 3D canvas.  The colour picker,
+// image/gradient previews and some plug-in panels also derive their rendering
+// widgets from QOpenGLWidget.  Matching only MriCanvasWidget leaves those
+// secondary surfaces with Qt's scaled device-pixel ratio and their framebuffer
+// is consequently drawn into only part of the available widget.
+//
+// QObject::inherits() walks the Qt meta-object superclass chain, so this also
+// covers Mari's private subclasses without depending on their version-specific
+// class names.  Do not broaden this to arbitrary QWidget subclasses: the
+// vtable indices below are discovered specifically from QOpenGLWidget.
+bool isOpenGlSurface(const QWidget *widget) {
+    return widget && widget->inherits("QOpenGLWidget");
 }
 
 void discoverVtableIndices() {
@@ -156,7 +165,7 @@ bool replaceVtableSlot(void **slot, void *replacement) {
 void patchCanvas(QWidget *widget) {
     if (!widget)
         return;
-    if (!isCanvas(widget))
+    if (!isOpenGlSurface(widget))
         return;
     discoverVtableIndices();
     if (g_metricIndex < 0 || g_resizeGlIndex < 0)
@@ -202,7 +211,7 @@ void patchCanvas(QWidget *widget) {
 void observeWidget(QWidget *widget) {
     if (!widget)
         return;
-    if (!isCanvas(widget))
+    if (!isOpenGlSurface(widget))
         return;
     for (const QPointer<QWidget> &known : g_observedWidgets) {
         if (known == widget)
@@ -235,10 +244,10 @@ void startExperiment(QApplication *app) {
     snapshotTimer->setInterval(2000);
     QObject::connect(snapshotTimer, &QTimer::timeout, snapshotTimer,
                      [snapshotTimer] {
-                         // 主动轮询扫描：发现并修补画布。Mari 的原生画布不走
-                         // Qt 的 Polish/Show 事件，必须靠周期扫描捕获。一旦
-                         // 某个画布 vtable 已修补，所有同类的当前及后续实例
-                         // 都会继承该修补，因此立即停止扫描以省去持续遍历。
+                         // 主动轮询扫描：发现并修补 OpenGL 控件。Mari 的主
+                         // 画布可能不走 Qt 的 Polish/Show 事件，必须靠周期
+                         // 扫描捕获。后续出现的颜色选择器、预览器等不同派生
+                         // 类型由常驻的 WidgetLifecycleFilter 继续按虚表修补。
                          AcquireSRWLockShared(&g_patchLock);
                          const bool patched = !g_canvasPatches.empty();
                          ReleaseSRWLockShared(&g_patchLock);
