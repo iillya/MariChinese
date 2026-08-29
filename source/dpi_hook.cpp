@@ -7,6 +7,7 @@
 #include <QtCore/QMetaObject>
 #include <QtCore/QPointer>
 #include <QtCore/QTimer>
+#include <QtGui/QResizeEvent>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QOpenGLWidget>
 #include <QtWidgets/QWidget>
@@ -32,7 +33,6 @@ constexpr qreal kCanvasDevicePixelRatio = 1.0;
 HINSTANCE g_instance = nullptr;
 SRWLOCK g_patchLock = SRWLOCK_INIT;
 std::vector<CanvasPatch> g_canvasPatches;
-std::vector<QPointer<QWidget>> g_observedWidgets;
 
 struct VtableLayout {
     int metricIndex = -1;
@@ -199,25 +199,25 @@ bool replaceVtableSlot(void **slot, void *replacement) {
     return true;
 }
 
-void patchCanvas(QWidget *widget) {
+bool patchCanvas(QWidget *widget) {
     if (!widget)
-        return;
+        return false;
     if (!isOpenGlSurface(widget))
-        return;
+        return false;
     discoverVtableLayouts();
     const VtableLayout *layout = layoutFor(widget);
     if (!layout || layout->metricIndex < 0 || layout->resizeGlIndex < 0)
-        return;
+        return false;
 
     void **vtable = *reinterpret_cast<void ***>(widget);
     if (!vtable)
-        return;
+        return false;
 
     AcquireSRWLockExclusive(&g_patchLock);
     for (const CanvasPatch &patch : g_canvasPatches) {
         if (patch.vtable == vtable) {
             ReleaseSRWLockExclusive(&g_patchLock);
-            return;
+            return true;
         }
     }
 
@@ -228,7 +228,7 @@ void patchCanvas(QWidget *widget) {
     if (!isExecutableAddress(reinterpret_cast<void *>(originalMetric)) ||
         !isExecutableAddress(reinterpret_cast<void *>(originalResize))) {
         ReleaseSRWLockExclusive(&g_patchLock);
-        return;
+        return false;
     }
 
     g_canvasPatches.push_back({vtable, originalMetric, originalResize});
@@ -244,6 +244,7 @@ void patchCanvas(QWidget *widget) {
         g_canvasPatches.pop_back();
     }
     ReleaseSRWLockExclusive(&g_patchLock);
+    return metricPatched && resizePatched;
 }
 
 void observeWidget(QWidget *widget) {
@@ -251,12 +252,25 @@ void observeWidget(QWidget *widget) {
         return;
     if (!isOpenGlSurface(widget))
         return;
-    for (const QPointer<QWidget> &known : g_observedWidgets) {
-        if (known == widget)
-            return;
-    }
-    g_observedWidgets.push_back(widget);
-    patchCanvas(widget);
+    if (widget->property("mari_chinese_dpi_patched").toBool())
+        return;
+    // patchCanvas de-duplicates successful patches by vtable. Do not mark a
+    // widget as permanently observed before success: some Mari dialogs emit an
+    // early lifecycle event while their final GL subclass/vtable is not ready.
+    if (!patchCanvas(widget))
+        return;
+    widget->setProperty("mari_chinese_dpi_patched", true);
+    // A late-created QOpenGLWidget may already own an FBO sized with the old
+    // DPR. Re-deliver its current size after patching so Qt recreates that FBO
+    // using DPR 1.0, then request a repaint.
+    const QPointer<QWidget> widgetGuard(widget);
+    QTimer::singleShot(0, widget, [widgetGuard] {
+        if (!widgetGuard) return;
+        const QSize size = widgetGuard->size();
+        QResizeEvent resizeEvent(size, size);
+        QApplication::sendEvent(widgetGuard, &resizeEvent);
+        widgetGuard->update();
+    });
 }
 
 class WidgetLifecycleFilter final : public QObject {
@@ -264,9 +278,26 @@ public:
     using QObject::QObject;
 
     bool eventFilter(QObject *object, QEvent *event) override {
-        if (event->type() == QEvent::Polish || event->type() == QEvent::Show) {
+        const QEvent::Type type = event->type();
+        if (type == QEvent::Polish || type == QEvent::Show ||
+            type == QEvent::Paint) {
             if (auto *widget = qobject_cast<QWidget *>(object))
                 observeWidget(widget);
+        }
+        // MriImageViewWidget may not emit Show itself; its containing dialog
+        // does. Defer a complete scan until the current construction/show event
+        // has returned, so no half-constructed QObject or transient vtable is
+        // ever inspected or modified.
+        if (type == QEvent::Show || type == QEvent::WindowActivate) {
+            static bool scanScheduled = false;
+            if (!scanScheduled) {
+                scanScheduled = true;
+                QTimer::singleShot(0, QApplication::instance(), [] {
+                    scanScheduled = false;
+                    for (QWidget *widget : QApplication::allWidgets())
+                        observeWidget(widget);
+                });
+            }
         }
         return false;
     }
