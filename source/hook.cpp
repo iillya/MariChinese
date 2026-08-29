@@ -69,6 +69,8 @@
 #include <utility>
 #include <typeinfo>
 
+#include "hook_lifecycle.h"
+
 
 namespace {
 
@@ -1783,6 +1785,8 @@ public:
 };
 
 void runOnGuiThread(QApplication *app) {
+    // Phase 1: QApplication exists and execution is on its GUI thread.
+    // Install every hook that can be resolved immediately.
     const std::wstring dir = modulePathW();
     const std::wstring folder = dir.find_last_of(L"\\/") == std::wstring::npos
         ? dir : dir.substr(0, dir.find_last_of(L"\\/"));
@@ -1796,16 +1800,22 @@ void runOnGuiThread(QApplication *app) {
     if (QAbstractEventDispatcher *dispatcher = QAbstractEventDispatcher::instance())
         dispatcher->installNativeEventFilter(new NativeKeyFilter);
     installAttributionActions();
-    // 晚加载 DLL（如按需加载的插件）会绕过启动时的 IAT 扫描，定期重扫。
+
+    // Phase 2: QApplication's event filters handle widgets/actions created
+    // later. Phase 3 below is a bounded fallback for late-loaded DLLs and Mari
+    // components that do not expose a useful Qt lifecycle event.
+    if (!MariHookLifecycle::kEnableDeferredPolling)
+        return;
+
     auto *rescanTimer = new QTimer(app);
-    rescanTimer->setInterval(2000);
+    rescanTimer->setInterval(MariHookLifecycle::kDeferredScanIntervalMs);
     QObject::connect(rescanTimer, &QTimer::timeout, [] {
         patchLateLoadedModules();
         installAllComboDisplayDelegates();
         installAttributionActions();
     });
     rescanTimer->start();
-    QTimer::singleShot(60000, app, [rescanTimer] {
+    QTimer::singleShot(MariHookLifecycle::kDeferredScanWindowMs, app, [rescanTimer] {
         rescanTimer->stop();
         rescanTimer->deleteLater();
     });
@@ -1813,7 +1823,7 @@ void runOnGuiThread(QApplication *app) {
     // MriNodeGraph.dll is loaded only when a project opens. Poll only until its
     // display-only QGraphicsSimpleTextItem paint hook is installed.
     auto *nodeTimer = new QTimer(app);
-    nodeTimer->setInterval(2000);
+    nodeTimer->setInterval(MariHookLifecycle::kDeferredScanIntervalMs);
     QObject::connect(nodeTimer, &QTimer::timeout, [nodeTimer] {
         if (installNodeGraphTextHook()) {
             patchLateLoadedModules();
@@ -1824,7 +1834,7 @@ void runOnGuiThread(QApplication *app) {
     if (!installNodeGraphTextHook()) {
         nodeTimer->start();
         const QPointer<QTimer> nodeTimerGuard(nodeTimer);
-        QTimer::singleShot(60000, app, [nodeTimerGuard] {
+        QTimer::singleShot(MariHookLifecycle::kDeferredScanWindowMs, app, [nodeTimerGuard] {
             if (nodeTimerGuard) {
                 nodeTimerGuard->stop();
                 nodeTimerGuard->deleteLater();
@@ -1839,13 +1849,13 @@ void runOnGuiThread(QApplication *app) {
 // 出现后，切到 GUI 线程安装钩子。
 DWORD WINAPI worker(LPVOID) {
     QApplication *app = nullptr;
-    for (int i = 0; i < 3000; ++i) {
+    for (int i = 0; i < MariHookLifecycle::kApplicationWaitAttempts; ++i) {
         if (QCoreApplication::instance()) {
             app = qobject_cast<QApplication *>(QCoreApplication::instance());
             if (app)
                 break;
         }
-        Sleep(100);
+        Sleep(MariHookLifecycle::kApplicationWaitIntervalMs);
     }
     if (!app)
         return 1;

@@ -13,6 +13,8 @@
 
 #include <vector>
 
+#include "hook_lifecycle.h"
+
 namespace {
 
 using QWidgetMetricFn = int (__cdecl *)(const QWidget *, int);
@@ -235,13 +237,21 @@ public:
 };
 
 void startExperiment(QApplication *app) {
+    // Phase 1: patch all OpenGL widgets that already exist.
     discoverVtableIndices();
+    // Phase 2: keep the event filter installed for widgets created later.
     app->installEventFilter(new WidgetLifecycleFilter(app));
     for (QWidget *widget : QApplication::allWidgets())
         observeWidget(widget);
 
+    // Phase 3: bounded polling fallback for Mari's main canvas, which can
+    // bypass the normal Polish/Show path. The timer stops as soon as a vtable
+    // has been patched; later widget types remain covered by the event filter.
+    if (!MariHookLifecycle::kEnableDeferredPolling)
+        return;
+
     auto *snapshotTimer = new QTimer(app);
-    snapshotTimer->setInterval(2000);
+    snapshotTimer->setInterval(MariHookLifecycle::kDeferredScanIntervalMs);
     QObject::connect(snapshotTimer, &QTimer::timeout, snapshotTimer,
                      [snapshotTimer] {
                          // 主动轮询扫描：发现并修补 OpenGL 控件。Mari 的主
@@ -260,17 +270,26 @@ void startExperiment(QApplication *app) {
                              observeWidget(widget);
                      });
     snapshotTimer->start();
+    const QPointer<QTimer> snapshotTimerGuard(snapshotTimer);
+    QTimer::singleShot(MariHookLifecycle::kDeferredScanWindowMs, app,
+                       [snapshotTimerGuard] {
+                           if (snapshotTimerGuard) {
+                               snapshotTimerGuard->stop();
+                               snapshotTimerGuard->deleteLater();
+                           }
+                       });
 }
 
 DWORD WINAPI worker(LPVOID) {
     QApplication *app = nullptr;
-    for (int attempt = 0; attempt < 3000; ++attempt) {
+    for (int attempt = 0;
+         attempt < MariHookLifecycle::kApplicationWaitAttempts; ++attempt) {
         if (QCoreApplication::instance()) {
             app = qobject_cast<QApplication *>(QCoreApplication::instance());
             if (app)
                 break;
         }
-        Sleep(100);
+        Sleep(MariHookLifecycle::kApplicationWaitIntervalMs);
     }
     if (!app)
         return 1;
