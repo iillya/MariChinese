@@ -33,7 +33,6 @@
 
 # Build output
 /build/
-/dist/
 
 # Python cache
 __pycache__/
@@ -42,3 +41,7 @@ __pycache__/
 # Diagnostic logs / screenshots
 *.log
 _*.png
+
+# Release artifacts under dist are versioned.
+!/dist/
+!/dist/**
