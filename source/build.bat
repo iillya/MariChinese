@@ -63,7 +63,7 @@ cl /nologo /O2 /W4 /LD /EHsc /std:c++17 /Zc:__cplusplus /permissive- /utf-8 ^
    /I"%QT%\include" "%CPP%\dpi_hook.cpp" ^
    /Fo"%OBJDIR%\dpi_vtable.obj" /Fe:"%OUT%\MariDpiVtable.dll" ^
    /link "%QT%\lib\Qt5Core.lib" "%QT%\lib\Qt5Gui.lib" ^
-   "%QT%\lib\Qt5Widgets.lib" user32.lib
+   "%QT%\lib\Qt5Widgets.lib" "%QT%\lib\Qt5OpenGL.lib" user32.lib opengl32.lib
 if errorlevel 1 exit /b 1
 
 echo === Compiling launcher ===

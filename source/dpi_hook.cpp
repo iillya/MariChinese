@@ -10,6 +10,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QOpenGLWidget>
 #include <QtWidgets/QWidget>
+#include <QtOpenGL/QGLWidget>
 
 #include <vector>
 
@@ -32,9 +33,14 @@ HINSTANCE g_instance = nullptr;
 SRWLOCK g_patchLock = SRWLOCK_INIT;
 std::vector<CanvasPatch> g_canvasPatches;
 std::vector<QPointer<QWidget>> g_observedWidgets;
-int g_metricIndex = -1;
-int g_resizeGlIndex = -1;
-std::vector<int> g_resizeGlCandidates;
+
+struct VtableLayout {
+    int metricIndex = -1;
+    int resizeGlIndex = -1;
+};
+
+VtableLayout g_modernLayout;
+VtableLayout g_legacyLayout;
 
 bool isExecutableAddress(const void *address) {
     if (!address)
@@ -57,51 +63,80 @@ bool isExecutableAddress(const void *address) {
 //
 // QObject::inherits() walks the Qt meta-object superclass chain, so this also
 // covers Mari's private subclasses without depending on their version-specific
-// class names.  Do not broaden this to arbitrary QWidget subclasses: the
-// vtable indices below are discovered specifically from QOpenGLWidget.
+// class names. Do not broaden this to arbitrary QWidget subclasses: the
+// vtable layouts below are discovered separately for QOpenGLWidget/QGLWidget.
 bool isOpenGlSurface(const QWidget *widget) {
-    return widget && widget->inherits("QOpenGLWidget");
+    return widget && (widget->inherits("QOpenGLWidget") ||
+                      widget->inherits("QGLWidget"));
 }
 
-void discoverVtableIndices() {
-    if (g_metricIndex >= 0 && g_resizeGlIndex >= 0)
+void discoverLayout(void **baseVtable, void *metricAddress,
+                    void *resizeAddress, VtableLayout &layout) {
+    if (!baseVtable || !metricAddress || !resizeAddress ||
+        (layout.metricIndex >= 0 && layout.resizeGlIndex >= 0))
         return;
-    HMODULE qtWidgets = GetModuleHandleW(L"Qt5Widgets.dll");
-    if (!qtWidgets)
-        return;
-
-    void *metricAddress = reinterpret_cast<void *>(GetProcAddress(
-        qtWidgets,
-        "?metric@QOpenGLWidget@@MEBAHW4PaintDeviceMetric@QPaintDevice@@@Z"));
-    void *resizeAddress = reinterpret_cast<void *>(GetProcAddress(
-        qtWidgets, "?resizeGL@QOpenGLWidget@@MEAAXHH@Z"));
-    if (!metricAddress || !resizeAddress)
-        return;
-
-    g_resizeGlCandidates.clear();
-    QOpenGLWidget baseProbe;
-    void **baseVtable = *reinterpret_cast<void ***>(&baseProbe);
+    std::vector<int> resizeCandidates;
     for (int index = 0; index < 128; ++index) {
-        if (g_metricIndex < 0 && baseVtable[index] == metricAddress)
-            g_metricIndex = index;
+        if (layout.metricIndex < 0 && baseVtable[index] == metricAddress)
+            layout.metricIndex = index;
         if (baseVtable[index] == resizeAddress)
-            g_resizeGlCandidates.push_back(index);
+            resizeCandidates.push_back(index);
     }
-    // MSVC folds several empty Qt virtual functions to the same address.
-    // QOpenGLWidget declares initializeGL(), resizeGL(), paintGL() consecutively;
-    // identify the isolated three-slot run and select its middle member.
-    for (std::size_t first = 0; first < g_resizeGlCandidates.size();) {
+    // MSVC may fold initializeGL(), resizeGL() and paintGL() to one address.
+    // When that happens they form a three-slot run and resizeGL is the middle.
+    for (std::size_t first = 0; first < resizeCandidates.size();) {
         std::size_t last = first;
-        while (last + 1 < g_resizeGlCandidates.size() &&
-               g_resizeGlCandidates[last + 1] ==
-                   g_resizeGlCandidates[last] + 1)
+        while (last + 1 < resizeCandidates.size() &&
+               resizeCandidates[last + 1] == resizeCandidates[last] + 1)
             ++last;
         if (last - first + 1 == 3) {
-            g_resizeGlIndex = g_resizeGlCandidates[first + 1];
+            layout.resizeGlIndex = resizeCandidates[first + 1];
+            break;
+        }
+        if (last == first) {
+            layout.resizeGlIndex = resizeCandidates[first];
             break;
         }
         first = last + 1;
     }
+}
+
+void discoverVtableLayouts() {
+    HMODULE qtWidgets = GetModuleHandleW(L"Qt5Widgets.dll");
+    if (!qtWidgets) return;
+
+    QOpenGLWidget modernProbe;
+    void **modernVtable = *reinterpret_cast<void ***>(&modernProbe);
+    discoverLayout(
+        modernVtable,
+        reinterpret_cast<void *>(GetProcAddress(qtWidgets,
+            "?metric@QOpenGLWidget@@MEBAHW4PaintDeviceMetric@QPaintDevice@@@Z")),
+        reinterpret_cast<void *>(GetProcAddress(qtWidgets,
+            "?resizeGL@QOpenGLWidget@@MEAAXHH@Z")),
+        g_modernLayout);
+
+    // Mari still uses legacy QGLWidget for some image viewers and previews.
+    // Its metric() slot is inherited from QWidget, while resizeGL() belongs to
+    // Qt5OpenGL, so it requires a separately discovered vtable layout.
+    HMODULE qtOpenGl = GetModuleHandleW(L"Qt5OpenGL.dll");
+    if (!qtOpenGl) return;
+    QGLWidget legacyProbe;
+    void **legacyVtable = *reinterpret_cast<void ***>(&legacyProbe);
+    discoverLayout(
+        legacyVtable,
+        reinterpret_cast<void *>(GetProcAddress(qtWidgets,
+            "?metric@QWidget@@MEBAHW4PaintDeviceMetric@QPaintDevice@@@Z")),
+        reinterpret_cast<void *>(GetProcAddress(qtOpenGl,
+            "?resizeGL@QGLWidget@@MEAAXHH@Z")),
+        g_legacyLayout);
+}
+
+const VtableLayout *layoutFor(const QWidget *widget) {
+    if (widget && widget->inherits("QOpenGLWidget"))
+        return &g_modernLayout;
+    if (widget && widget->inherits("QGLWidget"))
+        return &g_legacyLayout;
+    return nullptr;
 }
 
 QWidgetMetricFn originalMetricFor(const QWidget *widget) {
@@ -169,8 +204,9 @@ void patchCanvas(QWidget *widget) {
         return;
     if (!isOpenGlSurface(widget))
         return;
-    discoverVtableIndices();
-    if (g_metricIndex < 0 || g_resizeGlIndex < 0)
+    discoverVtableLayouts();
+    const VtableLayout *layout = layoutFor(widget);
+    if (!layout || layout->metricIndex < 0 || layout->resizeGlIndex < 0)
         return;
 
     void **vtable = *reinterpret_cast<void ***>(widget);
@@ -185,8 +221,8 @@ void patchCanvas(QWidget *widget) {
         }
     }
 
-    void **metricSlot = &vtable[g_metricIndex];
-    void **resizeSlot = &vtable[g_resizeGlIndex];
+    void **metricSlot = &vtable[layout->metricIndex];
+    void **resizeSlot = &vtable[layout->resizeGlIndex];
     const auto originalMetric = reinterpret_cast<QWidgetMetricFn>(*metricSlot);
     const auto originalResize = reinterpret_cast<ResizeGlFn>(*resizeSlot);
     if (!isExecutableAddress(reinterpret_cast<void *>(originalMetric)) ||
@@ -238,7 +274,7 @@ public:
 
 void startExperiment(QApplication *app) {
     // Phase 1: patch all OpenGL widgets that already exist.
-    discoverVtableIndices();
+    discoverVtableLayouts();
     // Phase 2: keep the event filter installed for widgets created later.
     app->installEventFilter(new WidgetLifecycleFilter(app));
     for (QWidget *widget : QApplication::allWidgets())
