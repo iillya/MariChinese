@@ -18,7 +18,6 @@
 #include <QtCore/QFile>
 #include <QtCore/QHash>
 #include <QtCore/QJsonDocument>
-#include <QtCore/QJsonArray>
 #include <QtCore/QJsonObject>
 #include <QtCore/QJsonParseError>
 #include <QtCore/QPair>
@@ -31,8 +30,6 @@
 #include <QtGui/QMouseEvent>
 #include <QtGui/QFontMetrics>
 #include <QtGui/QTextOption>
-#include <QtGui/QGuiApplication>
-#include <QtGui/QWindow>
 #include <QtWidgets/QAbstractItemDelegate>
 #include <QtWidgets/QAbstractItemView>
 #include <QtWidgets/QAbstractButton>
@@ -64,7 +61,6 @@
 
 #include <vector>
 #include <map>
-#include <set>
 #include <functional>
 #include <algorithm>
 #include <atomic>
@@ -73,6 +69,7 @@
 #include <typeinfo>
 
 #include "hook_lifecycle.h"
+#include "dpi_hook.h"
 
 
 namespace {
@@ -81,9 +78,6 @@ QHash<QString, QString> g_translations;   // 英文原文 -> 中文
 // SpeedTree 同款：归一化英文键 -> 中文 的模糊索引，以及按小写原文排序的键表（用于省略号前缀查找）。
 QHash<QString, QString> g_foldedTranslations;
 std::vector<QPair<QString, QString>> g_sortedKeys;   // (小写原文, 原文)
-std::set<std::string> g_paintSeen;                   // Shift+` 嗅探：未翻译字符串集合
-static constexpr size_t kMaxPaintSeen = 100000;
-SRWLOCK g_paintSeenLock = SRWLOCK_INIT;
 std::atomic_bool g_enabled{true};
 bool g_hooksInstalled = false;
 bool g_nodeTextHookInstalled = false;
@@ -245,25 +239,7 @@ QString lookupTranslation(const QString &text) {
         if (!elided.isEmpty())
             return elided + stateSuffix;
     }
-    // Shift+` 嗅探：记录未翻译且看似可翻译的界面文案（有上限）。
-    if (isTranslatableString(trimmed)) {
-        const QByteArray utf8 = trimmed.toUtf8();
-        // 嗅探只是诊断功能，绝不能让高频绘制路径等待文件导出线程。
-        // 锁繁忙时丢弃本次样本；相同文字后续绘制还会再次采集。
-        if (TryAcquireSRWLockExclusive(&g_paintSeenLock)) {
-            if (g_paintSeen.size() < kMaxPaintSeen)
-                g_paintSeen.insert(utf8.constData());
-            ReleaseSRWLockExclusive(&g_paintSeenLock);
-        }
-    }
     return {};
-}
-
-std::vector<std::string> paintSeenSnapshot() {
-    AcquireSRWLockShared(&g_paintSeenLock);
-    std::vector<std::string> result(g_paintSeen.begin(), g_paintSeen.end());
-    ReleaseSRWLockShared(&g_paintSeenLock);
-    return result;
 }
 
 // JSON 字符串转义（键/值）。
@@ -346,94 +322,6 @@ static void collectModelDeep(QAbstractItemModel *model, const QModelIndex &paren
     }
 }
 
-static QJsonArray metaClassChain(const QObject *object) {
-    QJsonArray result;
-    for (const QMetaObject *meta = object ? object->metaObject() : nullptr;
-         meta; meta = meta->superClass())
-        result.append(QString::fromLatin1(meta->className()));
-    return result;
-}
-
-static QJsonObject geometryJson(const QRect &rect) {
-    QJsonObject result;
-    result.insert(QStringLiteral("x"), rect.x());
-    result.insert(QStringLiteral("y"), rect.y());
-    result.insert(QStringLiteral("width"), rect.width());
-    result.insert(QStringLiteral("height"), rect.height());
-    return result;
-}
-
-static QString windowSurfaceTypeName(QSurface::SurfaceType type) {
-    switch (type) {
-        case QSurface::RasterSurface: return QStringLiteral("RasterSurface");
-        case QSurface::OpenGLSurface: return QStringLiteral("OpenGLSurface");
-        case QSurface::RasterGLSurface: return QStringLiteral("RasterGLSurface");
-        default: return QStringLiteral("UnknownSurface");
-    }
-}
-
-// Shift+` window diagnostics. This intentionally records every visible QWidget
-// plus every QWindow, not only known OpenGL classes: Mari can hide a native WGL
-// surface behind a version-specific class name. Keeping it separate from the
-// untranslated dictionary makes the output safe to attach to a bug report.
-static bool captureWindowDiagnostics(const std::wstring &desktop,
-                                     std::wstring &savedPath) {
-    QJsonArray widgetsJson;
-    for (QWidget *widget : QApplication::allWidgets()) {
-        if (!widget || !widget->isVisible()) continue;
-        QJsonObject item;
-        const QString className = QString::fromLatin1(
-            widget->metaObject() ? widget->metaObject()->className() : "");
-        item.insert(QStringLiteral("kind"), QStringLiteral("QWidget"));
-        item.insert(QStringLiteral("class"), className);
-        item.insert(QStringLiteral("classChain"), metaClassChain(widget));
-        item.insert(QStringLiteral("objectName"), widget->objectName());
-        item.insert(QStringLiteral("windowTitle"), widget->windowTitle());
-        item.insert(QStringLiteral("parentClass"), widget->parentWidget()
-            ? QString::fromLatin1(widget->parentWidget()->metaObject()->className())
-            : QString());
-        item.insert(QStringLiteral("geometry"), geometryJson(widget->geometry()));
-        item.insert(QStringLiteral("devicePixelRatio"), widget->devicePixelRatioF());
-        item.insert(QStringLiteral("topLevel"), widget->isWindow());
-        item.insert(QStringLiteral("nativeCreated"),
-                    widget->testAttribute(Qt::WA_WState_Created));
-        item.insert(QStringLiteral("inheritsQOpenGLWidget"),
-                    widget->inherits("QOpenGLWidget"));
-        item.insert(QStringLiteral("inheritsQGLWidget"),
-                    widget->inherits("QGLWidget"));
-        item.insert(QStringLiteral("dpiPatchApplied"),
-                    widget->property("mari_chinese_dpi_patched").toBool());
-        widgetsJson.append(item);
-    }
-
-    QJsonArray windowsJson;
-    for (QWindow *window : QGuiApplication::allWindows()) {
-        if (!window) continue;
-        QJsonObject item;
-        item.insert(QStringLiteral("kind"), QStringLiteral("QWindow"));
-        item.insert(QStringLiteral("class"), QString::fromLatin1(
-            window->metaObject() ? window->metaObject()->className() : ""));
-        item.insert(QStringLiteral("classChain"), metaClassChain(window));
-        item.insert(QStringLiteral("objectName"), window->objectName());
-        item.insert(QStringLiteral("title"), window->title());
-        item.insert(QStringLiteral("geometry"), geometryJson(window->geometry()));
-        item.insert(QStringLiteral("devicePixelRatio"), window->devicePixelRatio());
-        item.insert(QStringLiteral("visible"), window->isVisible());
-        item.insert(QStringLiteral("surfaceType"),
-                    windowSurfaceTypeName(window->surfaceType()));
-        windowsJson.append(item);
-    }
-
-    QJsonObject root;
-    root.insert(QStringLiteral("schema"), QStringLiteral("mari-window-diagnostics-v1"));
-    root.insert(QStringLiteral("widgets"), widgetsJson);
-    root.insert(QStringLiteral("windows"), windowsJson);
-    savedPath = desktop + L"\\Mari_window_diagnostics.json";
-    QFile output(QString::fromStdWString(savedPath));
-    if (!output.open(QIODevice::WriteOnly | QIODevice::Truncate)) return false;
-    return output.write(QJsonDocument(root).toJson(QJsonDocument::Indented)) >= 0;
-}
-
 // 手动“未翻译文本嗅探”（Shift + `）：只读地遍历当前界面，把尚未收录的
 // 英文原文追加到桌面 <Desktop>\Mari_untranslated_zh.json（sp-translation-v1，空值）。
 // 每次只新增已存在的词条（绝不覆盖、保留已填写的译法）。只在快捷键触发，
@@ -475,21 +363,12 @@ static void captureUntranslated() {
                 collectModelDeep(view->model(), QModelIndex(), add, 0, cellBudget);
         }
     }
-    // 启动以来绘制层捕获的未翻译字符串。
-    for (const std::string &s : paintSeenSnapshot())
-        if (!s.empty() &&
-            lookupTranslation(QString::fromUtf8(s.c_str())).isEmpty())
-            pending.emplace(s, "");
-
     wchar_t desktop[MAX_PATH] = {};
     if (FAILED(SHGetFolderPathW(nullptr, CSIDL_DESKTOPDIRECTORY, nullptr, 0, desktop)) ||
         !desktop[0])
         return;
     const std::wstring path =
         std::wstring(desktop) + L"\\Mari_untranslated_zh.json";
-    std::wstring diagnosticsPath;
-    const bool diagnosticsSaved = captureWindowDiagnostics(
-        std::wstring(desktop), diagnosticsPath);
 
     // 读入上次采集的结果，只新增、不覆盖（保留可能已填写的译法）。
     std::map<std::string, std::string> merged;
@@ -542,18 +421,13 @@ static void captureUntranslated() {
     const int totalCount = static_cast<int>(merged.size());
     const std::wstring savedPath = path;
     QTimer::singleShot(0, QApplication::instance(),
-                       [addedCount, totalCount, savedPath,
-                        diagnosticsSaved, diagnosticsPath]() {
-        const QString diagnosticsMessage = diagnosticsSaved
-            ? QStringLiteral("\n窗口诊断已保存到：\n") +
-                  QString::fromStdWString(diagnosticsPath)
-            : QStringLiteral("\n窗口诊断文件保存失败。");
+                       [addedCount, totalCount, savedPath]() {
         QMessageBox::information(
             nullptr, QStringLiteral("未翻译词条"),
             QStringLiteral("已捕获 ") + QString::number(addedCount) +
                 QStringLiteral(" 条（共 ") + QString::number(totalCount) +
                 QStringLiteral(" 条）。\n已保存到桌面：\n") +
-                QString::fromStdWString(savedPath) + diagnosticsMessage);
+                QString::fromStdWString(savedPath));
     });
 }
 
@@ -1884,7 +1758,7 @@ public:
     }
 };
 
-void runOnGuiThread(QApplication *app) {
+void initializeOnGuiThread(QApplication *app) {
     // Phase 1: QApplication exists and execution is on its GUI thread.
     // Install every hook that can be resolved immediately.
     const std::wstring dir = modulePathW();
@@ -1900,11 +1774,12 @@ void runOnGuiThread(QApplication *app) {
     if (QAbstractEventDispatcher *dispatcher = QAbstractEventDispatcher::instance())
         dispatcher->installNativeEventFilter(new NativeKeyFilter);
     installAttributionActions();
+    MariDpiHook::Initialize(app);
 
     // Phase 2: QApplication's event filters handle widgets/actions created
     // later. Phase 3 below is a bounded fallback for late-loaded DLLs and Mari
     // components that do not expose a useful Qt lifecycle event.
-    if (!MariHookLifecycle::kEnableDeferredPolling)
+    if (!MariHookLifecycle::DeferredPollingEnabled())
         return;
 
     auto *rescanTimer = new QTimer(app);
@@ -1945,35 +1820,14 @@ void runOnGuiThread(QApplication *app) {
     }
 }
 
-// 后台线程：注入发生在 CREATE_SUSPENDED 时，Qt 还没初始化。等 QApplication
-// 出现后，切到 GUI 线程安装钩子。
-DWORD WINAPI worker(LPVOID) {
-    QApplication *app = nullptr;
-    for (int i = 0; i < MariHookLifecycle::kApplicationWaitAttempts; ++i) {
-        if (QCoreApplication::instance()) {
-            app = qobject_cast<QApplication *>(QCoreApplication::instance());
-            if (app)
-                break;
-        }
-        Sleep(MariHookLifecycle::kApplicationWaitIntervalMs);
-    }
-    if (!app)
-        return 1;
-    // The context overload is available on the Qt 5.6 compatibility baseline
-    // and guarantees execution on QApplication's thread.
-    QTimer::singleShot(0, app, [app] { runOnGuiThread(app); });
-    return 0;
-}
-
 } // namespace
 
 BOOL WINAPI DllMain(HINSTANCE hinst, DWORD reason, LPVOID) {
     if (reason == DLL_PROCESS_ATTACH) {
         g_moduleHandle = hinst;
         DisableThreadLibraryCalls(hinst);
-        HANDLE h = CreateThread(nullptr, 0, worker, nullptr, 0, nullptr);
-        if (h)
-            CloseHandle(h);
+        return MariHookLifecycle::StartGuiInitialization(&initializeOnGuiThread)
+            ? TRUE : FALSE;
     }
     return TRUE;
 }

@@ -73,8 +73,8 @@ bool LoadSidecarPayload(State &state) {
     const std::pair<const wchar_t *, const wchar_t *> files[] = {
         {L"MariChineseLauncher.exe", L"MariChineseLauncher.exe"},
         {L"MariChineseHook.dll", L"MariChineseHook.dll"},
-        {L"MariDpiVtable.dll", L"MariDpiVtable.dll"},
-        {L"dictionary_zh.json", L"translations\\dictionary_zh.json"},
+        {L"translations\\dictionary_zh.json",
+         L"translations\\dictionary_zh.json"},
     };
     state.executable.clear();
     state.entries.clear();
@@ -305,11 +305,15 @@ std::wstring KnownFolder(REFKNOWNFOLDERID id) {
 }
 
 bool WriteSettings(const std::filesystem::path &installDirectory,
-                   bool dpiEnabled, const std::wstring &scale) {
+                   bool dpiEnabled, const std::wstring &scale,
+                   bool fallbackPolling) {
     const std::wstring path = (installDirectory / L"settings.ini").wstring();
     return WritePrivateProfileStringW(L"Dpi", L"Enabled",
                dpiEnabled ? L"1" : L"0", path.c_str()) &&
            WritePrivateProfileStringW(L"Dpi", L"ScaleFactor", scale.c_str(),
+                                      path.c_str()) &&
+           WritePrivateProfileStringW(L"Hooks", L"FallbackPolling",
+                                      fallbackPolling ? L"1" : L"0",
                                       path.c_str());
 }
 
@@ -513,6 +517,9 @@ bool Install(const State &state, bool dpiEnabled, const std::wstring &scale) {
         std::filesystem::path(state.directory) / L"ChineseLauncher.new";
     const std::filesystem::path backup =
         std::filesystem::path(state.directory) / L"ChineseLauncher.old";
+    const int fallbackPolling = GetPrivateProfileIntW(
+        L"Hooks", L"FallbackPolling", 0,
+        (install / L"settings.ini").wstring().c_str());
     std::error_code error;
     const auto discardStaging = [&] {
         std::error_code ignored;
@@ -541,7 +548,7 @@ bool Install(const State &state, bool dpiEnabled, const std::wstring &scale) {
             return false;
         }
     }
-    if (!WriteSettings(staging, dpiEnabled, scale)) {
+    if (!WriteSettings(staging, dpiEnabled, scale, fallbackPolling != 0)) {
         discardStaging();
         return false;
     }

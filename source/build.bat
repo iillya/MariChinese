@@ -44,26 +44,25 @@ if not exist "%VCVARS%" (
 )
 call "%VCVARS%" >nul
 
-echo === Compiling hook DLL ===
+echo === Compiling localization and DPI modules ===
 cl /nologo /O2 /W4 /c /EHsc /std:c++17 /Zc:__cplusplus /permissive- /utf-8 ^
    /I"%QT%\include" ^
    "%CPP%\hook.cpp" ^
    /Fo"%OBJDIR%\hook.obj"
 if errorlevel 1 exit /b 1
 
-link /nologo /DLL "%OBJDIR%\hook.obj" ^
+cl /nologo /O2 /W4 /c /EHsc /std:c++17 /Zc:__cplusplus /permissive- /utf-8 ^
+   /I"%QT%\include" ^
+   "%CPP%\dpi_hook.cpp" ^
+   /Fo"%OBJDIR%\dpi_hook.obj"
+if errorlevel 1 exit /b 1
+
+echo === Linking unified hook DLL ===
+link /nologo /DLL "%OBJDIR%\hook.obj" "%OBJDIR%\dpi_hook.obj" ^
    /OUT:"%OUT%\MariChineseHook.dll" ^
    /IMPLIB:"%OBJDIR%\MariChineseHook.lib" ^
    "%QT%\lib\Qt5Core.lib" "%QT%\lib\Qt5Gui.lib" "%QT%\lib\Qt5Widgets.lib" ^
-   user32.lib shell32.lib psapi.lib version.lib
-if errorlevel 1 exit /b 1
-
-echo === Compiling proven late-loaded DPI DLL ===
-cl /nologo /O2 /W4 /LD /EHsc /std:c++17 /Zc:__cplusplus /permissive- /utf-8 ^
-   /I"%QT%\include" "%CPP%\dpi_hook.cpp" ^
-   /Fo"%OBJDIR%\dpi_vtable.obj" /Fe:"%OUT%\MariDpiVtable.dll" ^
-   /link "%QT%\lib\Qt5Core.lib" "%QT%\lib\Qt5Gui.lib" ^
-   "%QT%\lib\Qt5Widgets.lib" "%QT%\lib\Qt5OpenGL.lib" user32.lib opengl32.lib
+   user32.lib shell32.lib psapi.lib
 if errorlevel 1 exit /b 1
 
 echo === Compiling launcher ===
@@ -90,6 +89,9 @@ if errorlevel 1 exit /b 1
 echo === Staging runtime dictionary ===
 if not exist "%OUT%\translations" mkdir "%OUT%\translations"
 copy /Y "%ROOT%\translations\dictionary_zh.json" "%OUT%\translations\dictionary_zh.json" >nul
+if errorlevel 1 exit /b 1
+copy /Y "%CPP%\settings.ini" "%OUT%\settings.ini" >nul
+if errorlevel 1 exit /b 1
 
 echo === Packing release installer ===
 python "%CPP%\embed_files.py"
@@ -97,7 +99,6 @@ if errorlevel 1 exit /b 1
 
 echo Build complete:
 echo   %OUT%\MariChineseHook.dll
-echo   %OUT%\MariDpiVtable.dll
 echo   %OUT%\MariChineseLauncher.exe
 echo   %ROOT%\dist\MariChineseInstaller.exe
 endlocal

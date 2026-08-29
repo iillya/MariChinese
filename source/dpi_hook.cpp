@@ -1,46 +1,62 @@
-// Standalone Mari DPI experiment. This DLL contains no localization hooks.
+// Mari OpenGL high-DPI compatibility hook. This DLL contains no localization.
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 #include <QtCore/QCoreApplication>
+#include <QtCore/QAbstractNativeEventFilter>
 #include <QtCore/QEvent>
-#include <QtCore/QMetaObject>
 #include <QtCore/QPointer>
 #include <QtCore/QTimer>
 #include <QtGui/QResizeEvent>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QOpenGLWidget>
 #include <QtWidgets/QWidget>
-#include <QtOpenGL/QGLWidget>
 
 #include <vector>
 
 #include "hook_lifecycle.h"
+#include "dpi_hook.h"
 
 namespace {
 
-using QWidgetMetricFn = int (__cdecl *)(const QWidget *, int);
-using ResizeGlFn = void (__cdecl *)(QWidget *, int, int);
+using PaintDeviceMetricFn = int (__cdecl *)(const QPaintDevice *, int);
 
 struct CanvasPatch {
     void **vtable = nullptr;
-    QWidgetMetricFn originalMetric = nullptr;
-    ResizeGlFn originalResizeGl = nullptr;
+    PaintDeviceMetricFn originalMetric = nullptr;
 };
 
 constexpr qreal kCanvasDevicePixelRatio = 1.0;
 
-HINSTANCE g_instance = nullptr;
 SRWLOCK g_patchLock = SRWLOCK_INIT;
 std::vector<CanvasPatch> g_canvasPatches;
 
 struct VtableLayout {
     int metricIndex = -1;
-    int resizeGlIndex = -1;
 };
 
 VtableLayout g_modernLayout;
 VtableLayout g_legacyLayout;
+
+// QWidget uses multiple inheritance (QObject + QPaintDevice). Calls made
+// through QPaintDevice::devicePixelRatioF() dispatch through the QPaintDevice
+// subobject's vptr, which is not guaranteed to be QWidget's primary vptr.
+// MriImageViewWidget exercises that secondary path, while Mari's main canvas
+// happens to dispatch through the primary table. Always address the actual
+// QPaintDevice subobject so both paths agree.
+const QPaintDevice *paintDeviceFor(const QWidget *widget) {
+    return widget ? static_cast<const QPaintDevice *>(widget) : nullptr;
+}
+
+void **paintDeviceVtable(const QPaintDevice *device) {
+    if (!device)
+        return nullptr;
+    return *reinterpret_cast<void ***>(const_cast<QPaintDevice *>(device));
+}
+
+void **paintDeviceVtable(const QWidget *widget) {
+    return paintDeviceVtable(paintDeviceFor(widget));
+}
 
 bool isExecutableAddress(const void *address) {
     if (!address)
@@ -71,79 +87,78 @@ bool isOpenGlSurface(const QWidget *widget) {
 }
 
 void discoverLayout(void **baseVtable, void *metricAddress,
-                    void *resizeAddress, VtableLayout &layout) {
-    if (!baseVtable || !metricAddress || !resizeAddress ||
-        (layout.metricIndex >= 0 && layout.resizeGlIndex >= 0))
+                    VtableLayout &layout) {
+    if (!baseVtable || !metricAddress || layout.metricIndex >= 0)
         return;
-    std::vector<int> resizeCandidates;
     for (int index = 0; index < 128; ++index) {
-        if (layout.metricIndex < 0 && baseVtable[index] == metricAddress)
+        if (baseVtable[index] == metricAddress) {
             layout.metricIndex = index;
-        if (baseVtable[index] == resizeAddress)
-            resizeCandidates.push_back(index);
-    }
-    // MSVC may fold initializeGL(), resizeGL() and paintGL() to one address.
-    // When that happens they form a three-slot run and resizeGL is the middle.
-    for (std::size_t first = 0; first < resizeCandidates.size();) {
-        std::size_t last = first;
-        while (last + 1 < resizeCandidates.size() &&
-               resizeCandidates[last + 1] == resizeCandidates[last] + 1)
-            ++last;
-        if (last - first + 1 == 3) {
-            layout.resizeGlIndex = resizeCandidates[first + 1];
             break;
         }
-        if (last == first) {
-            layout.resizeGlIndex = resizeCandidates[first];
-            break;
-        }
-        first = last + 1;
     }
 }
 
 void discoverVtableLayouts() {
+    // Build the modern QOpenGLWidget probe (and resolve the metric slot) only
+    // once. This function is exercised from isMetricHookLive() on
+    // every lifecycle/paint/resize event for GL surfaces; constructing a
+    // QOpenGLWidget on the stack each time would needlessly churn the GUI thread.
+    static bool discovered = false;
+    if (discovered)
+        return;
+    discovered = true;
     HMODULE qtWidgets = GetModuleHandleW(L"Qt5Widgets.dll");
     if (!qtWidgets) return;
 
+    // Modern QOpenGLWidget lives in Qt5Widgets, so its vtable layout can be
+    // discovered statically. Legacy QGLWidget (Qt5OpenGL) cannot: the shared Qt
+    // SDK ships only Qt5Core/Gui/Widgets, and Qt5OpenGL is only guaranteed to be
+    // loaded once a real QGLWidget exists, so its layout is discovered lazily in
+    // discoverLegacyLayout() below.
     QOpenGLWidget modernProbe;
-    void **modernVtable = *reinterpret_cast<void ***>(&modernProbe);
+    void **modernVtable = paintDeviceVtable(&modernProbe);
     discoverLayout(
         modernVtable,
         reinterpret_cast<void *>(GetProcAddress(qtWidgets,
             "?metric@QOpenGLWidget@@MEBAHW4PaintDeviceMetric@QPaintDevice@@@Z")),
-        reinterpret_cast<void *>(GetProcAddress(qtWidgets,
-            "?resizeGL@QOpenGLWidget@@MEAAXHH@Z")),
         g_modernLayout);
+}
 
-    // Mari still uses legacy QGLWidget for some image viewers and previews.
-    // Its metric() slot is inherited from QWidget, while resizeGL() belongs to
-    // Qt5OpenGL, so it requires a separately discovered vtable layout.
+// Lazily discover the legacy QGLWidget vtable layout from a real widget. Qt5OpenGL
+// is loaded only while such a widget exists, so GetModuleHandle/GetProcAddress
+// only succeed here; this keeps the DLL free of any compile/link dependency on
+// Qt5OpenGL (the shared SDK omits that module).
+void discoverLegacyLayout(const QWidget *widget) {
+    if (!widget || !widget->inherits("QGLWidget"))
+        return;
+    if (g_legacyLayout.metricIndex >= 0)
+        return;
+    void **vtable = paintDeviceVtable(widget);
     HMODULE qtOpenGl = GetModuleHandleW(L"Qt5OpenGL.dll");
-    if (!qtOpenGl) return;
-    QGLWidget legacyProbe;
-    void **legacyVtable = *reinterpret_cast<void ***>(&legacyProbe);
+    HMODULE qtWidgets = GetModuleHandleW(L"Qt5Widgets.dll");
+    if (!qtOpenGl || !qtWidgets)
+        return;
     discoverLayout(
-        legacyVtable,
+        vtable,
         reinterpret_cast<void *>(GetProcAddress(qtWidgets,
             "?metric@QWidget@@MEBAHW4PaintDeviceMetric@QPaintDevice@@@Z")),
-        reinterpret_cast<void *>(GetProcAddress(qtOpenGl,
-            "?resizeGL@QGLWidget@@MEAAXHH@Z")),
         g_legacyLayout);
 }
 
 const VtableLayout *layoutFor(const QWidget *widget) {
     if (widget && widget->inherits("QOpenGLWidget"))
         return &g_modernLayout;
-    if (widget && widget->inherits("QGLWidget"))
-        return &g_legacyLayout;
+    if (widget && widget->inherits("QGLWidget")) {
+        discoverLegacyLayout(widget);
+        return g_legacyLayout.metricIndex >= 0 ? &g_legacyLayout : nullptr;
+    }
     return nullptr;
 }
 
-QWidgetMetricFn originalMetricFor(const QWidget *widget) {
-    void **vtable = widget ? *reinterpret_cast<void ***>(
-        const_cast<QWidget *>(widget)) : nullptr;
+PaintDeviceMetricFn originalMetricFor(const QPaintDevice *device) {
+    void **vtable = paintDeviceVtable(device);
     AcquireSRWLockShared(&g_patchLock);
-    QWidgetMetricFn result = nullptr;
+    PaintDeviceMetricFn result = nullptr;
     for (const CanvasPatch &patch : g_canvasPatches) {
         if (patch.vtable == vtable) {
             result = patch.originalMetric;
@@ -154,21 +169,7 @@ QWidgetMetricFn originalMetricFor(const QWidget *widget) {
     return result;
 }
 
-ResizeGlFn originalResizeGlFor(QWidget *widget) {
-    void **vtable = widget ? *reinterpret_cast<void ***>(widget) : nullptr;
-    AcquireSRWLockShared(&g_patchLock);
-    ResizeGlFn result = nullptr;
-    for (const CanvasPatch &patch : g_canvasPatches) {
-        if (patch.vtable == vtable) {
-            result = patch.originalResizeGl;
-            break;
-        }
-    }
-    ReleaseSRWLockShared(&g_patchLock);
-    return result;
-}
-
-int hookedMetric(const QWidget *self, int metric) {
+int hookedMetric(const QPaintDevice *self, int metric) {
     const auto kind = static_cast<QPaintDevice::PaintDeviceMetric>(metric);
     if (kind == QPaintDevice::PdmDevicePixelRatio)
         return static_cast<int>(kCanvasDevicePixelRatio);
@@ -176,14 +177,8 @@ int hookedMetric(const QWidget *self, int metric) {
         return static_cast<int>(kCanvasDevicePixelRatio *
                                 QPaintDevice::devicePixelRatioFScale());
     }
-    const QWidgetMetricFn original = originalMetricFor(self);
+    const PaintDeviceMetricFn original = originalMetricFor(self);
     return original ? original(self, metric) : 1;
-}
-
-void hookedResizeGl(QWidget *self, int width, int height) {
-    // resizeGL 不影响实际视口渲染分辨率，保持原始宽高透传。
-    if (const ResizeGlFn original = originalResizeGlFor(self))
-        original(self, width, height);
 }
 
 bool replaceVtableSlot(void **slot, void *replacement) {
@@ -200,69 +195,67 @@ bool replaceVtableSlot(void **slot, void *replacement) {
 }
 
 bool patchCanvas(QWidget *widget) {
-    if (!widget)
-        return false;
-    if (!isOpenGlSurface(widget))
+    if (!widget || !isOpenGlSurface(widget))
         return false;
     discoverVtableLayouts();
     const VtableLayout *layout = layoutFor(widget);
-    if (!layout || layout->metricIndex < 0 || layout->resizeGlIndex < 0)
+    if (!layout || layout->metricIndex < 0)
         return false;
 
-    void **vtable = *reinterpret_cast<void ***>(widget);
+    void **vtable = paintDeviceVtable(widget);
     if (!vtable)
         return false;
 
     AcquireSRWLockExclusive(&g_patchLock);
     for (const CanvasPatch &patch : g_canvasPatches) {
         if (patch.vtable == vtable) {
+            const bool live = vtable[layout->metricIndex] ==
+                reinterpret_cast<void *>(&hookedMetric);
+            const bool repaired = live || replaceVtableSlot(
+                &vtable[layout->metricIndex],
+                reinterpret_cast<void *>(&hookedMetric));
             ReleaseSRWLockExclusive(&g_patchLock);
-            return true;
+            return repaired;
         }
     }
 
     void **metricSlot = &vtable[layout->metricIndex];
-    void **resizeSlot = &vtable[layout->resizeGlIndex];
-    const auto originalMetric = reinterpret_cast<QWidgetMetricFn>(*metricSlot);
-    const auto originalResize = reinterpret_cast<ResizeGlFn>(*resizeSlot);
-    if (!isExecutableAddress(reinterpret_cast<void *>(originalMetric)) ||
-        !isExecutableAddress(reinterpret_cast<void *>(originalResize))) {
+    const auto originalMetric = reinterpret_cast<PaintDeviceMetricFn>(*metricSlot);
+    if (!isExecutableAddress(reinterpret_cast<void *>(originalMetric))) {
         ReleaseSRWLockExclusive(&g_patchLock);
         return false;
     }
 
-    g_canvasPatches.push_back({vtable, originalMetric, originalResize});
+    g_canvasPatches.push_back({vtable, originalMetric});
     const bool metricPatched = replaceVtableSlot(
         metricSlot, reinterpret_cast<void *>(&hookedMetric));
-    const bool resizePatched = replaceVtableSlot(
-        resizeSlot, reinterpret_cast<void *>(&hookedResizeGl));
-    if (!metricPatched || !resizePatched) {
-        if (metricPatched)
-            replaceVtableSlot(metricSlot, reinterpret_cast<void *>(originalMetric));
-        if (resizePatched)
-            replaceVtableSlot(resizeSlot, reinterpret_cast<void *>(originalResize));
+    if (!metricPatched)
         g_canvasPatches.pop_back();
-    }
     ReleaseSRWLockExclusive(&g_patchLock);
-    return metricPatched && resizePatched;
+    return metricPatched;
 }
+
+// Forward-declared: verify whether the live metric() slot is our replacement.
+// Defined after observeWidget, which calls it, to keep the readability of that
+// function with the patch-checking helper it depends on.
+bool isMetricHookLive(const QWidget *widget);
 
 void observeWidget(QWidget *widget) {
     if (!widget)
         return;
     if (!isOpenGlSurface(widget))
         return;
-    if (widget->property("mari_chinese_dpi_patched").toBool())
+    // A surface can first be observed while its vptr still references a base
+    // class during construction. Verify the live slot rather than caching the
+    // widget pointer; the most-derived constructor may replace that vptr later.
+    if (isMetricHookLive(widget))
         return;
-    // patchCanvas de-duplicates successful patches by vtable. Do not mark a
-    // widget as permanently observed before success: some Mari dialogs emit an
-    // early lifecycle event while their final GL subclass/vtable is not ready.
     if (!patchCanvas(widget))
         return;
-    widget->setProperty("mari_chinese_dpi_patched", true);
-    // A late-created QOpenGLWidget may already own an FBO sized with the old
-    // DPR. Re-deliver its current size after patching so Qt recreates that FBO
-    // using DPR 1.0, then request a repaint.
+    // A late-created QOpenGLWidget may already own an FBO sized with Qt's scaled
+    // DPR. Re-deliver its current size after the override is live so Qt recreates
+    // that FBO using DPR 1.0, then request a repaint. Repeating this on every
+    // pass is harmless: once the slot is live the function returns above.
     const QPointer<QWidget> widgetGuard(widget);
     QTimer::singleShot(0, widget, [widgetGuard] {
         if (!widgetGuard) return;
@@ -273,105 +266,142 @@ void observeWidget(QWidget *widget) {
     });
 }
 
+// Return true only when the widget's live metric() slot is genuinely our
+// replacement. A base-class vtable patched during construction can be replaced
+// by the derived-class vtable before the widget is shown, so cached object state
+// is not sufficient.
+bool isMetricHookLive(const QWidget *widget) {
+    if (!widget)
+        return false;
+    discoverVtableLayouts();
+    const VtableLayout *layout = layoutFor(widget);
+    if (!layout || layout->metricIndex < 0)
+        return false;
+    void **vtable = paintDeviceVtable(widget);
+    if (!vtable)
+        return false;
+    return vtable[layout->metricIndex] ==
+           reinterpret_cast<void *>(&hookedMetric);
+}
+
+// Defer a complete scan until the current window-creation / lifecycle event has
+// returned. This is the safe place to inspect freshly created OpenGL surfaces
+// whose native window / vtable is not final during the construction event.
+void scheduleDeferredScan() {
+    static bool scanScheduled = false;
+    if (scanScheduled)
+        return;
+    scanScheduled = true;
+    QTimer::singleShot(0, QApplication::instance(), [] {
+        scanScheduled = false;
+        for (QWidget *widget : QApplication::allWidgets())
+            observeWidget(widget);
+    });
+}
+
 class WidgetLifecycleFilter final : public QObject {
 public:
     using QObject::QObject;
 
     bool eventFilter(QObject *object, QEvent *event) override {
         const QEvent::Type type = event->type();
-        if (type == QEvent::Polish || type == QEvent::Show ||
-            type == QEvent::Paint) {
-            if (auto *widget = qobject_cast<QWidget *>(object))
-                observeWidget(widget);
+        bool deferredScan = false;
+        // A GL surface's native window may be created / exposed at Create or
+        // WinIdChange even when the control never emits Polish/Show (e.g. some
+        // Mari image viewers). Observe there too so the patch lands on the
+        // newly created OpenGL surface.
+        switch (type) {
+            case QEvent::Polish:
+            case QEvent::Show:
+            case QEvent::Create:
+            case QEvent::WinIdChange:
+                if (auto *widget = qobject_cast<QWidget *>(object)) {
+                    observeWidget(widget);
+                    // Showing an ordinary menu/control is common and does not
+                    // justify a full allWidgets() pass. A top-level window can
+                    // contain a GL child that never receives Show itself.
+                    if (type != QEvent::Show || widget->isWindow())
+                        deferredScan = true;
+                }
+                break;
+            case QEvent::ChildAdded:
+                // The child is not guaranteed to be fully constructed yet.
+                // The deferred scan below observes it on the next event turn.
+                deferredScan = true;
+                break;
+            default:
+                break;
         }
-        // MriImageViewWidget may not emit Show itself; its containing dialog
-        // does. Defer a complete scan until the current construction/show event
-        // has returned, so no half-constructed QObject or transient vtable is
-        // ever inspected or modified.
-        if (type == QEvent::Show || type == QEvent::WindowActivate) {
-            static bool scanScheduled = false;
-            if (!scanScheduled) {
-                scanScheduled = true;
-                QTimer::singleShot(0, QApplication::instance(), [] {
-                    scanScheduled = false;
-                    for (QWidget *widget : QApplication::allWidgets())
-                        observeWidget(widget);
-                });
-            }
+        // A containing dialog can show without the GL child emitting Show, and a
+        // brand-new native window can bypass Polish/Show entirely. Run a deferred
+        // scan on every window-creation / lifecycle trigger, not only Show.
+        if (type == QEvent::WindowActivate)
+            deferredScan = true;
+        if (deferredScan)
+            scheduleDeferredScan();
+        return false;
+    }
+};
+
+// Listen at the Windows message layer for native window creation. Mari can
+// create an OpenGL HWND that never triggers the Qt lifecycle events above (its
+// main viewport is a native WGL window). On WM_CREATE we only schedule a
+// deferred scan: at that instant the QWidget may not be registered with its
+// HWND yet, but by the next event-loop tick it is.
+class NativeWindowCreationFilter final : public QAbstractNativeEventFilter {
+public:
+    bool nativeEventFilter(const QByteArray &eventType, void *message,
+                           long *result) override {
+        Q_UNUSED(result);
+        if (eventType == "windows_generic_MSG") {
+            const MSG *msg = static_cast<const MSG *>(message);
+            if (msg && msg->message == WM_CREATE)
+                scheduleDeferredScan();
         }
         return false;
     }
 };
 
-void startExperiment(QApplication *app) {
+void initializeDpiOnGuiThread(QApplication *app) {
     // Phase 1: patch all OpenGL widgets that already exist.
     discoverVtableLayouts();
     // Phase 2: keep the event filter installed for widgets created later.
     app->installEventFilter(new WidgetLifecycleFilter(app));
+    // Also listen for native window creation, which can bypass the Qt lifecycle
+    // events above (Mari's main viewport is a native WGL surface).
+    app->installNativeEventFilter(new NativeWindowCreationFilter);
     for (QWidget *widget : QApplication::allWidgets())
         observeWidget(widget);
 
-    // Phase 3: bounded polling fallback for Mari's main canvas, which can
-    // bypass the normal Polish/Show path. The timer stops as soon as a vtable
-    // has been patched; later widget types remain covered by the event filter.
-    if (!MariHookLifecycle::kEnableDeferredPolling)
+    // Optional compatibility fallback for Mari versions or plug-ins that bypass
+    // all lifecycle/native-window events. Disabled by default.
+    if (!MariHookLifecycle::DeferredPollingEnabled())
         return;
 
     auto *snapshotTimer = new QTimer(app);
     snapshotTimer->setInterval(MariHookLifecycle::kDeferredScanIntervalMs);
     QObject::connect(snapshotTimer, &QTimer::timeout, snapshotTimer,
-                     [snapshotTimer] {
-                         // 主动轮询扫描：发现并修补 OpenGL 控件。Mari 的主
-                         // 画布可能不走 Qt 的 Polish/Show 事件，必须靠周期
-                         // 扫描捕获。后续出现的颜色选择器、预览器等不同派生
-                         // 类型由常驻的 WidgetLifecycleFilter 继续按虚表修补。
-                         AcquireSRWLockShared(&g_patchLock);
-                         const bool patched = !g_canvasPatches.empty();
-                         ReleaseSRWLockShared(&g_patchLock);
-                         if (patched) {
-                             snapshotTimer->stop();
-                             snapshotTimer->deleteLater();
-                             return;
-                         }
+                     [] {
                          for (QWidget *widget : QApplication::allWidgets())
                              observeWidget(widget);
                      });
     snapshotTimer->start();
-    const QPointer<QTimer> snapshotTimerGuard(snapshotTimer);
-    QTimer::singleShot(MariHookLifecycle::kDeferredScanWindowMs, app,
-                       [snapshotTimerGuard] {
-                           if (snapshotTimerGuard) {
-                               snapshotTimerGuard->stop();
-                               snapshotTimerGuard->deleteLater();
-                           }
-                       });
-}
-
-DWORD WINAPI worker(LPVOID) {
-    QApplication *app = nullptr;
-    for (int attempt = 0;
-         attempt < MariHookLifecycle::kApplicationWaitAttempts; ++attempt) {
-        if (QCoreApplication::instance()) {
-            app = qobject_cast<QApplication *>(QCoreApplication::instance());
-            if (app)
-                break;
-        }
-        Sleep(MariHookLifecycle::kApplicationWaitIntervalMs);
-    }
-    if (!app)
-        return 1;
-    QMetaObject::invokeMethod(app, [app] { startExperiment(app); });
-    return 0;
 }
 
 } // namespace
 
-BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, LPVOID) {
-    if (reason == DLL_PROCESS_ATTACH) {
-        g_instance = instance;
-        DisableThreadLibraryCalls(instance);
-        if (HANDLE thread = CreateThread(nullptr, 0, worker, nullptr, 0, nullptr))
-            CloseHandle(thread);
-    }
-    return TRUE;
+namespace MariDpiHook {
+
+bool Enabled() {
+    wchar_t value[8] = {};
+    return GetEnvironmentVariableW(L"MARI_CHINESE_DPI_ENABLED", value,
+                                   static_cast<DWORD>(_countof(value))) > 0 &&
+           value[0] == L'1';
 }
+
+void Initialize(QApplication *application) {
+    if (application && Enabled())
+        initializeDpiOnGuiThread(application);
+}
+
+} // namespace MariDpiHook

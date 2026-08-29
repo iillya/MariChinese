@@ -54,9 +54,14 @@
 [Dpi]
 Enabled=0
 ScaleFactor=1.75
+
+[Hooks]
+FallbackPolling=0
 ```
 
 `Enabled` 默认是 `0`（关闭），改成 `1` 开启 4K 优化；`ScaleFactor` 填 `1.0`–`3.0` 之间的数字即可。
+
+`FallbackPolling` 默认是 `0`（关闭）。正常情况下由 Qt 生命周期事件捕获晚创建控件；只有特定 Mari 版本或插件仍会漏掉控件时，才改成 `1` 开启每 2 秒一次的兼容性兜底扫描。
 
 ---
 
@@ -101,4 +106,4 @@ source\build.bat
 dist\MariChineseInstaller.exe
 ```
 
-Dpi 修复核心代码在 `source\dpi_hook.cpp`，由 `build.bat` 编译成独立的 `MariDpiVtable.dll`；正式汉化会注入这份 DLL，且不开启实验日志。
+DPI 修复核心代码在 `source\dpi_hook.cpp`，与汉化模块一起链接进 `MariChineseHook.dll`。启动器只注入一次；DPI 未启用时不会安装相关事件过滤器或虚表钩子。

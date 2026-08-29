@@ -3,7 +3,7 @@
 // ============================================================================
 //  Mari 没有插件入口，所以这个启动器（与 Toolbag / SpeedTree 汉化器一致）
 //  启动已安装的 Mari，等 Qt5Widgets 就绪后用远端 LoadLibraryW 线程注入
-//  MariChineseHook.dll，再（若启用）注入 MariDpiVtable.dll 修复 4K 视口。
+//  MariChineseHook.dll。汉化和可选的 4K 视口修复由同一 DLL 初始化。
 //  采用普通启动而非挂起启动：挂起启动 + 提前注入汉化会改变 Qt 对 GL 画布
 //  的生命周期，导致画布 resizeGL 不被调用，4K 下画布缩小。原程序文件从不
 //  修改；命令行参数（例如 .mri 项目路径）原样透传给 Mari。
@@ -130,6 +130,11 @@ LPTHREAD_START_ROUTINE ResolveLoadLibrary(HANDLE targetProcess, DWORD pid) {
         ? reinterpret_cast<LPTHREAD_START_ROUTINE>(fn) : nullptr;
 }
 
+std::wstring FileName(const std::wstring &path) {
+    const size_t slash = path.find_last_of(L"\\/");
+    return slash == std::wstring::npos ? path : path.substr(slash + 1);
+}
+
 bool WaitForModule(DWORD pid, const wchar_t *moduleName, DWORD timeoutMs) {
     const ULONGLONG started = GetTickCount64();
     while (GetTickCount64() - started < timeoutMs) {
@@ -169,21 +174,24 @@ bool InjectDll(HANDLE process, DWORD pid, const std::wstring &path) {
     bool loaded = false;
     if (thread) {
         const DWORD wait = WaitForSingleObject(thread, 30000);
-        DWORD result = 0;
-        loaded = wait == WAIT_OBJECT_0 && GetExitCodeThread(thread, &result) &&
-                 result != 0;
+        // A remote thread's exit code is DWORD-sized and cannot reliably carry
+        // a 64-bit HMODULE. Verify the target module list instead.
+        loaded = wait == WAIT_OBJECT_0 &&
+                 WaitForModule(pid, FileName(path).c_str(), 2000);
         CloseHandle(thread);
     }
     VirtualFreeEx(process, remote, 0, MEM_RELEASE);
     return loaded;
 }
 
-bool ConfigureDpi(const std::wstring &directory) {
+void ConfigureDpi(const std::wstring &directory) {
     const std::wstring settings = directory + L"\\settings.ini";
     const int enabled = GetPrivateProfileIntW(L"Dpi", L"Enabled", 0,
                                                settings.c_str());
+    SetEnvironmentVariableW(L"MARI_CHINESE_DPI_ENABLED",
+                            enabled ? L"1" : L"0");
     if (!enabled)
-        return false;
+        return;
 
     wchar_t value[32] = L"1.75";
     GetPrivateProfileStringW(L"Dpi", L"ScaleFactor", L"1.75", value,
@@ -197,8 +205,14 @@ bool ConfigureDpi(const std::wstring &directory) {
     SetEnvironmentVariableW(L"QT_ENABLE_HIGHDPI_SCALING", L"1");
     SetEnvironmentVariableW(L"QT_AUTO_SCREEN_SCALE_FACTOR", L"1");
     SetEnvironmentVariableW(L"QT_SCALE_FACTOR", value);
-    SetEnvironmentVariableW(L"MARI_CHINESE_DPI_SCALE", value);
-    return true;
+}
+
+void ConfigureHookLifecycle(const std::wstring &directory) {
+    const std::wstring settings = directory + L"\\settings.ini";
+    const int enabled = GetPrivateProfileIntW(L"Hooks", L"FallbackPolling", 0,
+                                               settings.c_str());
+    SetEnvironmentVariableW(L"MARI_CHINESE_FALLBACK_POLLING",
+                            enabled ? L"1" : L"0");
 }
 
 } // namespace
@@ -209,7 +223,6 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR cmdLine, int) {
     const std::wstring exePath = FindMariExe(dir);
     const std::wstring root = ParentDir(exePath);
     const std::wstring dllPath = dir + L"\\MariChineseHook.dll";
-    const std::wstring dpiDllPath = dir + L"\\MariDpiVtable.dll";
 
     if (root.empty() || !IsFile(dllPath) || !IsFile(exePath)) {
         MessageBoxW(nullptr,
@@ -219,12 +232,8 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR cmdLine, int) {
         return 1;
     }
 
-    const bool dpiEnabled = ConfigureDpi(dir);
-    if (dpiEnabled && !IsFile(dpiDllPath)) {
-        MessageBoxW(nullptr, L"缺少 4K 视口修复 DLL，请重新安装。",
-                    L"Mari 中文补丁", MB_OK | MB_ICONERROR);
-        return 1;
-    }
+    ConfigureHookLifecycle(dir);
+    ConfigureDpi(dir);
 
     STARTUPINFOW si{}; si.cb = sizeof(si);
     PROCESS_INFORMATION pi{};
@@ -253,20 +262,13 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR cmdLine, int) {
                     L"Mari 中文补丁", MB_OK | MB_ICONWARNING);
     }
 
-    // 先注入汉化 DLL，再注入 DPI DLL（顺序：汉化先建立界面，DPI 后修补画布）。
+    // 单次注入：DLL 在 GUI 线程依次初始化汉化和可选的 DPI 修复。
     if (ok) {
         ok = InjectDll(pi.hProcess, pi.dwProcessId, dllPath);
         if (!ok) {
             MessageBoxW(nullptr,
-                        L"汉化注入失败，已终止 Mari（原文件未受影响）。",
+                        L"Mari 已启动，但汉化注入失败，将继续使用英文界面。",
                         L"Mari 中文补丁", MB_OK | MB_ICONERROR);
-        }
-    }
-    if (ok && dpiEnabled) {
-        if (!InjectDll(pi.hProcess, pi.dwProcessId, dpiDllPath)) {
-            MessageBoxW(nullptr,
-                        L"Mari 已启动，但 4K 视口修复加载失败。",
-                        L"Mari 中文补丁", MB_OK | MB_ICONWARNING);
         }
     }
     CloseHandle(pi.hThread);
