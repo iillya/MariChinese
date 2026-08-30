@@ -15,12 +15,11 @@ set "ICONDIR=%ROOT%\icon"
 rem QT5_BASELINE may point at the Qt 5.6.1 x64 MSVC SDK used for release builds.
 rem Later Qt 5 SDKs remain useful for local checks, but cannot prove the minimum ABI.
 set "QT=%QT5_BASELINE%"
-if not exist "%QT%\lib\Qt5Widgets.lib" set "QT=%ROOT%\..\_ThirdParty\qt5sdk"
+if not exist "%QT%\lib\Qt5Widgets.lib" set "QT=%ROOT%\..\_ThirdParty\Qt\5.6.1\msvc2015_64"
 if not exist "%QT%\lib\Qt5Widgets.lib" set "QT=%ROOT%\third_party\qt5sdk"
-if not exist "%QT%\lib\Qt5Widgets.lib" set "QT=C:\Qt512\5.12.0\msvc2017_64"
 if not exist "%QT%\lib\Qt5Widgets.lib" (
     echo [ERROR] Qt 5 x64 MSVC SDK not found.
-    echo Expected either %ROOT%\..\_ThirdParty\qt5sdk or %ROOT%\third_party\qt5sdk
+    echo Expected either %ROOT%\..\_ThirdParty\Qt\5.6.1\msvc2015_64 or %ROOT%\third_party\qt5sdk
     exit /b 1
 )
 
