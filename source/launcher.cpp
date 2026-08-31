@@ -227,7 +227,7 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR cmdLine, int) {
     if (root.empty() || !IsFile(dllPath) || !IsFile(exePath)) {
         MessageBoxW(nullptr,
                     L"找不到受支持的 Mari 可执行文件或汉化 DLL。\n"
-                    L"请重新运行安装程序，修复 MariChineseLauncher 目录。",
+                    L"请重新运行安装程序，修复 ChineseLauncher 目录。",
                     L"Mari 中文补丁", MB_OK | MB_ICONERROR);
         return 1;
     }

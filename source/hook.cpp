@@ -69,6 +69,7 @@
 #include <typeinfo>
 
 #include "hook_lifecycle.h"
+#include "hotkey_settings.h"
 #include "dpi_hook.h"
 
 
@@ -687,30 +688,10 @@ void installAllComboDisplayDelegates() {
 // ---------------------------------------------------------------------------
 // QFontMetrics 测量钩子：布局用英文原文算 sizeHint，纯绘制层翻译后中文比
 // 英文更宽，会截断/错位。这里在"测量"边界把文本翻译成中文，让 layout /
-// elide 看到的是中文宽度，界面布局才正确。翻译命中时额外加一个中文字符
-// 的宽度余量，避免中文顶到边缘。
+// elide 看到的是中文的实际宽度，界面布局才正确。
 // ---------------------------------------------------------------------------
 QString measureText(const QString &text) {
     return displayTranslation(text);
-}
-
-int cjkPad(const QFontMetrics *fm) {
-    if (g_fmHAdv || g_fmWidth) {
-        const int w = g_fmHAdv
-            ? g_fmHAdv(fm, QStringLiteral("中"), -1)
-            : g_fmWidth(fm, QStringLiteral("中"), -1);
-        if (w > 0) return w;
-    }
-    return fm->height();
-}
-int cjkPadF(const QFontMetricsF *fm) {
-    if (g_fmfHAdv || g_fmfWidth) {
-        const qreal w = g_fmfHAdv
-            ? g_fmfHAdv(fm, QStringLiteral("中"), -1)
-            : g_fmfWidth(fm, QStringLiteral("中"), -1);
-        if (w > 0) return (int)w;
-    }
-    return (int)fm->height();
 }
 
 int hookedFontHAdv(const QFontMetrics *fm, const QString &text, int len) {
@@ -718,7 +699,7 @@ int hookedFontHAdv(const QFontMetrics *fm, const QString &text, int len) {
     QString tr = measureText(text);
     if (!tr.isEmpty()) t = tr;
     if (len >= 0 && len > t.size()) len = static_cast<int>(t.size());
-    if (g_fmHAdv) return g_fmHAdv(fm, t, len) + (tr.isEmpty() ? 0 : cjkPad(fm));
+    if (g_fmHAdv) return g_fmHAdv(fm, t, len);
     return 0;
 }
 int hookedFontWidth(const QFontMetrics *fm, const QString &text, int len) {
@@ -726,16 +707,13 @@ int hookedFontWidth(const QFontMetrics *fm, const QString &text, int len) {
     const QString tr = measureText(text);
     if (!tr.isEmpty()) t = tr;
     if (len >= 0 && len > t.size()) len = static_cast<int>(t.size());
-    return g_fmWidth
-        ? g_fmWidth(fm, t, len) + (tr.isEmpty() ? 0 : cjkPad(fm))
-        : 0;
+    return g_fmWidth ? g_fmWidth(fm, t, len) : 0;
 }
 void *hookedFontBRect(const QFontMetrics *fm, QRect *result, const QString &text) {
     QString t = text;
     QString tr = measureText(text);
     if (!tr.isEmpty()) t = tr;
     if (g_fmBRect) g_fmBRect(fm, result, t);
-    if (!tr.isEmpty()) result->setWidth(result->width() + cjkPad(fm));
     return result;
 }
 void *hookedFontBRectRect(const QFontMetrics *fm, QRect *result, const QRect &r,
@@ -745,7 +723,6 @@ void *hookedFontBRectRect(const QFontMetrics *fm, QRect *result, const QRect &r,
     QString tr = measureText(text);
     if (!tr.isEmpty()) t = tr;
     if (g_fmBRectRect) g_fmBRectRect(fm, result, r, flags, t, tabstops, tabarray);
-    if (!tr.isEmpty()) result->setWidth(result->width() + cjkPad(fm));
     return result;
 }
 void *hookedFontBRectXYWH(const QFontMetrics *fm, QRect *result, int x, int y,
@@ -756,7 +733,6 @@ void *hookedFontBRectXYWH(const QFontMetrics *fm, QRect *result, int x, int y,
     if (!tr.isEmpty()) t = tr;
     if (g_fmBRectXYWH) g_fmBRectXYWH(fm, result, x, y, w, h, flags, t,
                                      tabstops, tabarray);
-    if (!tr.isEmpty()) result->setWidth(result->width() + cjkPad(fm));
     return result;
 }
 void *hookedFontSize(const QFontMetrics *fm, QSize *result, int flags,
@@ -765,7 +741,6 @@ void *hookedFontSize(const QFontMetrics *fm, QSize *result, int flags,
     QString tr = measureText(text);
     if (!tr.isEmpty()) t = tr;
     if (g_fmSize) g_fmSize(fm, result, flags, t, tabstops, tabarray);
-    if (!tr.isEmpty()) result->setWidth(result->width() + cjkPad(fm));
     return result;
 }
 void *hookedFontTBRect(const QFontMetrics *fm, QRect *result, const QString &text) {
@@ -773,7 +748,6 @@ void *hookedFontTBRect(const QFontMetrics *fm, QRect *result, const QString &tex
     QString tr = measureText(text);
     if (!tr.isEmpty()) t = tr;
     if (g_fmTBRect) g_fmTBRect(fm, result, t);
-    if (!tr.isEmpty()) result->setWidth(result->width() + cjkPad(fm));
     return result;
 }
 void *hookedFontElide(const QFontMetrics *fm, QString *result, const QString &text,
@@ -791,7 +765,7 @@ qreal hookedFontFHAdv(const QFontMetricsF *fm, const QString &text, int len) {
     QString tr = measureText(text);
     if (!tr.isEmpty()) t = tr;
     if (len >= 0 && len > t.size()) len = static_cast<int>(t.size());
-    if (g_fmfHAdv) return g_fmfHAdv(fm, t, len) + (tr.isEmpty() ? 0 : cjkPadF(fm));
+    if (g_fmfHAdv) return g_fmfHAdv(fm, t, len);
     return 0;
 }
 qreal hookedFontFWidth(const QFontMetricsF *fm, const QString &text, int len) {
@@ -799,16 +773,13 @@ qreal hookedFontFWidth(const QFontMetricsF *fm, const QString &text, int len) {
     const QString tr = measureText(text);
     if (!tr.isEmpty()) t = tr;
     if (len >= 0 && len > t.size()) len = static_cast<int>(t.size());
-    return g_fmfWidth
-        ? g_fmfWidth(fm, t, len) + (tr.isEmpty() ? 0 : cjkPadF(fm))
-        : 0;
+    return g_fmfWidth ? g_fmfWidth(fm, t, len) : 0;
 }
 void *hookedFontFBRect(const QFontMetricsF *fm, QRectF *result, const QString &text) {
     QString t = text;
     QString tr = measureText(text);
     if (!tr.isEmpty()) t = tr;
     if (g_fmfBRect) g_fmfBRect(fm, result, t);
-    if (!tr.isEmpty()) result->setWidth(result->width() + cjkPadF(fm));
     return result;
 }
 void *hookedFontFBRectRect(const QFontMetricsF *fm, QRectF *result, const QRectF &r,
@@ -818,7 +789,6 @@ void *hookedFontFBRectRect(const QFontMetricsF *fm, QRectF *result, const QRectF
     QString tr = measureText(text);
     if (!tr.isEmpty()) t = tr;
     if (g_fmfBRectRect) g_fmfBRectRect(fm, result, r, flags, t, tabstops, tabarray);
-    if (!tr.isEmpty()) result->setWidth(result->width() + cjkPadF(fm));
     return result;
 }
 void *hookedFontFSize(const QFontMetricsF *fm, QSizeF *result, int flags,
@@ -827,7 +797,6 @@ void *hookedFontFSize(const QFontMetricsF *fm, QSizeF *result, int flags,
     QString tr = measureText(text);
     if (!tr.isEmpty()) t = tr;
     if (g_fmfSize) g_fmfSize(fm, result, flags, t, tabstops, tabarray);
-    if (!tr.isEmpty()) result->setWidth(result->width() + cjkPadF(fm));
     return result;
 }
 void *hookedFontFTBRect(const QFontMetricsF *fm, QRectF *result, const QString &text) {
@@ -835,7 +804,6 @@ void *hookedFontFTBRect(const QFontMetricsF *fm, QRectF *result, const QString &
     QString tr = measureText(text);
     if (!tr.isEmpty()) t = tr;
     if (g_fmfTBRect) g_fmfTBRect(fm, result, t);
-    if (!tr.isEmpty()) result->setWidth(result->width() + cjkPadF(fm));
     return result;
 }
 void *hookedFontFElide(const QFontMetricsF *fm, QString *result, const QString &text,
@@ -875,8 +843,8 @@ GraphicsSimpleTextPaint g_graphicsSimpleTextPaint = nullptr;
 enum class NodeTextRole { Unknown, Title, Input, Output };
 
 bool isAttributionText(const QString &text) {
-    return text == QStringLiteral("Bilibili神说要凑数汉化") ||
-           text == QStringLiteral("Github仓库");
+    return text == QStringLiteral("Bilibili 神说要凑数汉化") ||
+           text == QStringLiteral("GitHub 仓库");
 }
 
 void beginAttributionPaint(QPainter *painter, const QString &text) {
@@ -1434,81 +1402,7 @@ void toggleTranslation() {
     repaintTranslatedDisplay();
 }
 
-QString toggleKeyName(int key) {
-    if (key >= Qt::Key_F1 && key <= Qt::Key_F12)
-        return QStringLiteral("F") + QString::number(key - Qt::Key_F1 + 1);
-    return QKeySequence(key).toString(QKeySequence::NativeText);
-}
 
-class ToggleHotkeyDialog final : public QDialog {
-public:
-    explicit ToggleHotkeyDialog(QWidget *parent) : QDialog(parent) {
-        g_hotkeyDialogOpen = true;
-        setWindowTitle(QStringLiteral("设置 中/英 切换快捷键"));
-        setAttribute(Qt::WA_DeleteOnClose);
-        auto *layout = new QVBoxLayout(this);
-        layout->addWidget(new QLabel(
-            QStringLiteral("点击下方按钮后按下新快捷键（Esc 取消）："), this));
-        captureButton_ = new QPushButton(
-            QStringLiteral("当前：") + toggleKeyName(g_toggleKey), this);
-        auto *ok = new QPushButton(QStringLiteral("确定"), this);
-        auto *reset = new QPushButton(QStringLiteral("重置"), this);
-        layout->addWidget(captureButton_);
-        auto *row = new QHBoxLayout;
-        row->addWidget(ok);
-        row->addWidget(reset);
-        layout->addLayout(row);
-        ok->setDefault(true);
-        reset->setAutoDefault(false);
-        captureButton_->setAutoDefault(false);
-        QObject::connect(captureButton_, &QPushButton::clicked,
-                         this, [this] { startCapture(); });
-        QObject::connect(ok, &QPushButton::clicked, this, [this] {
-            stopCapture();
-            accept();
-        });
-        QObject::connect(reset, &QPushButton::clicked, this, [this] {
-            g_toggleKey = Qt::Key_F3;
-            stopCapture();
-        });
-        QObject::connect(this, &QObject::destroyed, [] {
-            g_hotkeyDialogOpen = false;
-        });
-    }
-private:
-    QPushButton *captureButton_ = nullptr;
-    bool capturing_ = false;
-
-    void startCapture() {
-        capturing_ = true;
-        QApplication::instance()->installEventFilter(this);
-        captureButton_->setText(QStringLiteral("请按下新的快捷键…"));
-    }
-    void stopCapture() {
-        if (capturing_) {
-            QApplication::instance()->removeEventFilter(this);
-            capturing_ = false;
-        }
-        captureButton_->setText(
-            QStringLiteral("当前：") + toggleKeyName(g_toggleKey));
-    }
-    bool eventFilter(QObject *, QEvent *event) override {
-        if (!capturing_ || event->type() != QEvent::KeyPress)
-            return false;
-        auto *keyEvent = static_cast<QKeyEvent *>(event);
-        if (keyEvent->key() == Qt::Key_Escape) {
-            stopCapture();
-            return true;
-        }
-        g_toggleKey = keyEvent->key();
-        stopCapture();
-        return true;
-    }
-    void reject() override {
-        stopCapture();
-        QDialog::reject();
-    }
-};
 
 void openToggleHotkeyDialog() {
     static QPointer<ToggleHotkeyDialog> dialog;
@@ -1519,7 +1413,8 @@ void openToggleHotkeyDialog() {
     }
     QWidget *parent = g_attributionMenuBar
         ? g_attributionMenuBar->window() : nullptr;
-    dialog = new ToggleHotkeyDialog(parent);
+    dialog = new ToggleHotkeyDialog(parent, g_toggleKey, g_hotkeyDialogOpen,
+        ChineseHotkeyConfig::path(QStringLiteral("MariChinese")));
     QObject::connect(dialog, &QObject::destroyed, [] { dialog = nullptr; });
     dialog->show();
     dialog->raise();
@@ -1597,7 +1492,7 @@ bool installAttributionActions() {
     }
     if (!g_authorAction) {
         g_authorAction = new QAction(
-            QStringLiteral("Bilibili神说要凑数汉化"), menuBar);
+            QStringLiteral("Bilibili 神说要凑数汉化"), menuBar);
         g_authorAction->setObjectName(QStringLiteral("mari_chinese_author"));
         QObject::connect(g_authorAction, &QAction::triggered, [] {
             QDesktopServices::openUrl(QUrl(QStringLiteral(
@@ -1605,7 +1500,7 @@ bool installAttributionActions() {
         });
     }
     if (!g_githubAction) {
-        g_githubAction = new QAction(QStringLiteral("Github仓库"), menuBar);
+        g_githubAction = new QAction(QStringLiteral("GitHub 仓库"), menuBar);
         g_githubAction->setObjectName(QStringLiteral("mari_chinese_github"));
         QObject::connect(g_githubAction, &QAction::triggered, [] {
             QDesktopServices::openUrl(
@@ -1652,7 +1547,7 @@ bool installAttributionActions() {
 // 识别 Shift + ` 与中/英切换键（F3 等），不依赖窗口焦点或控件类型。
 // ---------------------------------------------------------------------------
 static UINT qtKeyToVk(int key) {
-    if (key >= Qt::Key_F1 && key <= Qt::Key_F12)
+    if (key >= Qt::Key_F1 && key <= Qt::Key_F24)
         return VK_F1 + (key - Qt::Key_F1);
     if (key >= Qt::Key_A && key <= Qt::Key_Z)
         return 'A' + (key - Qt::Key_A);
@@ -1689,6 +1584,11 @@ public:
         if (!message)
             return false;
         MSG *msg = static_cast<MSG *>(message);
+        // The native viewport path must also yield to the recording dialog.
+        if (g_hotkeyDialogOpen) {
+            shiftDown_ = false;
+            return false;
+        }
         const bool isDown = (msg->message == WM_KEYDOWN ||
                              msg->message == WM_SYSKEYDOWN);
         const bool isUp = (msg->message == WM_KEYUP ||
@@ -1713,7 +1613,10 @@ public:
 
         // 中/英切换快捷键：把 Qt::Key 转成 VK 后比对（Shift 组合不触发）。
         const UINT toggleVk = qtKeyToVk(g_toggleKey);
-        if (!shiftDown_ && toggleVk && vk == toggleVk) {
+        if (!shiftDown_ && !(GetKeyState(VK_CONTROL) & 0x8000) &&
+            !(GetKeyState(VK_MENU) & 0x8000) &&
+            !(GetKeyState(VK_LWIN) & 0x8000) && !(GetKeyState(VK_RWIN) & 0x8000) &&
+            toggleVk && vk == toggleVk) {
             toggleTranslation();
             return true;
         }
@@ -1750,7 +1653,7 @@ public:
             captureUntranslated();
             return true;
         }
-        if (keyEvent->key() == g_toggleKey) {
+        if (keyEvent->key() == g_toggleKey && keyEvent->modifiers() == Qt::NoModifier) {
             toggleTranslation();
             return true;
         }
@@ -1759,6 +1662,11 @@ public:
 };
 
 void initializeOnGuiThread(QApplication *app) {
+    QString hotkeyError;
+    g_toggleKey = ChineseHotkeyConfig::load(
+        ChineseHotkeyConfig::path(QStringLiteral("MariChinese")), &hotkeyError);
+    if (!hotkeyError.isEmpty()) OutputDebugStringW(
+        reinterpret_cast<LPCWSTR>(hotkeyError.utf16()));
     // Phase 1: QApplication exists and execution is on its GUI thread.
     // Install every hook that can be resolved immediately.
     const std::wstring dir = modulePathW();
@@ -1831,4 +1739,3 @@ BOOL WINAPI DllMain(HINSTANCE hinst, DWORD reason, LPVOID) {
     }
     return TRUE;
 }
-

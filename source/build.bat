@@ -1,5 +1,6 @@
 @echo off
 setlocal
+rem INNO_PRIMARY_BUILD
 rem ===========================================================================
 rem Mari Chinese Localizer - build script
 rem Prereq: Visual Studio 2022 C++ build tools and a Qt 5 x64 MSVC SDK.
@@ -23,18 +24,8 @@ if not exist "%QT%\lib\Qt5Widgets.lib" (
     exit /b 1
 )
 
-if exist "%OUT%" rmdir /s /q "%OUT%"
-if exist "%OBJDIR%" rmdir /s /q "%OBJDIR%"
-if exist "%OUT%" (
-    echo [ERROR] Cannot clean %OUT%. Close Mari and try again.
-    exit /b 1
-)
-if exist "%OBJDIR%" (
-    echo [ERROR] Cannot clean %OBJDIR%. Close build tools and try again.
-    exit /b 1
-)
-mkdir "%OUT%"
-mkdir "%OBJDIR%"
+if not exist "%OUT%" mkdir "%OUT%"
+if not exist "%OBJDIR%" mkdir "%OBJDIR%"
 
 set "VCVARS=C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
 if not exist "%VCVARS%" (
@@ -75,16 +66,6 @@ cl /nologo /O2 /W4 /EHsc /std:c++17 /permissive- /utf-8 ^
    /link /SUBSYSTEM:WINDOWS user32.lib
 if errorlevel 1 exit /b 1
 
-echo === Compiling installer ===
-cl /nologo /O2 /W4 /EHsc /std:c++17 /permissive- /utf-8 ^
-   "%CPP%\installer.cpp" ^
-   /Fo"%OBJDIR%\installer.obj" ^
-   "%OBJDIR%\app_icon.res" ^
-   /Fe:"%OUT%\MariChineseInstaller.exe" ^
-   /link /SUBSYSTEM:WINDOWS user32.lib shell32.lib ole32.lib advapi32.lib bcrypt.lib comctl32.lib gdi32.lib dwmapi.lib ^
-   /MANIFEST:EMBED /MANIFESTUAC:"level='requireAdministrator' uiAccess='false'"
-if errorlevel 1 exit /b 1
-
 echo === Staging runtime dictionary ===
 if not exist "%OUT%\translations" mkdir "%OUT%\translations"
 copy /Y "%ROOT%\translations\dictionary_zh.json" "%OUT%\translations\dictionary_zh.json" >nul
@@ -93,7 +74,8 @@ copy /Y "%CPP%\settings.ini" "%OUT%\settings.ini" >nul
 if errorlevel 1 exit /b 1
 
 echo === Packing release installer ===
-python "%CPP%\embed_files.py"
+if /I "%~1"=="--runtime-only" exit /b 0
+call "%~dp0build_inno.bat" --package-only
 if errorlevel 1 exit /b 1
 
 echo Build complete:

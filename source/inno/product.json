@@ -1,0 +1,36 @@
+{
+  "product": "Mari",
+  "exe": "Mari*.exe",
+  "default": "Mari7.1v1\\Bundle\\bin",
+  "icon": "mari.ico",
+  "qt": [
+    [
+      5,
+      6,
+      1
+    ]
+  ],
+  "modules": [
+    "Core",
+    "Gui",
+    "Widgets"
+  ],
+  "handlers": [],
+  "extensions": [
+    ".mri",
+    ".mra",
+    ".mnc"
+  ],
+  "legacy": [
+    "MariChinese.mri",
+    "MariChinese.mra",
+    "MariChinese.mnc"
+  ],
+  "payload": {
+    "MariChineseHook.dll": "build/out/MariChineseHook.dll",
+    "MariChineseLauncher.exe": "build/out/MariChineseLauncher.exe",
+    "translations/dictionary_zh.json": "translations/dictionary_zh.json",
+    "settings.ini": "source/settings.ini"
+  },
+  "id": "MariChinese"
+}
