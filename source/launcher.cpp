@@ -16,6 +16,8 @@
 #include <string>
 #include <vector>
 
+#include "qt_compatibility.h"
+
 namespace {
 
 std::wstring ParentDir(const std::wstring &path) {
@@ -72,7 +74,9 @@ std::wstring FindMariUnderProgramFiles(const std::wstring &programFiles) {
         const std::wstring candidate = programFiles + L"\\" + data.cFileName +
                                        L"\\Bundle\\bin";
         const std::wstring found = FindMariExeInDir(candidate);
-        if (!found.empty() && (result.empty() || _wcsicmp(found.c_str(), result.c_str()) > 0))
+        if (!found.empty() && MariQtCompatibility::isAmd64Image(found) &&
+            MariQtCompatibility::supportedDirectory(candidate) &&
+            (result.empty() || _wcsicmp(found.c_str(), result.c_str()) > 0))
             result = found;
     } while (FindNextFileW(find, &data));
     FindClose(find);
@@ -85,7 +89,8 @@ std::wstring FindMariExe(const std::wstring &start) {
     std::wstring dir = start;
     for (int depth = 0; depth < 12; ++depth) {
         const std::wstring found = FindMariExeInDir(dir);
-        if (!found.empty()) return found;
+        if (!found.empty() && MariQtCompatibility::isAmd64Image(found) &&
+            MariQtCompatibility::supportedDirectory(ParentDir(found))) return found;
         std::wstring parent = ParentDir(dir);
         if (parent.empty() || parent == dir) break;
         dir = parent;
@@ -228,6 +233,12 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR cmdLine, int) {
         MessageBoxW(nullptr,
                     L"找不到受支持的 Mari 可执行文件或汉化 DLL。\n"
                     L"请重新运行安装程序，修复 ChineseLauncher 目录。",
+                    L"Mari 中文补丁", MB_OK | MB_ICONERROR);
+        return 1;
+    }
+    if (!MariQtCompatibility::supportedDirectory(root)) {
+        MessageBoxW(nullptr,
+                    L"Mari 的 Qt5 组件不完整或组件版本不一致。",
                     L"Mari 中文补丁", MB_OK | MB_ICONERROR);
         return 1;
     }

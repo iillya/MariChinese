@@ -63,7 +63,7 @@ cl /nologo /O2 /W4 /EHsc /std:c++17 /permissive- /utf-8 ^
    /Fo"%OBJDIR%\launcher.obj" ^
    "%OBJDIR%\app_icon.res" ^
    /Fe:"%OUT%\MariChineseLauncher.exe" ^
-   /link /SUBSYSTEM:WINDOWS user32.lib
+   /link /SUBSYSTEM:WINDOWS user32.lib version.lib
 if errorlevel 1 exit /b 1
 
 echo === Staging runtime dictionary ===

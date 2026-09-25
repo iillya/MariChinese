@@ -8,4 +8,4 @@ inline const std::vector<const wchar_t*> kKnownHandlers = {};
 inline const std::vector<const wchar_t*> kExtensions = {L".mri",L".mra",L".mnc"};
 inline const std::vector<const wchar_t*> kLegacyHandlers = {L"MariChinese.mri",L"MariChinese.mra",L"MariChinese.mnc"};
 inline const std::vector<const wchar_t*> kQtModules = {L"Core",L"Gui",L"Widgets"};
-inline const std::vector<std::vector<DWORD>> kQtVersions = {{5,6,1}};
+inline const std::vector<DWORD> kQtMajors = {5};

@@ -69,7 +69,9 @@
 #include <typeinfo>
 
 #include "hook_lifecycle.h"
+#include "qt_compatibility.h"
 #include "hotkey_settings.h"
+#include "shortcut_press_latch.h"
 #include "dpi_hook.h"
 
 
@@ -84,6 +86,7 @@ bool g_hooksInstalled = false;
 bool g_nodeTextHookInstalled = false;
 int g_toggleKey = Qt::Key_F3;
 bool g_hotkeyDialogOpen = false;
+ShortcutPressLatch g_togglePress;
 HMODULE g_moduleHandle = nullptr;
 
 bool containsCjk(const QString &text) {
@@ -1587,6 +1590,12 @@ public:
         // The native viewport path must also yield to the recording dialog.
         if (g_hotkeyDialogOpen) {
             shiftDown_ = false;
+            g_togglePress.reset();
+            return false;
+        }
+        if (msg->message == WM_ACTIVATEAPP && !msg->wParam) {
+            shiftDown_ = false;
+            g_togglePress.reset();
             return false;
         }
         const bool isDown = (msg->message == WM_KEYDOWN ||
@@ -1601,23 +1610,31 @@ public:
             shiftDown_ = isDown;
             return false;
         }
-        // 自动重复的按住事件忽略，只在真正的按下瞬间触发一次。
-        if ((msg->lParam & 0x40000000) != 0)   // bit30 = 上一次按键状态
+
+        const UINT toggleVk = qtKeyToVk(g_toggleKey);
+        if (isUp && toggleVk && vk == toggleVk)
+            return g_togglePress.end(int(vk));
+        if (!isDown)
             return false;
+        if (toggleVk && vk == toggleVk && g_togglePress.holds(int(vk)))
+            return true;
 
         // Shift + ` (~)：未翻译词条嗅探。VK_OEM_3 是 `/~ 键（ESC 下方）。
-        if (vk == VK_OEM_3 && shiftDown_) {
+        if (vk == VK_OEM_3 && shiftDown_ &&
+            (msg->lParam & 0x40000000) == 0) {
             captureUntranslated();
             return true;
         }
 
         // 中/英切换快捷键：把 Qt::Key 转成 VK 后比对（Shift 组合不触发）。
-        const UINT toggleVk = qtKeyToVk(g_toggleKey);
         if (!shiftDown_ && !(GetKeyState(VK_CONTROL) & 0x8000) &&
             !(GetKeyState(VK_MENU) & 0x8000) &&
             !(GetKeyState(VK_LWIN) & 0x8000) && !(GetKeyState(VK_RWIN) & 0x8000) &&
             toggleVk && vk == toggleVk) {
-            toggleTranslation();
+            if (g_togglePress.begin(
+                    int(vk), (msg->lParam & 0x40000000) != 0)) {
+                toggleTranslation();
+            }
             return true;
         }
         return false;
@@ -1628,6 +1645,10 @@ class ApplicationEventFilter final : public QObject {
 public:
     using QObject::QObject;
     bool eventFilter(QObject *object, QEvent *event) override {
+        if (event->type() == QEvent::ApplicationDeactivate) {
+            g_togglePress.reset();
+            return false;
+        }
         if (event->type() == QEvent::Show) {
             if (auto *combo = qobject_cast<QComboBox *>(object))
                 installComboDisplayDelegate(combo->view());
@@ -1640,21 +1661,31 @@ public:
                 installAttributionActions();
             });
         }
-        if (event->type() != QEvent::KeyRelease)
+        if (event->type() == QEvent::KeyRelease) {
+            const auto *keyEvent = static_cast<QKeyEvent *>(event);
+            if (g_togglePress.end(keyEvent->key())) return true;
+            return false;
+        }
+        if (event->type() != QEvent::KeyPress)
             return false;
         auto *keyEvent = static_cast<QKeyEvent *>(event);
-        if (g_hotkeyDialogOpen || keyEvent->isAutoRepeat())
+        if (g_hotkeyDialogOpen) {
+            g_togglePress.reset();
             return false;
+        }
         // Shift + `（常见布局上报为 Key_AsciiTilde，也接受 Key_QuoteLeft）。
         const bool tildeKey =
             (keyEvent->key() == Qt::Key_QuoteLeft ||
              keyEvent->key() == Qt::Key_AsciiTilde);
         if (tildeKey && (keyEvent->modifiers() & Qt::ShiftModifier)) {
-            captureUntranslated();
+            if (!keyEvent->isAutoRepeat()) captureUntranslated();
             return true;
         }
         if (keyEvent->key() == g_toggleKey && keyEvent->modifiers() == Qt::NoModifier) {
-            toggleTranslation();
+            if (g_togglePress.begin(
+                    keyEvent->key(), keyEvent->isAutoRepeat())) {
+                toggleTranslation();
+            }
             return true;
         }
         return false;
@@ -1662,6 +1693,7 @@ public:
 };
 
 void initializeOnGuiThread(QApplication *app) {
+    if (!MariQtCompatibility::supportedRuntime(qVersion())) return;
     QString hotkeyError;
     g_toggleKey = ChineseHotkeyConfig::load(
         ChineseHotkeyConfig::path(QStringLiteral("MariChinese")), &hotkeyError);

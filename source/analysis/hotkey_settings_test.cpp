@@ -1,4 +1,5 @@
 #include "../hotkey_settings.h"
+#include "../shortcut_press_latch.h"
 #include <QtCore/QTemporaryDir>
 #include <QtCore/QProcess>
 #include <QtCore/QPointer>
@@ -23,6 +24,16 @@ int main(int argc, char** argv) {
     if (argc == 3 && QString::fromLocal8Bit(argv[1]) == "--preview")
         QFontDatabase::addApplicationFont(QStringLiteral("C:/Windows/Fonts/msyh.ttc"));
     namespace Config = ChineseHotkeyConfig;
+    ShortcutPressLatch latch;
+    CHECK(latch.begin(Qt::Key_F3, false));
+    CHECK(!latch.begin(Qt::Key_F3, false));
+    CHECK(!latch.begin(Qt::Key_F3, true));
+    CHECK(latch.holds(Qt::Key_F3));
+    CHECK(latch.end(Qt::Key_F3));
+    CHECK(!latch.end(Qt::Key_F3));
+    CHECK(latch.begin(Qt::Key_F3, false));
+    latch.reset();
+    CHECK(!latch.holds(Qt::Key_F3));
     if (argc == 4 && QString::fromLocal8Bit(argv[1]) == "--check") {
         QString error;
         const int key = Config::load(QString::fromLocal8Bit(argv[2]),&error);
@@ -74,14 +85,15 @@ int main(int argc, char** argv) {
     flushDeletes(); CHECK(!open && current == Qt::Key_F6 && Config::load(path) == Qt::Key_F6);
     w = make(path);
     QTest::mouseClick(button(w,"hotkeyReset"),Qt::LeftButton);
-    CHECK(current == Qt::Key_F6);
-    w->close(); flushDeletes();
-    CHECK(Config::load(path) == Qt::Key_F6 && !open);
-    w = make(path);
-    QTest::mouseClick(button(w,"hotkeyReset"),Qt::LeftButton);
-    QTest::mouseClick(button(w,"hotkeyAccept"),Qt::LeftButton);
-    flushDeletes(); CHECK(current == Qt::Key_F3 && Config::load(path) == Qt::Key_F3 && !open);
+    CHECK(w->isVisible() && current == Qt::Key_F3 &&
+          Config::load(path) == Qt::Key_F3 &&
+          button(w,"hotkeyCapture")->text().contains("F3"));
+    QTest::mouseClick(button(w,"hotkeyCancel"),Qt::LeftButton);
+    flushDeletes(); CHECK(!open && current == Qt::Key_F3 &&
+                          Config::load(path) == Qt::Key_F3);
     w = make(dir.path()); // Atomic write must fail when destination is a directory.
+    QTest::mouseClick(button(w,"hotkeyReset"),Qt::LeftButton);
+    CHECK(w->isVisible() && !w->findChild<QLabel*>("hotkeyError")->text().isEmpty());
     QTest::mouseClick(button(w,"hotkeyCapture"),Qt::LeftButton);
     QTest::keyClick(button(w,"hotkeyCapture"),Qt::Key_F8);
     QTest::mouseClick(button(w,"hotkeyAccept"),Qt::LeftButton);
@@ -120,6 +132,6 @@ int main(int argc, char** argv) {
     QApplication::sendEvent(w,&deactivate);
     CHECK(button(w,"hotkeyAccept")->isEnabled());
     w->close(); flushDeletes(); CHECK(!open);
-    std::printf("PASS Qt %s: recording, commit/cancel/reset, failure, invalid config, separate-process restart\n",qVersion());
+    std::printf("PASS Qt %s: recording, commit/cancel, immediate reset, failure, invalid config, separate-process restart\n",qVersion());
     return 0;
 }
