@@ -12,8 +12,10 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #include <tlhelp32.h>
+#include <cmath>
 #include <cwchar>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include "qt_compatibility.h"
@@ -126,23 +128,48 @@ bool SameArchitecture(HANDLE targetProcess) {
 }
 
 LPTHREAD_START_ROUTINE ResolveLoadLibrary(HANDLE targetProcess, DWORD pid) {
-    HMODULE local = GetModuleHandleW(L"kernel32.dll");
-    if (!local) return nullptr;
-    FARPROC fn = GetProcAddress(local, "LoadLibraryW");
+    if (!SameArchitecture(targetProcess)) return nullptr;
+    HMODULE kernel32 = GetModuleHandleW(L"kernel32.dll");
+    FARPROC fn = kernel32 ? GetProcAddress(kernel32, "LoadLibraryW") : nullptr;
     if (!fn) return nullptr;
-    (void)pid;
-    return SameArchitecture(targetProcess)
-        ? reinterpret_cast<LPTHREAD_START_ROUTINE>(fn) : nullptr;
-}
-
-std::wstring FileName(const std::wstring &path) {
-    const size_t slash = path.find_last_of(L"\\/");
-    return slash == std::wstring::npos ? path : path.substr(slash + 1);
+    // LoadLibraryW can be forwarded to KernelBase. Resolve its containing
+    // module in both processes instead of assuming identical ASLR addresses.
+    HMODULE localModule = nullptr;
+    if (!GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
+                            GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
+                            reinterpret_cast<LPCWSTR>(fn), &localModule))
+        return nullptr;
+    wchar_t localPath[MAX_PATH] = {};
+    const DWORD localPathLength = GetModuleFileNameW(localModule, localPath, MAX_PATH);
+    if (!localPathLength || localPathLength >= MAX_PATH) return nullptr;
+    const wchar_t *name = wcsrchr(localPath, L'\\');
+    name = name ? name + 1 : localPath;
+    const auto offset = reinterpret_cast<const BYTE *>(fn) -
+                        reinterpret_cast<const BYTE *>(localModule);
+    HANDLE snapshot = CreateToolhelp32Snapshot(
+        TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, pid);
+    if (snapshot == INVALID_HANDLE_VALUE) return nullptr;
+    LPTHREAD_START_ROUTINE remote = nullptr;
+    MODULEENTRY32W module{};
+    module.dwSize = sizeof(module);
+    if (Module32FirstW(snapshot, &module)) {
+        do {
+            if (_wcsicmp(module.szModule, name) == 0 &&
+                offset < module.modBaseSize) {
+                remote = reinterpret_cast<LPTHREAD_START_ROUTINE>(
+                    module.modBaseAddr + offset);
+                break;
+            }
+        } while (Module32NextW(snapshot, &module));
+    }
+    CloseHandle(snapshot);
+    return remote;
 }
 
 bool WaitForModule(DWORD pid, const wchar_t *moduleName, DWORD timeoutMs) {
+    const bool fullPath = wcschr(moduleName, L'\\') || wcschr(moduleName, L'/');
     const ULONGLONG started = GetTickCount64();
-    while (GetTickCount64() - started < timeoutMs) {
+    do {
         HANDLE snapshot = CreateToolhelp32Snapshot(
             TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, pid);
         if (snapshot != INVALID_HANDLE_VALUE) {
@@ -150,7 +177,8 @@ bool WaitForModule(DWORD pid, const wchar_t *moduleName, DWORD timeoutMs) {
             module.dwSize = sizeof(module);
             if (Module32FirstW(snapshot, &module)) {
                 do {
-                    if (_wcsicmp(module.szModule, moduleName) == 0) {
+                    if (_wcsicmp(fullPath ? module.szExePath : module.szModule,
+                                 moduleName) == 0) {
                         CloseHandle(snapshot);
                         return true;
                     }
@@ -158,9 +186,93 @@ bool WaitForModule(DWORD pid, const wchar_t *moduleName, DWORD timeoutMs) {
             }
             CloseHandle(snapshot);
         }
+        if (!timeoutMs || GetTickCount64() - started >= timeoutMs) break;
         Sleep(100);
-    }
+    } while (true);
     return false;
+}
+
+bool HasMariWindow(DWORD pid) {
+    struct Search { DWORD pid; bool found; } search{pid, false};
+    EnumWindows([](HWND window, LPARAM context) -> BOOL {
+        auto *state = reinterpret_cast<Search *>(context);
+        DWORD owner = 0;
+        GetWindowThreadProcessId(window, &owner);
+        if (owner != state->pid || !IsWindowVisible(window)) return TRUE;
+        wchar_t className[128]{};
+        GetClassNameW(window, className, _countof(className));
+        if (wcsncmp(className, L"Qt", 2) == 0) {
+            state->found = true;
+            return FALSE;
+        }
+        return TRUE;
+    }, reinterpret_cast<LPARAM>(&search));
+    return search.found;
+}
+
+// A closing translated Mari instance can outlive its main window. Avoid
+// starting the next project while that exact host image is still tearing down.
+bool WaitForExistingMariTransition(const std::wstring &exePath,
+                                   const std::wstring &dllPath,
+                                   DWORD timeoutMs) {
+    HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if (snapshot == INVALID_HANDLE_VALUE) return true;
+    std::vector<std::pair<DWORD, HANDLE>> pending;
+    const std::wstring imageName = exePath.substr(exePath.find_last_of(L"\\/") + 1);
+    PROCESSENTRY32W entry{};
+    entry.dwSize = sizeof(entry);
+    if (Process32FirstW(snapshot, &entry)) {
+        do {
+            if (entry.th32ProcessID == GetCurrentProcessId() ||
+                _wcsicmp(entry.szExeFile, imageName.c_str()) != 0) continue;
+            HANDLE process = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION | SYNCHRONIZE,
+                                         FALSE, entry.th32ProcessID);
+            if (!process) continue;
+            std::vector<wchar_t> image(32768);
+            DWORD length = static_cast<DWORD>(image.size());
+            const bool sameImage = QueryFullProcessImageNameW(process, 0, image.data(), &length) &&
+                                   _wcsicmp(std::wstring(image.data(), length).c_str(),
+                                            exePath.c_str()) == 0;
+            if (sameImage && WaitForSingleObject(process, 0) == WAIT_TIMEOUT &&
+                WaitForModule(entry.th32ProcessID, dllPath.c_str(), 0) &&
+                !HasMariWindow(entry.th32ProcessID)) {
+                pending.emplace_back(entry.th32ProcessID, process);
+            } else {
+                CloseHandle(process);
+            }
+        } while (Process32NextW(snapshot, &entry));
+    }
+    CloseHandle(snapshot);
+    const ULONGLONG deadline = GetTickCount64() + timeoutMs;
+    bool ready = true;
+    for (const auto &old : pending) {
+        while (WaitForSingleObject(old.second, 0) == WAIT_TIMEOUT &&
+               !HasMariWindow(old.first)) {
+            if (GetTickCount64() >= deadline) { ready = false; break; }
+            Sleep(100);
+        }
+        if (!ready) break;
+    }
+    for (const auto &old : pending) CloseHandle(old.second);
+    return ready;
+}
+
+enum class QtReadiness { Ready, ProcessExited, TimedOut, WaitFailed };
+
+QtReadiness WaitForMariQt(HANDLE process, DWORD pid, DWORD timeoutMs) {
+    const ULONGLONG deadline = GetTickCount64() + timeoutMs;
+    for (;;) {
+        const DWORD status = WaitForSingleObject(process, 0);
+        if (status == WAIT_OBJECT_0) return QtReadiness::ProcessExited;
+        if (status != WAIT_TIMEOUT) return QtReadiness::WaitFailed;
+        if (WaitForModule(pid, L"Qt5Widgets.dll", 0)) return QtReadiness::Ready;
+        const ULONGLONG now = GetTickCount64();
+        if (now >= deadline) return QtReadiness::TimedOut;
+        const DWORD remaining = static_cast<DWORD>(deadline - now < 100 ? deadline - now : 100);
+        const DWORD waited = WaitForSingleObject(process, remaining);
+        if (waited == WAIT_OBJECT_0) return QtReadiness::ProcessExited;
+        if (waited != WAIT_TIMEOUT) return QtReadiness::WaitFailed;
+    }
 }
 
 bool InjectDll(HANDLE process, DWORD pid, const std::wstring &path) {
@@ -181,11 +293,15 @@ bool InjectDll(HANDLE process, DWORD pid, const std::wstring &path) {
         const DWORD wait = WaitForSingleObject(thread, 30000);
         // A remote thread's exit code is DWORD-sized and cannot reliably carry
         // a 64-bit HMODULE. Verify the target module list instead.
-        loaded = wait == WAIT_OBJECT_0 &&
-                 WaitForModule(pid, FileName(path).c_str(), 2000);
+        loaded = wait == WAIT_OBJECT_0 && WaitForModule(pid, path.c_str(), 2000);
+        // The target thread can still be reading this buffer after a timeout.
+        // Leave the small allocation to the target process in that case.
+        if (wait == WAIT_OBJECT_0)
+            VirtualFreeEx(process, remote, 0, MEM_RELEASE);
         CloseHandle(thread);
+    } else {
+        VirtualFreeEx(process, remote, 0, MEM_RELEASE);
     }
-    VirtualFreeEx(process, remote, 0, MEM_RELEASE);
     return loaded;
 }
 
@@ -204,7 +320,8 @@ void ConfigureDpi(const std::wstring &directory) {
                              settings.c_str());
     wchar_t *end = nullptr;
     const double factor = std::wcstod(value, &end);
-    if (end == value || *end != L'\0' || factor < 1.0 || factor > 3.0) {
+    if (end == value || *end != L'\0' || !std::isfinite(factor) ||
+        factor < 1.0 || factor > 3.0) {
         wcscpy_s(value, L"1.75");
     }
     SetEnvironmentVariableW(L"QT_ENABLE_HIGHDPI_SCALING", L"1");
@@ -246,6 +363,12 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR cmdLine, int) {
     ConfigureHookLifecycle(dir);
     ConfigureDpi(dir);
 
+    if (!WaitForExistingMariTransition(exePath, dllPath, 30000)) {
+        MessageBoxW(nullptr, L"上一个 Mari 进程仍在关闭。请稍后再打开工程。",
+                    L"Mari 中文补丁", MB_OK | MB_ICONWARNING);
+        return 3;
+    }
+
     STARTUPINFOW si{}; si.cb = sizeof(si);
     PROCESS_INFORMATION pi{};
     std::wstring cl = L"\"" + exePath + L"\"";
@@ -265,11 +388,23 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, PWSTR cmdLine, int) {
 
     // 等待 Qt 就绪后再注入。汉化 DLL 自身的 worker 线程会在 QApplication
     // 出现后再初始化，因此 Qt 就绪后注入是安全的。
-    const bool qtReady = WaitForModule(pi.dwProcessId, L"Qt5Widgets.dll", 30000);
-    bool ok = qtReady;
-    if (!qtReady) {
+    const QtReadiness readiness = WaitForMariQt(pi.hProcess, pi.dwProcessId, 30000);
+    bool ok = readiness == QtReadiness::Ready;
+    if (readiness == QtReadiness::ProcessExited) {
+        DWORD exitCode = 3;
+        GetExitCodeProcess(pi.hProcess, &exitCode);
+        CloseHandle(pi.hThread);
+        CloseHandle(pi.hProcess);
+        if (exitCode == 0) return 0; // Mari handed the project to an active instance.
+        MessageBoxW(nullptr, L"Mari 在汉化加载前异常退出。请检查原版软件的启动日志。",
+                    L"Mari 中文补丁", MB_OK | MB_ICONWARNING);
+        return 3;
+    }
+    if (!ok) {
         MessageBoxW(nullptr,
-                    L"等待 Mari 的 Qt5Widgets.dll 超时。",
+                    readiness == QtReadiness::TimedOut
+                        ? L"等待 Mari 的 Qt5Widgets.dll 超时。"
+                        : L"等待 Mari 的 Qt5Widgets.dll 时发生错误。",
                     L"Mari 中文补丁", MB_OK | MB_ICONWARNING);
     }
 

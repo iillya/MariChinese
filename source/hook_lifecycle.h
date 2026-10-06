@@ -4,7 +4,8 @@
 #include <windows.h>
 
 #include <QtCore/QCoreApplication>
-#include <QtCore/QTimer>
+#include <QtCore/QEvent>
+#include <QtCore/QPointer>
 #include <QtWidgets/QApplication>
 
 #include <atomic>
@@ -36,7 +37,38 @@ using GuiInitializer = void (*)(QApplication *);
 // worker thread.
 inline std::atomic<GuiInitializer> g_guiInitializer{nullptr};
 
+class GuiInitializationReceiver final : public QObject {
+public:
+    GuiInitializationReceiver(QApplication *application, GuiInitializer initializer)
+        : application_(application), initializer_(initializer) {
+        connect(application, &QObject::destroyed, this, &QObject::deleteLater);
+    }
+
+protected:
+    bool event(QEvent *event) override {
+        if (event->type() != QEvent::User) return QObject::event(event);
+        const QPointer<GuiInitializationReceiver> guard(this);
+        if (application_) {
+            setParent(application_);
+            initializer_(application_);
+        }
+        if (guard) guard->deleteLater();
+        return true;
+    }
+
+private:
+    QPointer<QApplication> application_;
+    GuiInitializer initializer_;
+};
+
 inline DWORD WINAPI InitializationWorker(LPVOID) {
+    // The hook is process-lifetime: installed IAT/vtable entries and Qt
+    // callbacks cannot survive unloading their implementation.
+    HMODULE pinned = nullptr;
+    if (!GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
+                           GET_MODULE_HANDLE_EX_FLAG_PIN,
+                           reinterpret_cast<LPCWSTR>(&InitializationWorker), &pinned))
+        return 1;
     QApplication *application = nullptr;
     for (int attempt = 0; attempt < kApplicationWaitAttempts; ++attempt) {
         if (QCoreApplication *core = QCoreApplication::instance()) {
@@ -52,11 +84,12 @@ inline DWORD WINAPI InitializationWorker(LPVOID) {
     if (!application || !initializer)
         return 1;
 
-    // Qt 5.6 supports the context overload. The callback is therefore executed
-    // on QApplication's GUI thread even though this worker is not a Qt thread.
-    QTimer::singleShot(0, application, [application, initializer] {
-        initializer(application);
-    });
+    // Qt 5.6's singleShot(functor) can lose the callback when its originating
+    // native worker has no event loop. postEvent targets the GUI queue directly
+    // and works before or after QApplication::exec starts.
+    auto *receiver = new GuiInitializationReceiver(application, initializer);
+    receiver->moveToThread(application->thread());
+    QCoreApplication::postEvent(receiver, new QEvent(QEvent::User));
     return 0;
 }
 

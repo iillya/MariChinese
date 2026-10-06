@@ -33,8 +33,15 @@ if not exist "%VCVARS%" (
     exit /b 1
 )
 call "%VCVARS%" >nul
+if errorlevel 1 exit /b 1
 
 echo === Compiling localization and DPI modules ===
+cl /nologo /O2 /W4 /c /EHsc /std:c++17 /Zc:__cplusplus /permissive- /utf-8 ^
+   /I"%QT%\include" ^
+   "%CPP%\translation_lookup.cpp" ^
+   /Fo"%OBJDIR%\translation_lookup.obj"
+if errorlevel 1 exit /b 1
+
 cl /nologo /O2 /W4 /c /EHsc /std:c++17 /Zc:__cplusplus /permissive- /utf-8 ^
    /I"%QT%\include" ^
    "%CPP%\hook.cpp" ^
@@ -48,7 +55,7 @@ cl /nologo /O2 /W4 /c /EHsc /std:c++17 /Zc:__cplusplus /permissive- /utf-8 ^
 if errorlevel 1 exit /b 1
 
 echo === Linking unified hook DLL ===
-link /nologo /DLL "%OBJDIR%\hook.obj" "%OBJDIR%\dpi_hook.obj" ^
+link /nologo /DLL "%OBJDIR%\hook.obj" "%OBJDIR%\translation_lookup.obj" "%OBJDIR%\dpi_hook.obj" ^
    /OUT:"%OUT%\MariChineseHook.dll" ^
    /IMPLIB:"%OBJDIR%\MariChineseHook.lib" ^
    "%QT%\lib\Qt5Core.lib" "%QT%\lib\Qt5Gui.lib" "%QT%\lib\Qt5Widgets.lib" ^

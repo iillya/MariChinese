@@ -78,7 +78,7 @@ FallbackPolling=0
 用桌面或开始菜单的 **“Mari 中文版”** 快捷方式启动即可；文件关联一般安装时就配好了。
 
 ### 界面有的地方还是英文？
-补丁是显示层汉化，基于一份词条词典匹配。极少数动态拼接、或不在词典里的文本（比如插件生成的）可能保持英文。你可以用快捷键 `Shift + ~`（波浪线，Esc 下方那个键）采集未翻译的词条，会保存到桌面的 `Mari_untranslated_zh.json`，方便后续补充。
+补丁是显示层汉化，基于一份词条词典匹配。极少数动态拼接、或不在词典里的文本（比如插件生成的）可能保持英文。有可见控件上下文的节点文字、下拉列表委托支持图像显示缓存；无此上下文的离屏图像及导出绘制保留原文。无法归属控件的界面缓存仍可能保持英文。你可以用快捷键 `Shift + ~`（波浪线，Esc 下方那个键）采集未翻译的词条，会保存到桌面的 `Mari_untranslated_zh.json`，方便后续补充。
 
 ### 4K 屏优化有什么用？不开行不行？
 如果你用的是普通 1080p 屏，可以不开。如果屏幕是 4K / 高 DPI，建议开启，否则 3D 视口可能变小或发虚。
@@ -103,3 +103,10 @@ dist\MariChineseInstaller.exe
 ```
 
 DPI 修复核心代码在 `source\dpi_hook.cpp`，与汉化模块一起链接进 `MariChineseHook.dll`。启动器只注入一次；DPI 未启用时不会安装相关事件过滤器或虚表钩子。
+
+词典的精确、归一化和省略文本匹配集中在 `source\translation_lookup.cpp`。修改匹配规则后，可用 Qt 5 SDK 运行回归检查：
+
+```
+scripts\test_translation_lookup.bat "C:\path\to\Qt\5.6.1\msvc2015_64"
+scripts\test_hotkey_settings.bat "C:\path\to\Qt\5.6.1\msvc2015_64" 5
+```

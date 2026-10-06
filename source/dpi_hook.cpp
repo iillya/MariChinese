@@ -13,6 +13,7 @@
 #include <QtWidgets/QWidget>
 
 #include <vector>
+#include <cstdint>
 
 #include "hook_lifecycle.h"
 #include "dpi_hook.h"
@@ -91,7 +92,19 @@ void discoverLayout(void **baseVtable, void *metricAddress,
     if (!baseVtable || !metricAddress || layout.metricIndex >= 0)
         return;
     for (int index = 0; index < 128; ++index) {
-        if (baseVtable[index] == metricAddress) {
+        const auto address = reinterpret_cast<std::uintptr_t>(baseVtable) +
+                             index * sizeof(void *);
+        MEMORY_BASIC_INFORMATION info{};
+        if (VirtualQuery(reinterpret_cast<const void *>(address), &info,
+                         sizeof(info)) != sizeof(info) ||
+            info.State != MEM_COMMIT ||
+            (info.Protect & (PAGE_NOACCESS | PAGE_GUARD)))
+            break;
+        const auto regionEnd = reinterpret_cast<std::uintptr_t>(info.BaseAddress) +
+                               info.RegionSize;
+        if (address >= regionEnd || regionEnd - address < sizeof(void *))
+            break;
+        if (*reinterpret_cast<void *const *>(address) == metricAddress) {
             layout.metricIndex = index;
             break;
         }

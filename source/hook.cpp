@@ -1,8 +1,8 @@
 // ---------------------------------------------------------------------------
 // Mari 中文汉化 - 纯显示层翻译引擎
-// 只 hook QPainter::drawText（8 个重载），在绘制层把控件文本翻译成中文。
+// 只在 QWidget 的 QPainter::drawText 绘制层把控件文本翻译成中文。
 // 英文原文始终留在控件 text() / model 的 DisplayRole 里，开关只是翻转
-// 状态 + 重绘，不改动任何数据。运行时从宿主 Qt5 DLL 解析可用能力；找不到
+// 状态 + 重绘，不改动任何数据或全局字体测量结果。运行时从宿主 Qt5 DLL 解析可用能力；找不到
 // 的可选入口独立降级，不依赖 Mari 版本名、固定 RVA 或固定虚表槽位。
 // ---------------------------------------------------------------------------
 #include <QtCore/QCoreApplication>
@@ -16,17 +16,14 @@
 #include <QtCore/QUrl>
 #include <QtCore/QDir>
 #include <QtCore/QFile>
-#include <QtCore/QHash>
 #include <QtCore/QJsonDocument>
 #include <QtCore/QJsonObject>
 #include <QtCore/QJsonParseError>
-#include <QtCore/QPair>
 #include <QtCore/QPointer>
 #include <QtCore/QString>
 #include <QtGui/QPainter>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QKeyEvent>
-#include <QtGui/QKeySequence>
 #include <QtGui/QMouseEvent>
 #include <QtGui/QFontMetrics>
 #include <QtGui/QTextOption>
@@ -36,14 +33,10 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QDialog>
 #include <QtWidgets/QGraphicsSimpleTextItem>
 #include <QtWidgets/QLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMessageBox>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QProxyStyle>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QMenu>
@@ -52,7 +45,6 @@
 #include <QtWidgets/QStyleOptionViewItem>
 #include <QtWidgets/QTabBar>
 #include <QtWidgets/QToolBar>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 #include <windows.h>
@@ -62,10 +54,8 @@
 #include <vector>
 #include <map>
 #include <functional>
-#include <algorithm>
 #include <atomic>
 #include <cstddef>
-#include <utility>
 #include <typeinfo>
 
 #include "hook_lifecycle.h"
@@ -73,14 +63,15 @@
 #include "hotkey_settings.h"
 #include "shortcut_press_latch.h"
 #include "dpi_hook.h"
+#include "display_role_proxy.h"
+#include "translation_lookup.h"
+#include "ui_paint_boundary.h"
+#include "widget_display_metrics.h"
 
 
 namespace {
 
-QHash<QString, QString> g_translations;   // 英文原文 -> 中文
-// SpeedTree 同款：归一化英文键 -> 中文 的模糊索引，以及按小写原文排序的键表（用于省略号前缀查找）。
-QHash<QString, QString> g_foldedTranslations;
-std::vector<QPair<QString, QString>> g_sortedKeys;   // (小写原文, 原文)
+MariTranslation::Lookup g_lookup;
 std::atomic_bool g_enabled{true};
 bool g_hooksInstalled = false;
 bool g_nodeTextHookInstalled = false;
@@ -107,7 +98,8 @@ bool isTranslatableString(const QString &s) {
     if (t.isEmpty() || containsCjk(t)) return false;
     if (t.size() < 2) return false;
     if (t.at(0) == QLatin1Char('<')) return false;           // HTML
-    if (t.contains(QLatin1Char('?'))) return false;          // URL 等
+    if (t.contains(QLatin1String("://")) ||
+        t.startsWith(QLatin1String("www."), Qt::CaseInsensitive)) return false;
     bool numeric = true;
     for (QChar c : t) {
         if (!(c.isDigit() || c == QLatin1Char('.') || c == QLatin1Char(',') ||
@@ -121,129 +113,8 @@ bool isTranslatableString(const QString &s) {
     return !numeric;
 }
 
-// 归一化英文原文，用于模糊匹配（镜像 SpeedTree 的实现）：
-// 统一空白/下划线、全角转半角、去组合字符、大小写折叠。
-QString normalizeForMatch(QString text) {
-    const QString original = text;
-    // drawText may run outside the GUI thread. A per-thread bounded cache keeps
-    // the hot path lock-free and avoids mutating a shared QHash while painting.
-    thread_local QHash<QString, QString> cache;
-    static constexpr int kThreadCacheLimit = 4096;
-    auto cached = cache.constFind(original);
-    if (cached != cache.constEnd())
-        return cached.value();
-
-    text.replace(QChar(0x00A0), QLatin1Char(' '));
-    text.replace(QChar(0x3000), QLatin1Char(' '));
-    text.replace(QLatin1Char('\r'), QLatin1Char('\n'));
-    text = text.simplified();
-    text.remove(QChar(0x200B)); text.remove(QChar(0x200D)); text.remove(QChar(0xFEFF));
-    while (text.endsWith(QChar(0x2026))) text.chop(1);
-    while (text.endsWith(QLatin1String("..."))) text.chop(3);
-    if (text.endsWith(QLatin1String(" *"))) text.chop(2);
-    text.replace(QLatin1Char('_'), QLatin1Char(' '));
-    text = text.normalized(QString::NormalizationForm_C);
-    for (int i = 0; i < text.size(); ++i) {
-        const uint code = text.at(i).unicode();
-        if (code >= 0xFF01 && code <= 0xFF5E)
-            text[i] = QChar(code - 0xFEE0);
-    }
-    text = text.toCaseFolded();
-    text = text.normalized(QString::NormalizationForm_D);
-    QString stripped;
-    stripped.reserve(text.size());
-    for (const QChar ch : text) {
-        const QChar::Category cat = ch.category();
-        if (cat == QChar::Mark_NonSpacing || cat == QChar::Mark_SpacingCombining ||
-            cat == QChar::Mark_Enclosing)
-            continue;
-        stripped.append(ch);
-    }
-    stripped.remove(QLatin1Char(' '));
-    QString result = stripped.normalized(QString::NormalizationForm_C);
-    if (cache.size() < kThreadCacheLimit)
-        cache.insert(original, result);
-    return result;
-}
-
-// 在词库变更后重建归一化模糊索引与排序键表（SpeedTree 同款，供 O(log N) 查找）。
-void rebuildLookupIndex() {
-    g_foldedTranslations.clear();
-    g_sortedKeys.clear();
-    for (auto it = g_translations.cbegin(); it != g_translations.cend(); ++it)
-        g_foldedTranslations.insert(normalizeForMatch(it.key()), it.value());
-    g_sortedKeys.reserve(g_translations.size());
-    for (auto it = g_translations.cbegin(); it != g_translations.cend(); ++it)
-        g_sortedKeys.push_back(qMakePair(it.key().toCaseFolded(), it.key()));
-    std::sort(g_sortedKeys.begin(), g_sortedKeys.end(),
-              [](const QPair<QString, QString> &a, const QPair<QString, QString> &b) {
-                  return a.first < b.first;
-              });
-}
-
-// 省略号截断文本（"Mater…"）——按省略前内容在排序键表里二分找前缀，取最短原文再取中文。
-QString findElidedTranslation(const QString &text) {
-    QString base = text;
-    base.chop(text.endsWith(QChar(0x2026)) ? 1 : 3);
-    base = base.trimmed();
-    if (base.size() < 2)
-        return {};
-    const QString low = base.toCaseFolded();
-    auto it = std::lower_bound(
-        g_sortedKeys.begin(), g_sortedKeys.end(), low,
-        [](const QPair<QString, QString> &e, const QString &v) { return e.first < v; });
-    QString best;
-    for (; it != g_sortedKeys.end(); ++it) {
-        const QString &k = it->first;
-        if (!k.startsWith(low))
-            break;
-        if (best.isEmpty() || it->second.size() < best.size())
-            best = it->second;
-    }
-    if (best.isEmpty())
-        return {};
-    return g_translations.value(best);
-}
-
-// 统一翻译查询：精确 -> 助记符/状态后缀还原 -> 归一化模糊 -> 省略号前缀。
-// 供绘制层（displayTranslation）与列表/下拉 DisplayRole（ComboPaintProxyModel）共用。
 QString lookupTranslation(const QString &text) {
-    const QString trimmed = text.trimmed();
-    if (trimmed.isEmpty() || containsCjk(trimmed))
-        return {};
-
-    // 1) 精确匹配。
-    auto exact = g_translations.constFind(trimmed);
-    if (exact != g_translations.constEnd())
-        return exact.value();
-
-    // 2) 助记符(&) / 状态后缀(*) 还原后再次精确匹配。
-    QString key = trimmed;
-    QString stateSuffix;
-    if (key.endsWith(QLatin1Char('*'))) {
-        key.chop(1);
-        key = key.trimmed();
-        stateSuffix = QStringLiteral("*");
-    }
-    if (key.contains(QLatin1Char('&')))
-        key.remove(QLatin1Char('&'));
-    auto found = g_translations.constFind(key);
-    if (found != g_translations.constEnd())
-        return found.value() + stateSuffix;
-
-    // 3) 归一化模糊匹配（空白/全角/大小写/组合字符统一后）。
-    const QString norm = normalizeForMatch(key);
-    auto fuzzy = g_foldedTranslations.constFind(norm);
-    if (fuzzy != g_foldedTranslations.constEnd())
-        return fuzzy.value() + stateSuffix;
-
-    // 4) 省略号截断文本：用排序键表二分找前缀，命中即返回中文。
-    if (text.endsWith(QChar(0x2026)) || text.endsWith(QLatin1String("..."))) {
-        const QString elided = findElidedTranslation(text);
-        if (!elided.isEmpty())
-            return elided + stateSuffix;
-    }
-    return {};
+    return g_lookup.find(text);
 }
 
 // JSON 字符串转义（键/值）。
@@ -345,9 +216,9 @@ static void captureUntranslated() {
     for (QWidget *w : widgets) {
         if (auto *lbl = qobject_cast<QLabel *>(w)) add(labelSource(lbl));
         if (auto *btn = qobject_cast<QAbstractButton *>(w)) add(btn->text());
-        if (auto *le = qobject_cast<QLineEdit *>(w)) add(le->text());
         if (auto *cb = qobject_cast<QComboBox *>(w)) {
-            add(cb->currentText());
+            // Editable combo text may be user-entered data rather than UI copy.
+            if (!cb->isEditable()) add(cb->currentText());
             for (int i = 0; i < cb->count(); ++i) add(cb->itemText(i));
         }
         if (auto *tab = qobject_cast<QTabBar *>(w))
@@ -435,8 +306,8 @@ static void captureUntranslated() {
     });
 }
 
-// 正式词库非空时只返回可信词条；词库为空的实验构建继续使用“汉”前缀，
-// 用于检查纯显示层覆盖率。两种模式都不会修改控件或模型中的原始文本。
+// Only render verified dictionary translations. Missing dictionaries leave
+// Mari's source text intact rather than introducing diagnostic placeholders.
 QString displayTranslation(const QString &text) {
     if (!g_enabled)
         return {};
@@ -448,124 +319,85 @@ QString displayTranslation(const QString &text) {
     if (containsCjk(trimmed))
         return {};
 
-    if (!g_translations.isEmpty())
-        return lookupTranslation(text);
-
-    // 廉价过滤：纯数值/单位几乎不可能是 UI 标签。
-    {
-        bool allValue = true;
-        for (QChar ch : trimmed) {
-            if (ch.isDigit() || ch == QLatin1Char('.') || ch == QLatin1Char(',') ||
-                ch == QLatin1Char('%') || ch == QLatin1Char('-') ||
-                ch == QLatin1Char('+') || ch == QLatin1Char('e') ||
-                ch == QLatin1Char('E') || ch == QLatin1Char(' '))
-                continue;
-            allValue = false;
-            break;
-        }
-        if (allValue)
-            return {};
-    }
-
-    // 菜单栏文本带 & 助记符（如 "&File"），跳过前导 & 后再判断首字母。
-    QString head = trimmed;
-    while (head.startsWith(QLatin1Char('&')))
-        head.remove(0, 1);
-    if (trimmed.size() >= 2 && !head.isEmpty() && head.at(0).isLetter())
-        return QStringLiteral("汉 ") + trimmed;
-    return {};
+    return lookupTranslation(text);
 }
 
-// ---------------------------------------------------------------------------
-// QFontMetrics 测量钩子的类型与全局（提前声明，供 hooked 函数使用）
-// ---------------------------------------------------------------------------
-typedef int (__cdecl *FmHAdv)(const QFontMetrics *, const QString &, int);
-typedef int (__cdecl *FmWidth)(const QFontMetrics *, const QString &, int);
-typedef void *(__cdecl *FmBRectRaw)(const QFontMetrics *self, QRect *result,
-                                    const QString &text);
-typedef void *(__cdecl *FmBRectRectRaw)(const QFontMetrics *self, QRect *result,
-                                        const QRect &rect, int flags,
-                                        const QString &text, int tabstops,
-                                        int *tabarray);
-typedef void *(__cdecl *FmBRectXYWHRaw)(const QFontMetrics *self, QRect *result,
-                                        int x, int y, int w, int h, int flags,
-                                        const QString &text, int tabstops,
-                                        int *tabarray);
-typedef void *(__cdecl *FmSizeRaw)(const QFontMetrics *self, QSize *result,
-                                   int flags, const QString &text, int tabstops,
-                                   int *tabarray);
-typedef void *(__cdecl *FmTBRectRaw)(const QFontMetrics *self, QRect *result,
-                                     const QString &text);
-typedef void *(__cdecl *FmElideRaw)(const QFontMetrics *self, QString *result,
-                                    const QString &text, Qt::TextElideMode mode,
-                                    int width, int flags);
+// Qt Widgets' own width calculations are UI layout work. Keep these numeric
+// measurements localized without changing the QFontMetrics calls made by Mari
+// or by modules that may use their results for project/export data. The
+// additional measurement and elision hooks below are likewise restricted to
+// Qt Widgets imports; host-side QString and metric results stay unchanged.
+using FontAdvance = int (__cdecl *)(const QFontMetrics *, const QString &, int);
+using FontFAdvance = qreal (__cdecl *)(const QFontMetricsF *, const QString &, int);
+FontAdvance g_uiFontAdvance = nullptr;
+FontAdvance g_uiFontWidth = nullptr;
+FontFAdvance g_uiFontFAdvance = nullptr;
+FontFAdvance g_uiFontFWidth = nullptr;
 
-typedef qreal (__cdecl *FmFHAdv)(const QFontMetricsF *, const QString &, int);
-typedef qreal (__cdecl *FmFWidth)(const QFontMetricsF *, const QString &, int);
-typedef void *(__cdecl *FmFBRectRaw)(const QFontMetricsF *self, QRectF *result,
-                                     const QString &text);
-typedef void *(__cdecl *FmFBRectRectRaw)(const QFontMetricsF *self, QRectF *result,
-                                         const QRectF &rect, int flags,
-                                         const QString &text, int tabstops,
-                                         int *tabarray);
-typedef void *(__cdecl *FmFSizeRaw)(const QFontMetricsF *self, QSizeF *result,
-                                    int flags, const QString &text, int tabstops,
-                                    int *tabarray);
-typedef void *(__cdecl *FmFTBRectRaw)(const QFontMetricsF *self, QRectF *result,
-                                      const QString &text);
-typedef void *(__cdecl *FmFElideRaw)(const QFontMetricsF *self, QString *result,
-                                     const QString &text, Qt::TextElideMode mode,
-                                     qreal width, int flags);
+QString uiMeasurementText(const QString &text) {
+    const QString translated = displayTranslation(text);
+    return translated.isEmpty() ? text : translated;
+}
 
-FmHAdv g_fmHAdv = nullptr;
-FmWidth g_fmWidth = nullptr;
-FmBRectRaw g_fmBRect = nullptr;
-FmBRectRectRaw g_fmBRectRect = nullptr;
-FmBRectXYWHRaw g_fmBRectXYWH = nullptr;
-FmSizeRaw g_fmSize = nullptr;
-FmTBRectRaw g_fmTBRect = nullptr;
-FmElideRaw g_fmElide = nullptr;
-FmFHAdv g_fmfHAdv = nullptr;
-FmFWidth g_fmfWidth = nullptr;
-FmFBRectRaw g_fmfBRect = nullptr;
-FmFBRectRectRaw g_fmfBRectRect = nullptr;
-FmFSizeRaw g_fmfSize = nullptr;
-FmFTBRectRaw g_fmfTBRect = nullptr;
-FmFElideRaw g_fmfElide = nullptr;
-bool g_fontHooksInstalled = false;
-bool g_fontMeasureReady = false;
+int hookedUiFontAdvance(const QFontMetrics *metrics, const QString &text, int length) {
+    // A partial-string measurement is not the full UI label.
+    if (length >= 0 && length != text.size())
+        return g_uiFontAdvance ? g_uiFontAdvance(metrics, text, length) : 0;
+    const QString display = uiMeasurementText(text);
+    const int displayLength = length < 0 ? length : display.size();
+    return g_uiFontAdvance ? g_uiFontAdvance(metrics, display, displayLength) : 0;
+}
+
+int hookedUiFontWidth(const QFontMetrics *metrics, const QString &text, int length) {
+    if (length >= 0 && length != text.size())
+        return g_uiFontWidth ? g_uiFontWidth(metrics, text, length) : 0;
+    const QString display = uiMeasurementText(text);
+    const int displayLength = length < 0 ? length : display.size();
+    return g_uiFontWidth ? g_uiFontWidth(metrics, display, displayLength) : 0;
+}
+
+qreal hookedUiFontFAdvance(const QFontMetricsF *metrics, const QString &text,
+                           int length) {
+    if (length >= 0 && length != text.size())
+        return g_uiFontFAdvance ? g_uiFontFAdvance(metrics, text, length) : 0;
+    const QString display = uiMeasurementText(text);
+    const int displayLength = length < 0 ? length : display.size();
+    return g_uiFontFAdvance ? g_uiFontFAdvance(metrics, display, displayLength) : 0;
+}
+
+qreal hookedUiFontFWidth(const QFontMetricsF *metrics, const QString &text,
+                         int length) {
+    if (length >= 0 && length != text.size())
+        return g_uiFontFWidth ? g_uiFontFWidth(metrics, text, length) : 0;
+    const QString display = uiMeasurementText(text);
+    const int displayLength = length < 0 ? length : display.size();
+    return g_uiFontFWidth ? g_uiFontFWidth(metrics, display, displayLength) : 0;
+}
 
 // ---------------------------------------------------------------------------
 // 显示层包装 delegate：用 QIdentityProxyModel 只翻译 DisplayRole，其余角色
 // （字体/前景色/分组标记等）原样透传。原 delegate 照常绘制，因此 Mari 的
 // 分组/缩进/选中样式完全保留，且不改动 model 本身的文本。
 // ---------------------------------------------------------------------------
-class ComboPaintProxyModel final : public QIdentityProxyModel {
-public:
-    explicit ComboPaintProxyModel(QObject *parent = nullptr)
-        : QIdentityProxyModel(parent) {}
-
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override {
-        const QVariant sourceValue = QIdentityProxyModel::data(index, role);
-        if (role != Qt::DisplayRole || !g_enabled)
-            return sourceValue;
-        const QString source = sourceValue.toString();
-        const QString result = lookupTranslation(source);
-        return result.isNull() ? sourceValue : QVariant(result);
-    }
-};
+bool translationEnabled() { return g_enabled.load(); }
 
 QSize proxyDisplayTextSize(const QFontMetrics &metrics, const QString &text);
 
 class ComboPaintDelegate final : public QAbstractItemDelegate {
 public:
     ComboPaintDelegate(QAbstractItemView *view, QAbstractItemDelegate *original)
-        : QAbstractItemDelegate(view), original_(original), proxy_(this) {}
+        : QAbstractItemDelegate(view), original_(original),
+          proxy_(lookupTranslation, translationEnabled, this) {}
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option,
                const QModelIndex &index) const override {
         if (!original_ || !index.isValid())
             return;
+        MariUiPaintBoundary::WidgetPaintScope scope(painter, option.widget);
+        if (!MariUiPaintBoundary::IsDisplayPainter(painter)) {
+            original_->paint(painter, option, index);
+            return;
+        }
         const QAbstractItemModel *model = index.model();
         if (proxy_.sourceModel() != model)
             proxy_.setSourceModel(const_cast<QAbstractItemModel *>(model));
@@ -587,7 +419,7 @@ public:
 
 private:
     QPointer<QAbstractItemDelegate> original_;
-    mutable ComboPaintProxyModel proxy_;
+    mutable MariDisplayRoleProxyModel proxy_;
 };
 
 struct ComboPaintBinding {
@@ -645,7 +477,6 @@ public:
     }
 };
 
-bool g_proxyStyleInstalled = false;
 QPointer<ChineseProxyStyle> g_chineseProxyStyle;
 
 QSize proxyDisplayTextSize(const QFontMetrics &metrics, const QString &text) {
@@ -658,7 +489,7 @@ QSize proxyDisplayTextSize(const QFontMetrics &metrics, const QString &text) {
 }
 
 void installProxyStyle() {
-    if (g_proxyStyleInstalled || !QApplication::instance())
+    if (g_chineseProxyStyle || !QApplication::instance())
         return;
     QStyle *current = QApplication::style();
     const QString key = current ? current->objectName() : QString();
@@ -669,7 +500,6 @@ void installProxyStyle() {
     if (base) {
         g_chineseProxyStyle = new ChineseProxyStyle(base);
         g_chineseProxyStyle->setParent(QApplication::instance());
-        g_proxyStyleInstalled = true;
     }
 }
 
@@ -686,137 +516,6 @@ void installAllComboDisplayDelegates() {
                 installComboDisplayDelegate(view);
         }
     }
-}
-
-// ---------------------------------------------------------------------------
-// QFontMetrics 测量钩子：布局用英文原文算 sizeHint，纯绘制层翻译后中文比
-// 英文更宽，会截断/错位。这里在"测量"边界把文本翻译成中文，让 layout /
-// elide 看到的是中文的实际宽度，界面布局才正确。
-// ---------------------------------------------------------------------------
-QString measureText(const QString &text) {
-    return displayTranslation(text);
-}
-
-int hookedFontHAdv(const QFontMetrics *fm, const QString &text, int len) {
-    QString t = text;
-    QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    if (len >= 0 && len > t.size()) len = static_cast<int>(t.size());
-    if (g_fmHAdv) return g_fmHAdv(fm, t, len);
-    return 0;
-}
-int hookedFontWidth(const QFontMetrics *fm, const QString &text, int len) {
-    QString t = text;
-    const QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    if (len >= 0 && len > t.size()) len = static_cast<int>(t.size());
-    return g_fmWidth ? g_fmWidth(fm, t, len) : 0;
-}
-void *hookedFontBRect(const QFontMetrics *fm, QRect *result, const QString &text) {
-    QString t = text;
-    QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    if (g_fmBRect) g_fmBRect(fm, result, t);
-    return result;
-}
-void *hookedFontBRectRect(const QFontMetrics *fm, QRect *result, const QRect &r,
-                          int flags, const QString &text, int tabstops,
-                          int *tabarray) {
-    QString t = text;
-    QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    if (g_fmBRectRect) g_fmBRectRect(fm, result, r, flags, t, tabstops, tabarray);
-    return result;
-}
-void *hookedFontBRectXYWH(const QFontMetrics *fm, QRect *result, int x, int y,
-                          int w, int h, int flags, const QString &text,
-                          int tabstops, int *tabarray) {
-    QString t = text;
-    QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    if (g_fmBRectXYWH) g_fmBRectXYWH(fm, result, x, y, w, h, flags, t,
-                                     tabstops, tabarray);
-    return result;
-}
-void *hookedFontSize(const QFontMetrics *fm, QSize *result, int flags,
-                     const QString &text, int tabstops, int *tabarray) {
-    QString t = text;
-    QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    if (g_fmSize) g_fmSize(fm, result, flags, t, tabstops, tabarray);
-    return result;
-}
-void *hookedFontTBRect(const QFontMetrics *fm, QRect *result, const QString &text) {
-    QString t = text;
-    QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    if (g_fmTBRect) g_fmTBRect(fm, result, t);
-    return result;
-}
-void *hookedFontElide(const QFontMetrics *fm, QString *result, const QString &text,
-                      Qt::TextElideMode mode, int width, int flags) {
-    QString t = text;
-    QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    if (g_fmElide) g_fmElide(fm, result, t, mode, width, flags);
-    else *result = t;
-    return result;
-}
-
-qreal hookedFontFHAdv(const QFontMetricsF *fm, const QString &text, int len) {
-    QString t = text;
-    QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    if (len >= 0 && len > t.size()) len = static_cast<int>(t.size());
-    if (g_fmfHAdv) return g_fmfHAdv(fm, t, len);
-    return 0;
-}
-qreal hookedFontFWidth(const QFontMetricsF *fm, const QString &text, int len) {
-    QString t = text;
-    const QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    if (len >= 0 && len > t.size()) len = static_cast<int>(t.size());
-    return g_fmfWidth ? g_fmfWidth(fm, t, len) : 0;
-}
-void *hookedFontFBRect(const QFontMetricsF *fm, QRectF *result, const QString &text) {
-    QString t = text;
-    QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    if (g_fmfBRect) g_fmfBRect(fm, result, t);
-    return result;
-}
-void *hookedFontFBRectRect(const QFontMetricsF *fm, QRectF *result, const QRectF &r,
-                           int flags, const QString &text, int tabstops,
-                           int *tabarray) {
-    QString t = text;
-    QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    if (g_fmfBRectRect) g_fmfBRectRect(fm, result, r, flags, t, tabstops, tabarray);
-    return result;
-}
-void *hookedFontFSize(const QFontMetricsF *fm, QSizeF *result, int flags,
-                      const QString &text, int tabstops, int *tabarray) {
-    QString t = text;
-    QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    if (g_fmfSize) g_fmfSize(fm, result, flags, t, tabstops, tabarray);
-    return result;
-}
-void *hookedFontFTBRect(const QFontMetricsF *fm, QRectF *result, const QString &text) {
-    QString t = text;
-    QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    if (g_fmfTBRect) g_fmfTBRect(fm, result, t);
-    return result;
-}
-void *hookedFontFElide(const QFontMetricsF *fm, QString *result, const QString &text,
-                       Qt::TextElideMode mode, qreal width, int flags) {
-    QString t = text;
-    QString tr = measureText(text);
-    if (!tr.isEmpty()) t = tr;
-    if (g_fmfElide) g_fmfElide(fm, result, t, mode, width, flags);
-    else *result = t;
-    return result;
 }
 
 // ---------------------------------------------------------------------------
@@ -851,15 +550,20 @@ bool isAttributionText(const QString &text) {
 }
 
 void beginAttributionPaint(QPainter *painter, const QString &text) {
-    if (!painter || !isAttributionText(text))
+    if (!MariUiPaintBoundary::IsWidgetPainter(painter) || !isAttributionText(text))
         return;
     painter->save();
     painter->setPen(QColor(0x66, 0xAA, 0xFF));
 }
 
 void endAttributionPaint(QPainter *painter, const QString &text) {
-    if (painter && isAttributionText(text))
+    if (MariUiPaintBoundary::IsWidgetPainter(painter) && isAttributionText(text))
         painter->restore();
+}
+
+QString displayTranslationForPainter(QPainter *painter, const QString &text) {
+    return MariUiPaintBoundary::DisplayTextForDevice(
+        painter ? painter->device() : nullptr, text, displayTranslation);
 }
 
 NodeTextRole nodeTextRole(const QGraphicsSimpleTextItem *textItem) {
@@ -879,54 +583,56 @@ NodeTextRole nodeTextRole(const QGraphicsSimpleTextItem *textItem) {
 }
 
 void hookedDrawPoint(QPainter *p, const QPoint &pt, const QString &text) {
-    QString t = displayTranslation(text);
+    const QString t = displayTranslationForPainter(p, text);
     beginAttributionPaint(p, text);
     g_drawPoint(p, pt, t.isEmpty() ? text : t);
     endAttributionPaint(p, text);
 }
 void hookedDrawPointF(QPainter *p, const QPointF &pt, const QString &text) {
-    QString t = displayTranslation(text);
+    const QString t = displayTranslationForPainter(p, text);
     beginAttributionPaint(p, text);
     g_drawPointF(p, pt, t.isEmpty() ? text : t);
     endAttributionPaint(p, text);
 }
 void hookedDrawPointF2(QPainter *p, const QPointF &pt, const QString &text,
                        int flags, int just) {
-    QString t = displayTranslation(text);
+    const QString t = displayTranslationForPainter(p, text);
     beginAttributionPaint(p, text);
     g_drawPointF2(p, pt, t.isEmpty() ? text : t, flags, just);
     endAttributionPaint(p, text);
 }
 void hookedDrawRect(QPainter *p, const QRect &r, int flags, const QString &text,
                     QRect *br) {
-    QString t = displayTranslation(text);
+    // A widget's returned paint rectangle is UI layout information. Measure
+    // the same translated glyphs that are drawn; export devices stay original.
+    const QString t = displayTranslationForPainter(p, text);
     beginAttributionPaint(p, text);
     g_drawRect(p, r, flags, t.isEmpty() ? text : t, br);
     endAttributionPaint(p, text);
 }
 void hookedDrawRectFOption(QPainter *p, const QRectF &r, const QString &text,
                            const QTextOption &opt) {
-    QString t = displayTranslation(text);
+    const QString t = displayTranslationForPainter(p, text);
     beginAttributionPaint(p, text);
     g_drawRectFOption(p, r, t.isEmpty() ? text : t, opt);
     endAttributionPaint(p, text);
 }
 void hookedDrawRectFAlign(QPainter *p, const QRectF &r, int flags,
                           const QString &text, QRectF *br) {
-    QString t = displayTranslation(text);
+    const QString t = displayTranslationForPainter(p, text);
     beginAttributionPaint(p, text);
     g_drawRectFAlign(p, r, flags, t.isEmpty() ? text : t, br);
     endAttributionPaint(p, text);
 }
 void hookedDrawXY(QPainter *p, int x, int y, const QString &text) {
-    QString t = displayTranslation(text);
+    const QString t = displayTranslationForPainter(p, text);
     beginAttributionPaint(p, text);
     g_drawXY(p, x, y, t.isEmpty() ? text : t);
     endAttributionPaint(p, text);
 }
 void hookedDrawXYWH(QPainter *p, int x, int y, int w, int h, int flags,
                     const QString &text, QRect *br) {
-    QString t = displayTranslation(text);
+    const QString t = displayTranslationForPainter(p, text);
     beginAttributionPaint(p, text);
     g_drawXYWH(p, x, y, w, h, flags, t.isEmpty() ? text : t, br);
     endAttributionPaint(p, text);
@@ -938,6 +644,11 @@ void hookedGraphicsSimpleTextPaint(QGraphicsSimpleTextItem *self, QPainter *pain
     if (!self || !painter || !g_graphicsSimpleTextPaint) {
         if (g_graphicsSimpleTextPaint)
             g_graphicsSimpleTextPaint(self, painter, option, widget);
+        return;
+    }
+    MariUiPaintBoundary::WidgetPaintScope scope(painter, widget);
+    if (!widget || !MariUiPaintBoundary::IsDisplayPainter(painter)) {
+        g_graphicsSimpleTextPaint(self, painter, option, widget);
         return;
     }
     const QString display = displayTranslation(self->text());
@@ -973,7 +684,7 @@ struct ImportHookSlot {
 };
 
 std::vector<ImportHookSlot> g_hookSlots;
-std::vector<ImportHookSlot> g_fontHookSlots;
+std::vector<ImportHookSlot> g_uiMetricSlots;
 
 std::vector<HMODULE> loadedModules() {
     std::vector<HMODULE> modules(256);
@@ -1141,108 +852,29 @@ bool uninstallHooks() {
     return !g_hooksInstalled;
 }
 
-// 扫描所有模块，把已解析的 QFontMetrics 符号的导入槽替换为钩子。幂等：
-// 已替换的槽指向 replacement，不会再匹配 original；晚加载模块会补上。
-void patchFontModules() {
-    if (!g_fontMeasureReady)
-        return;
-    struct Sym { void *orig; void *hook; };
-    Sym syms[] = {
-        {(void *)g_fmHAdv, (void *)&hookedFontHAdv},
-        {(void *)g_fmWidth, (void *)&hookedFontWidth},
-        {(void *)g_fmBRect, (void *)&hookedFontBRect},
-        {(void *)g_fmBRectRect, (void *)&hookedFontBRectRect},
-        {(void *)g_fmBRectXYWH, (void *)&hookedFontBRectXYWH},
-        {(void *)g_fmSize, (void *)&hookedFontSize},
-        {(void *)g_fmTBRect, (void *)&hookedFontTBRect},
-        {(void *)g_fmElide, (void *)&hookedFontElide},
-        {(void *)g_fmfHAdv, (void *)&hookedFontFHAdv},
-        {(void *)g_fmfWidth, (void *)&hookedFontFWidth},
-        {(void *)g_fmfBRect, (void *)&hookedFontFBRect},
-        {(void *)g_fmfBRectRect, (void *)&hookedFontFBRectRect},
-        {(void *)g_fmfSize, (void *)&hookedFontFSize},
-        {(void *)g_fmfTBRect, (void *)&hookedFontFTBRect},
-        {(void *)g_fmfElide, (void *)&hookedFontFElide},
-    };
-    for (const Sym &s : syms) {
-        if (s.orig)
-            replaceImportAllModules(g_fontHookSlots, s.orig, s.hook);
-    }
-}
-
-bool isExecutableCodeAddr(const void *p) {
-    if (!p) return false;
-    MEMORY_BASIC_INFORMATION mbi{};
-    if (!VirtualQuery(p, &mbi, sizeof(mbi))) return false;
-    if (mbi.State != MEM_COMMIT || mbi.Protect == PAGE_NOACCESS) return false;
-    const DWORD exec = PAGE_EXECUTE | PAGE_EXECUTE_READ |
-                       PAGE_EXECUTE_READWRITE | PAGE_EXECUTE_WRITECOPY;
-    return (mbi.Protect & exec) != 0;
-}
-
-bool fontSymbolsAreValid() {
-    const void *ptrs[] = {
-        (void *)g_fmHAdv, (void *)g_fmWidth,
-        (void *)g_fmBRect, (void *)g_fmBRectRect,
-        (void *)g_fmBRectXYWH, (void *)g_fmSize, (void *)g_fmTBRect,
-        (void *)g_fmElide, (void *)g_fmfHAdv, (void *)g_fmfWidth,
-        (void *)g_fmfBRect,
-        (void *)g_fmfBRectRect, (void *)g_fmfSize, (void *)g_fmfTBRect,
-        (void *)g_fmfElide,
-    };
-    bool found = false;
-    for (const void *p : ptrs) {
-        if (!p)
-            continue;
-        found = true;
-        if (!isExecutableCodeAddr(p))
-            return false;
-    }
-    return found;
-}
-
-void installFontMeasurementHooks() {
-    if (g_fontHooksInstalled)
+void installUiMeasurementHooks() {
+    if (!g_uiMetricSlots.empty())
         return;
     HMODULE qtGui = GetModuleHandleW(L"Qt5Gui.dll");
-    if (!qtGui)
+    HMODULE qtWidgets = GetModuleHandleW(L"Qt5Widgets.dll");
+    if (!qtGui || !qtWidgets)
         return;
-    g_fmHAdv = (FmHAdv)GetProcAddress(qtGui,
-        "?horizontalAdvance@QFontMetrics@@QEBAHAEBVQString@@H@Z");
-    g_fmWidth = (FmWidth)GetProcAddress(qtGui,
-        "?width@QFontMetrics@@QEBAHAEBVQString@@H@Z");
-    g_fmBRect = (FmBRectRaw)GetProcAddress(qtGui,
-        "?boundingRect@QFontMetrics@@QEBA?AVQRect@@AEBVQString@@@Z");
-    g_fmBRectRect = (FmBRectRectRaw)GetProcAddress(qtGui,
-        "?boundingRect@QFontMetrics@@QEBA?AVQRect@@AEBV2@HAEBVQString@@HPEAH@Z");
-    g_fmBRectXYWH = (FmBRectXYWHRaw)GetProcAddress(qtGui,
-        "?boundingRect@QFontMetrics@@QEBA?AVQRect@@HHHHHAEBVQString@@HPEAH@Z");
-    g_fmSize = (FmSizeRaw)GetProcAddress(qtGui,
-        "?size@QFontMetrics@@QEBA?AVQSize@@HAEBVQString@@HPEAH@Z");
-    g_fmTBRect = (FmTBRectRaw)GetProcAddress(qtGui,
-        "?tightBoundingRect@QFontMetrics@@QEBA?AVQRect@@AEBVQString@@@Z");
-    g_fmElide = (FmElideRaw)GetProcAddress(qtGui,
-        "?elidedText@QFontMetrics@@QEBA?AVQString@@AEBV2@W4TextElideMode@Qt@@HH@Z");
-
-    g_fmfHAdv = (FmFHAdv)GetProcAddress(qtGui,
-        "?horizontalAdvance@QFontMetricsF@@QEBANAEBVQString@@H@Z");
-    g_fmfWidth = (FmFWidth)GetProcAddress(qtGui,
-        "?width@QFontMetricsF@@QEBANAEBVQString@@H@Z");
-    g_fmfBRect = (FmFBRectRaw)GetProcAddress(qtGui,
-        "?boundingRect@QFontMetricsF@@QEBA?AVQRectF@@AEBVQString@@@Z");
-    g_fmfBRectRect = (FmFBRectRectRaw)GetProcAddress(qtGui,
-        "?boundingRect@QFontMetricsF@@QEBA?AVQRectF@@AEBV2@HAEBVQString@@HPEAH@Z");
-    g_fmfSize = (FmFSizeRaw)GetProcAddress(qtGui,
-        "?size@QFontMetricsF@@QEBA?AVQSizeF@@HAEBVQString@@HPEAH@Z");
-    g_fmfTBRect = (FmFTBRectRaw)GetProcAddress(qtGui,
-        "?tightBoundingRect@QFontMetricsF@@QEBA?AVQRectF@@AEBVQString@@@Z");
-    g_fmfElide = (FmFElideRaw)GetProcAddress(qtGui,
-        "?elidedText@QFontMetricsF@@QEBA?AVQString@@AEBV2@W4TextElideMode@Qt@@NH@Z");
-
-    g_fontMeasureReady = fontSymbolsAreValid();
-    g_fontHooksInstalled = g_fontMeasureReady;
-    if (g_fontHooksInstalled)
-        patchFontModules();
+    auto hookOne = [&](const char *symbol, void *replacement,
+                       void *&originalSlot) {
+        originalSlot = reinterpret_cast<void *>(GetProcAddress(qtGui, symbol));
+        if (originalSlot)
+            replaceImportInModule(qtWidgets, g_uiMetricSlots,
+                                  originalSlot, replacement);
+    };
+    hookOne("?horizontalAdvance@QFontMetrics@@QEBAHAEBVQString@@H@Z",
+            (void *)&hookedUiFontAdvance, (void *&)g_uiFontAdvance);
+    hookOne("?width@QFontMetrics@@QEBAHAEBVQString@@H@Z",
+            (void *)&hookedUiFontWidth, (void *&)g_uiFontWidth);
+    hookOne("?horizontalAdvance@QFontMetricsF@@QEBANAEBVQString@@H@Z",
+            (void *)&hookedUiFontFAdvance, (void *&)g_uiFontFAdvance);
+    hookOne("?width@QFontMetricsF@@QEBANAEBVQString@@H@Z",
+            (void *)&hookedUiFontFWidth, (void *&)g_uiFontFWidth);
+    WidgetDisplayMetrics::install(displayTranslation);
 }
 
 bool loadTranslationsFromJson(const QString &path) {
@@ -1267,7 +899,7 @@ bool loadTranslationsFromJson(const QString &path) {
         // 跳过空键/空值。
         if (key.isEmpty() || value.isEmpty())
             continue;
-        g_translations.insert(key, value);
+        g_lookup.add(key, value);
         any = true;
     }
     return any;
@@ -1294,7 +926,7 @@ void loadDictionariesFromDir(const std::wstring &dir) {
     for (const QString &name : files)
         loadTranslationsFromJson(trans.filePath(name));
     // 词库合并后重建归一化模糊索引与排序键表。
-    rebuildLookupIndex();
+    g_lookup.rebuild();
 }
 
 QPointer<QMenuBar> g_attributionMenuBar;
@@ -1314,8 +946,7 @@ void refreshTranslatedDisplay() {
     }
 }
 
-// 一次枚举全部模块，同时补齐绘制与字体测量 Hook。旧实现每个符号各枚举
-// 一遍模块，启动阶段每两秒会产生二十余次重复枚举。
+// 一次枚举全部模块，补齐晚加载模块的绘制 Hook。
 void patchLateLoadedModules() {
     struct Symbol {
         void *original;
@@ -1331,27 +962,12 @@ void patchLateLoadedModules() {
         {(void *)g_drawRectFAlign, (void *)&hookedDrawRectFAlign, &g_hookSlots},
         {(void *)g_drawXY, (void *)&hookedDrawXY, &g_hookSlots},
         {(void *)g_drawXYWH, (void *)&hookedDrawXYWH, &g_hookSlots},
-        {(void *)g_fmHAdv, (void *)&hookedFontHAdv, &g_fontHookSlots},
-        {(void *)g_fmBRect, (void *)&hookedFontBRect, &g_fontHookSlots},
-        {(void *)g_fmBRectRect, (void *)&hookedFontBRectRect, &g_fontHookSlots},
-        {(void *)g_fmBRectXYWH, (void *)&hookedFontBRectXYWH, &g_fontHookSlots},
-        {(void *)g_fmSize, (void *)&hookedFontSize, &g_fontHookSlots},
-        {(void *)g_fmTBRect, (void *)&hookedFontTBRect, &g_fontHookSlots},
-        {(void *)g_fmElide, (void *)&hookedFontElide, &g_fontHookSlots},
-        {(void *)g_fmfHAdv, (void *)&hookedFontFHAdv, &g_fontHookSlots},
-        {(void *)g_fmfBRect, (void *)&hookedFontFBRect, &g_fontHookSlots},
-        {(void *)g_fmfBRectRect, (void *)&hookedFontFBRectRect, &g_fontHookSlots},
-        {(void *)g_fmfSize, (void *)&hookedFontFSize, &g_fontHookSlots},
-        {(void *)g_fmfTBRect, (void *)&hookedFontFTBRect, &g_fontHookSlots},
-        {(void *)g_fmfElide, (void *)&hookedFontFElide, &g_fontHookSlots},
     };
 
     const std::vector<HMODULE> modules = loadedModules();
     for (HMODULE module : modules) {
         for (const Symbol &symbol : symbols) {
             if (!symbol.original)
-                continue;
-            if (symbol.hookList == &g_fontHookSlots && !g_fontMeasureReady)
                 continue;
             replaceImportInModule(module, *symbol.hookList,
                                   symbol.original, symbol.replacement);
@@ -1375,7 +991,11 @@ void repaintTranslatedDisplay() {
 void toggleTranslation() {
     g_enabled = !g_enabled;
 
-    for (QWidget *widget : QApplication::allWidgets()) {
+    // A synchronous FontChange can destroy another widget through a host
+    // callback. Keep weak snapshots for every event/layout pass.
+    std::vector<QPointer<QWidget>> widgets;
+    for (QWidget *widget : QApplication::allWidgets()) widgets.emplace_back(widget);
+    for (const auto &widget : widgets) {
         if (!widget)
             continue;
         QEvent event(QEvent::FontChange);
@@ -1384,20 +1004,21 @@ void toggleTranslation() {
 
     refreshTranslatedDisplay();
 
-    for (QWidget *widget : QApplication::allWidgets()) {
-        if (auto *menuBar = qobject_cast<QMenuBar *>(widget)) {
+    for (const auto &widget : widgets) {
+        if (auto *menuBar = qobject_cast<QMenuBar *>(widget.data())) {
             QEvent event(QEvent::StyleChange);
             QApplication::sendEvent(menuBar, &event);
         }
     }
 
-    for (QWidget *widget : QApplication::topLevelWidgets()) {
-        if (!widget || !widget->isVisible())
+    for (const auto &widget : widgets) {
+        if (!widget || !widget->isWindow() || !widget->isVisible())
             continue;
         if (QLayout *layout = widget->layout()) {
             layout->invalidate();
             layout->activate();
         }
+        if (!widget) continue;
         if (!widget->isMaximized() && !widget->isFullScreen())
             widget->adjustSize();
     }
@@ -1707,7 +1328,7 @@ void initializeOnGuiThread(QApplication *app) {
     loadDictionariesFromDir(folder);
     installProxyStyle();
     installHooks();
-    installFontMeasurementHooks();
+    installUiMeasurementHooks();
     installAllComboDisplayDelegates();
     app->installEventFilter(new ApplicationEventFilter(app));
     // 原生消息层按键拦截：覆盖天然不派发 QKeyEvent 的原生/3D 视口窗口。
